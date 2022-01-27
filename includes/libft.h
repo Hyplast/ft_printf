@@ -6,7 +6,7 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 20:04:58 by severi            #+#    #+#             */
-/*   Updated: 2022/01/27 08:13:34 by severi           ###   ########.fr       */
+/*   Updated: 2022/01/27 13:10:11 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include "get_next_line.h"
 
 void	ft_putchar(char c);
 void	ft_putchar_fd(char c, int fd);

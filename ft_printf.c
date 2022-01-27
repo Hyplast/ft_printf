@@ -6,13 +6,14 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 09:54:52 by severi            #+#    #+#             */
-/*   Updated: 2022/01/27 09:55:34 by severi           ###   ########.fr       */
+/*   Updated: 2022/01/27 13:15:45 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft.h"
 
-void	ft_printf(void)
+int	ft_printf(const char *format, va_list ap)
 {
-
+	return (0);
 }

@@ -6,10 +6,15 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 09:54:01 by severi            #+#    #+#             */
-/*   Updated: 2022/01/27 09:56:47 by severi           ###   ########.fr       */
+/*   Updated: 2022/01/27 13:09:02 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-void	ft_printf(void);
+#include <stdarg.h>
+
+int	ft_printf(const char *format, va_list ap);
+
+#endif
