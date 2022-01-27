@@ -6,7 +6,7 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 20:47:18 by severi            #+#    #+#             */
-/*   Updated: 2021/12/10 13:09:04 by severi           ###   ########.fr       */
+/*   Updated: 2022/01/27 13:23:58 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ int	ft_atoi(const char *nptr)
 	}
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
-		value = value * 10 + nptr[i] - '0';
+		value = value * 10 + (unsigned long)nptr[i] - '0';
 		i++;
 		if (sign == 1 && value > 9223372036854775807)
 			return (-1);
 		if (sign == -1 && value > 9223372036854775807)
 			return (0);
 	}
-	return ((int)(sign * value));
+	return (sign * (int)value);
 }

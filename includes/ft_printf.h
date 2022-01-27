@@ -6,7 +6,7 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 09:54:01 by severi            #+#    #+#             */
-/*   Updated: 2022/01/27 13:09:02 by severi           ###   ########.fr       */
+/*   Updated: 2022/01/27 14:04:07 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 
 #include <stdarg.h>
 
-int	ft_printf(const char *format, va_list ap);
+int	ft_printf(const char *format, ...);
 
 #endif

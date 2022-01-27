@@ -6,7 +6,7 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 23:09:39 by severi            #+#    #+#             */
-/*   Updated: 2021/12/06 16:27:43 by severi           ###   ########.fr       */
+/*   Updated: 2022/01/27 14:54:24 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ static void	free_array(char **spl_s)
 		ft_strdel(&spl_s[i]);
 		i++;
 	}
+	free(spl_s);
+	spl_s = NULL;
 }
 
 static int	ft_fill_array(const char *s, char c, char **spl_s, size_t words)
@@ -94,7 +96,7 @@ char	**ft_strsplit(const char *s, char c)
 	if (s == NULL)
 		return (NULL);
 	words = ft_count_words(s, c);
-	spl_s = (char **)malloc(sizeof(spl_s) * (words + 1));
+	spl_s = (char **)malloc(sizeof(*spl_s) * (words + 1));
 	if (spl_s == NULL)
 		return (NULL);
 	if (ft_fill_array(s, c, spl_s, words) == -1)

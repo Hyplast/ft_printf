@@ -6,7 +6,7 @@
 #    By: severi <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/30 18:43:06 by severi            #+#    #+#              #
-#    Updated: 2022/01/27 13:00:48 by severi           ###   ########.fr        #
+#    Updated: 2022/01/27 15:21:11 by severi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,7 +74,8 @@ INC = includes/
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra -Wconversion -g -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra -Wconversion -g
+# -g -fsanitize=address
 
 all: $(NAME)
 
