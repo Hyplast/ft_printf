@@ -6,7 +6,7 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 17:38:17 by severi            #+#    #+#             */
-/*   Updated: 2022/01/08 03:16:06 by severi           ###   ########.fr       */
+/*   Updated: 2022/01/28 08:47:33 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	ft_look_for_nl(char **static_var, char **line)
 	if (*static_var == NULL)
 		return (0);
 	while (static_var[0][i] != '\0' && static_var[0][i] != '\n')
-			i++;
+		i++;
 	if (static_var[0][i] == '\0')
 	{	
 		if (*static_var[0] == '\0')

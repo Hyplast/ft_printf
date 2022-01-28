@@ -6,14 +6,14 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 09:54:01 by severi            #+#    #+#             */
-/*   Updated: 2022/01/27 14:04:07 by severi           ###   ########.fr       */
+/*   Updated: 2022/01/28 10:06:37 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-#include <stdarg.h>
+# include <stdarg.h>
 
 int	ft_printf(const char *format, ...);
 

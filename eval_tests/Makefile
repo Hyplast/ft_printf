@@ -6,11 +6,11 @@
 #    By: severi <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/27 13:32:02 by severi            #+#    #+#              #
-#    Updated: 2022/01/28 08:45:34 by severi           ###   ########.fr        #
+#    Updated: 2022/01/28 09:14:00 by severi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = test_ftprintf
+NAME = test_ftprintf.a
 
 LIB = libftprintf
 
