@@ -6,7 +6,7 @@
 #    By: severi <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/30 18:43:06 by severi            #+#    #+#              #
-#    Updated: 2022/01/28 08:13:18 by severi           ###   ########.fr        #
+#    Updated: 2022/01/28 08:36:29 by severi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,11 +77,11 @@ SRCS = $(addprefix srcs/, $(SRC))
 
 OBJ = $(SRC:.c=.o)
 
-OBJS = $(addprefix obj/, $(OBJ))
+OBJS = $(addprefix srcs/, $(OBJ))
 
 LIB_OBJ = $(LIBFT_SRC:.c=.o)
 
-LIB_OBJS = $(addprefix obj/, $(LIB_OBJ))
+LIB_OBJS = $(addprefix libft/, $(LIB_OBJ))
 
 INC = includes/
 
@@ -94,23 +94,24 @@ CC = gcc
 CFLAGS = -Wall -Werror -Wextra -Wconversion -g
 # -g -fsanitize=address
 
-all: dir $(NAME) 
+all: $(NAME) 
 
-$(NAME): $(OBJ) $(LIB_OBJ)
+$(NAME): $(OBJS) $(LIB_OBJS)
 	ar rc $(NAME) $(OBJS) $(LIB_OBJS)
 	ranlib $(NAME)
 
-$(OBJ): %.o : srcs/%.c
-	$(CC) $(CFLAGS) -I $(LIBFT_INC) -I $(INC) -c $< -o obj/$@ 
+$(OBJS): srcs/%.o : srcs/%.c
+	$(CC) $(CFLAGS) -I $(LIBFT_INC) -I $(INC) -c $< -o $@ 
 
-$(LIB_OBJ): %.o : libft/%.c
-	$(CC) $(CFLAGS) -I $(LIBFT_INC) -c $< -o obj/$@
+$(LIB_OBJS): libft/%.o : libft/%.c
+	$(CC) $(CFLAGS) -I $(LIBFT_INC) -c $< -o $@
 
 dir:
 	mkdir -p $(OBJ_DIR)
 
 clean:
-	rm -fr $(OBJ_DIR)
+	rm -f $(OBJS)
+	rm -f $(LIB_OBJS) 
 
 fclean: clean
 	rm -f $(NAME)

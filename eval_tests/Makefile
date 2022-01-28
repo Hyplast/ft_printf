@@ -6,7 +6,7 @@
 #    By: severi <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/27 13:32:02 by severi            #+#    #+#              #
-#    Updated: 2022/01/28 03:21:38 by severi           ###   ########.fr        #
+#    Updated: 2022/01/28 08:45:34 by severi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ LIB = libftprintf
 SRC = main.c
 
 INC = ../includes
+
+LIB_INC = ../libft/includes
 
 LIBDIR = ../
 
@@ -30,11 +32,12 @@ CFLAGS = -Wall -Wextra -Werror -Wconversion -g
 all: $(NAME)
 
 $(NAME): $(LIB)
-	$(CC) $(CFLAGS) -I $(INC) -o $(OBJ) -c $(SRC)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) -I $(INC) -L $(LIBDIR) -lftprintf
+#$(CC) $(CFLAGS) -I $(INC) -I $(LIB_INC) -o $(OBJ) -c $(SRC)
+	$(CC) $(CFLAGS) -o $(NAME) $(SRC) -I $(INC) -I $(LIB_INC) -L $(LIBDIR) -lftprintf
 
 $(LIB):
-	make -C $(LIBDIR) fclean && make -C $(LIBDIR)
+	make -C $(LIBDIR) 
+#fclean && make -C $(LIBDIR)
 
 clean:
 	rm -f $(OBJ)
@@ -42,4 +45,4 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-re: fclean all
+re: $(LIB) fclean all
