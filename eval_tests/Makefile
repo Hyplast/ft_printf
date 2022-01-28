@@ -1,0 +1,45 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: severi <marvin@42.fr>                      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/01/27 13:32:02 by severi            #+#    #+#              #
+#    Updated: 2022/01/28 03:21:38 by severi           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = test_ftprintf
+
+LIB = libftprintf
+
+SRC = main.c
+
+INC = ../includes
+
+LIBDIR = ../
+
+OBJ = $(SRC:.c=.o)
+
+CC = gcc
+
+CFLAGS = -Wall -Wextra -Werror -Wconversion -g
+# -g -fsanitize=address
+
+all: $(NAME)
+
+$(NAME): $(LIB)
+	$(CC) $(CFLAGS) -I $(INC) -o $(OBJ) -c $(SRC)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) -I $(INC) -L $(LIBDIR) -lftprintf
+
+$(LIB):
+	make -C $(LIBDIR) fclean && make -C $(LIBDIR)
+
+clean:
+	rm -f $(OBJ)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
