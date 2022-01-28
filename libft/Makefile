@@ -6,17 +6,13 @@
 #    By: severi <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/30 18:43:06 by severi            #+#    #+#              #
-#    Updated: 2022/01/28 08:13:18 by severi           ###   ########.fr        #
+#    Updated: 2022/01/28 05:32:50 by severi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a
+NAME = libft.a
 
-LIBFT_DIR = libft
-
-LIBFT = libft.a
-
-LIBFT_SRC = \
+SRC = \
 ft_atoi.c \
 ft_bzero.c \
 ft_strlen.c \
@@ -71,50 +67,32 @@ ft_putnbr.c \
 ft_putnbr_fd.c \
 get_next_line.c
 
-SRC = ft_printf.c
-
-SRCS = $(addprefix srcs/, $(SRC))
-
 OBJ = $(SRC:.c=.o)
 
-OBJS = $(addprefix obj/, $(OBJ))
-
-LIB_OBJ = $(LIBFT_SRC:.c=.o)
-
-LIB_OBJS = $(addprefix obj/, $(LIB_OBJ))
-
 INC = includes/
-
-LIBFT_INC = libft/includes/
-
-OBJ_DIR = obj/
 
 CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra -Wconversion -g
 # -g -fsanitize=address
 
-all: dir $(NAME) 
+all: $(NAME)
 
-$(NAME): $(OBJ) $(LIB_OBJ)
-	ar rc $(NAME) $(OBJS) $(LIB_OBJS)
+$(NAME):
+	$(CC) $(CFLAGS) -I $(INC) -c $(SRC)
+	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 
-$(OBJ): %.o : srcs/%.c
-	$(CC) $(CFLAGS) -I $(LIBFT_INC) -I $(INC) -c $< -o obj/$@ 
-
-$(LIB_OBJ): %.o : libft/%.c
-	$(CC) $(CFLAGS) -I $(LIBFT_INC) -c $< -o obj/$@
-
-dir:
-	mkdir -p $(OBJ_DIR)
-
 clean:
-	rm -fr $(OBJ_DIR)
+	rm -f $(OBJ)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
+	gcc -nostartfiles -shared -o libft.so $(OBJ)
 
 .PHONY: clean fclean all
