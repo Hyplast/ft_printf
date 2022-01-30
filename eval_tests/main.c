@@ -6,7 +6,7 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 13:46:50 by severi            #+#    #+#             */
-/*   Updated: 2022/01/28 10:05:24 by severi           ###   ########.fr       */
+/*   Updated: 2022/01/30 11:06:33 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	main()
 	ft_printf("my: %s", my);
 	printf(" :system: %s :\n", system);
 
+/*
 	printf("Test 2. \n");
 	ft_printf("my: %i", 333);
 	printf(" :system: %i :\n", 333);
@@ -48,7 +49,8 @@ int	main()
 	printf ("%s \n", "A string");
 	
 	printf ("%% \n");
-	
+*/
+/*	
 	float flo = 2.97f;
 	double dol = 2.97;
 	long double ldol = 2.97;
@@ -61,7 +63,7 @@ int	main()
 
 
 
-
+*/
 /*
 	char c = '?';
 	char *s = "string";
@@ -85,11 +87,11 @@ int	main()
 	printf("%%");
 	//printf("%c", c);
 */
-	int ret1;
+//	int ret1;
 //	int ret2;
 
-	ret1 = printf("%s wolrd", system);
-	printf("<- %i bytes printed.\n", ret1);
+//	ret1 = printf("%s wolrd", system);
+//	printf("<- %i bytes printed.\n", ret1);
 
 	
 	return (0);
