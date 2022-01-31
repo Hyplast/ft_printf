@@ -6,7 +6,7 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 13:46:50 by severi            #+#    #+#             */
-/*   Updated: 2022/01/31 11:21:56 by severi           ###   ########.fr       */
+/*   Updated: 2022/01/31 16:58:44 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,38 +18,94 @@ int	main()
 {
 	char *my;
 	char *system;
+	int i=0,o=0;
 
 	my = "hello";
 	system = "hello";
+
+	printf("\n************************************\n");
+	printf("BASIC TESTING WITH ONLY SPECIFIERS\n");
+	printf("*************************************\n\n");
 	
 	printf("Test 1. \n");
-	ft_printf("my: %s", my);
-	printf(" :system: %s :\n", system);
-
-
+	i = ft_printf("myve: %s :\n", my);
+	o =    printf("sysv: %s :\n", system);
+	printf(" my length %i. system lenght %i\n", i,o);
+	
 	printf("Test 2. \n");
-	ft_printf("my: %i", 333);
-	printf(" :system: %i :\n", 333);
+	i = ft_printf("myve: %i :\n", 333);
+	o =    printf("sysv: %i :\n", 333);
+	printf(" my length %i. system lenght %i\n", i,o);
 
 	printf("Test 3. \n"); 
-	ft_printf("my: %c", 'X');
-	printf(" :system: %c :\n", 'X');
+	i = ft_printf("myve: %c :\n", 'X');
+	o =    printf("sysv: %c :\n", 'X');
+	printf(" my length %i. system lenght %i\n", i,o);
 
 	printf("Test 4. \n");
-	ft_printf("my: \"%s\" starts with letter %c and is %i long.", my, my[0], ft_strlen(my));
-	printf(" :system: \"%s\" starts with letter %c and is %i long. :\n", my, my[0], (int)ft_strlen(my));
-/*
+	i = ft_printf("myve: \"%s\" starts with letter %c and is %i long.\n", my, my[0], ft_strlen(my));
+	o =    printf("sysv: \"%s\" starts with letter %c and is %i long.\n", my, my[0], (int)ft_strlen(my));
+	printf(" my length %i. system lenght %i\n", i,o);
+
+
+	ft_printf("Test 5. (now with ft_printf) \n");
+	i = ft_printf("myve: %p :\n", system);
+	o =    printf("sysv: %p :\n", system);
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 6. \n");
+	o =    printf("sysv: %x,%x,%x :\n", 100, 1000, 100000);
+	i = ft_printf("myve: %x,%x,%x :\n", 100, 1000, 100000);	
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 7. \n");
+	o =    printf("sysv: %X,%X,%X :\n", 100, 1000, 100000);
+	i = ft_printf("myve: %X,%X,%X :\n", 100, 1000, 100000);	
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 8. \n");
+	o =    printf("sysv: %o,%o,%o :\n", 100, 1000, 100000);
+	i = ft_printf("myve: %o,%o,%o :\n", 100, 1000, 100000);	
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 9. \n");
+	o =    printf("sysv: %u,%u,%u :\n", 100, 1000, 100000);
+	i = ft_printf("myve: %u,%u,%u :\n", 100, 1000, 100000);	
+	printf(" my length %i. system lenght %i\n", i,o);
+
+
+
+	printf("\n************************************\n");
+	printf("     ADVANCED TESTING WITH FLAGS\n");
+	printf("*************************************\n\n");
+	
+	ft_printf("Test 10. \n");
+	o =    printf("sysv: %#x, %#X, %#o :\n", 100, 1000, 100000);
+	i = ft_printf("myve: %#x, %#X, %#o :\n", 100, 1000, 100000);	
+	printf(" my length %i. system lenght %i\n", i,o);
+
+
+	
+	printf ("\n*********************\n");
+	printf ("\n*********************\n");
+	
+
+	printf("BONUS: %%b prints binary\n");
+	i = ft_printf("myve: %b,%b,%b,%b :\n", 888888, 256, 65535, 65536);	
+
+	printf ("\n*********************\n");
 	printf ("Characters: %c %c \n", 'a', 65);
 	printf ("Decimals: %d %ld\n", 1977, 650000L);
 	printf ("Preceding with blanks: %10d \n", 1977);
 	printf ("Preceding with zeros: %010d \n", 1977);
 	printf ("Some different radices: %d %x %o %#x %#o \n", 100, 100, 100, 100, 100);
+	printf ("more dif: %#x, %#X, %#o \n", 100, 100, 100);
 	printf ("floats: %4.2f %+.0e %E \n", 3.1416, 3.1416, 3.1416);
 	printf ("Width trick: %*d \n", 5, 10);
 	printf ("%s \n", "A string");
 	
 	printf ("%% \n");
-*/
+
 /*	
 	float flo = 2.97f;
 	double dol = 2.97;
