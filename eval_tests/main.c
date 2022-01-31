@@ -6,7 +6,7 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 13:46:50 by severi            #+#    #+#             */
-/*   Updated: 2022/01/30 11:06:33 by severi           ###   ########.fr       */
+/*   Updated: 2022/01/31 11:21:56 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main()
 	ft_printf("my: %s", my);
 	printf(" :system: %s :\n", system);
 
-/*
+
 	printf("Test 2. \n");
 	ft_printf("my: %i", 333);
 	printf(" :system: %i :\n", 333);
@@ -38,7 +38,7 @@ int	main()
 	printf("Test 4. \n");
 	ft_printf("my: \"%s\" starts with letter %c and is %i long.", my, my[0], ft_strlen(my));
 	printf(" :system: \"%s\" starts with letter %c and is %i long. :\n", my, my[0], (int)ft_strlen(my));
-
+/*
 	printf ("Characters: %c %c \n", 'a', 65);
 	printf ("Decimals: %d %ld\n", 1977, 650000L);
 	printf ("Preceding with blanks: %10d \n", 1977);

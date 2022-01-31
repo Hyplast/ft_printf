@@ -6,7 +6,7 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 09:54:52 by severi            #+#    #+#             */
-/*   Updated: 2022/01/30 11:21:43 by severi           ###   ########.fr       */
+/*   Updated: 2022/01/31 11:20:36 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		ft_putnchar(const char *s, size_t n)
 	int	i;
 
 	i = 0;
-	while(n-- > 1 && *s != '\0')
+	while(n-- > 0 && *s != '\0')
 	{	
 		ft_putchar(*s++);
 		i++;
@@ -102,6 +102,18 @@ int	print_f(const char *flags, va_list ap)
 	return (0);
 }
 */
+int	print_i(int i)
+{
+	char *s;
+	int	chars_printed;
+
+	chars_printed = 0;
+	//ft_putstr(flags);
+	s = ft_itoa(i);
+	chars_printed = ft_putnchar(s, ft_strlen(s));
+	return (chars_printed);
+}
+
 int	print_s(char *s, int chars_printed)
 {
 	chars_printed += ft_putnchar(s, ft_strlen(s));
@@ -117,11 +129,11 @@ int	match_function(const char *flags, va_list ap, int c, int printed_chars)
 		printed_chars += print_c((char) va_arg(ap, int));
 	else if (c == 'd')
 		printed_chars += print_d(flags, (int) va_arg(ap, int), printed_chars);
-/*	else if (c == 'f')
-		printed_chars += print_f(flags, ap);
+//	else if (c == 'f')
+//		printed_chars += print_f(flags, ap);
 	else if (c == 'i')
-		printed_chars += print_i(flags, (int) va_arg(ap, int));
-	else if (c == 'o')
+		printed_chars += print_i((int) va_arg(ap, int));
+/*	else if (c == 'o')
 		printed_chars += print_o(flags, (unsigned int) va_arg(ap, unsigned int));
 	else if (c == 'p')
 		printed_chars += print_p(flags, (void*) va_arg(ap, void*));
@@ -136,38 +148,47 @@ int	match_function(const char *flags, va_list ap, int c, int printed_chars)
 */	return (printed_chars);
 }
 
-int	read_flags(const char *flags, va_list ap)
+int	read_flags(char *flags, va_list ap)
 {
-	char	*temp;
 	int		chars_printed;
+	size_t	len;
+
+	len = ft_strlen(flags);
+	chars_printed = 0;
+	chars_printed = match_function(flags, ap, flags[len - 1], 0);	
+	return (chars_printed);
+}
+
+char	*parse_flags(const char *flags)
+{
+	size_t	len;
 	int		i;
-	int		j;
 
 	i = 0;
-	j = 0;
-	chars_printed = 0;
-	temp = ft_strdup(flags);
-	while (*temp != '\0' || *temp != '%')
+	len = 0;
+	if (*flags == '%')
+		return ("%");
+	while (flags[len] != '\0')
 	{
-		while(*temp != g_flags[i] || i < 10)
+		while(flags[len] != g_flags[i] && i < 10)
 		{
 			i++;
 		}
-		if (*temp == g_flags[i])
+		if (flags[len] == g_flags[i])
 		{
-			chars_printed = match_function(flags , ap, g_flags[i], chars_printed);	
-			temp += ft_strlen(temp) - 1;
+			return (ft_strsub(flags, 0, len + 1));
 		}
 		i = 0;
-		temp = temp + 1;
-		j++;
+		len++;
 	}
-	return (chars_printed);
+	exit(1);
+	return (NULL);
 }
 
 int	ft_printf(const char *format, ...)
 {
 	va_list ap;
+	char	*flags;
 	int		i;
 	int		chars_printed;
 	va_start(ap, format);
@@ -177,8 +198,13 @@ int	ft_printf(const char *format, ...)
 	while (i != -1)
 	{
 		chars_printed += ft_putnchar(format, (size_t)i);
-		format = ft_strchr(format, '%');
-		chars_printed += read_flags(format, ap);
+		format = ft_strchr(format, '%') + 1;
+		flags = parse_flags(format);
+		if (flags[0] != '%')
+			chars_printed += read_flags(flags, ap);
+		else
+			chars_printed += ft_putnchar("%", 1);
+		format += ft_strlen(flags);
 		i = ft_lookforchar(format, '%');
 	}
 	chars_printed += ft_putnchar(format, ft_strlen(format));
