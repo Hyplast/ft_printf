@@ -6,7 +6,7 @@
 #    By: severi <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/30 18:43:06 by severi            #+#    #+#              #
-#    Updated: 2022/01/28 05:32:50 by severi           ###   ########.fr        #
+#    Updated: 2022/02/11 15:44:42 by severi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,6 +57,7 @@ ft_strtrim.c \
 ft_strjoin.c \
 ft_strsplit.c \
 ft_itoa.c \
+ft_utoa.c \
 ft_putchar_fd.c \
 ft_putstr_fd.c \
 ft_putendl_fd.c \

@@ -6,7 +6,7 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 09:54:01 by severi            #+#    #+#             */
-/*   Updated: 2022/01/28 10:06:37 by severi           ###   ########.fr       */
+/*   Updated: 2022/02/10 14:34:56 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdarg.h>
 
-int	ft_printf(const char *format, ...);
+int		ft_printf(const char *format, ...);
+char	*ft_dtoa(double d);
 
 #endif
