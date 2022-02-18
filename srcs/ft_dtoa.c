@@ -6,7 +6,7 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 13:56:19 by severi            #+#    #+#             */
-/*   Updated: 2022/02/11 15:58:54 by severi           ###   ########.fr       */
+/*   Updated: 2022/02/18 03:34:21 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ void	print_raw_double_binary(double d)
 	
 	while (i <= 63)
 	{
-		if (i==1)
+		if (i == 1)
 			ft_putchar(' '); // Space after sign field
-		if (i==12)
+		if (i == 12)
 			ft_putchar(' '); // Space after exponent field
 		if ((*double_as_int >> (63-i)) & 1)
 			ft_putchar('1');
@@ -57,7 +57,9 @@ void print_raw_double_hex(double d)
 	unsigned long long	fraction_field;
 
 	parse_double(d, &sign_field, &exponent_field, &fraction_field);
-	printf("%X %X %llX\n",sign_field,exponent_field,fraction_field);
+	ft_printf("ft_printf: %X %X %X\n",sign_field,exponent_field,fraction_field);
+	printf("printf: %X %X %llX\n",sign_field,exponent_field,fraction_field);
+
 }
 /*
 double frexp(double x, int *exponent)
@@ -74,13 +76,138 @@ double frexp(double x, int *exponent)
 static int multiplyby2(int data_struct[])
 {
 	data_struct[1] = 0;
+	
+	
+
+
 	return (0);
 }
 
-static int add(int data_struct[])
+int	addints(int a, int b)
 {
-	data_struct[1] = 0;
-	return (0);
+	int carry;
+	int result;
+
+	carry  = (a & b) << 1;
+	result = a ^ b;
+	if (carry == 0)
+		return (result);
+	else
+		addints(carry, result);
+	return (result);
+}
+
+
+char	*ft_strrev(const char *s, int len)
+{
+	char	*reversed;
+	//size_t	len;
+
+	//len = ft_strlen(s);
+	reversed = ft_strnew((size_t)len);
+
+	while(*s != '\0')
+	{
+		len--;
+		reversed[len] = *s;
+	//	printf("s: %c - len: %i\n", *s, len);
+		s++;
+	//	printf("s: %c - len: %i\n", *s, len);
+	}
+	/*if (*s == '\0')
+	{
+		reversed[len] = *s;
+	}*/
+	return (reversed);
+}
+
+char *add(char *s1, char *s2)
+{
+	//data_struct[1] = 0;
+	// hex xC0 x80 x80 x00 
+	// dec 134 217 728
+	// hex xFF xFF XFF x7F
+	// dec 268 435 455
+	//
+	// 35 491 925 974 746 240
+
+	//int a = 268435455 * 4;
+	//count_digits();
+	char *s3;
+	int len1;
+	int len2;
+	int len3;
+
+	len1 = 4;//(int)ft_strlen(s1);
+	len2 = 4;//(int)ft_strlen(s2);
+	len3 = len1 + len2;
+	s3 = ft_strnew((size_t)len3);
+	//if(s1[0] == 0b10000000)
+	int a;
+	int b;
+	int c;
+	int i;
+/*	printf("\ns1[0]: %hhu -char- ", s1[0]);
+	printf("s1[1]: %hhu -char- ", s1[1]);
+	printf("s1[2]: %hhu -char- ", s1[2]);
+	printf("s1[3]: %hhu -char- \n", s1[3]);
+	printf("\ns2[0]: %hhu -char- ", s2[0]);
+	printf("s2[1]: %hhu -char- ", s2[1]);
+	printf("s2[2]: %hhu -char- ", s2[2]);
+	printf("s2[3]: %hhu -char- \n", s2[3]);
+*/	s1 = ft_strrev(s1, 4);
+	s2 = ft_strrev(s2, 4);
+/*	printf("\ns1[0]: %hhu -char- ", s1[0]);
+      printf("s1[1]: %hhu -char- ", s1[1]);
+	  printf("s1[2]: %hhu -char- ", s1[2]);
+	printf("s1[3]: %hhu -char- \n", s1[3]);
+	printf("\ns2[0]: %hhu -char- ", s2[0]);
+	  printf("s2[1]: %hhu -char- ", s2[1]);
+	  printf("s2[2]: %hhu -char- ", s2[2]);
+	printf("s2[3]: %hhu -char- \n", s2[3]);
+*/	i = 0;
+	while (i != 4)
+	{
+		//printf("inside a while loop: %s :")
+		a = s1[i] & 0x7F;
+		//printf("s1[%i] is %hhu and-a: is %hhu\n",i, s1[i], a);
+		b = s2[i] & 0x7F;
+		//printf("s2[%i] is %hhu and-b: is %hhu\n",i, s2[i], b);
+		//c = addints(a,b);		// if there is 1 from prev
+		
+		c = a + b;
+		//printf("printing c : %d\n", c);
+		//printf("add ints 13 and 10 = %i\n", addints(13,10));
+		if (c > 127 + s3[i])		// 127-> 128 -> overflow?
+				s3[i+1] = 1;
+		c = c | 0x80;
+		s3[i] = (char)((int)s3[i] + c);
+		i++;
+	}
+	s3[0] &= (char)0x7F;
+	s3[i] |= (char)0x80;
+	s3 = ft_strrev(s3, 5);
+
+	//	s3 = ft_strrev(s3, 5);
+	//s3[ft_strlen(s3)] &= 0x7F;
+	//	temp = 0;
+//	c = s1[0] & 0x01;
+//	c = s2[0] & 0x01;
+//	temp = ~
+/*
+	carry = (a & b) << 1;
+
+	if (s1[0] == 0x01 || s2=[0] = 0x01)
+	{
+		if (s1[0] == 0x01 && s2=[0] = 0x01)
+			s3[0] = s3[0] + 1;
+		else
+			s3[0] = 1
+	}
+	if (s1[0] == 0x02 && s2=[0] = 0x02)
+	else[s]
+*/	
+	return (s3);
 }
 
 void get_exponent(unsigned short exponent)
@@ -88,19 +215,65 @@ void get_exponent(unsigned short exponent)
 	// 0b10000000000 = 2 ^ 1 = 2
 	//
 	// n - 1023
-	int modulo = 0;
+	//int modulo = 0;
 	unsigned int exp_as_int = 0;
 	
 	exp_as_int = (unsigned int)(exponent - 1023);	
-	modulo = exponent % 2;
+	//modulo = exponent % 2;
 
-	ft_putstr("Modulo: ");
-	ft_putnbr(modulo);
+	//ft_putstr("Modulo: ");
+	//ft_putnbr(modulo);
 	ft_putstr(" exponent: ");
 	ft_putnbr((int)exp_as_int);
-	ft_printf("\n and with ft_printf: %i \n", exp_as_int);
-	printf("and with printf: %i", exp_as_int);
+	//ft_printf("\n and with ft_printf: %i \n", exp_as_int);
+	//printf("and with printf: %i", exp_as_int);
 	ft_putstr(" \n");
+}
+
+static size_t	count_digits_ull(unsigned long long c)
+{
+	size_t	digits;
+
+	digits = 0;
+	while (c > 0)
+	{
+		digits++;
+		c /= 10;
+	}
+	return (digits);
+}
+
+void	get_fraction(unsigned long long fraction)
+{
+	printf("get fraction: %lli\n", fraction);
+
+	int	i;
+	long long int li;
+
+	i = 0;
+	li = 2;
+	size_t j = count_digits_ull(fraction);
+
+	ft_putnbr((int)j);	
+
+	double far = 0;
+	double res = 0;	
+
+	while (i < 50)
+	{
+		far = 1 / (double)li;
+		res = res + far;
+		i++;
+//		printf(":%lli-%f", li, far);
+		li = li * 2;
+	}
+
+	printf("2 ^ 360 = %lli && and res = %f\n", li, res);
+	
+	res = res * (2*2*2*2*2*2*2*2*2*2*2*2*2*2*2*2*2);
+	res = 1 / res;
+	printf("potent = %lli && and res = %f\n", li, res);
+
 }
 
 char	*ft_dtoa(double d)
@@ -115,22 +288,48 @@ char	*ft_dtoa(double d)
 	parse_double(d, &sign, &exponent, &fraction);
 
 	get_exponent(exponent);	
-	
+	get_fraction(fraction);	
+
 	s[0] = (char)sign;
 
-	ft_putstr("Here there be dragon: ");
-	ft_putstr(s);
-	ft_putstr(" \n");
+//	ft_putstr("Here there be dragon: ");
+//	ft_putstr(s);
+//	ft_putstr(" \n");
 	// BigInt - 0 - 999 999 999
 	//
 	// [000 000 000]...[000(.)000 000][000 000 000][222 044 604][925 031 308]
 	//
 	//
 	multiplyby2(data_struct);
-	add(data_struct);
 	
+	char *s1;
+	char *s2;
+	char *s3;
+	
+	s1 = ft_strnew(4);
+	s2 = ft_strnew(4);
+	s1[0] = (char)192; // 1100 0000
+	s1[1] = (char)128; // 1000 0000 
+	s1[2] = (char)128; // 1000 0000
+	s1[3] = (char)0;   // 0000 0000
+	s2[0] = (char)255; // 1111 1111
+	s2[1] = (char)255; // 1111 1111
+	s2[2] = (char)255; // 1111 1111
+	s2[3] = (char)127; // 0111 1111
+
+	s3 = add(s1,s2);
+
+//	printf("bigint as hex: a: %hhu,%hhu,%hhu,%hhu and b: %hhu,%hhu,%hhu,%hhu equals c: %hhu,%hhu,%hhu,%hhu \n", s1[0], s1[1], s1[2], s1[3], s2[0], s2[1], s2[2], s2[3], s3[0], s3[1], s3[2], s3[3]);
+
+	printf("after bigint add: [%hhu].[%hhu].[%hhu].[%hhu].[%hhu].[%hhu].[%hhu].[%hhu]. \n", s3[0],s3[1],s3[2],s3[3],s3[4],s3[5],s3[6],s3[7]);
+
+	printf("bigint addition of 134 217 728 + 268 435 455 = 402653183\n");
+	printf("0x0800 0000 + 0x0FFF FFFF = 0x17FF FFFF\n");
+	printf("0xC0 0x80 0x80 0x00 + 0xFF 0xFF 0xFF 0x7F = 0x81 0xBF 0xFF 0xFF 0x7F\n");
+	printf("192 128 128 0 + 255 255 255 127 = 129 191 255 255 127\n");
+
 	print_raw_double_binary(d);
-	//print_raw_double_hex(d);
+	print_raw_double_hex(d);
 	
 	return	(s);
 }
