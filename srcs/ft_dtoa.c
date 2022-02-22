@@ -6,7 +6,7 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 13:56:19 by severi            #+#    #+#             */
-/*   Updated: 2022/02/18 03:34:21 by severi           ###   ########.fr       */
+/*   Updated: 2022/02/22 05:59:40 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ char	*ft_strrev(const char *s, int len)
 	//len = ft_strlen(s);
 	reversed = ft_strnew((size_t)len);
 
-	while(*s != '\0')
+	while(len != 0)
 	{
 		len--;
 		reversed[len] = *s;
@@ -121,7 +121,7 @@ char	*ft_strrev(const char *s, int len)
 	return (reversed);
 }
 
-char *add(char *s1, char *s2)
+char *bigint_add(char *s1, char *s2)
 {
 	//data_struct[1] = 0;
 	// hex xC0 x80 x80 x00 
@@ -138,10 +138,18 @@ char *add(char *s1, char *s2)
 	int len2;
 	int len3;
 
-	len1 = 4;//(int)ft_strlen(s1);
-	len2 = 4;//(int)ft_strlen(s2);
-	len3 = len1 + len2;
+	len1 = (int)ft_strlen(s1);
+	len2 = (int)ft_strlen(s2);
+	
+	if((s1[len1-1] & 0x80) == 128)
+		len1++;
+	if((s1[len2-1] & 0x80) == 128)
+		len2++;
+	len3 = len1 + 1;
+	if (len2 > len1)
+		len3 = len2 + 1;
 	s3 = ft_strnew((size_t)len3);
+//	printf("len3 = %d\n", len3);
 	//if(s1[0] == 0b10000000)
 	int a;
 	int b;
@@ -155,8 +163,8 @@ char *add(char *s1, char *s2)
 	printf("s2[1]: %hhu -char- ", s2[1]);
 	printf("s2[2]: %hhu -char- ", s2[2]);
 	printf("s2[3]: %hhu -char- \n", s2[3]);
-*/	s1 = ft_strrev(s1, 4);
-	s2 = ft_strrev(s2, 4);
+*/	s1 = ft_strrev(s1, len1);
+	s2 = ft_strrev(s2, len2);
 /*	printf("\ns1[0]: %hhu -char- ", s1[0]);
       printf("s1[1]: %hhu -char- ", s1[1]);
 	  printf("s1[2]: %hhu -char- ", s1[2]);
@@ -166,27 +174,40 @@ char *add(char *s1, char *s2)
 	  printf("s2[2]: %hhu -char- ", s2[2]);
 	printf("s2[3]: %hhu -char- \n", s2[3]);
 */	i = 0;
-	while (i != 4)
+	while (i != (len3 - 1))
 	{
-		//printf("inside a while loop: %s :")
-		a = s1[i] & 0x7F;
+		//printf("inside a while loop: %s :");
+		if (i <= len1)
+			a = s1[i] & 0x7F;
+		else
+			a = 0;
 		//printf("s1[%i] is %hhu and-a: is %hhu\n",i, s1[i], a);
-		b = s2[i] & 0x7F;
+		if (i <= len2)
+			b = s2[i] & 0x7F;
+		else
+			b = 0;
 		//printf("s2[%i] is %hhu and-b: is %hhu\n",i, s2[i], b);
 		//c = addints(a,b);		// if there is 1 from prev
-		
 		c = a + b;
-		//printf("printing c : %d\n", c);
+		printf("printing %d * c : %d", i, c);
 		//printf("add ints 13 and 10 = %i\n", addints(13,10));
 		if (c > 127 + s3[i])		// 127-> 128 -> overflow?
+		{
 				s3[i+1] = 1;
+				//if (i + 1 == (len3 - 1))
+				//	len3++;
+		}
 		c = c | 0x80;
 		s3[i] = (char)((int)s3[i] + c);
+		printf(" and saved was: %hhu \n", s3[i]);
 		i++;
 	}
-	s3[0] &= (char)0x7F;
 	s3[i] |= (char)0x80;
-	s3 = ft_strrev(s3, 5);
+	s3[0] &= (char)0x7F;
+	if (s3[i] != 0)
+		s3 = ft_strrev(s3, len3);
+	else
+		s3 = ft_strrev(s3, (len3 - 1));
 
 	//	s3 = ft_strrev(s3, 5);
 	//s3[ft_strlen(s3)] &= 0x7F;
@@ -245,7 +266,7 @@ static size_t	count_digits_ull(unsigned long long c)
 
 void	get_fraction(unsigned long long fraction)
 {
-	printf("get fraction: %lli\n", fraction);
+	//printf("get fraction: %lli\n", fraction);
 
 	int	i;
 	long long int li;
@@ -268,11 +289,11 @@ void	get_fraction(unsigned long long fraction)
 		li = li * 2;
 	}
 
-	printf("2 ^ 360 = %lli && and res = %f\n", li, res);
+	//printf("2 ^ 360 = %lli && and res = %f\n", li, res);
 	
 	res = res * (2*2*2*2*2*2*2*2*2*2*2*2*2*2*2*2*2);
 	res = 1 / res;
-	printf("potent = %lli && and res = %f\n", li, res);
+	//printf("potent = %lli && and res = %f\n", li, res);
 
 }
 
@@ -301,35 +322,9 @@ char	*ft_dtoa(double d)
 	//
 	//
 	multiplyby2(data_struct);
-	
-	char *s1;
-	char *s2;
-	char *s3;
-	
-	s1 = ft_strnew(4);
-	s2 = ft_strnew(4);
-	s1[0] = (char)192; // 1100 0000
-	s1[1] = (char)128; // 1000 0000 
-	s1[2] = (char)128; // 1000 0000
-	s1[3] = (char)0;   // 0000 0000
-	s2[0] = (char)255; // 1111 1111
-	s2[1] = (char)255; // 1111 1111
-	s2[2] = (char)255; // 1111 1111
-	s2[3] = (char)127; // 0111 1111
-
-	s3 = add(s1,s2);
-
-//	printf("bigint as hex: a: %hhu,%hhu,%hhu,%hhu and b: %hhu,%hhu,%hhu,%hhu equals c: %hhu,%hhu,%hhu,%hhu \n", s1[0], s1[1], s1[2], s1[3], s2[0], s2[1], s2[2], s2[3], s3[0], s3[1], s3[2], s3[3]);
-
-	printf("after bigint add: [%hhu].[%hhu].[%hhu].[%hhu].[%hhu].[%hhu].[%hhu].[%hhu]. \n", s3[0],s3[1],s3[2],s3[3],s3[4],s3[5],s3[6],s3[7]);
-
-	printf("bigint addition of 134 217 728 + 268 435 455 = 402653183\n");
-	printf("0x0800 0000 + 0x0FFF FFFF = 0x17FF FFFF\n");
-	printf("0xC0 0x80 0x80 0x00 + 0xFF 0xFF 0xFF 0x7F = 0x81 0xBF 0xFF 0xFF 0x7F\n");
-	printf("192 128 128 0 + 255 255 255 127 = 129 191 255 255 127\n");
+	//	printf("bigint as hex: a: %hhu,%hhu,%hhu,%hhu and b: %hhu,%hhu,%hhu,%hhu equals c: %hhu,%hhu,%hhu,%hhu \n", s1[0], s1[1], s1[2], s1[3], s2[0], s2[1], s2[2], s2[3], s3[0], s3[1], s3[2], s3[3]);
 
 	print_raw_double_binary(d);
-	print_raw_double_hex(d);
-	
+	print_raw_double_hex(d);	
 	return	(s);
 }

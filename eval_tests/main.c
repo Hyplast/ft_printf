@@ -6,7 +6,7 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 13:46:50 by severi            #+#    #+#             */
-/*   Updated: 2022/02/13 23:31:21 by severi           ###   ########.fr       */
+/*   Updated: 2022/02/22 05:32:20 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 int	main()
 {
+/*
 	char *my;
 	char *system;
 	int i=0,o=0;
@@ -94,6 +95,8 @@ int	main()
 	printf("BONUS: %%b prints binary\n");
 	i = ft_printf("myve: %b,%b,%b,%b :\n", 888888, 256, 65535, 65536);	
 	printf ("*********************\n");
+*/	
+/*
 	printf ("Characters: %c %c \n", 'a', 65);
 	printf ("Decimals: %d %ld\n", 1977, 650000L);
 	printf ("Preceding with blanks: %10d \n", 1977);
@@ -135,8 +138,95 @@ int	main()
 	printf("\n******%f*******%f********%f*****\n", dol, binary1, binary);
 	printf("\n2: double len in 0b format:%li f: %f \n", sizeof(binary1), binary1);
 	ft_printf("2 :double len in 0b format:%li f: %f \n", sizeof(binary1), binary1);
+*/
 
+	char *s1;
+	char *s2;
+	char *s3;
+	
+	s1 = ft_strnew(4);
+	s2 = ft_strnew(4);
+	s1[0] = (char)192; // 1100 0000
+	s1[1] = (char)128; // 1000 0000 
+	s1[2] = (char)128; // 1000 0000
+	s1[3] = (char)0;   // 0000 0000
+	s2[0] = (char)255; // 1111 1111
+	s2[1] = (char)255; // 1111 1111
+	s2[2] = (char)255; // 1111 1111
+	s2[3] = (char)127; // 0111 1111
 
+	s3 = bigint_add(s1,s2);
+	
+	printf("after bigint add: [%hhu].[%hhu].[%hhu].[%hhu].[%hhu].[%hhu].[%hhu].[%hhu]. \n", s3[0],s3[1],s3[2],s3[3],s3[4],s3[5],s3[6],s3[7]);
+
+	//s3 = bigint_add(s1, s1);
+	//printf("after bigint add: [%hhu].[%hhu].[%hhu].[%hhu].[%hhu].[%hhu].[%hhu].[%hhu]. \n", s3[0],s3[1],s3[2],s3[3],s3[4],s3[5],s3[6],s3[7]);
+
+	printf("bigint addition of 134 217 728 + 268 435 455         = 402653183\n");
+	printf("                   0x0800 0000 + 0x0FFF FFFF         = 0x17FF FFFF\n");
+	printf("           0xC0 0x80 0x80 0x00 + 0xFF 0xFF 0xFF 0x7F = 0x81 0xBF 0xFF 0xFF 0x7F\n");
+	printf("                 192 128 128 0 + 255 255 255 127     = 129 191 255 255 127\n");
+	
+	char *s4 = ft_strnew(1);
+	char *s5 = ft_strnew(1);
+
+	s4[0] = (char)32;
+	s5[0] = (char)34;
+
+	char *s6 = bigint_add(s4, s5);
+	printf("bigint_add(34, 32): %hhu, and it should equal to 66\n", s6[0]);
+	char *s7 = ft_strnew(1);
+	s7[0] = (char)100;
+	char *s8 = bigint_add(s7, s7);
+	printf("bigint_add(100, 100): %hhu,%hhu and it should equal to 129,72\n", s8[0], s8[1]);
+	
+	char *s10 = ft_strnew(2);
+	s10[0] = (char)240;
+	s10[1] = (char)112;
+	char *s9 = bigint_add(s10, s10);
+	printf("bigint_add(240'112, 240'112): %hhu,%hhu,%hhu and it should equal to 129,225,96\n", s9[0], s9[1], s9[2]);
+
+/*	int num = 0;
+	while(num < 5)
+	{
+		printf("bigint_add(240'112, %i*240'112): %hhu,%hhu,%hhu,%hhu \n", num, s10[0], s10[1], s10[2], s10[3]);
+		s10 = bigint_add(s10, s10);
+		num++;
+	}
+*/
+	char *s11 = ft_strnew(2);
+	
+	int num1 = 0;
+	while(num1 < 8)
+	{
+		s11[num1] = (char)255;
+		num1++;
+	}
+	s11[num1] = (char)0;
+	num1 = 0;
+	printf("bigint_add(");
+	while(num1 < 13)
+	{
+		printf("%hhu,", s11[num1]);
+		num1++;
+	}
+	printf(" + ");
+	num1 = 0;
+	while(num1 < 13)
+	{
+		printf("%hhu,", s11[num1]);
+		num1++;
+	}
+	printf(")");
+	char *s12 = bigint_add(s11, s11);
+	num1 = 0;
+	printf(" = ");
+	while(num1 < 15)
+	{
+		printf("%hhu,", s12[num1]);
+		num1++;
+	}
+	printf("\n");
 	/*
 	double tenth = 0.1;
 

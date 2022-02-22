@@ -6,7 +6,7 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 09:54:01 by severi            #+#    #+#             */
-/*   Updated: 2022/02/10 14:34:56 by severi           ###   ########.fr       */
+/*   Updated: 2022/02/20 17:11:51 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,6 @@
 
 int		ft_printf(const char *format, ...);
 char	*ft_dtoa(double d);
+char	*bigint_add(char *s1, char *s2);
 
 #endif
