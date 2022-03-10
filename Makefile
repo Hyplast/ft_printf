@@ -6,7 +6,7 @@
 #    By: severi <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/30 18:43:06 by severi            #+#    #+#              #
-#    Updated: 2022/01/28 08:36:29 by severi           ###   ########.fr        #
+#    Updated: 2022/03/10 23:52:31 by severi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,7 +71,7 @@ ft_putnbr.c \
 ft_putnbr_fd.c \
 get_next_line.c
 
-SRC = ft_printf.c
+SRC = ft_printf.c ft_frexp.c
 
 SRCS = $(addprefix srcs/, $(SRC))
 
@@ -91,7 +91,7 @@ OBJ_DIR = obj/
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra -Wconversion -g
+CFLAGS = -Wall -Werror -Wextra -g#-Wconversion -g
 # -g -fsanitize=address
 
 all: $(NAME) 
