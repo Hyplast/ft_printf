@@ -6,7 +6,7 @@
 #    By: severi <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/30 18:43:06 by severi            #+#    #+#              #
-#    Updated: 2022/03/10 23:52:31 by severi           ###   ########.fr        #
+#    Updated: 2022/03/11 00:10:36 by severi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,6 +61,7 @@ ft_strtrim.c \
 ft_strjoin.c \
 ft_strsplit.c \
 ft_itoa.c \
+ft_utoa.c \
 ft_putchar_fd.c \
 ft_putstr_fd.c \
 ft_putendl_fd.c \
@@ -71,7 +72,7 @@ ft_putnbr.c \
 ft_putnbr_fd.c \
 get_next_line.c
 
-SRC = ft_printf.c ft_frexp.c
+SRC = ft_printf.c ft_frexp.c ft_dtoa.c
 
 SRCS = $(addprefix srcs/, $(SRC))
 

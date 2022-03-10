@@ -6,7 +6,7 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 20:04:58 by severi            #+#    #+#             */
-/*   Updated: 2022/01/27 13:10:11 by severi           ###   ########.fr       */
+/*   Updated: 2022/02/11 15:46:06 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ char	*ft_strdup(const char *src);
 size_t	ft_strlen(const char *s);
 int		ft_atoi(const char *nptr);
 char	*ft_itoa(int c);
+char	*ft_utoa(unsigned int c);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 int		ft_isdigit(int c);

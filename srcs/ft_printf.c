@@ -6,7 +6,7 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 09:54:52 by severi            #+#    #+#             */
-/*   Updated: 2022/01/31 17:11:24 by severi           ###   ########.fr       */
+/*   Updated: 2022/02/11 15:49:29 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,40 +130,42 @@ char	*ft_ftoa(float f, size_t digits)
 	return (s);	
 }
 */
-/*
-int	print_f(const char *flags, va_list ap)
+
+int	print_f(const char *flags, va_list ap, int chars_printed)
 {
 	char found;
 	//char *s;
 	double f;
 	double lf;
  	long double ld;
+	char	*s;
 
-	//f = 0;
-	//lf = 0;
-	//ld = 0;
-	found = 'l';
+	f = 0;
+	lf = 0;
+	ld = 0;
+	found = 'x';
 
 	if (found == 'l')
 	{
 		lf = (double) va_arg(ap, double);
-		
+		ft_printf("%lf", lf);
+
 	}
 	else if (found == 'L')
 	{
 		ld = (long double) va_arg(ap, long double);
+		ft_printf("%Lf", ld);
 	}
 	else
 	{
 		f = va_arg(ap, double);
-		
+		s = ft_dtoa(f);
 	}
 	ft_putstr(flags);
-	//s = ft_itoa(f);
-	//chars_printed = ft_putnchar(s, ft_strlen(s));
-	return (0);
+	chars_printed = ft_putnchar(s, ft_strlen(s));
+	return (chars_printed);
 }
-*/
+
 int	print_i(int i)
 {
 	char *s;
@@ -209,15 +211,16 @@ int	print_o(const char *flags, va_list ap, int chars_printed)
 	chars_printed += ft_putnchar(s, ft_strlen(s));
 	return (chars_printed);
 }
-
+// TODO: Does it work?
 int	print_u(const char *flags, va_list ap, int chars_printed)
 {
 	char	*s;
-	unsigned int	i;
+	unsigned int	u;
 
-	i = (unsigned int)flags[0];
-	i = (unsigned int) va_arg(ap, unsigned int);
-	s = ft_basetoa(i, 10, ' ');
+	u = (unsigned int)flags[0];
+	u = (unsigned int) va_arg(ap, unsigned int);
+	//s = ft_basetoa(i, 10, ' ');
+	s = ft_utoa(u);
 		chars_printed += ft_putnchar(s, ft_strlen(s));
 	return (chars_printed);
 }
@@ -271,8 +274,8 @@ int	match_function(const char *flags, va_list ap, int c, int printed_chars)
 		printed_chars += print_c((char) va_arg(ap, int));
 	else if (c == 'd')
 		printed_chars += print_d(flags, (int) va_arg(ap, int), printed_chars);
-//	else if (c == 'f')
-//		printed_chars += print_f(flags, ap);
+	else if (c == 'f')
+		printed_chars += print_f(flags, ap, printed_chars);
 	else if (c == 'i')
 		printed_chars += print_i((int) va_arg(ap, int));
 	else if (c == 'o')

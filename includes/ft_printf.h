@@ -6,7 +6,7 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 09:54:01 by severi            #+#    #+#             */
-/*   Updated: 2022/03/10 23:07:37 by severi           ###   ########.fr       */
+/*   Updated: 2022/03/11 00:08:09 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
-
 
 typedef struct	s_calc
 {
@@ -29,7 +28,9 @@ typedef struct	s_calc
 }				t_calc;
 
 
-int	ft_printf(const char *format, ...);
+int		ft_printf(const char *format, ...);
+char	*ft_dtoa(double d);
+char	*bigint_add(char *s1, char *s2);
 
 char			*ft_dftoa(double x);
 //char			*ft_ldftoa(long double x);
