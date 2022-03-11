@@ -6,7 +6,7 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 13:56:19 by severi            #+#    #+#             */
-/*   Updated: 2022/02/22 05:59:40 by severi           ###   ########.fr       */
+/*   Updated: 2022/03/11 02:00:27 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int	addints(int a, int b)
 }
 
 
-char	*ft_strrev(const char *s, int len)
+char	*ft_strrev2(const char *s, int len)
 {
 	char	*reversed;
 	//size_t	len;
@@ -163,8 +163,8 @@ char *bigint_add(char *s1, char *s2)
 	printf("s2[1]: %hhu -char- ", s2[1]);
 	printf("s2[2]: %hhu -char- ", s2[2]);
 	printf("s2[3]: %hhu -char- \n", s2[3]);
-*/	s1 = ft_strrev(s1, len1);
-	s2 = ft_strrev(s2, len2);
+*/	s1 = ft_strrev2(s1, len1);
+	s2 = ft_strrev2(s2, len2);
 /*	printf("\ns1[0]: %hhu -char- ", s1[0]);
       printf("s1[1]: %hhu -char- ", s1[1]);
 	  printf("s1[2]: %hhu -char- ", s1[2]);
@@ -205,9 +205,9 @@ char *bigint_add(char *s1, char *s2)
 	s3[i] |= (char)0x80;
 	s3[0] &= (char)0x7F;
 	if (s3[i] != 0)
-		s3 = ft_strrev(s3, len3);
+		s3 = ft_strrev2(s3, len3);
 	else
-		s3 = ft_strrev(s3, (len3 - 1));
+		s3 = ft_strrev2(s3, (len3 - 1));
 
 	//	s3 = ft_strrev(s3, 5);
 	//s3[ft_strlen(s3)] &= 0x7F;

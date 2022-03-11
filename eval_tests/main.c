@@ -6,7 +6,7 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 13:46:50 by severi            #+#    #+#             */
-/*   Updated: 2022/03/11 00:10:03 by severi           ###   ########.fr       */
+/*   Updated: 2022/03/11 02:12:48 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int	main()
 {
-/*
+
 	char *my;
 	char *system;
 	int i=0,o=0;
@@ -95,8 +95,8 @@ int	main()
 	printf("BONUS: %%b prints binary\n");
 	i = ft_printf("myve: %b,%b,%b,%b :\n", 888888, 256, 65535, 65536);	
 	printf ("*********************\n");
-*/	
-/*
+	
+
 	printf ("Characters: %c %c \n", 'a', 65);
 	printf ("Decimals: %d %ld\n", 1977, 650000L);
 	printf ("Preceding with blanks: %10d \n", 1977);
@@ -115,7 +115,8 @@ int	main()
 	uio = ft_frexp(3.1416);
 	printf ("frexp = %s    and %s and %s\n", uio[0], uio[1], uio[2]);
 	printf ("float 3.1416 = %.51f\n", 3.1416); 
-	float flo = 2.97f;
+	
+/*	float flo = 2.97f;
 	//float flo = 2.97f;
 	double dol = 2.97;
 	//long double ldol = 2.97;
@@ -146,7 +147,7 @@ int	main()
 	printf("\n2: double len in 0b format:%li f: %f \n", sizeof(binary1), binary1);
 	ft_printf("2 :double len in 0b format:%li f: %f \n", sizeof(binary1), binary1);
 */
-
+/*
 	char *s1;
 	char *s2;
 	char *s3;
@@ -192,7 +193,7 @@ int	main()
 	s10[1] = (char)112;
 	char *s9 = bigint_add(s10, s10);
 	printf("bigint_add(240'112, 240'112): %hhu,%hhu,%hhu and it should equal to 129,225,96\n", s9[0], s9[1], s9[2]);
-
+*/
 /*	int num = 0;
 	while(num < 5)
 	{
@@ -201,7 +202,7 @@ int	main()
 		num++;
 	}
 */
-	char *s11 = ft_strnew(2);
+/*	char *s11 = ft_strnew(2);
 	
 	int num1 = 0;
 	while(num1 < 8)
@@ -234,7 +235,7 @@ int	main()
 		num1++;
 	}
 	printf("\n");
-	/*
+*/	/*
 	double tenth = 0.1;
 
 	printf("%f  \n", tenth);
