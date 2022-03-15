@@ -84,7 +84,8 @@ ft_vlq.c \
 ft_vlq_sum.c \
 ft_vlq_mult.c \
 ft_vlq_conv.c \
-ft_vlq_pow.c 
+ft_vlq_pow.c \
+ft_round.c 
 
 SRCS = $(addprefix srcs/, $(SRC))
 

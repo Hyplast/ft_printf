@@ -131,6 +131,24 @@ char	*ft_ftoa(float f, size_t digits)
 }
 */
 
+void	ft_add_zeros(char **str, int zeros)
+{
+	char	*str_0;
+	size_t	len;
+	int		i;
+
+	i = 0;
+	len = ft_strlen(*str);
+	str_0 = ft_strnew(zeros + len);
+	ft_strncpy(str_0, *str, len);
+	while(i < zeros)
+	{
+		str_0[len + i] = '0';
+		i++;
+	}
+	ft_strcpy(*str, str_0);
+}
+
 int	print_f(const char *flags, va_list ap, int chars_printed)
 {
 	char found;
@@ -138,8 +156,12 @@ int	print_f(const char *flags, va_list ap, int chars_printed)
 	double f;
 	double lf;
  	long double ld;
-	char	*s;
+	char	**s;
+	int	num;
+	int	num2;
 
+	num = -1;
+	num2 = -1;
 	f = 0;
 	lf = 0;
 	ld = 0;
@@ -159,10 +181,22 @@ int	print_f(const char *flags, va_list ap, int chars_printed)
 	else
 	{
 		f = va_arg(ap, double);
-		s = ft_dtoa(f);
+		s = ft_frexp(f);
 	}
-	ft_putstr(flags);
-	chars_printed = ft_putnchar(s, ft_strlen(s));
+	num = ft_lookforchar(flags, '.');
+	num2 = ft_lookforchar(flags, 'f');
+	if (num != -1)
+	{
+		num = ft_atoi(ft_strsub(flags, num + 1, num2 - num));
+		ft_round(s, num);
+			if (num > 51)
+		ft_add_zeros(&s[1], num - 51);
+	}
+	else
+		ft_round(s, 6);
+	chars_printed = ft_putnchar(s[0], ft_strlen(s[0]));
+	chars_printed += ft_putnchar(".", 1);
+	chars_printed += ft_putnchar(s[1], ft_strlen(s[1]));
 	return (chars_printed);
 }
 
@@ -332,6 +366,12 @@ char	*parse_specifier(const char *flags)
 	return (NULL);
 }
 
+/*
+*	Print function, use % with specifiers.
+*
+*	@param string in ("string %'x'", %bcdfiopsuxX) -format
+*	@return Number characters written in stdout
+*/
 int	ft_printf(const char *format, ...)
 {
 	va_list ap;

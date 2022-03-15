@@ -111,11 +111,33 @@ int	main()
 
 	printf("¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤\n¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤\n");
 
-	char **uio;
-	uio = ft_frexp(3.1416);
-	printf ("frexp = %s    and %s and %s\n", uio[0], uio[1], uio[2]);
-	printf ("float 3.1416 = %.51f\n", 3.1416); 
-	
+	ft_printf ("ft_float 3.1416 = %.51f\n", 3.1416);
+	printf ("   float 3.1416 = %.51f\n", 3.1416);
+
+	printf("   float 1249328409.34897329487 = %f\n", 1249328409.34897329487);
+	ft_printf ("ft_float 1249328409.34897329487 = %f\n", 1249328409.34897329487);
+
+	printf("   float 12493284091249328409.34897329487 = %f\n", 12493284091249328409.34897329487);
+	ft_printf ("ft_float 12493284091249328409.34897329487 = %f\n", 12493284091249328409.34897329487);
+
+	printf("   float 123456789123456789123456789.123456789 = %f\n", 123456789123456789123456789.123456789);
+	ft_printf ("ft_float 123456789123456789123456789.123456789 = %f\n", 123456789123456789123456789.123456789);
+
+	printf ("   printf printing float 3.1416 = %f\n", 3.1416);
+	ft_printf("ft_printf printing float 3.1416 = %f\n", 3.1416);
+
+	printf ("   printf printing float 3.1416 with .10 = %.10f\n", 3.1416);
+	ft_printf("ft_printf printing float 3.1416 with .10 = %.10f\n", 3.1416);
+
+	printf ("   printf printing float 3.1416 with .3 = %.3f\n", 3.1416);
+	ft_printf("ft_printf printing float 3.1416 with .3 = %.3f\n", 3.1416);
+
+	printf ("   printf printing float 3.1416 with .53 = %.53f\n", 3.1416);
+	ft_printf("ft_printf printing float 3.1416 with .53 = %.53f\n", 3.1416);
+
+	printf ("   printf printing float 3.1416 with .153 = %.153f\n", 3.1416);
+	ft_printf("ft_printf printing float 3.1416 with .153 = %.153f\n", 3.1416);
+
 /*	float flo = 2.97f;
 	//float flo = 2.97f;
 	double dol = 2.97;

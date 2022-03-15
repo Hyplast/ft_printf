@@ -15,7 +15,6 @@
 /*
 **	---> ft_dftoa extracts the binary value of the float into a string
 */
-
 char	*ft_dftoa(double x)
 {
 	int					i;
@@ -40,11 +39,11 @@ char	*ft_dftoa(double x)
 	ft_strrev(nb_str);
 	return (nb_str);
 }
+
 /*
 **	--> check_nan_inf checks if the number entered exists and is not infinite
 **	and returns 1 after printing "nan" or "inf" if it is
 */
-
 static int	check_nan_inf(char *mantissa, char *exp_str)
 {
 	if (!ft_strcmp("11111111111", exp_str) && ft_strchr(mantissa, '1'))
@@ -84,7 +83,6 @@ static char	**handle_ni(char **res, char *nb_str, char *mantissa, char *exp)
 **	strings it then calls out other functions (get_exp and get_res) to convert
 **	them into decimal strings
 */
-
 char	**ft_frexp(double x)
 {
 	char	*nb_str;

@@ -29,6 +29,7 @@ typedef struct	s_calc
 }				t_calc;
 
 int				ft_printf(const char *format, ...);
+void			ft_round(char **res, int precision);
 char			*ft_dtoa(double d);
 char			*bigint_add(char *s1, char *s2);
 int				ft_max(int a, int b);
