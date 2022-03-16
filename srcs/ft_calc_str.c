@@ -48,11 +48,11 @@ char	*ft_bintowhole(char *vlq)
 	}
 	return (ret);
 }
+
 /*
 **	---> bintodec computes the following sum : (sum 5^(frac_digits - i)
 **	which is equal to the decimal part (in base 10)
 */
-
 static char	*compute_sum(char *vlq, char *ret, int i, int j)
 {
 	char	*tmp;

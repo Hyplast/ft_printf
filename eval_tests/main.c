@@ -24,12 +24,6 @@ int	main()
 	my = "hello";
 	system = "hello";
 
-
-	//float flow = 2.96f;
-
-	//printf("double with printf: %f \n", flow);
-	//ft_printf("double with ft_printf: %f \n", flow);
-
 	printf("************************************\n");
 	printf("BASIC TESTING WITH ONLY SPECIFIERS\n");
 	printf("*************************************\n");
@@ -53,7 +47,6 @@ int	main()
 	i = ft_printf("myve: \"%s\" starts with letter %c and is %i long.\n", my, my[0], ft_strlen(my));
 	o =    printf("sysv: \"%s\" starts with letter %c and is %i long.\n", my, my[0], (int)ft_strlen(my));
 	printf(" my length %i. system lenght %i\n", i,o);
-
 
 	ft_printf("Test 5. (now with ft_printf) \n");
 	i = ft_printf("myve: %p :\n", system);
@@ -80,14 +73,54 @@ int	main()
 	i = ft_printf("myve: %u,%u,%u :\n", -100, -1000, -100000);	
 	printf(" my length %i. system lenght %i\n", i,o);
 
+	ft_printf("Test 10. \n");
+	ft_printf ("ft_float 3.1416 = %.51f\n", 3.1416);
+	printf ("   float 3.1416 = %.51f\n", 3.1416);
+	printf("   float 1249328409.34897329487 = %f\n", 1249328409.34897329487);
+	ft_printf ("ft_float 1249328409.34897329487 = %f\n", 1249328409.34897329487);
+	printf("   float 12493284091249328409.34897329487 = %f\n", 12493284091249328409.34897329487);
+	ft_printf ("ft_float 12493284091249328409.34897329487 = %f\n", 12493284091249328409.34897329487);
+	printf("   float 123456789123456789123456789.123456789 = %f\n", 123456789123456789123456789.123456789);
+	ft_printf ("ft_float 123456789123456789123456789.123456789 = %f\n", 123456789123456789123456789.123456789);
+	printf ("   printf printing float 3.1416 = %f\n", 3.1416);
+	ft_printf("ft_printf printing float 3.1416 = %f\n", 3.1416);
+	printf ("   printf printing float 3.1416 with .10 = %.10f\n", 3.1416);
+	ft_printf("ft_printf printing float 3.1416 with .10 = %.10f\n", 3.1416);
+	printf ("   printf printing float 3.1416 with .3 = %.3f\n", 3.1416);
+	ft_printf("ft_printf printing float 3.1416 with .3 = %.3f\n", 3.1416);
+	printf ("   printf printing float 3.1416 with .53 = %.53f\n", 3.1416);
+	ft_printf("ft_printf printing float 3.1416 with .53 = %.53f\n", 3.1416);
+	printf ("   printf printing float 3.1416 with .153 = %.153f\n", 3.1416);
+	ft_printf("ft_printf printing float 3.1416 with .153 = %.153f\n", 3.1416);
+
+	ft_printf("ft_printf printing float 3.1416 with .10 = %.10f\n", 3.1416);
+	ft_printf("ft_printf printing float 3.1416 with .10 = %.10f\n", 3.1416);
+
+	float flow = 2.96f;
+	printf("double with    printf: %f \n", flow);
+	ft_printf("double with ft_printf: %f \n", flow);
+
+	printf ("   printf printing float 3.1416 with .10 = %14.10f\n", 3.1416);
+	ft_printf("ft_printf printing float 3.1416 with .10 = %14.10f\n", 3.1416);
+
+	ft_printf ("ft_float 3.1416 with 51.51f = \"%10f\"\n", 3.1416);
+	printf ("   float 3.1416 with 51.51f = \"%10f\"\n", 3.1416);
+
+	ft_printf ("ft_float 3.1416 with 51.51f = \"%10f\"\n", 113431243.1416);
+	printf ("   float 3.1416 with 51.51f = \"%10f\"\n", 113431243.1416);
+
+
 	printf("************************************\n");
 	printf("     ADVANCED TESTING WITH FLAGS\n");
 	printf("*************************************\n");
 	
-	ft_printf("Test 10. \n");
+
+	ft_printf("Test 11. with #x,#X,#o \n");
 	o =    printf("sysv: %#x, %#X, %#o :\n", 100, 1000, 100000);
 	i = ft_printf("myve: %#x, %#X, %#o :\n", 100, 1000, 100000);	
 	printf(" my length %i. system lenght %i\n", i,o);
+
+
 	printf ("*********************\n");
 	printf("************************************\n");
 	printf("     BONUSES\n");
@@ -110,33 +143,6 @@ int	main()
 	printf ("%% \n");
 
 	printf("¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤\n¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤\n");
-
-	ft_printf ("ft_float 3.1416 = %.51f\n", 3.1416);
-	printf ("   float 3.1416 = %.51f\n", 3.1416);
-
-	printf("   float 1249328409.34897329487 = %f\n", 1249328409.34897329487);
-	ft_printf ("ft_float 1249328409.34897329487 = %f\n", 1249328409.34897329487);
-
-	printf("   float 12493284091249328409.34897329487 = %f\n", 12493284091249328409.34897329487);
-	ft_printf ("ft_float 12493284091249328409.34897329487 = %f\n", 12493284091249328409.34897329487);
-
-	printf("   float 123456789123456789123456789.123456789 = %f\n", 123456789123456789123456789.123456789);
-	ft_printf ("ft_float 123456789123456789123456789.123456789 = %f\n", 123456789123456789123456789.123456789);
-
-	printf ("   printf printing float 3.1416 = %f\n", 3.1416);
-	ft_printf("ft_printf printing float 3.1416 = %f\n", 3.1416);
-
-	printf ("   printf printing float 3.1416 with .10 = %.10f\n", 3.1416);
-	ft_printf("ft_printf printing float 3.1416 with .10 = %.10f\n", 3.1416);
-
-	printf ("   printf printing float 3.1416 with .3 = %.3f\n", 3.1416);
-	ft_printf("ft_printf printing float 3.1416 with .3 = %.3f\n", 3.1416);
-
-	printf ("   printf printing float 3.1416 with .53 = %.53f\n", 3.1416);
-	ft_printf("ft_printf printing float 3.1416 with .53 = %.53f\n", 3.1416);
-
-	printf ("   printf printing float 3.1416 with .153 = %.153f\n", 3.1416);
-	ft_printf("ft_printf printing float 3.1416 with .153 = %.153f\n", 3.1416);
 
 /*	float flo = 2.97f;
 	//float flo = 2.97f;
