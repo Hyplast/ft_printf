@@ -16,6 +16,28 @@
 # include <stdarg.h>
 # include "libft.h"
 
+/*
+typedef enum	e_modif
+{
+	n, l, ll, L, h, hh
+}				t_modif;
+*/
+typedef struct	s_flags
+{
+	int			len;
+	char		*spec;
+	int			width;
+	int			dot;
+	int			sharp;
+	//t_modif		modif;
+	int			minus;
+	int			plus;
+	//char		id_conv;
+	int			space;
+	int			zero;
+}				t_flags;
+
+
 typedef struct	s_calc
 {
 	int			len1;

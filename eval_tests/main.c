@@ -76,40 +76,72 @@ int	main()
 	ft_printf("Test 10. \n");
 	ft_printf ("ft_float 3.1416 = %.51f\n", 3.1416);
 	printf ("   float 3.1416 = %.51f\n", 3.1416);
+
+	ft_printf("Test 11. \n");
 	printf("   float 1249328409.34897329487 = %f\n", 1249328409.34897329487);
 	ft_printf ("ft_float 1249328409.34897329487 = %f\n", 1249328409.34897329487);
+
+	ft_printf("Test 12. \n");
 	printf("   float 12493284091249328409.34897329487 = %f\n", 12493284091249328409.34897329487);
 	ft_printf ("ft_float 12493284091249328409.34897329487 = %f\n", 12493284091249328409.34897329487);
+	
+	ft_printf("Test 13. \n");
 	printf("   float 123456789123456789123456789.123456789 = %f\n", 123456789123456789123456789.123456789);
 	ft_printf ("ft_float 123456789123456789123456789.123456789 = %f\n", 123456789123456789123456789.123456789);
+	
+	ft_printf("Test 14. \n");
 	printf ("   printf printing float 3.1416 = %f\n", 3.1416);
 	ft_printf("ft_printf printing float 3.1416 = %f\n", 3.1416);
+	
+	ft_printf("Test 15. \n");
 	printf ("   printf printing float 3.1416 with .10 = %.10f\n", 3.1416);
 	ft_printf("ft_printf printing float 3.1416 with .10 = %.10f\n", 3.1416);
+	
+	ft_printf("Test 16. \n");
 	printf ("   printf printing float 3.1416 with .3 = %.3f\n", 3.1416);
 	ft_printf("ft_printf printing float 3.1416 with .3 = %.3f\n", 3.1416);
+	
+	ft_printf("Test 17. \n");
 	printf ("   printf printing float 3.1416 with .53 = %.53f\n", 3.1416);
 	ft_printf("ft_printf printing float 3.1416 with .53 = %.53f\n", 3.1416);
+	
+	ft_printf("Test 18. \n");
 	printf ("   printf printing float 3.1416 with .153 = %.153f\n", 3.1416);
 	ft_printf("ft_printf printing float 3.1416 with .153 = %.153f\n", 3.1416);
-
+	
+	ft_printf("Test 19. \n");
 	ft_printf("ft_printf printing float 3.1416 with .10 = %.10f\n", 3.1416);
 	ft_printf("ft_printf printing float 3.1416 with .10 = %.10f\n", 3.1416);
-
+	
+	ft_printf("Test 20. \n");
 	float flow = 2.96f;
 	printf("double with    printf: %f \n", flow);
 	ft_printf("double with ft_printf: %f \n", flow);
-
+	
+	ft_printf("Test 21. \n");
 	printf ("   printf printing float 3.1416 with .10 = %14.10f\n", 3.1416);
 	ft_printf("ft_printf printing float 3.1416 with .10 = %14.10f\n", 3.1416);
-
+	
+	ft_printf("Test 22. \n");
 	ft_printf ("ft_float 3.1416 with 51.51f = \"%10f\"\n", 3.1416);
 	printf ("   float 3.1416 with 51.51f = \"%10f\"\n", 3.1416);
-
+	
+	ft_printf("Test 23. \n");
 	ft_printf ("ft_float 3.1416 with 51.51f = \"%10f\"\n", 113431243.1416);
 	printf ("   float 3.1416 with 51.51f = \"%10f\"\n", 113431243.1416);
+	
+	ft_printf("Test 24. - ");
+	printf("From discord\n");
+	printf("%.30f", 0.0025);
+	printf(" <-- system\n");
+	ft_printf("%.30f", 0.0025);
+	printf(" <-- yours\n");
 
 
+	ft_printf("Test 25. \n");
+	printf("   float 123456789123456789123456789.123456789 = %.6f\n", 123456789123456789123456789.123456789);
+	ft_printf ("ft_float 123456789123456789123456789.123456789 = %.6f\n", 123456789123456789123456789.123456789);
+	
 	printf("************************************\n");
 	printf("     ADVANCED TESTING WITH FLAGS\n");
 	printf("*************************************\n");
@@ -120,6 +152,12 @@ int	main()
 	i = ft_printf("myve: %#x, %#X, %#o :\n", 100, 1000, 100000);	
 	printf(" my length %i. system lenght %i\n", i,o);
 
+	ft_printf("Test 26. \n");
+	printf("%010d", 1997);
+	printf(" <-- system\n");
+	ft_printf("%010d", 1997);
+	printf(" <-- yours\n");
+
 
 	printf ("*********************\n");
 	printf("************************************\n");
@@ -129,11 +167,34 @@ int	main()
 	i = ft_printf("myve: %b,%b,%b,%b :\n", 888888, 256, 65535, 65536);	
 	printf ("*********************\n");
 	
+	printf ("Preceding with minus: '%-10d' \n", 1977);
+	printf ("Preceding with plus:  '%+10d' \n", 1977);
+	printf ("Preceding with blanks:'%10d' \n", 1977);
+	printf ("Preceding with blanks:'%10d' \n", -1977);
+	printf ("Preceding with zeros: '%010d' \n", 1977);
+	printf ("Preceding with zeros: '%0u' \n", -100);
+
+	printf ("Preceding with -10d:  '%-10d' \n", 1977);
+	printf ("Preceding with - 10d: '%- 10d' \n", 1977);
+	printf ("Preceding with -10d:  '% -10d' \n", 1977);
+	printf ("Preceding with - 10d: '%- 10d' \n", -1977);
+	printf ("Preceding with -10d:  '% -10d' \n", -1977);
+
+
+	printf ("Preceding with blanks:'% 10d' \n", 1977);
+	printf ("Preceding with blanks:'% 10d' \n", -1977);
+	printf ("Preceding with zeros: '%0 10d' \n", 1977);
+
+
+	printf ("Preceding with -+: '%-+10d' \n", 1977);
+	printf ("Preceding with +-: '%+-10d' \n", 1977);
+	//printf ("Preceding with +-: '%010d' \n", 1977);
+	printf ("Preceding with ' ': '% 10d' \n", -1977);
+	printf ("Preceding with 0' ': '%0 10d' \n", -1977);
 
 	printf ("Characters: %c %c \n", 'a', 65);
 	printf ("Decimals: %d %ld\n", 1977, 650000L);
-	printf ("Preceding with blanks: %10d \n", 1977);
-	printf ("Preceding with zeros: %010d \n", 1977);
+	
 	printf ("Some different radices: %d %x %o %#x %#o \n", 100, 100, 100, 100, 100);
 	printf ("more dif: %#x, %#X, %#o \n", 100, 100, 100);
 	printf ("floats: %4.2f %+.0e %E \n", 3.1416, 3.1416, 3.1416);

@@ -122,26 +122,64 @@ int	print_c_ntimes(char c, int n)
 	return (i);
 }
 
+t_flags *return_flags(const char *flags)
+{
+	t_flags *flag_s;
+	char	c;
+	int		i;
+	int		found;
+
+	found = -1;
+	i = 0;
+	c = 1;
+
+	flag_s = malloc(sizeof(t_flags));
+	flag_s->len = ft_strlen(flags);
+	//flags->spec = 
+	
+	while (i < flag_s->len)
+	{
+		found = ft_lookforchar(flags, c);
+		i++;
+	}
+
+	ft_putstr("flag_s: ");
+	ft_putnbr(found);
+	ft_putstr(" and ");
+	ft_putnbr(flag_s->len);
+	ft_putstr(" and ");
+	ft_putstr(flags);
+	ft_putstr("-\n");
+
+	return (flag_s);
+}
+
 int	print_d(const char *flags, int d, int chars_printed)
 {
 	char *s;
 	int		num;
 	int		num2;
+	int		num3;
+	t_flags *flag_s;
 
-	num = -1
+	num = -1;
 	num2 = -1;
-
+	num3 = -1;
+	flag_s = return_flags(flags);
+	ft_putstr("flasg len ");
+	ft_putnbr(flag_s->len);
+	ft_putstr("-\n");
 	num = ft_lookforchar(flags, '0');
 	num2 = ft_lookforchar(flags, 'd');
 	if(num >= 0 && num2 != 0)
 	{
 		num3 = ft_atoi(ft_strsub(flags, 0, num));
 	}
-	chars_printed += print_c_ntimes();
+	chars_printed += print_c_ntimes('0', num3);
 
 	//ft_putstr(flags);
 	s = ft_itoa(d);
-	if (ft_strlen(s) < )
+	//if (ft_strlen(s) < )
 	chars_printed += ft_putnchar(s, ft_strlen(s));
 	return (chars_printed);
 }
@@ -234,7 +272,11 @@ int	print_f(const char *flags, va_list ap, int chars_printed)
 		//ft_add_zeros(&s[1], num - 51);
 	}
 	else
+	{
 		ft_round(s, 6);
+		//if (ft_round(s, 6))
+		//	chars_printed += print_c_ntimes('0', 5);
+	}
 
 	num4 = ft_strlen(s[0]) + ft_strlen(s[1]) + 1;
 	if (num4 < num3)
