@@ -84,5 +84,7 @@ void			vlq_initialize(char *vlq, int c, int size);
 void			vlq_tmp_conv(t_calc *info, char *s1, char *s2);
 void			vlq_tmp_conv_rev(char *s, int size);
 void			vlq_tmp_conv_rev2(t_calc *info, char *s1, char *s2);
+int				ft_print_c_ntimes(char c, int n);
+int				ft_putnchar(const char *s, size_t n);
 
 #endif

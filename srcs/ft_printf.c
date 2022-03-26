@@ -62,19 +62,6 @@ char	*ft_basetoa(unsigned long n, unsigned long base, char sign)
 	return (s);
 }
 
-int		ft_putnchar(const char *s, size_t n)
-{
-	int	i;
-
-	i = 0;
-	while(n-- > 0 && *s != '\0')
-	{	
-		ft_putchar(*s++);
-		i++;
-	}
-	return (i);
-}
-
 int		ft_lookforchar(const char *s, int c)
 {
 	int	s_len;
@@ -107,19 +94,6 @@ int	print_c(char c)
 {
 	ft_putchar(c);
 	return (1);
-}
-
-int	print_c_ntimes(char c, int n)
-{
-	int	i;
-
-	i = 0;
-	while(i < n)
-	{	
-		ft_putchar(c);
-		i++;
-	}
-	return (i);
 }
 
 t_flags *return_flags(const char *flags)
@@ -175,7 +149,7 @@ int	print_d(const char *flags, int d, int chars_printed)
 	{
 		num3 = ft_atoi(ft_strsub(flags, 0, num));
 	}
-	chars_printed += print_c_ntimes('0', num3);
+	chars_printed += ft_print_c_ntimes('0', num3);
 
 	//ft_putstr(flags);
 	s = ft_itoa(d);
@@ -274,6 +248,7 @@ int	print_f(const char *flags, va_list ap, int chars_printed)
 	else
 	{
 		ft_round(s, 6);
+		ft_add_zeros(&s[1], 5);
 		//if (ft_round(s, 6))
 		//	chars_printed += print_c_ntimes('0', 5);
 	}
