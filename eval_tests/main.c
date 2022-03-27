@@ -147,12 +147,12 @@ int	main()
 	printf("*************************************\n");
 	
 
-	ft_printf("Test 11. with #x,#X,#o \n");
+	ft_printf("Test 31. with #x,#X,#o \n");
 	o =    printf("sysv: %#x, %#X, %#o :\n", 100, 1000, 100000);
 	i = ft_printf("myve: %#x, %#X, %#o :\n", 100, 1000, 100000);	
 	printf(" my length %i. system lenght %i\n", i,o);
 
-	ft_printf("Test 26. \n");
+	ft_printf("Test 36. \n");
 	printf("%010d", 1997);
 	printf(" <-- system\n");
 	ft_printf("%010d", 1997);

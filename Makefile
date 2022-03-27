@@ -86,6 +86,11 @@ ft_vlq_mult.c \
 ft_vlq_conv.c \
 ft_vlq_pow.c \
 ft_print_flags.c \
+ft_return_flags.c \
+ft_print_f.c \
+ft_print_i.c \
+ft_print_x.c \
+ft_basetoa.c \
 ft_round.c 
 
 SRCS = $(addprefix srcs/, $(SRC))

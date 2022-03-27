@@ -22,10 +22,13 @@ typedef enum	e_modif
 	n, l, ll, L, h, hh
 }				t_modif;
 */
+// spec
+// n l ll L h hh
+// 0 1 2  3 4 5
 typedef struct	s_flags
 {
 	int			len;
-	char		*spec;
+	int			spec;
 	int			width;
 	int			dot;
 	int			sharp;
@@ -86,5 +89,22 @@ void			vlq_tmp_conv_rev(char *s, int size);
 void			vlq_tmp_conv_rev2(t_calc *info, char *s1, char *s2);
 int				ft_print_c_ntimes(char c, int n);
 int				ft_putnchar(const char *s, size_t n);
+int				ft_lookforchar(const char *s, int c);
+char			*ft_basetoa(unsigned long n, unsigned long base, char sign);
+int				print_before(t_flags *flags, int chars_printed, char *s);
+size_t			count_digits(long c);
+void			ft_add_zeros(char **str, int zeros);
+int				print_b(const char *flags, va_list ap, int chars_printed);
+int				print_c(char c);
+int				print_d(const char *flags, int d, int chars_printed);
+int				print_f(const char *flags, va_list ap, int chars_printed);
+int				print_i(int i);
+int				print_o(const char *flags, va_list ap, int chars_printed);
+int				print_p(void *pointer);
+int				print_s(char *s, int chars_printed);
+int				print_u(const char *flags, va_list ap, int chars_printed);
+int				print_x(const char *flags, va_list ap, int chars_printed);
+int				print_X(const char *flags, va_list ap, int chars_printed);
+t_flags			*return_flags(const char *flags);
 
 #endif

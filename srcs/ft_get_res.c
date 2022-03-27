@@ -18,7 +18,6 @@
 **	left is the part on the left of the floating point
 **	right is the part on the right of the floating point
 */
-
 static void	res_neg_exp(char *mantissa, int exp, char **res)
 {
 	char	*right;
@@ -107,11 +106,11 @@ void	get_res(char *mantissa, int exp, char **res)
 	else
 		res_pos_exp(mantissa, exp, res);
 }
+
 /*
 **	---> get_exp computes the decimal value of the exponent and
 **	returns an int. 1023 is the bias for 64 bits (float convention)
 */
-
 int	get_exp(char *exp_str)
 {
 	int	nb;
