@@ -15,7 +15,7 @@
 
 static const int	g_specifier[] = {'b', 'c', 'd', 'f', 'i', 'o', 'p', 's', 'u', 'x', 'X'};
 /*
-static const char	*g_extra_f[] = {"hh", "h", "l", "ll", "L", "#", "0", "-", "+"};
+static const char	*g_extra_f[] = {"hh", "h", "l", "ll", "L", "#", "0", "-", "+", " "};
 
 static const void	(*g_f_ptrs[]) = {print_c, print_i, print_s};
 */

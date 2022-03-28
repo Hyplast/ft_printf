@@ -27,13 +27,12 @@ void	ft_add_zeros(char **str, int zeros)
 		str_0[len + i] = '0';
 		i++;
 	}
-	ft_strcpy(*str, str_0);
+	//ft_strcpy2(*str, str_0);
+	*str = ft_strdup(str_0);
 }
 
 int	print_f(const char *flags, va_list ap, int chars_printed)
 {
-	char found;
-	//char *s;
 	double f;
 	double lf;
  	long double ld;
@@ -44,6 +43,7 @@ int	print_f(const char *flags, va_list ap, int chars_printed)
 	int num4;
 	int round;
 	int i;
+	t_flags *flag_s;
 
 	i = -1;
 	num = -1;
@@ -54,15 +54,15 @@ int	print_f(const char *flags, va_list ap, int chars_printed)
 	f = 0;
 	lf = 0;
 	ld = 0;
-	found = 'x';
 
-	if (found == 'l')
+	flag_s = return_flags(flags);
+	if (flag_s->spec == 1)
 	{
 		lf = (double) va_arg(ap, double);
 		ft_printf("%lf", lf);
 
 	}
-	else if (found == 'L')
+	else if (flag_s->spec == 3)
 	{
 		ld = (long double) va_arg(ap, long double);
 		ft_printf("%Lf", ld);
@@ -91,7 +91,7 @@ int	print_f(const char *flags, va_list ap, int chars_printed)
 	{
 		ft_round(s, 6);
 		// TODO: MEMORY bufferoverflow in add_zeros, FIX
-		//ft_add_zeros(&s[1], 5);
+		ft_add_zeros(&s[1], 6 - ft_strlen(s[1]));
 		//if (ft_round(s, 6))
 		//	chars_printed += print_c_ntimes('0', 5);
 	}
@@ -109,7 +109,5 @@ int	print_f(const char *flags, va_list ap, int chars_printed)
 	if (round > 51)
 		while (++i < round - 51)
 			chars_printed += ft_putnchar("0", 1);
-	
-
 	return (chars_printed);
 }

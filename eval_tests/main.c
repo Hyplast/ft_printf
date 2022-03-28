@@ -205,6 +205,29 @@ int	main()
 
 	printf("¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤\n¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤\n");
 
+	char *s1 = "hello";
+	char *s2 = "world";
+
+	char *s3[] = {"hello", "world"};
+
+	printf("%s", s1);
+	printf("\n");
+	printf("%s", s2);
+	printf("\n");
+	printf("%s", s3[0]);
+	printf(" - ");
+	printf("%s", s3[1]);
+	printf("\n");
+
+	ft_add_zeros(&s1, 6);
+	printf("%s", s1);
+	printf("\n");
+	ft_add_zeros(&s3[1], 5);
+	printf("%s", s3[0]);
+	printf(" - ");
+	printf("%s", s3[1]);
+	printf("\n");
+
 /*	float flo = 2.97f;
 	//float flo = 2.97f;
 	double dol = 2.97;

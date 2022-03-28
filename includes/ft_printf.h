@@ -30,7 +30,7 @@ typedef struct	s_flags
 	int			len;
 	int			spec;
 	int			width;
-	int			dot;
+	int			prec;
 	int			sharp;
 	//t_modif		modif;
 	int			minus;
