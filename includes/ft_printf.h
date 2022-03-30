@@ -6,7 +6,7 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 09:54:01 by severi            #+#    #+#             */
-/*   Updated: 2022/03/11 02:10:34 by severi           ###   ########.fr       */
+/*   Updated: 2022/03/31 01:22:42 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef enum	e_modif
 // spec
 // n l ll L h hh
 // 0 1 2  3 4 5
-typedef struct	s_flags
+typedef struct s_flags
 {
 	int			len;
 	int			spec;
@@ -40,8 +40,7 @@ typedef struct	s_flags
 	int			zero;
 }				t_flags;
 
-
-typedef struct	s_calc
+typedef struct s_calc
 {
 	int			len1;
 	int			len2;
