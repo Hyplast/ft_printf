@@ -117,7 +117,7 @@ static char *find_spec(t_flags * flag_s, char *flags)
 
 static void init_flags(t_flags *flag_s, const char *flags)
 {
-    flag_s->len = ft_strlen(flags);
+    flag_s->len = ft_strlen(flags) - 1;
     flag_s->spec = 0;
     flag_s->width = 0;
     flag_s->prec = 6;

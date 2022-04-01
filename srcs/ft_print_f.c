@@ -30,11 +30,45 @@ void	ft_add_zeros(char **str, int zeros)
 	//ft_strcpy2(*str, str_0);
 	*str = ft_strdup(str_0);
 }
+/*
+static int print_after_f(t_flags *flag_s, int chars_printed, char *s, char c)
+{
+	chars_printed += ft_print_c_ntimes(c, flag_s->width - ft_strlen(s) - flag_s->plus - chars_printed);
+	if (flag_s->plus == 1)
+	{
+		if (s[0] != '-')
+			chars_printed += print_c('+');
+	}
+	chars_printed += ft_putnchar(s, ft_strlen(s));
+	return (chars_printed);
+}
 
+static int print_before_f(t_flags *flag_s, int chars_printed, char *s, char c)
+{
+	//flag_s->len = ft_strlen(s[0]) + 1 + ft_strlen(s[1]);
+    if (flag_s->space == 1 && s[0] != '-' && flag_s->plus == 0)
+		chars_printed += print_c(' ');
+	if (flag_s->zero == 1)
+		c = '0';
+	if (flag_s->minus == 1)
+	{
+		if (flag_s->plus == 1)
+		{
+			if (s[0] != '-')
+				chars_printed += print_c('+');
+		}
+		chars_printed += ft_putnchar(s, ft_strlen(s));
+		chars_printed += ft_print_c_ntimes(c, flag_s->width - chars_printed);
+	}
+	else
+		chars_printed += print_after_f(flag_s, chars_printed, s, c);
+    return (chars_printed);
+}
+*/
 int	print_f(const char *flags, va_list ap, int chars_printed)
 {
 	double		f;
-	double		lf;
+	//double		lf;
  	long double	ld;
 	char		**s;
 	int			i;
@@ -42,19 +76,22 @@ int	print_f(const char *flags, va_list ap, int chars_printed)
 
 	i = -1;
 	f = 0;
-	lf = 0;
+	//lf = 0;
 	ld = 0;
 
 	flag_s = return_flags(flags);
-	if (flag_s->spec == 1)
-	{
-		lf = (double) va_arg(ap, double);
-		ft_printf("%lf", lf);
-	}
-	else if (flag_s->spec == 3)
+	// if (flag_s->spec == 1)
+	// {
+	// 	lf = (double) va_arg(ap, double);
+	// 	ft_printf("%lf", lf);
+	// }
+	if (flag_s->spec == 3)
 	{
 		ld = (long double) va_arg(ap, long double);
-		ft_printf("%Lf", ld);
+		s = ft_frexpl(ld);
+		if (ft_strcmp(s[1],"") == 0 && ft_strlen(s[1]) <= 1)
+			ft_add_zeros(&s[1], flag_s->prec - ft_strlen(s[1]));
+		//ft_printf("%s::%s", s[0],s[1]);
 	}
 	else
 	{
@@ -64,11 +101,12 @@ int	print_f(const char *flags, va_list ap, int chars_printed)
 	ft_round(s, flag_s->prec);
 	if (s[1][0] == '0' && ft_strlen(s[1]) == 1)
 		ft_add_zeros(&s[1], flag_s->prec - ft_strlen(s[1]));
-	chars_printed += ft_putnchar(s[0], ft_strlen(s[0]));
-	chars_printed += ft_putnchar(".", 1);
-	chars_printed += ft_putnchar(s[1], ft_strlen(s[1]));
+	chars_printed = print_before(flag_s, chars_printed, ft_strjoin(ft_strjoin(s[0], "."),s[1]), ' ');
+	//chars_printed += ft_putnchar(s[0], ft_strlen(s[0]));
+	//chars_printed += print_c('.');
+	//chars_printed += ft_putnchar(s[1], ft_strlen(s[1]));
 	if (flag_s->prec > 51)
 		while (++i < flag_s->prec - 51)
-			chars_printed += ft_putnchar("0", 1);
+			chars_printed += print_c('0');
 	return (chars_printed);
 }

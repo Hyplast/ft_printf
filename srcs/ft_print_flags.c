@@ -64,23 +64,5 @@ int print_before(t_flags *flag_s, int chars_printed, char *s, char c)
 		}
 		chars_printed += ft_putnchar(s, ft_strlen(s));
 	}
-    // char    c;
-    // int     i;
-
-    // c = ' ';
-    // i = 0;
-    // if (flags->zero == 1)
-    //     c = '0';
-    // i = flags->width - ft_strlen(s);
-    // if (flags->minus == 1)
-    // {
-    //     chars_printed += ft_putnchar(s, ft_strlen(s));
-    //     chars_printed += ft_print_c_ntimes(c, i);
-    // }
-    // else
-    // {
-    //     chars_printed += ft_print_c_ntimes(c, i);
-    //     chars_printed += ft_putnchar(s, ft_strlen(s));
-    // }
     return (chars_printed);
 }
