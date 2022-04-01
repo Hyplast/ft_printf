@@ -440,15 +440,17 @@ int	main()
 	o = printf("%X", 0);
 	printf(" <-- system\n");
 	printf(" my length %i. system lenght %i\n", i,o);
-/*
+
+
+	unsigned long int lui = 4294967296;
 	ft_printf("Test 64. \n");
-	i = ft_printf("%x", 4294967296);
+	i = ft_printf("%lx", lui);
 	printf(" <-- yours\n");
-	o = printf("%x", 4294967296);
+	o = printf("%lx", lui);
 	printf(" <-- system\n");
 	printf(" my length %i. system lenght %i\n", i,o);
-*/
-/*	ft_printf("Test 65. \n");
+/*
+	ft_printf("Test 65. \n");
 	i = ft_printf("%x", test);
 	printf(" <-- yours\n");
 	o = printf("%x", test);
@@ -475,19 +477,43 @@ int	main()
 	o = printf("%lx", 4294967296);
 	printf(" <-- system\n");
 	printf(" my length %i. system lenght %i\n", i,o);
-/*
-	ft_printf("Test 69. \n");
-	i = ft_printf("%llX", 4294967296);
+
+	long long unsigned int ull = 4294967296;
+	ft_printf("Test 69. long long uint\n");
+	i = ft_printf("%llX", ull);
 	printf(" <-- yours\n");
-	o = printf("%llX", 4294967296);
+	o = printf("%llX", ull);
 	printf(" <-- system\n");
 	printf(" my length %i. system lenght %i\n", i,o);
-*/
-/*	ft_printf("%llX", 4294967296);
-	ft_printf("%hx", 4294967296);
-	ft_printf("%hhX", 4294967296);
-	ft_printf("%llx", 9223372036854775807);
-//	ft_printf("%llx", 9223372036854775808);
+
+	unsigned short int hu = 7296;
+	ft_printf("Test 70. unsigned short int\n");
+	i = ft_printf("%hX", hu);
+	printf(" <-- yours\n");
+	o = printf("%hX", hu);
+	printf(" <-- system\n");
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	hu = 7296;
+	ft_printf("Test 71. unsigned short int\n");
+	i = ft_printf("%hx", hu);
+	printf(" <-- yours\n");
+	o = printf("%hx", hu);
+	printf(" <-- system\n");
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	hu = 244;
+	ft_printf("Test 72. hhx short int\n");
+	i = ft_printf("%hhx", hu);
+	printf(" <-- yours\n");
+	o = printf("%hhx", hu);
+	printf(" <-- system\n");
+	printf(" my length %i. system lenght %i\n", i,o);
+	// ft_printf("%hhX", 4294967296);
+
+	// ft_printf("%llx", 9223372036854775807);
+
+/*/	ft_printf("%llx", 9223372036854775808);
 	ft_printf("%010x", 542);
 	ft_printf("%-15x", 542);
 	ft_printf("%5.2x", 5427);
