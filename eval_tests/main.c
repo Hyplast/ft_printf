@@ -161,20 +161,49 @@ int	main()
 	printf(" <-- yours\n");
 	printf(" my length %i. system lenght %i\n", i,o);
 
-
 	ft_printf("Test 25. \n");
 	printf("   float 123456789123456789123456789.123456789 = %.6f\n", 123456789123456789123456789.123456789);
 	ft_printf ("ft_float 123456789123456789123456789.123456789 = %.6f\n", 123456789123456789123456789.123456789);
 	
+	ft_printf("Test 26. \n");
+	o = printf ("Characters: %c %c", 'a', 65);
+	printf(" <-- system\n");
+	i = ft_printf ("Characters: %c %c", 'a', 65);
+	printf(" <-- yours\n");
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 27. \n");
+	o = printf ("Decimals: %d %ld", 1977, 650000L);
+	printf(" <-- system\n");
+	i = ft_printf ("Decimals: %d %ld", 1977, 650000L);
+	printf(" <-- yours\n");
+	printf(" my length %i. system lenght %i\n", i,o);
+
+
 	printf("************************************\n");
 	printf("     ADVANCED TESTING WITH FLAGS\n");
 	printf("*************************************\n");
 	
-
 	ft_printf("Test 31. with #x,#X,#o \n");
 	o =    printf("sysv: %#x, %#X, %#o :\n", 100, 1000, 100000);
 	i = ft_printf("myve: %#x, %#X, %#o :\n", 100, 1000, 100000);	
 	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 32. \n");
+	o = printf ("Some different radices: %d %x %o %#x %#o", 100, 100, 100, 100, 100);
+	printf(" <-- system\n");
+	i = ft_printf ("Some different radices: %d %x %o %#x %#o", 100, 100, 100, 100, 100);
+	printf(" <-- yours\n");
+	printf(" my length %i. system lenght %i\n", i,o);
+
+
+	ft_printf("Test 33. \n");
+	o = printf ("more dif: %#x, %#X, %#o", 100, 100, 100);
+	printf(" <-- system\n");
+	i = ft_printf ("more dif: %#x, %#X, %#o", 100, 100, 100);
+	printf(" <-- yours\n");
+	printf(" my length %i. system lenght %i\n", i,o);
+
 
 	ft_printf("Test 36. \n");
 	printf("%010d", 1997);
@@ -304,11 +333,8 @@ int	main()
 	i = ft_printf("myve: %b,%b,%b,%b :\n", 888888, 256, 65535, 65536);	
 	printf ("*********************\n");
 
-	printf ("Characters: %c %c \n", 'a', 65);
-	printf ("Decimals: %d %ld\n", 1977, 650000L);
 	
-	printf ("Some different radices: %d %x %o %#x %#o \n", 100, 100, 100, 100, 100);
-	printf ("more dif: %#x, %#X, %#o \n", 100, 100, 100);
+	
 	printf ("floats: %4.2f %+.0e %E \n", 3.1416, 3.1416, 3.1416);
 	printf ("Width trick: %*d \n", 5, 10);
 	printf ("%s \n", "A string");
