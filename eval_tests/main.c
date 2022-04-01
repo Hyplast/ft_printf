@@ -87,16 +87,37 @@ int	main()
 	o =    ft_printf ("ft_float 3.1416 = %.51f\n", 3.1416);
 	i = 	  printf ("   float 3.1416 = %.51f\n", 3.1416);
 	printf(" my length %i. system lenght %i\n", i,o);
+	o =    ft_printf ("ft_float 3.1416 = %f\n", 3.1416);
+	i = 	  printf ("   float 3.1416 = %f\n", 3.1416);
+	o =    ft_printf ("ft_float 3.1416 = %.1f\n", 3.1416);
+	i = 	  printf ("   float 3.1416 = %.1f\n", 3.1416);
+	o =    ft_printf ("ft_float 3.1416 = %.3f\n", 3.1416);
+	i = 	  printf ("   float 3.1416 = %.3f\n", 3.1416);
+	o =    ft_printf ("ft_float 3.1416 = %.5f\n", 3.1416);
+	i = 	  printf ("   float 3.1416 = %.5f\n", 3.1416);
+	o =    ft_printf ("ft_float 3.1416 = %.7f\n", 3.1416);
+	i = 	  printf ("   float 3.1416 = %.7f\n", 3.1416);
+	o =    ft_printf ("ft_float 3.1416 = %.9f\n", 3.1416);
+	i = 	  printf ("   float 3.1416 = %.9f\n", 3.1416);
+	o =    ft_printf ("ft_float 3.1416 = %.11f\n", 3.1416);
+	i = 	  printf ("   float 3.1416 = %.11f\n", 3.1416);
+	o =    ft_printf ("ft_float 3.1416 = %.13f\n", 3.1416);
+	i = 	  printf ("   float 3.1416 = %.13f\n", 3.1416);
+	o =    ft_printf ("ft_float 3.1416 = %.15f\n", 3.1416);
+	i = 	  printf ("   float 3.1416 = %.15f\n", 3.1416);
+	o =    ft_printf ("ft_float 3.1416 = %.16f\n", 3.1416);
+	i = 	  printf ("   float 3.1416 = %.16f\n", 3.1416);
+	o =    ft_printf ("ft_float 3.1416 = %.17f\n", 3.1416);
+	i = 	  printf ("   float 3.1416 = %.17f\n", 3.1416);
+	o =    ft_printf ("ft_float 3.1416 = %.18f\n", 3.1416);
+	i = 	  printf ("   float 3.1416 = %.18f\n", 3.1416);
+	o =    ft_printf ("ft_float 3.1416 = %.19f\n", 3.1416);
+	i = 	  printf ("   float 3.1416 = %.19f\n", 3.1416);
 
 	ft_printf("Test 11. \n");
 	o =    printf("   float 1249328409.34897329487 = %f\n", 1249328409.34897329487);
 	i = ft_printf ("ft_float 1249328409.34897329487 = %f\n", 1249328409.34897329487);
 	printf(" my length %i. system lenght %i\n", i,o);
-/*
-	double f = 1249328409.34897329487;
-	char **s = ft_frexp(f);
-	ft_printf("%s,%s,%s\n", s[0], s[1], s[2]);
-*/
 
 	ft_printf("Test 12. \n");
 	o =    printf("   float 12493284091249328409.34897329487 = %f\n", 12493284091249328409.34897329487);
@@ -129,29 +150,35 @@ int	main()
 	printf(" my length %i. system lenght %i\n", i,o);
 	
 	ft_printf("Test 18. \n");
-	printf ("   printf printing float 3.1416 with .153 = %.153f\n", 3.1416);
-	ft_printf("ft_printf printing float 3.1416 with .153 = %.153f\n", 3.1416);
+	o =    printf ("   printf printing float 3.1416 with .153 = %.153f\n", 3.1416);
+	i = ft_printf("ft_printf printing float 3.1416 with .153 = %.153f\n", 3.1416);
+	printf(" my length %i. system lenght %i\n", i,o);
 	
 	ft_printf("Test 19. \n");
-	ft_printf("ft_printf printing float 3.1416 with .10 = %.10f\n", 3.1416);
-	ft_printf("ft_printf printing float 3.1416 with .10 = %.10f\n", 3.1416);
+	o =    printf("ft_printf printing float 3.1416 with .10 = %.10f\n", 3.1416);
+	i = ft_printf("ft_printf printing float 3.1416 with .10 = %.10f\n", 3.1416);
+	printf(" my length %i. system lenght %i\n", i,o);
 	
 	ft_printf("Test 20. \n");
 	float flow = 2.96f;
-	printf("double with    printf: %f \n", flow);
-	ft_printf("double with ft_printf: %f \n", flow);
+	o =    printf("double with    printf: %f \n", flow);
+	i = ft_printf("double with ft_printf: %f \n", flow);
+	printf(" my length %i. system lenght %i\n", i,o);
 	
 	ft_printf("Test 21. \n");
-	printf ("   printf printing float 3.1416 with .10 = %14.10f\n", 3.1416);
-	ft_printf("ft_printf printing float 3.1416 with .10 = %14.10f\n", 3.1416);
+	o =    printf ("   printf printing float 3.1416 with .10 = %14.10f\n", 3.1416);
+	i = ft_printf("ft_printf printing float 3.1416 with .10 = %14.10f\n", 3.1416);
+	printf(" my length %i. system lenght %i\n", i,o);
 	
 	ft_printf("Test 22. \n");
-	ft_printf ("ft_float 3.1416 with 51.51f = \"%10f\"\n", 3.1416);
-	printf ("   float 3.1416 with 51.51f = \"%10f\"\n", 3.1416);
+	o =    printf ("ft_float 3.1416 with 51.51f = \"%10f\"\n", 3.1416);
+	i = ft_printf ("   float 3.1416 with 51.51f = \"%10f\"\n", 3.1416);
+	printf(" my length %i. system lenght %i\n", i,o);
 	
 	ft_printf("Test 23. \n");
-	ft_printf ("ft_float 3.1416 with 51.51f = \"%10f\"\n", 113431243.1416);
-	printf ("   float 3.1416 with 51.51f = \"%10f\"\n", 113431243.1416);
+	i = ft_printf ("ft_float 3.1416 with 51.51f = \"%10f\"\n", 113431243.1416);
+	o =    printf ("   float 3.1416 with 51.51f = \"%10f\"\n", 113431243.1416);
+	printf(" my length %i. system lenght %i\n", i,o);
 	
 	ft_printf("Test 24. - ");
 	printf("From discord\n");
@@ -162,9 +189,10 @@ int	main()
 	printf(" my length %i. system lenght %i\n", i,o);
 
 	ft_printf("Test 25. \n");
-	printf("   float 123456789123456789123456789.123456789 = %.6f\n", 123456789123456789123456789.123456789);
-	ft_printf ("ft_float 123456789123456789123456789.123456789 = %.6f\n", 123456789123456789123456789.123456789);
-	
+	o =    printf("   float 123456789123456789123456789.123456789 = %.6f\n", 123456789123456789123456789.123456789);
+	i = ft_printf ("ft_float 123456789123456789123456789.123456789 = %.6f\n", 123456789123456789123456789.123456789);
+	printf(" my length %i. system lenght %i\n", i,o);
+
 	ft_printf("Test 26. \n");
 	o = printf ("Characters: %c %c", 'a', 65);
 	printf(" <-- system\n");
@@ -179,6 +207,25 @@ int	main()
 	printf(" <-- yours\n");
 	printf(" my length %i. system lenght %i\n", i,o);
 
+	ft_printf("Test 28. \n");
+	float flow2 = 3.1416f;
+	o =    printf("double with    printf: %f \n", flow2);
+	i = ft_printf("double with ft_printf: %f \n", flow2);
+	printf(" my length %i. system lenght %i\n", i,o);
+	o =    printf("double with    printf: %.51f \n", flow2);
+	i = ft_printf("double with ft_printf: %.51f \n", flow2);
+
+	ft_printf("Test 29. \n");
+	float flow3 = 3.1416f;
+	o =    printf("double with    printf: %.25lf \n", flow3);
+	i = ft_printf("double with ft_printf: %.25f \n", flow3);
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 30. \n");
+	//float flow4 = 3.1416f;
+	o =    printf("double with    printf: %.35lf \n", 3.1416);
+	i = ft_printf("double with ft_printf: %.35f \n", 3.1416);
+	printf(" my length %i. system lenght %i\n", i,o);
 
 	printf("************************************\n");
 	printf("     ADVANCED TESTING WITH FLAGS\n");
@@ -332,22 +379,15 @@ int	main()
 	printf("BONUS: %%b prints binary\n");
 	i = ft_printf("myve: %b,%b,%b,%b :\n", 888888, 256, 65535, 65536);	
 	printf ("*********************\n");
-
-	
-	
 	printf ("floats: %4.2f %+.0e %E \n", 3.1416, 3.1416, 3.1416);
 	printf ("Width trick: %*d \n", 5, 10);
 	printf ("%s \n", "A string");
-	
 	printf ("%% \n");
-
 	printf("¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤\n¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤\n");
-
+/*
 	char *s1 = "hello";
 	char *s2 = "world";
-
 	char *s3[] = {"hello", "world"};
-
 	printf("%s", s1);
 	printf("\n");
 	printf("%s", s2);
@@ -365,7 +405,7 @@ int	main()
 	printf(" - ");
 	printf("%s", s3[1]);
 	printf("\n");
-
+*/
 /*	float flo = 2.97f;
 	//float flo = 2.97f;
 	double dol = 2.97;

@@ -90,7 +90,7 @@ int				ft_print_c_ntimes(char c, int n);
 int				ft_putnchar(const char *s, size_t n);
 int				ft_lookforchar(const char *s, int c);
 char			*ft_basetoa(unsigned long n, unsigned long base, char sign);
-int				print_before(t_flags *flags, int chars_printed, char *s);
+int				print_before(t_flags *flags, int chars_printed, char *s, char c);
 size_t			count_digits(long c);
 void			ft_add_zeros(char **str, int zeros);
 int				print_b(const char *flags, va_list ap, int chars_printed);

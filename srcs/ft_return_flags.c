@@ -12,6 +12,16 @@
 
 #include "ft_printf.h"
 
+static void fix_overrides(t_flags *flag_s)
+{
+    if (flag_s->plus == 1)
+        flag_s->space = 0;
+    if (flag_s->minus == 1)
+        flag_s->zero = 0;
+    if(flag_s->prec != 6 && flag_s->spec != 0)
+        flag_s->zero = 0;
+}
+
 static char *find_flags(t_flags * flag_s, const char *flags)
 {
     int i;
@@ -130,18 +140,10 @@ t_flags *return_flags(const char *flags)
     temp = find_prec(flag_s, temp);
     if (ft_strcmp(temp, "") != 0)
         temp = find_flags(flag_s, temp);
+    fix_overrides(flag_s);
     if (ft_strcmp(temp, "") != 0)
         temp = find_width(flag_s, temp);
     if (ft_strcmp(temp, "") != 0)
         ft_strdel(&temp);
-/*
-	ft_putstr("flag_s: ");
-	ft_putnbr(found);
-	ft_putstr(" and ");
-	ft_putnbr(flag_s->len);
-	ft_putstr(" and ");
-	ft_putstr(flags);
-	ft_putstr("-\n");
-*/
-	return (flag_s);
+    return (flag_s);
 }

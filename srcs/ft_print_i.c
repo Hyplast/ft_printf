@@ -39,30 +39,31 @@ int	print_d(const char *flags, int d, int chars_printed)
 	c = 32;
 	flag_s = return_flags(flags);
 	s = ft_itoa(d);
-	if (flag_s->space == 1 && d > 0 && flag_s->plus == 0)
-		chars_printed += print_c(' ');
-	if (flag_s->zero == 1)
-		c = '0';
-	if (flag_s->minus == 1)
-	{
-		if (flag_s->plus == 1)
-		{
-			if (d > 0)
-				chars_printed += print_c('+');
-		}
-		chars_printed += ft_putnchar(s, ft_strlen(s));
-		chars_printed += ft_print_c_ntimes(c, flag_s->width - chars_printed);
-	}
-	else
-	{
-		chars_printed += ft_print_c_ntimes(c, flag_s->width - ft_strlen(s) - flag_s->plus - chars_printed);
-		if (flag_s->plus == 1)
-		{
-			if (d > 0)
-				chars_printed += print_c('+');
-		}
-		chars_printed += ft_putnchar(s, ft_strlen(s));
-	}
+	chars_printed = print_before(flag_s, chars_printed, s, c);
+	// if (flag_s->space == 1 && d > 0 && flag_s->plus == 0)
+	// 	chars_printed += print_c(' ');
+	// if (flag_s->zero == 1)
+	// 	c = '0';
+	// if (flag_s->minus == 1)
+	// {
+	// 	if (flag_s->plus == 1)
+	// 	{
+	// 		if (d > 0)
+	// 			chars_printed += print_c('+');
+	// 	}
+	// 	chars_printed += ft_putnchar(s, ft_strlen(s));
+	// 	chars_printed += ft_print_c_ntimes(c, flag_s->width - chars_printed);
+	// }
+	// else
+	// {
+	// 	chars_printed += ft_print_c_ntimes(c, flag_s->width - ft_strlen(s) - flag_s->plus - chars_printed);
+	// 	if (flag_s->plus == 1)
+	// 	{
+	// 		if (d > 0)
+	// 			chars_printed += print_c('+');
+	// 	}
+	// 	chars_printed += ft_putnchar(s, ft_strlen(s));
+	// }
 	return (chars_printed);
 }
 

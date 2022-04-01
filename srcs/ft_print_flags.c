@@ -38,25 +38,49 @@ int	ft_print_c_ntimes(char c, int n)
 	return (i);
 }
 
-int print_before(t_flags *flags, int chars_printed, char *s)
+int print_before(t_flags *flag_s, int chars_printed, char *s, char c)
 {
-    char    c;
-    int     i;
+    if (flag_s->space == 1 && s[0] != '-' && flag_s->plus == 0)
+		chars_printed += print_c(' ');
+	if (flag_s->zero == 1)
+		c = '0';
+	if (flag_s->minus == 1)
+	{
+		if (flag_s->plus == 1)
+		{
+			if (s[0] != '-')
+				chars_printed += print_c('+');
+		}
+		chars_printed += ft_putnchar(s, ft_strlen(s));
+		chars_printed += ft_print_c_ntimes(c, flag_s->width - chars_printed);
+	}
+	else
+	{
+		chars_printed += ft_print_c_ntimes(c, flag_s->width - ft_strlen(s) - flag_s->plus - chars_printed);
+		if (flag_s->plus == 1)
+		{
+			if (s[0] != '-')
+				chars_printed += print_c('+');
+		}
+		chars_printed += ft_putnchar(s, ft_strlen(s));
+	}
+    // char    c;
+    // int     i;
 
-    c = ' ';
-    i = 0;
-    if (flags->zero == 1)
-        c = '0';
-    i = flags->width - ft_strlen(s);
-    if (flags->minus == 1)
-    {
-        chars_printed += ft_putnchar(s, ft_strlen(s));
-        chars_printed += ft_print_c_ntimes(c, i);
-    }
-    else
-    {
-        chars_printed += ft_print_c_ntimes(c, i);
-        chars_printed += ft_putnchar(s, ft_strlen(s));
-    }
+    // c = ' ';
+    // i = 0;
+    // if (flags->zero == 1)
+    //     c = '0';
+    // i = flags->width - ft_strlen(s);
+    // if (flags->minus == 1)
+    // {
+    //     chars_printed += ft_putnchar(s, ft_strlen(s));
+    //     chars_printed += ft_print_c_ntimes(c, i);
+    // }
+    // else
+    // {
+    //     chars_printed += ft_print_c_ntimes(c, i);
+    //     chars_printed += ft_putnchar(s, ft_strlen(s));
+    // }
     return (chars_printed);
 }
