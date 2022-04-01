@@ -398,6 +398,112 @@ int	main()
 	i =    printf ("Preceding with 0' ': '% d' \n", 1977);
 	o = ft_printf ("Preceding with 0' ': '% d' \n", 1977);
 	printf(" my length %i. system lenght %i\n", i,o);
+/*
+	ft_printf("Test 58. \n");
+	i = ft_printf("%5%");
+	printf(" <-- yours\n");
+	o = printf("%5%");
+	printf(" <-- system\n");
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 59. \n");
+	i = ft_printf("%-5%");
+	printf(" <-- yours\n");
+	o = printf("%-5%");
+	printf(" <-- system\n");
+	printf(" my length %i. system lenght %i\n", i,o);
+*/
+/*	ft_printf("Test 60. \n");
+	i = ft_printf("%.0%");
+	printf(" <-- yours\n");
+	o = printf("%.0%");
+	printf(" <-- system\n");
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 61. \n");
+	i = ft_printf("%   %", "test");
+	printf(" <-- yours\n");
+	o = printf("%   %", "test");
+	printf(" <-- system\n");
+	printf(" my length %i. system lenght %i\n", i,o);
+*/
+	ft_printf("Test 62. \n");
+	i = ft_printf("%x", 0);
+	printf(" <-- yours\n");
+	o = printf("%x", 0);
+	printf(" <-- system\n");
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 63. \n");
+	i = ft_printf("%X", 0);
+	printf(" <-- yours\n");
+	o = printf("%X", 0);
+	printf(" <-- system\n");
+	printf(" my length %i. system lenght %i\n", i,o);
+/*
+	ft_printf("Test 64. \n");
+	i = ft_printf("%x", 4294967296);
+	printf(" <-- yours\n");
+	o = printf("%x", 4294967296);
+	printf(" <-- system\n");
+	printf(" my length %i. system lenght %i\n", i,o);
+*/
+/*	ft_printf("Test 65. \n");
+	i = ft_printf("%x", test);
+	printf(" <-- yours\n");
+	o = printf("%x", test);
+	printf(" <-- system\n");
+	printf(" my length %i. system lenght %i\n", i,o);
+*/
+	ft_printf("Test 66. \n");
+	i = ft_printf("%10x", 42);
+	printf(" <-- yours\n");
+	o = printf("%10x", 42);
+	printf(" <-- system\n");
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 67. \n");
+	i = ft_printf("%-10x", 42);
+	printf(" <-- yours\n");
+	o = printf("%-10x", 42);
+	printf(" <-- system\n");
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 68. \n");
+	i = ft_printf("%lx", 4294967296);
+	printf(" <-- yours\n");
+	o = printf("%lx", 4294967296);
+	printf(" <-- system\n");
+	printf(" my length %i. system lenght %i\n", i,o);
+/*
+	ft_printf("Test 69. \n");
+	i = ft_printf("%llX", 4294967296);
+	printf(" <-- yours\n");
+	o = printf("%llX", 4294967296);
+	printf(" <-- system\n");
+	printf(" my length %i. system lenght %i\n", i,o);
+*/
+/*	ft_printf("%llX", 4294967296);
+	ft_printf("%hx", 4294967296);
+	ft_printf("%hhX", 4294967296);
+	ft_printf("%llx", 9223372036854775807);
+//	ft_printf("%llx", 9223372036854775808);
+	ft_printf("%010x", 542);
+	ft_printf("%-15x", 542);
+	ft_printf("%5.2x", 5427);
+	ft_printf("%#llx", 9223372036854775807);
+	ft_printf("%#x", 0);
+	ft_printf("%#8x", 42);
+	ft_printf("%#08x", 42);
+	ft_printf("%#-08x", 42);
+	ft_printf("@moulitest: %#.x %#.0x", 0, 0);
+	ft_printf("@moulitest: %5.x %5.0x", 0, 0);
+	ft_printf("%10s is a string", "this");
+	ft_printf("%.2s is a string", "this");
+	ft_printf("%5.2s is a string", "this");
+
+*/
+
 
 	printf ("*********************\n");
 	printf("************************************\n");
