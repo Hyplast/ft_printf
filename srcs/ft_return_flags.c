@@ -21,11 +21,13 @@ static char *find_flags(t_flags * flag_s, const char *flags)
     {
         if (flags[i] == '0')
         {   
-            if (i - 1 > 0)
+            if (i - 1 >= 0)
             {
                 if (ft_isdigit(flags[i - 1]) == 0)
                     flag_s->zero = 1;
             }
+            if (i == 0)
+                flag_s->zero = 1;
         }
         else if (flags[i] == ' ')
             flag_s->space = 1;
@@ -53,10 +55,9 @@ static char *find_width(t_flags * flag_s, char *flags)
             digits++;
         i++;
     }
-    
     flag_s->width = ft_atoi(flags);
-
-    return (flags);    
+    //flags = "";
+    return (flags);
 }
 
 static char *find_prec(t_flags * flag_s, char *flags)
@@ -66,8 +67,11 @@ static char *find_prec(t_flags * flag_s, char *flags)
     index = ft_lookforchar(flags, '.');
     if (index != -1)
     {
-        flag_s->prec = ft_atoi(ft_strsub(flags, index, ft_strlen(flags) - index));
-        flags = ft_strsub(flags, 0, ft_strlen(flags) - index);
+        flag_s->prec = ft_atoi(ft_strsub(flags, index + 1, ft_strlen(flags) - index));
+        if (index == 0)
+            flags = "";
+        else
+            flags = ft_strsub(flags, 0, ft_strlen(flags) - index - 1);
     }
     return (flags);
 }
@@ -124,9 +128,12 @@ t_flags *return_flags(const char *flags)
     init_flags(flag_s, flags);
     temp = find_spec(flag_s, temp);
     temp = find_prec(flag_s, temp);
-    temp = find_flags(flag_s, temp);
-    temp = find_width(flag_s, temp);
-    ft_strdel(&temp);
+    if (ft_strcmp(temp, "") != 0)
+        temp = find_flags(flag_s, temp);
+    if (ft_strcmp(temp, "") != 0)
+        temp = find_width(flag_s, temp);
+    if (ft_strcmp(temp, "") != 0)
+        ft_strdel(&temp);
 /*
 	ft_putstr("flag_s: ");
 	ft_putnbr(found);

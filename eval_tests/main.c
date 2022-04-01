@@ -74,36 +74,44 @@ int	main()
 	printf(" my length %i. system lenght %i\n", i,o);
 
 	ft_printf("Test 10. \n");
-	ft_printf ("ft_float 3.1416 = %.51f\n", 3.1416);
-	printf ("   float 3.1416 = %.51f\n", 3.1416);
+	o =    ft_printf ("ft_float 3.1416 = %.51f\n", 3.1416);
+	i = 	  printf ("   float 3.1416 = %.51f\n", 3.1416);
+	printf(" my length %i. system lenght %i\n", i,o);
 
 	ft_printf("Test 11. \n");
-	printf("   float 1249328409.34897329487 = %f\n", 1249328409.34897329487);
-	ft_printf ("ft_float 1249328409.34897329487 = %f\n", 1249328409.34897329487);
+	o =    printf("   float 1249328409.34897329487 = %f\n", 1249328409.34897329487);
+	i = ft_printf ("ft_float 1249328409.34897329487 = %f\n", 1249328409.34897329487);
+	printf(" my length %i. system lenght %i\n", i,o);
 
 	ft_printf("Test 12. \n");
-	printf("   float 12493284091249328409.34897329487 = %f\n", 12493284091249328409.34897329487);
-	ft_printf ("ft_float 12493284091249328409.34897329487 = %f\n", 12493284091249328409.34897329487);
-	
+	o =    printf("   float 12493284091249328409.34897329487 = %f\n", 12493284091249328409.34897329487);
+	i = ft_printf ("ft_float 12493284091249328409.34897329487 = %f\n", 12493284091249328409.34897329487);
+	printf(" my length %i. system lenght %i\n", i,o);
+
 	ft_printf("Test 13. \n");
-	printf("   float 123456789123456789123456789.123456789 = %f\n", 123456789123456789123456789.123456789);
-	ft_printf ("ft_float 123456789123456789123456789.123456789 = %f\n", 123456789123456789123456789.123456789);
-	
+	o =    printf("   float 123456789123456789123456789.123456789 = %f\n", 123456789123456789123456789.123456789);
+	i = ft_printf ("ft_float 123456789123456789123456789.123456789 = %f\n", 123456789123456789123456789.123456789);
+	printf(" my length %i. system lenght %i\n", i,o);
+
 	ft_printf("Test 14. \n");
-	printf ("   printf printing float 3.1416 = %f\n", 3.1416);
-	ft_printf("ft_printf printing float 3.1416 = %f\n", 3.1416);
+	o =    printf ("   printf printing float 3.1416 = %f\n", 3.1416);
+	i = ft_printf("ft_printf printing float 3.1416 = %f\n", 3.1416);
+	printf(" my length %i. system lenght %i\n", i,o);
 	
 	ft_printf("Test 15. \n");
-	printf ("   printf printing float 3.1416 with .10 = %.10f\n", 3.1416);
-	ft_printf("ft_printf printing float 3.1416 with .10 = %.10f\n", 3.1416);
+	o =    printf ("   printf printing float 3.1416 with .10 = %.10f\n", 3.1416);
+	i = ft_printf("ft_printf printing float 3.1416 with .10 = %.10f\n", 3.1416);
+	printf(" my length %i. system lenght %i\n", i,o);
 	
 	ft_printf("Test 16. \n");
-	printf ("   printf printing float 3.1416 with .3 = %.3f\n", 3.1416);
-	ft_printf("ft_printf printing float 3.1416 with .3 = %.3f\n", 3.1416);
+	o =    printf ("   printf printing float 3.1416 with .3 = %.3f\n", 3.1416);
+	i = ft_printf("ft_printf printing float 3.1416 with .3 = %.3f\n", 3.1416);
+	printf(" my length %i. system lenght %i\n", i,o);
 	
 	ft_printf("Test 17. \n");
-	printf ("   printf printing float 3.1416 with .53 = %.53f\n", 3.1416);
-	ft_printf("ft_printf printing float 3.1416 with .53 = %.53f\n", 3.1416);
+	o =    printf ("   printf printing float 3.1416 with .53 = %.53f\n", 3.1416);
+	i = ft_printf("ft_printf printing float 3.1416 with .53 = %.53f\n", 3.1416);
+	printf(" my length %i. system lenght %i\n", i,o);
 	
 	ft_printf("Test 18. \n");
 	printf ("   printf printing float 3.1416 with .153 = %.153f\n", 3.1416);
@@ -158,6 +166,119 @@ int	main()
 	ft_printf("%010d", 1997);
 	printf(" <-- yours\n");
 
+	ft_printf("Test 37. \n");
+	o =     printf ("Preceding with minus: '%-10d' \n", 1977);
+	i =  ft_printf ("Preceding with minus: '%-10d' \n", 1977);
+	printf(" my length %i. system lenght %i\n", i,o);
+	
+	ft_printf("Test 38. \n");
+	o =    printf ("Preceding with plus:  '%+10d' \n", 1977);
+	i = ft_printf ("Preceding with plus:  '%+10d' \n", 1977);
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 39. \n");
+	o =    printf ("Preceding with blanks:'%10d' \n", 1977);
+	i = ft_printf ("Preceding with blanks:'%10d' \n", 1977);
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 40. \n");
+	o =    printf ("Preceding with blanks:'%10d'", -1977);
+	printf(" <-- system\n");
+	i = ft_printf ("Preceding with blanks:'%10d'", -1977);
+	printf(" <-- yours\n");
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 41. \n");
+	o =    printf ("Preceding with zeros: '%010d' \n", 1977);
+	i = ft_printf ("Preceding with zeros: '%010d' \n", 1977);
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 42. \n");
+	o =    printf ("Preceding with zeros: '%0u' \n", -100);
+	i = ft_printf ("Preceding with zeros: '%0u' \n", -100);
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 43. \n");
+	o =    printf ("Preceding with blanks:'%10d' \n", -1977);
+	i = ft_printf ("Preceding with blanks:'%10d' \n", -1977);
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 44. \n");
+	o =    printf ("Preceding with -10d:  '%-10d' \n", 1977);
+	i = ft_printf ("Preceding with -10d:  '%-10d' \n", 1977);
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 45. \n");
+	i =    printf ("Preceding with blanks:'%10d' \n", -1977);
+	o = ft_printf ("Preceding with blanks:'%10d' \n", -1977);
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 45. \n");
+	i =    printf ("Preceding with - 10d: '%- 10d' \n", 1977);
+	o = ft_printf ("Preceding with - 10d: '%- 10d' \n", 1977);
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 46. \n");
+	i =    printf ("Preceding with -10d:  '% -10d' \n", 1977);
+	o = ft_printf ("Preceding with -10d:  '% -10d' \n", 1977);
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 47. \n");
+	i =    printf ("Preceding with - 10d: '%- 10d' \n", -1977);
+	o = ft_printf ("Preceding with - 10d: '%- 10d' \n", -1977);
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 48. \n");
+	i =    printf ("Preceding with -10d:  '% -10d' \n", -1977);
+	o = ft_printf ("Preceding with -10d:  '% -10d' \n", -1977);
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 49. \n");
+	i =    printf ("Preceding with -10d:  '% -10d' \n", -1977);
+	o = ft_printf ("Preceding with -10d:  '% -10d' \n", -1977);
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 50. \n");
+	i =    printf ("Preceding with blanks:'% 10d'", 1977);
+	printf(" <-- system\n");
+	o = ft_printf ("Preceding with blanks:'% 10d'", 1977);
+	printf(" <-- yours\n");
+	printf(" my length %i. system lenght %i\n", o,i);
+
+	ft_printf("Test 51. \n");
+	i =    printf ("Preceding with blanks:'% 10d' \n", -1977);
+	o = ft_printf ("Preceding with blanks:'% 10d' \n", -1977);
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 52. \n");
+	i =    printf ("Preceding with zeros: '%0 10d' \n", 1977);
+	o = ft_printf ("Preceding with zeros: '%0 10d' \n", 1977);
+	printf(" my length %i. system lenght %i\n", o,i);
+
+	ft_printf("Test 53. \n");
+	i =    printf ("Preceding with -+: '%-+10d' \n", 1977);
+	o = ft_printf ("Preceding with -+: '%-+10d' \n", 1977);
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 54. \n");
+	i =    printf ("Preceding with +-: '%+-10d' \n", 1977);
+	o = ft_printf ("Preceding with +-: '%+-10d' \n", 1977);
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 55. \n");
+	i =    printf ("Preceding with ' ': '% 10d' \n", -1977);
+	o = ft_printf ("Preceding with ' ': '% 10d' \n", -1977);
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 56. \n");
+	i =    printf ("Preceding with 0' ': '%0 10d' \n", -1977);
+	o = ft_printf ("Preceding with 0' ': '%0 10d' \n", -1977);
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 57. \n");
+	i =    printf ("Preceding with 0' ': '% d' \n", 1977);
+	o = ft_printf ("Preceding with 0' ': '% d' \n", 1977);
+	printf(" my length %i. system lenght %i\n", i,o);
 
 	printf ("*********************\n");
 	printf("************************************\n");
@@ -166,31 +287,6 @@ int	main()
 	printf("BONUS: %%b prints binary\n");
 	i = ft_printf("myve: %b,%b,%b,%b :\n", 888888, 256, 65535, 65536);	
 	printf ("*********************\n");
-	
-	printf ("Preceding with minus: '%-10d' \n", 1977);
-	printf ("Preceding with plus:  '%+10d' \n", 1977);
-	printf ("Preceding with blanks:'%10d' \n", 1977);
-	printf ("Preceding with blanks:'%10d' \n", -1977);
-	printf ("Preceding with zeros: '%010d' \n", 1977);
-	printf ("Preceding with zeros: '%0u' \n", -100);
-
-	printf ("Preceding with -10d:  '%-10d' \n", 1977);
-	printf ("Preceding with - 10d: '%- 10d' \n", 1977);
-	printf ("Preceding with -10d:  '% -10d' \n", 1977);
-	printf ("Preceding with - 10d: '%- 10d' \n", -1977);
-	printf ("Preceding with -10d:  '% -10d' \n", -1977);
-
-
-	printf ("Preceding with blanks:'% 10d' \n", 1977);
-	printf ("Preceding with blanks:'% 10d' \n", -1977);
-	printf ("Preceding with zeros: '%0 10d' \n", 1977);
-
-
-	printf ("Preceding with -+: '%-+10d' \n", 1977);
-	printf ("Preceding with +-: '%+-10d' \n", 1977);
-	//printf ("Preceding with +-: '%010d' \n", 1977);
-	printf ("Preceding with ' ': '% 10d' \n", -1977);
-	printf ("Preceding with 0' ': '%0 10d' \n", -1977);
 
 	printf ("Characters: %c %c \n", 'a', 65);
 	printf ("Decimals: %d %ld\n", 1977, 650000L);

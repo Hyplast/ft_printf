@@ -32,31 +32,37 @@ int	print_c(char c)
 
 int	print_d(const char *flags, int d, int chars_printed)
 {
-	char *s;
-	int		num;
-	int		num2;
-	int		num3;
+	char	*s;
 	t_flags *flag_s;
+	char	c;
 
-	num = -1;
-	num2 = -1;
-	num3 = -1;
+	c = 32;
 	flag_s = return_flags(flags);
-	ft_putstr("flasg len ");
-	ft_putnbr(flag_s->len);
-	ft_putstr("-\n");
-	num = ft_lookforchar(flags, '0');
-	num2 = ft_lookforchar(flags, 'd');
-	if(num >= 0 && num2 != 0)
-	{
-		num3 = ft_atoi(ft_strsub(flags, 0, num));
-	}
-	chars_printed += ft_print_c_ntimes('0', num3);
-
-	//ft_putstr(flags);
 	s = ft_itoa(d);
-	//if (ft_strlen(s) < )
-	chars_printed += ft_putnchar(s, ft_strlen(s));
+	if (flag_s->space == 1 && d > 0 && flag_s->plus == 0)
+		chars_printed += print_c(' ');
+	if (flag_s->zero == 1)
+		c = '0';
+	if (flag_s->minus == 1)
+	{
+		if (flag_s->plus == 1)
+		{
+			if (d > 0)
+				chars_printed += print_c('+');
+		}
+		chars_printed += ft_putnchar(s, ft_strlen(s));
+		chars_printed += ft_print_c_ntimes(c, flag_s->width - chars_printed);
+	}
+	else
+	{
+		chars_printed += ft_print_c_ntimes(c, flag_s->width - ft_strlen(s) - flag_s->plus - chars_printed);
+		if (flag_s->plus == 1)
+		{
+			if (d > 0)
+				chars_printed += print_c('+');
+		}
+		chars_printed += ft_putnchar(s, ft_strlen(s));
+	}
 	return (chars_printed);
 }
 
