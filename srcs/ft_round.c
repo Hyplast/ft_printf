@@ -101,6 +101,11 @@ static void	do_rounding(char *ret, int i, char **res)
 	}
 	else if (ret[i - 1] >= '5')
 		round_sup(ret, i, res);
+	else
+	{
+		fill_prec(ret, ret, i - 2);
+		res[1] = ft_strdup(ret);
+	}
 	ft_strdel(&ret);
 }
 

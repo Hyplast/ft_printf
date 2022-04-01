@@ -110,7 +110,7 @@ static void init_flags(t_flags *flag_s, const char *flags)
     flag_s->len = ft_strlen(flags);
     flag_s->spec = 0;
     flag_s->width = 0;
-    flag_s->prec = 0;
+    flag_s->prec = 6;
     flag_s->sharp = 0;
     flag_s->minus = 0;
     flag_s->plus = 0;

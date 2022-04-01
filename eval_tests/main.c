@@ -73,6 +73,16 @@ int	main()
 	i = ft_printf("myve: %u,%u,%u :\n", -100, -1000, -100000);	
 	printf(" my length %i. system lenght %i\n", i,o);
 
+/*
+	ft_printf("Test 24. - ");
+	printf("From discord\n");
+	o = printf("%.30f", 0.0025);
+	printf(" <-- system\n");
+	i = ft_printf("%.30f", 0.0025);
+	printf(" <-- yours\n");
+	printf(" my length %i. system lenght %i\n", i,o);
+*/
+
 	ft_printf("Test 10. \n");
 	o =    ft_printf ("ft_float 3.1416 = %.51f\n", 3.1416);
 	i = 	  printf ("   float 3.1416 = %.51f\n", 3.1416);
@@ -82,6 +92,11 @@ int	main()
 	o =    printf("   float 1249328409.34897329487 = %f\n", 1249328409.34897329487);
 	i = ft_printf ("ft_float 1249328409.34897329487 = %f\n", 1249328409.34897329487);
 	printf(" my length %i. system lenght %i\n", i,o);
+/*
+	double f = 1249328409.34897329487;
+	char **s = ft_frexp(f);
+	ft_printf("%s,%s,%s\n", s[0], s[1], s[2]);
+*/
 
 	ft_printf("Test 12. \n");
 	o =    printf("   float 12493284091249328409.34897329487 = %f\n", 12493284091249328409.34897329487);
@@ -140,10 +155,11 @@ int	main()
 	
 	ft_printf("Test 24. - ");
 	printf("From discord\n");
-	printf("%.30f", 0.0025);
+	o = printf("%.30f", 0.0025);
 	printf(" <-- system\n");
-	ft_printf("%.30f", 0.0025);
+	i = ft_printf("%.30f", 0.0025);
 	printf(" <-- yours\n");
+	printf(" my length %i. system lenght %i\n", i,o);
 
 
 	ft_printf("Test 25. \n");

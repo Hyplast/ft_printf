@@ -92,7 +92,7 @@ char	**ft_frexp(double x)
 
 	exp_str[11] = '\0';
 	res = (char **)malloc(sizeof(char *) * 3);
-	nb_str = ft_dftoa(x);
+	nb_str = ft_dftoa(x);		// SOMETHING WEIRD, cannot access memory location
 	res[2] = ft_strnew(1);
 	ft_strncpy(exp_str, nb_str + 1, 11);
 	mantissa = ft_strdup(nb_str + 12);
