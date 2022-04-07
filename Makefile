@@ -6,7 +6,7 @@
 #    By: severi <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/30 18:43:06 by severi            #+#    #+#              #
-#    Updated: 2022/03/11 01:57:57 by severi           ###   ########.fr        #
+#    Updated: 2022/04/07 23:39:10 by severi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,7 +75,6 @@ get_next_line.c
 SRC = ft_printf.c \
 ft_frexp.c \
 ft_frexpl.c \
-ft_dtoa.c \
 ft_calc_str.c \
 ft_float_conv.c \
 ft_floatl.c \
@@ -91,6 +90,7 @@ ft_print_f.c \
 ft_print_i.c \
 ft_print_x.c \
 ft_basetoa.c \
+ft_utils.c \
 ft_round.c 
 
 SRCS = $(addprefix srcs/, $(SRC))

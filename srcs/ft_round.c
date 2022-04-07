@@ -6,30 +6,15 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 13:46:50 by severi            #+#    #+#             */
-/*   Updated: 2022/03/11 02:12:48 by severi           ###   ########.fr       */
+/*   Updated: 2022/04/07 23:40:23 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	fill_prec(char *ret, char *str, int size)
+int	only_nine(char *ret)
 {
-	int j;
-	int i;
-
-	i = 0;
-	j = ft_strlen(str);
-	while (i <= size && i < j)
-	{
-		ret[i] = str[i];
-		i += 1;
-	}
-	ret[i] = '\0';
-}
-
-int		only_nine(char *ret)
-{
-	int i;
+	int	i;
 
 	i = 0;
 	while (ret[i] != '\0')
@@ -46,20 +31,24 @@ static void	round_whole(char **res)
 	char	*tmp;
 	char	*one;
 
-	if (!(one = ft_strdup("1"))
-		|| !(tmp = ft_strdup(res[0])))
+	one = ft_strdup("1");
+	tmp = ft_strdup(res[0]);
+	if (!(one) || !(tmp))
 		return ;
 	if (!ft_strcmp(res[0], "0"))
 	{
 		ft_strdel(&res[0]);
-		if (!(res[0] = ft_strdup("1")))
+		res[0] = ft_strdup("1");
+		if (!(res[0]))
 			return ;
 	}
 	ft_strdel(&res[0]);
-	if (!(res[0] = vlq_sum(tmp, one)))
+	res[0] = vlq_sum(tmp, one);
+	if (!(res[0]))
 		return ;
 	ft_strdel(&res[1]);
-	if (!(res[1] = ft_strdup("0")))
+	res[1] = ft_strdup("0");
+	if (!(res[1]))
 		return ;
 	ft_strdel(&tmp);
 	ft_strdel(&one);
@@ -74,10 +63,12 @@ static void	round_sup(char *ret, int i, char **res)
 		round_whole(res);
 		return ;
 	}
-	if (!(five = ft_strdup("5")))
+	five = ft_strdup("5");
+	if (!(five))
 		return ;
 	ft_strdel(&res[1]);
-	if (!(res[1] = vlq_sum(ret, five)))
+	res[1] = vlq_sum(ret, five);
+	if (!(res[1]))
 		return ;
 	res[1][i - 1] = '\0';
 	if (res[1][i - 2] == '1' && i == 2)
@@ -92,10 +83,12 @@ static void	do_rounding(char *ret, int i, char **res)
 	if (ret[i - 1] == '0')
 	{
 		ret[i - 1] = '\0';
-		if (!(tmp = ft_strdup(ret)))
+		tmp = ft_strdup(ret);
+		if (!(tmp))
 			return ;
 		ft_strdel(&res[1]);
-		if (!(res[1] = ft_strdup(tmp)))
+		res[1] = ft_strdup(tmp);
+		if (!(res[1]))
 			return ;
 		ft_strdel(&tmp);
 	}
@@ -115,7 +108,7 @@ static void	do_rounding(char *ret, int i, char **res)
 *   @param res expects "x.x" format string as a pointer
 *   @param precision number of meaningfull numbers
 */
-void		ft_round(char **res, int precision)
+void	ft_round(char **res, int precision)
 {
 	char	*ret;
 	int		prec;
@@ -123,7 +116,8 @@ void		ft_round(char **res, int precision)
 	prec = precision - 1;
 	if (!ft_strcmp(res[1], "0"))
 		return ;
-	if (!(ret = ft_strnew(prec + 2)))
+	ret = ft_strnew(prec + 2);
+	if (!(ret))
 		return ;
 	fill_prec(ret, res[1], prec + 1);
 	do_rounding(ret, prec + 2, res);

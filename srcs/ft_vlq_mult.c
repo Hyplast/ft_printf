@@ -6,7 +6,7 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 01:31:48 by severi            #+#    #+#             */
-/*   Updated: 2022/03/11 01:34:53 by severi           ###   ########.fr       */
+/*   Updated: 2022/04/08 01:11:13 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ static void	do_mult(t_calc *info, char *s1, char *s2, char *res)
 	int	hold;
 
 	i = info->sum;
-	j = info->len1;
+	j = info->len1 + 1;
 	hold = 0;
-	while (j >= 0)
+	while (--j >= 0)
 	{
 		hold = 0;
 		if (j >= 0 && info->len2 >= 0 && s1[j] * s2[info->len2] + res[i] >= 10)
@@ -39,7 +39,6 @@ static void	do_mult(t_calc *info, char *s1, char *s2, char *res)
 				res[i] += s1[j] * 1;
 		}
 		res[--i] += hold;
-		j--;
 	}
 }
 
@@ -63,8 +62,6 @@ static char	*mult_inter_sums(t_calc *info, char *s1, char *s2, char *res)
 	char	*sum;
 
 	sum = ft_strdup("0");
-	if (!sum)
-		return (NULL);
 	vlq_tmp_conv(info, s1, s2);
 	while (info->len2 >= 0)
 	{

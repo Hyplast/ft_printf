@@ -6,17 +6,16 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 01:43:57 by severi            #+#    #+#             */
-/*   Updated: 2022/03/11 01:44:55 by severi           ###   ########.fr       */
+/*   Updated: 2022/04/07 23:19:00 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /*
-**	---> bintowhole converts the exponent binary string into a decimal string
-**	by multiplying corresponding powers of two by '1' bits
+*	bintowhole converts the exponent binary string into a decimal string
+*	by multiplying corresponding powers of two by '1' bits
 */
-
 char	*ft_bintowhole(char *vlq)
 {
 	int		i;
@@ -35,12 +34,8 @@ char	*ft_bintowhole(char *vlq)
 		{
 			pow = vlq_binpow(i);
 			tmp = ft_strdup(ret);
-			if (!pow || !tmp)
-				return (NULL);
 			ft_strdel(&ret);
 			ret = vlq_sum(tmp, pow);
-			if (!ret)
-				return (NULL);
 			ft_strdel(&pow);
 			ft_strdel(&tmp);
 		}
@@ -50,8 +45,8 @@ char	*ft_bintowhole(char *vlq)
 }
 
 /*
-**	---> bintodec computes the following sum : (sum 5^(frac_digits - i)
-**	which is equal to the decimal part (in base 10)
+*	bintodec computes the following sum : (sum 5^(frac_digits - i)
+*	which is equal to the decimal part (in base 10)
 */
 static char	*compute_sum(char *vlq, char *ret, int i, int j)
 {
@@ -70,13 +65,9 @@ static char	*compute_sum(char *vlq, char *ret, int i, int j)
 			ft_strdel(&pow);
 			pow = get_pow_ten(tmp_pow, j);
 			tmp = ft_strdup(ret);
-			if (!pow || !tmp)
-				return (NULL);
 			ft_strdel(&tmp_pow);
 			ft_strdel(&ret);
 			ret = vlq_sum(tmp, pow);
-			if (!ret)
-				return (NULL);
 			ft_strdel(&pow);
 			ft_strdel(&tmp);
 		}

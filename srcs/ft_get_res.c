@@ -6,17 +6,17 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 01:47:10 by severi            #+#    #+#             */
-/*   Updated: 2022/03/11 01:50:01 by severi           ###   ########.fr       */
+/*   Updated: 2022/04/08 00:57:02 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /*
-**	---> get_res converts the binary char into left & right
-**	left[0] = '1': multiply by 2^52 to get MSB
-**	left is the part on the left of the floating point
-**	right is the part on the right of the floating point
+*	get_res converts the binary char into left & right
+*	left[0] = '1': multiply by 2^52 to get MSB
+*	left is the part on the left of the floating point
+*	right is the part on the right of the floating point
 */
 static void	res_neg_exp(char *mantissa, int exp, char **res)
 {
@@ -44,8 +44,6 @@ static void	res_neg_exp(char *mantissa, int exp, char **res)
 	right[i] = '\0';
 	res[0] = ft_strdup("0");
 	res[1] = ft_bintodec(right);
-	if (!(res[0]) || !(res[1]))
-		return ;
 	ft_strdel(&right);
 }
 

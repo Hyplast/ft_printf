@@ -6,23 +6,11 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 01:47:10 by severi            #+#    #+#             */
-/*   Updated: 2022/03/26 01:50:01 by severi           ###   ########.fr       */
+/*   Updated: 2022/04/08 00:46:24 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int	print_b(const char *flags, va_list ap, int chars_printed)
-{
-	char	*s;
-	unsigned int	i;
-
-	i = (unsigned int)flags[0];
-	i = (unsigned int) va_arg(ap, unsigned int);
-	s = ft_basetoa(i, 2, ' ');
-	chars_printed += ft_putnchar(s, ft_strlen(s));
-	return (chars_printed);
-}
 
 int	print_c(char c)
 {
@@ -44,8 +32,6 @@ int	print_p(void *pointer)
 
 	ptr = (size_t)pointer;
 	chars_printed = 0;
-	//ft_putstr(flags);
-	//s = ptr;
 	s = ft_basetoa((long unsigned int)ptr, 16, ' ');
 	chars_printed = ft_putnchar("0x", 2);
 	chars_printed += ft_putnchar(s, ft_strlen(s));
@@ -55,7 +41,7 @@ int	print_p(void *pointer)
 int	print_d(const char *flags, int d, int chars_printed)
 {
 	char	*s;
-	t_flags *flag_s;
+	t_flags	*flag_s;
 
 	flag_s = return_flags(flags);
 	s = ft_itoa(d);
@@ -65,11 +51,10 @@ int	print_d(const char *flags, int d, int chars_printed)
 
 int	print_i(int i)
 {
-	char *s;
-	int	chars_printed;
+	char	*s;
+	int		chars_printed;
 
 	chars_printed = 0;
-	//ft_putstr(flags);
 	s = ft_itoa(i);
 	chars_printed = ft_putnchar(s, ft_strlen(s));
 	return (chars_printed);

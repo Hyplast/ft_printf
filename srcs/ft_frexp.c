@@ -6,14 +6,14 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 01:00:08 by severi            #+#    #+#             */
-/*   Updated: 2022/03/11 01:50:21 by severi           ###   ########.fr       */
+/*   Updated: 2022/04/07 23:28:54 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /*
-**	---> ft_dftoa extracts the binary value of the float into a string
+*	ft_dftoa extracts the binary value of the float into a string
 */
 char	*ft_dftoa(double x)
 {
@@ -41,8 +41,8 @@ char	*ft_dftoa(double x)
 }
 
 /*
-**	--> check_nan_inf checks if the number entered exists and is not infinite
-**	and returns 1 after printing "nan" or "inf" if it is
+*	check_nan_inf checks if the number entered exists and is not infinite
+*	and returns 1 after printing "nan" or "inf" if it is
 */
 static int	check_nan_inf(char *mantissa, char *exp_str)
 {
@@ -79,9 +79,9 @@ static char	**handle_ni(char **res, char *nb_str, char *mantissa, char *exp)
 }
 
 /*
-**	--> ft_frexp computes the mantissa and the exponent and stocks them in
-**	strings it then calls out other functions (get_exp and get_res) to convert
-**	them into decimal strings
+*	ft_frexp computes the mantissa and the exponent and stocks them in
+*	strings it then calls out other functions (get_exp and get_res) to convert
+*	them into decimal strings
 */
 char	**ft_frexp(double x)
 {
@@ -92,7 +92,7 @@ char	**ft_frexp(double x)
 
 	exp_str[11] = '\0';
 	res = (char **)malloc(sizeof(char *) * 3);
-	nb_str = ft_dftoa(x);		// SOMETHING WEIRD, cannot access memory location
+	nb_str = ft_dftoa(x);
 	res[2] = ft_strnew(1);
 	ft_strncpy(exp_str, nb_str + 1, 11);
 	mantissa = ft_strdup(nb_str + 12);

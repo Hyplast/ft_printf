@@ -6,19 +6,15 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 09:54:52 by severi            #+#    #+#             */
-/*   Updated: 2022/02/11 15:49:29 by severi           ###   ########.fr       */
+/*   Updated: 2022/04/08 00:51:28 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft.h"
 
 static const int	g_specifier[] = {'b', 'c', 'd', 'f', 'i', 'o', 'p', 's', 'u', 'x', 'X'};
-/*
-static const char	*g_extra_f[] = {"hh", "h", "l", "ll", "L", "#", "0", "-", "+", " "};
-
-static const void	(*g_f_ptrs[]) = {print_c, print_i, print_s};
-*/
+//static const char	*g_extra_f[] = {"hh", "h", "l", "ll", "L", "#", "0", "-", "+", " "};
+//static const void	(*g_f_ptrs[]) = {print_c, print_i, print_s};
 //const static g_print_f = [print_c()]
 
 int	match_function(const char *flags, va_list ap, int c, int printed_chars)
@@ -36,15 +32,15 @@ int	match_function(const char *flags, va_list ap, int c, int printed_chars)
 	else if (c == 'o')
 		printed_chars += print_o(flags, ap, printed_chars);
 	else if (c == 'p')
-		printed_chars += print_p((void*) va_arg(ap, void*));
+		printed_chars += print_p((void *) va_arg(ap, void *));
 	else if (c == 's')
-		printed_chars += print_s((char*) va_arg(ap, char*), printed_chars);
+		printed_chars += print_s((char *) va_arg(ap, char *), printed_chars);
 	else if (c == 'u')
 		printed_chars += print_u(flags, ap, printed_chars);
 	else if (c == 'x')
 		printed_chars += print_x(flags, ap, printed_chars);
 	else if (c == 'X')
-		printed_chars += print_X(flags, ap, printed_chars);
+		printed_chars += print_big_x(flags, ap, printed_chars);
 	return (printed_chars);
 }
 
@@ -55,7 +51,7 @@ int	read_flags(char *flags, va_list ap)
 
 	len = ft_strlen(flags);
 	chars_printed = 0;
-	chars_printed = match_function(flags, ap, flags[len - 1], 0);	
+	chars_printed = match_function(flags, ap, flags[len - 1], 0);
 	return (chars_printed);
 }
 
@@ -66,13 +62,13 @@ char	*parse_specifier(const char *flags)
 	int		elem;
 
 	i = 0;
-	elem = (sizeof(g_specifier)/sizeof(g_specifier[0]));
+	elem = (sizeof(g_specifier) / sizeof(g_specifier[0]));
 	len = 0;
 	if (*flags == '%')
 		return ("%");
 	while (flags[len] != '\0')
 	{
-		while(flags[len] != g_specifier[i] && i < elem)
+		while (flags[len] != g_specifier[i] && i < elem)
 		{
 			i++;
 		}
@@ -95,12 +91,12 @@ char	*parse_specifier(const char *flags)
 */
 int	ft_printf(const char *format, ...)
 {
-	va_list ap;
+	va_list	ap;
 	char	*flags;
 	int		i;
 	int		chars_printed;
-	va_start(ap, format);
 
+	va_start(ap, format);
 	chars_printed = 0;
 	i = ft_lookforchar(format, '%');
 	while (i != -1)

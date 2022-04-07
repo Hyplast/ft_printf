@@ -6,7 +6,7 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 09:54:01 by severi            #+#    #+#             */
-/*   Updated: 2022/03/31 01:22:42 by severi           ###   ########.fr       */
+/*   Updated: 2022/04/08 00:37:06 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,7 @@ typedef struct s_calc
 
 int				ft_printf(const char *format, ...);
 void			ft_round(char **res, int precision);
-char			*ft_dtoa(double d);
-char			*bigint_add(char *s1, char *s2);
+void			fill_prec(char *ret, char *str, int size);
 int				ft_max(int a, int b);
 int				ft_min(int a, int b);
 void			ft_swap(char *a, char *b);
@@ -89,9 +88,11 @@ void			vlq_tmp_conv_rev(char *s, int size);
 void			vlq_tmp_conv_rev2(t_calc *info, char *s1, char *s2);
 int				ft_print_c_ntimes(char c, int n);
 int				ft_putnchar(const char *s, size_t n);
+int				ft_putcx(char c, int n);
 int				ft_lookforchar(const char *s, int c);
 char			*ft_basetoa(unsigned long n, unsigned long base, char sign);
-int				print_before(t_flags *flags, int chars_printed, char *s, char c);
+int				print_before(t_flags *flags, int chars_printed, char *s,
+					char c);
 size_t			count_digits(long c);
 void			ft_add_zeros(char **str, int zeros);
 int				print_b(const char *flags, va_list ap, int chars_printed);
@@ -104,7 +105,9 @@ int				print_p(void *pointer);
 int				print_s(char *s, int chars_printed);
 int				print_u(const char *flags, va_list ap, int chars_printed);
 int				print_x(const char *flags, va_list ap, int chars_printed);
-int				print_X(const char *flags, va_list ap, int chars_printed);
+int				print_big_x(const char *flags, va_list ap, int chars_printed);
 t_flags			*return_flags(const char *flags);
+void			init_flags(t_flags *flag_s, const char *flags);
+void			fix_overrides(t_flags *flag_s);
 
 #endif

@@ -6,18 +6,18 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 01:00:08 by severi            #+#    #+#             */
-/*   Updated: 2022/03/26 01:50:21 by severi           ###   ########.fr       */
+/*   Updated: 2022/04/08 00:37:41 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_putnchar(const char *s, size_t n)
+int	ft_putnchar(const char *s, size_t n)
 {
 	int	i;
 
 	i = 0;
-	while(n-- > 0 && *s != '\0')
+	while (n-- > 0 && *s != '\0')
 	{	
 		ft_putchar(*s++);
 		i++;
@@ -25,12 +25,12 @@ int		ft_putnchar(const char *s, size_t n)
 	return (i);
 }
 
-int	ft_print_c_ntimes(char c, int n)
+int	ft_putcx(char c, int n)
 {
 	int	i;
 
 	i = 0;
-	while(i < n)
+	while (i < n)
 	{	
 		ft_putchar(c);
 		i++;
@@ -38,31 +38,31 @@ int	ft_print_c_ntimes(char c, int n)
 	return (i);
 }
 
-int print_before(t_flags *flag_s, int chars_printed, char *s, char c)
+int	print_before(t_flags *flag, int c_p, char *s, char c)
 {
-    if (flag_s->space == 1 && s[0] != '-' && flag_s->plus == 0)
-		chars_printed += print_c(' ');
-	if (flag_s->zero == 1)
+	if (flag->space == 1 && s[0] != '-' && flag->plus == 0)
+		c_p += print_c(' ');
+	if (flag->zero == 1)
 		c = '0';
-	if (flag_s->minus == 1)
+	if (flag->minus == 1)
 	{
-		if (flag_s->plus == 1)
+		if (flag->plus == 1)
 		{
 			if (s[0] != '-')
-				chars_printed += print_c('+');
+				c_p += print_c('+');
 		}
-		chars_printed += ft_putnchar(s, ft_strlen(s));
-		chars_printed += ft_print_c_ntimes(c, flag_s->width - chars_printed);
+		c_p += ft_putnchar(s, ft_strlen(s));
+		c_p += ft_putcx(c, flag->width - c_p);
 	}
 	else
 	{
-		chars_printed += ft_print_c_ntimes(c, flag_s->width - ft_strlen(s) - flag_s->plus - chars_printed);
-		if (flag_s->plus == 1)
+		c_p += ft_putcx(c, flag->width - ft_strlen(s) - flag->plus - c_p);
+		if (flag->plus == 1)
 		{
 			if (s[0] != '-')
-				chars_printed += print_c('+');
+				c_p += print_c('+');
 		}
-		chars_printed += ft_putnchar(s, ft_strlen(s));
+		c_p += ft_putnchar(s, ft_strlen(s));
 	}
-    return (chars_printed);
+	return (c_p);
 }

@@ -6,7 +6,7 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 01:35:04 by severi            #+#    #+#             */
-/*   Updated: 2022/03/11 01:40:54 by severi           ###   ########.fr       */
+/*   Updated: 2022/04/08 00:55:10 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,9 @@ char	*vlq_binpow(int n)
 	{
 		two = ft_strdup("2");
 		res = ft_strdup(((char *)tab_pow(i + 1)));
-		if (!two || !res)
-			return (NULL);
 		while (++i < n)
 		{
 			tmp = ft_strdup(res);
-			if (!tmp)
-				return (NULL);
 			ft_strdel(&res);
 			res = vlq_mult(tmp, two);
 			if (!res)

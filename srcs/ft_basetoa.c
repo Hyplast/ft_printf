@@ -6,7 +6,7 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 01:47:10 by severi            #+#    #+#             */
-/*   Updated: 2022/03/26 01:50:01 by severi           ###   ########.fr       */
+/*   Updated: 2022/04/07 23:13:48 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ size_t	count_digits(long c)
 char	*ft_basetoa(unsigned long n, unsigned long base, char sign)
 {
 	char	*s;
-	//size_t	digits;
 	int		i;
 	int		j;
 
@@ -54,13 +53,13 @@ char	*ft_basetoa(unsigned long n, unsigned long base, char sign)
 		s[0] = sign;
 		++j;
 	}
-	while(++i < 20)
+	while (++i < 20)
 		s[j++] = s[i];
 	s[j] = 0;
 	return (s);
 }
 
-int		ft_lookforchar(const char *s, int c)
+int	ft_lookforchar(const char *s, int c)
 {
 	int	s_len;
 	int	i;
