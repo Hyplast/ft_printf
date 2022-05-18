@@ -6,7 +6,7 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 13:46:50 by severi            #+#    #+#             */
-/*   Updated: 2022/03/11 02:12:48 by severi           ###   ########.fr       */
+/*   Updated: 2022/05/18 18:59:41 by ssavukos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -506,11 +506,21 @@ int	main()
 	ft_printf("Test 72. hhx short int\n");
 	i = ft_printf("%hhx", hu);
 	printf(" <-- yours\n");
-	o = printf("%hhx", hu);
+	o = printf("%hx", hu);
 	printf(" <-- system\n");
 	printf(" my length %i. system lenght %i\n", i,o);
 	// ft_printf("%hhX", 4294967296);
 
+/*	printf("{%*3d}\n", 5, 0);
+	ft_printf("Test 72. test from discord\n");
+	i = ft_printf("{%*3d}\n", 5, 0);
+	printf(" <-- yours\n");
+	o = printf("{%*3d}\n", 5, 0);
+	printf(" <-- system\n");
+	printf(" my length %i. system lenght %i\n", i,o);
+*/
+
+	printf("{%*d}\n", -5, 42); 	
 	// ft_printf("%llx", 9223372036854775807);
 
 /*/	ft_printf("%llx", 9223372036854775808);

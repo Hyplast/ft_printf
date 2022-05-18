@@ -6,7 +6,7 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 01:47:10 by severi            #+#    #+#             */
-/*   Updated: 2022/04/08 00:22:02 by severi           ###   ########.fr       */
+/*   Updated: 2022/05/18 18:45:13 by ssavukos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ static uintmax_t	unsigned_conv(t_flags *flag_s, va_list ap)
 		i = (unsigned short int) va_arg(ap, unsigned int);
 	else if (flag_s->spec == 5)
 		i = (unsigned char) va_arg(ap, unsigned int);
+	else 
+		i =  (unsigned int) va_arg(ap, unsigned int);
 	return (i);
 }
 

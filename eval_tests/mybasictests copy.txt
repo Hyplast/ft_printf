@@ -1,0 +1,596 @@
+rm -f srcs/ft_printf.o srcs/ft_frexp.o srcs/ft_frexpl.o srcs/ft_calc_str.o srcs/ft_float_conv.o srcs/ft_floatl.o srcs/ft_get_res.o srcs/ft_vlq.o srcs/ft_vlq_sum.o srcs/ft_vlq_mult.o srcs/ft_vlq_conv.o srcs/ft_vlq_pow.o srcs/ft_print_flags.o srcs/ft_return_flags.o srcs/ft_print_f.o srcs/ft_print_i.o srcs/ft_print_x.o srcs/ft_basetoa.o srcs/ft_utils.o srcs/ft_round.o
+rm -f libft/ft_atoi.o libft/ft_bzero.o libft/ft_strlen.o libft/ft_strdup.o libft/ft_strcmp.o libft/ft_strncmp.o libft/ft_strcpy.o libft/ft_strncpy.o libft/ft_strcat.o libft/ft_strncat.o libft/ft_strlcat.o libft/ft_strchr.o libft/ft_strrchr.o libft/ft_strstr.o libft/ft_strnstr.o libft/ft_isalpha.o libft/ft_isdigit.o libft/ft_isalnum.o libft/ft_isprint.o libft/ft_isascii.o libft/ft_toupper.o libft/ft_tolower.o libft/ft_memset.o libft/ft_memcpy.o libft/ft_memccpy.o libft/ft_memchr.o libft/ft_memmove.o libft/ft_memcmp.o libft/ft_memalloc.o libft/ft_memdel.o libft/ft_strnew.o libft/ft_strdel.o libft/ft_strclr.o libft/ft_striter.o libft/ft_striteri.o libft/ft_strmap.o libft/ft_strmapi.o libft/ft_strequ.o libft/ft_strnequ.o libft/ft_strsub.o libft/ft_strtrim.o libft/ft_strjoin.o libft/ft_strsplit.o libft/ft_itoa.o libft/ft_utoa.o libft/ft_putchar_fd.o libft/ft_putstr_fd.o libft/ft_putendl_fd.o libft/ft_putchar.o libft/ft_putstr.o libft/ft_putendl.o libft/ft_putnbr.o libft/ft_putnbr_fd.o libft/get_next_line.o 
+rm -f libftprintf.a
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -I includes/ -c srcs/ft_printf.c -o srcs/ft_printf.o 
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -I includes/ -c srcs/ft_frexp.c -o srcs/ft_frexp.o 
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -I includes/ -c srcs/ft_frexpl.c -o srcs/ft_frexpl.o 
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -I includes/ -c srcs/ft_calc_str.c -o srcs/ft_calc_str.o 
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -I includes/ -c srcs/ft_float_conv.c -o srcs/ft_float_conv.o 
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -I includes/ -c srcs/ft_floatl.c -o srcs/ft_floatl.o 
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -I includes/ -c srcs/ft_get_res.c -o srcs/ft_get_res.o 
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -I includes/ -c srcs/ft_vlq.c -o srcs/ft_vlq.o 
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -I includes/ -c srcs/ft_vlq_sum.c -o srcs/ft_vlq_sum.o 
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -I includes/ -c srcs/ft_vlq_mult.c -o srcs/ft_vlq_mult.o 
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -I includes/ -c srcs/ft_vlq_conv.c -o srcs/ft_vlq_conv.o 
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -I includes/ -c srcs/ft_vlq_pow.c -o srcs/ft_vlq_pow.o 
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -I includes/ -c srcs/ft_print_flags.c -o srcs/ft_print_flags.o 
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -I includes/ -c srcs/ft_return_flags.c -o srcs/ft_return_flags.o 
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -I includes/ -c srcs/ft_print_f.c -o srcs/ft_print_f.o 
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -I includes/ -c srcs/ft_print_i.c -o srcs/ft_print_i.o 
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -I includes/ -c srcs/ft_print_x.c -o srcs/ft_print_x.o 
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -I includes/ -c srcs/ft_basetoa.c -o srcs/ft_basetoa.o 
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -I includes/ -c srcs/ft_utils.c -o srcs/ft_utils.o 
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -I includes/ -c srcs/ft_round.c -o srcs/ft_round.o 
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_atoi.c -o libft/ft_atoi.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_bzero.c -o libft/ft_bzero.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_strlen.c -o libft/ft_strlen.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_strdup.c -o libft/ft_strdup.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_strcmp.c -o libft/ft_strcmp.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_strncmp.c -o libft/ft_strncmp.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_strcpy.c -o libft/ft_strcpy.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_strncpy.c -o libft/ft_strncpy.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_strcat.c -o libft/ft_strcat.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_strncat.c -o libft/ft_strncat.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_strlcat.c -o libft/ft_strlcat.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_strchr.c -o libft/ft_strchr.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_strrchr.c -o libft/ft_strrchr.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_strstr.c -o libft/ft_strstr.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_strnstr.c -o libft/ft_strnstr.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_isalpha.c -o libft/ft_isalpha.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_isdigit.c -o libft/ft_isdigit.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_isalnum.c -o libft/ft_isalnum.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_isprint.c -o libft/ft_isprint.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_isascii.c -o libft/ft_isascii.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_toupper.c -o libft/ft_toupper.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_tolower.c -o libft/ft_tolower.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_memset.c -o libft/ft_memset.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_memcpy.c -o libft/ft_memcpy.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_memccpy.c -o libft/ft_memccpy.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_memchr.c -o libft/ft_memchr.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_memmove.c -o libft/ft_memmove.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_memcmp.c -o libft/ft_memcmp.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_memalloc.c -o libft/ft_memalloc.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_memdel.c -o libft/ft_memdel.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_strnew.c -o libft/ft_strnew.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_strdel.c -o libft/ft_strdel.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_strclr.c -o libft/ft_strclr.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_striter.c -o libft/ft_striter.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_striteri.c -o libft/ft_striteri.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_strmap.c -o libft/ft_strmap.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_strmapi.c -o libft/ft_strmapi.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_strequ.c -o libft/ft_strequ.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_strnequ.c -o libft/ft_strnequ.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_strsub.c -o libft/ft_strsub.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_strtrim.c -o libft/ft_strtrim.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_strjoin.c -o libft/ft_strjoin.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_strsplit.c -o libft/ft_strsplit.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_itoa.c -o libft/ft_itoa.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_utoa.c -o libft/ft_utoa.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_putchar_fd.c -o libft/ft_putchar_fd.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_putstr_fd.c -o libft/ft_putstr_fd.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_putendl_fd.c -o libft/ft_putendl_fd.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_putchar.c -o libft/ft_putchar.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_putstr.c -o libft/ft_putstr.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_putendl.c -o libft/ft_putendl.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_putnbr.c -o libft/ft_putnbr.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/ft_putnbr_fd.c -o libft/ft_putnbr_fd.o
+gcc -Wall -Werror -Wextra -g -I libft/includes/ -c libft/get_next_line.c -o libft/get_next_line.o
+ar rc libftprintf.a srcs/ft_printf.o srcs/ft_frexp.o srcs/ft_frexpl.o srcs/ft_calc_str.o srcs/ft_float_conv.o srcs/ft_floatl.o srcs/ft_get_res.o srcs/ft_vlq.o srcs/ft_vlq_sum.o srcs/ft_vlq_mult.o srcs/ft_vlq_conv.o srcs/ft_vlq_pow.o srcs/ft_print_flags.o srcs/ft_return_flags.o srcs/ft_print_f.o srcs/ft_print_i.o srcs/ft_print_x.o srcs/ft_basetoa.o srcs/ft_utils.o srcs/ft_round.o libft/ft_atoi.o libft/ft_bzero.o libft/ft_strlen.o libft/ft_strdup.o libft/ft_strcmp.o libft/ft_strncmp.o libft/ft_strcpy.o libft/ft_strncpy.o libft/ft_strcat.o libft/ft_strncat.o libft/ft_strlcat.o libft/ft_strchr.o libft/ft_strrchr.o libft/ft_strstr.o libft/ft_strnstr.o libft/ft_isalpha.o libft/ft_isdigit.o libft/ft_isalnum.o libft/ft_isprint.o libft/ft_isascii.o libft/ft_toupper.o libft/ft_tolower.o libft/ft_memset.o libft/ft_memcpy.o libft/ft_memccpy.o libft/ft_memchr.o libft/ft_memmove.o libft/ft_memcmp.o libft/ft_memalloc.o libft/ft_memdel.o libft/ft_strnew.o libft/ft_strdel.o libft/ft_strclr.o libft/ft_striter.o libft/ft_striteri.o libft/ft_strmap.o libft/ft_strmapi.o libft/ft_strequ.o libft/ft_strnequ.o libft/ft_strsub.o libft/ft_strtrim.o libft/ft_strjoin.o libft/ft_strsplit.o libft/ft_itoa.o libft/ft_utoa.o libft/ft_putchar_fd.o libft/ft_putstr_fd.o libft/ft_putendl_fd.o libft/ft_putchar.o libft/ft_putstr.o libft/ft_putendl.o libft/ft_putnbr.o libft/ft_putnbr_fd.o libft/get_next_line.o
+ranlib libftprintf.a
+FAILED TESTS:\n
+# TEST NUMBER (TYPE OF ARG)
+  INSTRUCTION();
+  1. your function ft_printf
+  2. unix function printf
+     (returned value) -->written on stdout<--
+
+# 0007 
+  ft_printf("%5%");
+  1. (    0) --><--
+  2. (    5) -->    %<--
+
+# 0008 
+  ft_printf("%-5%");
+  1. (    0) --><--
+  2. (    5) -->%    <--
+
+# 0009 
+  ft_printf("%.0%");
+  1. (    0) --><--
+  2. (    1) -->%<--
+
+# 0011 (char *)
+  ft_printf("%   %", "test");
+  1. (    0) --><--
+  2. (    1) -->%<--
+
+# 0036 (int)
+  ft_printf("%#x", 0);
+  1. (    3) -->0x0<--
+  2. (    1) -->0<--
+
+# 0040 (int)
+  ft_printf("%#08x", 42);
+  1. (    8) -->00000x2a<--
+  2. (    8) -->0x00002a<--
+
+# 0042 (int)
+  ft_printf("@moulitest: %#.x %#.0x", 0, 0);
+  1. (   17) -->@moulitest: 0 0x0<--
+  2. (   13) -->@moulitest:  <--
+
+# 0043 (int)
+  ft_printf("@moulitest: %.x %.0x", 0, 0);
+  1. (   15) -->@moulitest: 0 0<--
+  2. (   13) -->@moulitest:  <--
+
+# 0044 (int)
+  ft_printf("@moulitest: %5.x %5.0x", 0, 0);
+  1. (   20) -->@moulitest: 0      0<--
+  2. (   23) -->@moulitest:            <--
+
+# 0052 (char *)
+  ft_printf("%10s is a string", "this");
+  1. (   16) -->this is a string<--
+  2. (   22) -->      this is a string<--
+
+# 0053 (char *)
+  ft_printf("%.2s is a string", "this");
+  1. (   16) -->this is a string<--
+  2. (   14) -->th is a string<--
+
+# 0054 (char *)
+  ft_printf("%5.2s is a string", "this");
+  1. (   16) -->this is a string<--
+  2. (   17) -->   th is a string<--
+
+# 0055 (char *)
+  ft_printf("%10s is a string", "");
+  1. (   12) --> is a string<--
+  2. (   22) -->           is a string<--
+
+# 0057 (char *)
+  ft_printf("%5.2s is a string", "");
+  1. (   12) --> is a string<--
+  2. (   17) -->      is a string<--
+
+# 0058 (char *)
+  ft_printf("%-10s is a string", "this");
+  1. (   16) -->this is a string<--
+  2. (   22) -->this       is a string<--
+
+# 0059 (char *)
+  ft_printf("%-.2s is a string", "this");
+  1. (   16) -->this is a string<--
+  2. (   14) -->th is a string<--
+
+# 0060 (char *)
+  ft_printf("%-5.2s is a string", "this");
+  1. (   16) -->this is a string<--
+  2. (   17) -->th    is a string<--
+
+# 0061 (char *)
+  ft_printf("%-10s is a string", "");
+  1. (   12) --> is a string<--
+  2. (   22) -->           is a string<--
+
+# 0063 (char *)
+  ft_printf("%-5.2s is a string", "");
+  1. (   12) --> is a string<--
+  2. (   17) -->      is a string<--
+
+# 0069 (NULL)
+  ft_printf("@moulitest: %s", NULL);
+includes/projects/ft_printf/ft_printf_main.sh: line 206: printf: @moulitest: includes/projects/ft_printf/ft_printf_main.sh: line 159: 59920 Segmentation fault: 11  ./tmp/ft_printf_s sN "@moulitest: %s" ""$: invalid number
+  1. (    0) -->@moulitest: includes/projects/ft_printf/ft_printf_main.sh: line 159: 59920 Segmentation fault: 11  ./tmp/ft_printf_s sN "@moulitest: %s" "NULL"$<--
+  2. (   18) -->@moulitest: (null)<--
+
+# 0071 (NULL)
+  ft_printf("%s %s", NULL, string);
+includes/projects/ft_printf/ft_printf_main.sh: line 206: printf: includes/projects/ft_printf/ft_printf_main.sh: line 159: 60006 Segmentation fault: 11  ./tmp/ft_printf_s sN "%s %s" "" "string"$: invalid number
+  1. (    0) -->includes/projects/ft_printf/ft_printf_main.sh: line 159: 60006 Segmentation fault: 11  ./tmp/ft_printf_s sN "%s %s" "NULL" "string"$<--
+  2. (   13) -->(null) string<--
+
+# 0073 (char)
+  ft_printf("%5c", 42);
+  1. (    1) -->*<--
+  2. (    5) -->    *<--
+
+# 0074 (char)
+  ft_printf("%-5c", 42);
+  1. (    1) -->*<--
+  2. (    5) -->*    <--
+
+# 0076 (char)
+  ft_printf("%2c", 0);
+  1. (    1) -->^@<--
+  2. (    2) --> ^@<--
+
+# 0080 (int)
+  ft_printf("%5o", 41);
+  1. (    2) -->51<--
+  2. (    5) -->   51<--
+
+# 0081 (int)
+  ft_printf("%05o", 42);
+  1. (    2) -->52<--
+  2. (    5) -->00052<--
+
+# 0082 (int)
+  ft_printf("%-5o", 2500);
+  1. (    4) -->4704<--
+  2. (    5) -->4704 <--
+
+# 0083 (int)
+  ft_printf("%#6o", 2500);
+  1. (    5) -->04704<--
+  2. (    6) --> 04704<--
+
+# 0084 (int)
+  ft_printf("%-#6o", 2500);
+  1. (    4) -->4704<--
+  2. (    6) -->04704 <--
+
+# 0085 (int)
+  ft_printf("%-05o", 2500);
+  1. (    4) -->4704<--
+  2. (    5) -->4704 <--
+
+# 0086 (int)
+  ft_printf("%-5.10o", 2500);
+  1. (    4) -->4704<--
+  2. (   10) -->0000004704<--
+
+# 0087 (int)
+  ft_printf("%-10.5o", 2500);
+  1. (    4) -->4704<--
+  2. (   10) -->04704     <--
+
+# 0088 (int)
+  ft_printf("@moulitest: %o", 0);
+  1. (   12) -->@moulitest: <--
+  2. (   13) -->@moulitest: 0<--
+
+# 0090 (int)
+  ft_printf("@moulitest: %5.o %5.0o", 0, 0);
+  1. (   13) -->@moulitest:  <--
+  2. (   23) -->@moulitest:            <--
+
+# 0092 (int)
+  ft_printf("@moulitest: %.10o", 42);
+  1. (   14) -->@moulitest: 52<--
+  2. (   22) -->@moulitest: 0000000052<--
+
+# 0125 (int)
+  ft_printf("%0+5d", 42);
+  1. (    5) -->00+42<--
+  2. (    5) -->+0042<--
+
+# 0127 (int)
+  ft_printf("%05d", -42);
+  1. (    5) -->00-42<--
+  2. (    5) -->-0042<--
+
+# 0128 (int)
+  ft_printf("%0+5d", -42);
+  1. (    4) -->0-42<--
+  2. (    5) -->-0042<--
+
+# 0135 (short)
+  ft_printf("%hd", 32768);
+  1. (    5) -->32768<--
+  2. (    6) -->-32768<--
+
+# 0138 (signed char)
+  ft_printf("%hhd", 128);
+  1. (    3) -->128<--
+  2. (    4) -->-128<--
+
+# 0140 (signed char)
+  ft_printf("%hhd", -129);
+  1. (    4) -->-129<--
+  2. (    3) -->127<--
+
+# 0143 (long)
+  ft_printf("%ld", 2147483648);
+  1. (   11) -->-2147483648<--
+  2. (   10) -->2147483648<--
+
+# 0144 (long)
+  ft_printf("%ld", -2147483649);
+  1. (   10) -->2147483647<--
+  2. (   11) -->-2147483649<--
+
+# 0145 (long long)
+  ft_printf("%lld", 9223372036854775807);
+  1. (    2) -->-1<--
+  2. (   19) -->9223372036854775807<--
+
+# 0146 (long long)
+  ft_printf("%lld", -9223372036854775808);
+  1. (    1) -->0<--
+  2. (   20) -->-9223372036854775808<--
+
+# 0152 (int)
+  ft_printf("%4.15d", 42);
+  1. (    4) -->  42<--
+  2. (   15) -->000000000000042<--
+
+# 0154 (int)
+  ft_printf("%.10d", 4242);
+  1. (    4) -->4242<--
+  2. (   10) -->0000004242<--
+
+# 0155 (int)
+  ft_printf("%10.5d", 4242);
+  1. (    4) -->4242<--
+  2. (   10) -->     04242<--
+
+# 0156 (int)
+  ft_printf("%-10.5d", 4242);
+  1. (    4) -->4242<--
+  2. (   10) -->04242     <--
+
+# 0157 (int)
+  ft_printf("% 10.5d", 4242);
+  1. (    5) --> 4242<--
+  2. (   10) -->     04242<--
+
+# 0158 (int)
+  ft_printf("%+10.5d", 4242);
+  1. (    5) -->+4242<--
+  2. (   10) -->    +04242<--
+
+# 0159 (int)
+  ft_printf("%-+10.5d", 4242);
+  1. (    4) -->4242<--
+  2. (   10) -->+04242    <--
+
+# 0160 (int)
+  ft_printf("%03.2d", 0);
+  1. (    1) -->0<--
+  2. (    3) --> 00<--
+
+# 0161 (int)
+  ft_printf("%03.2d", 1);
+  1. (    1) -->1<--
+  2. (    3) --> 01<--
+
+# 0162 (int)
+  ft_printf("%03.2d", -1);
+  1. (    2) -->-1<--
+  2. (    3) -->-01<--
+
+# 0163 (int)
+  ft_printf("@moulitest: %.10d", -42);
+  1. (   15) -->@moulitest: -42<--
+  2. (   23) -->@moulitest: -0000000042<--
+
+# 0165 (int)
+  ft_printf("@moulitest: %.d %.0d", 0, 0);
+  1. (   15) -->@moulitest: 0 0<--
+  2. (   13) -->@moulitest:  <--
+
+# 0166 (int)
+  ft_printf("@moulitest: %5.d %5.0d", 0, 0);
+  1. (   19) -->@moulitest: 0     0<--
+  2. (   23) -->@moulitest:            <--
+
+# 0173 (unsigned int)
+  ft_printf("%15u", 4294967295);
+  1. (   10) -->4294967295<--
+  2. (   15) -->     4294967295<--
+
+# 0174 (unsigned int)
+  ft_printf("%-15u", 4294967295);
+  1. (   10) -->4294967295<--
+  2. (   15) -->4294967295     <--
+
+# 0175 (unsigned int)
+  ft_printf("%015u", 4294967295);
+  1. (   10) -->4294967295<--
+  2. (   15) -->000004294967295<--
+
+# 0179 (unsigned long)
+  ft_printf("%lu", 4294967296);
+  1. (    1) -->0<--
+  2. (   10) -->4294967296<--
+
+# 0180 (unsigned long)
+  ft_printf("%lu", -42);
+  1. (   10) -->4294967254<--
+  2. (   20) -->18446744073709551574<--
+
+# 0181 (unsigned long long)
+  ft_printf("%llu", 4999999999);
+  1. (    9) -->705032703<--
+  2. (   10) -->4999999999<--
+
+# 0182 (unsigned int)
+  ft_printf("@moulitest: %.5u", 42);
+  1. (   14) -->@moulitest: 42<--
+  2. (   17) -->@moulitest: 00042<--
+\n--------------\n
+SUCCESS TESTS:\n
+   1.      ft_printf("");                                -> ""
+   2.      ft_printf("\\n");                             -> "\\n"
+   3.      ft_printf("test");                            -> "test"
+   4.      ft_printf("test\\n");                         -> "test\\n"
+   5.      ft_printf("1234");                            -> "1234"
+   6.      ft_printf("%%");                              -> "%"
+   7. FAIL ft_printf("%5%");                             -> "    %"
+   8. FAIL ft_printf("%-5%");                            -> "%    "
+   9. FAIL ft_printf("%.0%");                            -> "%"
+  10.      ft_printf("%%", "test");                      -> "%"
+  11. FAIL ft_printf("%   %", "test");                   -> "%"
+  12.      ft_printf("%x", 42);                          -> "2a"
+  13.      ft_printf("%X", 42);                          -> "2A"
+  14.      ft_printf("%x", 0);                           -> "0"
+  15.      ft_printf("%X", 0);                           -> "0"
+  16.      ft_printf("%x", -42);                         -> "ffffffd6"
+  17.      ft_printf("%X", -42);                         -> "FFFFFFD6"
+  18.      ft_printf("%x", 4294967296);                  -> "0"
+  19.      ft_printf("%X", 4294967296);                  -> "0"
+  20.      ft_printf("%x", test);                        -> "0"
+  21.      ft_printf("%10x", 42);                        -> "        2a"
+  22.      ft_printf("%-10x", 42);                       -> "2a        "
+  23.      ft_printf("%lx", 4294967296);                 -> "100000000"
+  24.      ft_printf("%llX", 4294967296);                -> "100000000"
+  25.      ft_printf("%hx", 4294967296);                 -> "0"
+  26.      ft_printf("%hhX", 4294967296);                -> "0"
+  27.      ft_printf("%llx", 9223372036854775807);       -> "7fffffffffffffff"
+  28.      ft_printf("%llx", 9223372036854775808);       -> "7fffffffffffffff"
+  29.      ft_printf("%010x", 542);                      -> "000000021e"
+  30.      ft_printf("%-15x", 542);                      -> "21e            "
+  31.      ft_printf("%2x", 542);                        -> "21e"
+  32.      ft_printf("%.2x", 5427);                      -> "1533"
+  33.      ft_printf("%5.2x", 5427);                     -> " 1533"
+  34.      ft_printf("%#x", 42);                         -> "0x2a"
+  35.      ft_printf("%#llx", 9223372036854775807);      -> "0x7fffffffffffffff"
+  36. FAIL ft_printf("%#x", 0);                          -> "0"
+  37.      ft_printf("%#x", 42);                         -> "0x2a"
+  38.      ft_printf("%#X", 42);                         -> "0X2A"
+  39.      ft_printf("%#8x", 42);                        -> "    0x2a"
+  40. FAIL ft_printf("%#08x", 42);                       -> "0x00002a"
+  41.      ft_printf("%#-08x", 42);                      -> "0x2a    "
+  42. FAIL ft_printf("@moulitest: %#.x %#.0x", 0, 0);    -> "@moulitest:  "
+  43. FAIL ft_printf("@moulitest: %.x %.0x", 0, 0);      -> "@moulitest:  "
+  44. FAIL ft_printf("@moulitest: %5.x %5.0x", 0, 0);    -> "@moulitest:            "
+  45.      ft_printf("%s", "abc");                       -> "abc"
+  46.      ft_printf("%s", "this is a string");          -> "this is a string"
+  47.      ft_printf("%s ", "this is a string");         -> "this is a string "
+  48.      ft_printf("%s  ", "this is a string");        -> "this is a string  "
+  49.      ft_printf("this is a %s", "string");          -> "this is a string"
+  50.      ft_printf("%s is a string", "this");          -> "this is a string"
+  51.      ft_printf("Line Feed %s", "\\n");             -> "Line Feed \\n"
+  52. FAIL ft_printf("%10s is a string", "this");        -> "      this is a string"
+  53. FAIL ft_printf("%.2s is a string", "this");        -> "th is a string"
+  54. FAIL ft_printf("%5.2s is a string", "this");       -> "   th is a string"
+  55. FAIL ft_printf("%10s is a string", "");            -> "           is a string"
+  56.      ft_printf("%.2s is a string", "");            -> " is a string"
+  57. FAIL ft_printf("%5.2s is a string", "");           -> "      is a string"
+  58. FAIL ft_printf("%-10s is a string", "this");       -> "this       is a string"
+  59. FAIL ft_printf("%-.2s is a string", "this");       -> "th is a string"
+  60. FAIL ft_printf("%-5.2s is a string", "this");      -> "th    is a string"
+  61. FAIL ft_printf("%-10s is a string", "");           -> "           is a string"
+  62.      ft_printf("%-.2s is a string", "");           -> " is a string"
+  63. FAIL ft_printf("%-5.2s is a string", "");          -> "      is a string"
+  64.      ft_printf("%s %s", "this", "is");             -> "this is"
+  65.      ft_printf("%s %s %s", "this", "is", "a");     -> "this is a"
+  66.      ft_printf("%s %s %s %s", "this", "is", "a", "multi"); -> "this is a multi"
+  67.      ft_printf("%s %s %s %s string. gg!", "this", "is", "a", "multi", "string"); -> "this is a multi string. gg!"
+  68.      ft_printf("%s%s%s%s%s", "this", "is", "a", "multi", "string"); -> "thisisamultistring"
+  69. FAIL ft_printf("@moulitest: %s", NULL);            -> "@moulitest: (null)"
+  70.      ft_printf("%.2c", NULL);                      -> "^@"
+  71. FAIL ft_printf("%s %s", NULL, string);             -> "(null) string"
+  72.      ft_printf("%c", 42);                          -> "*"
+  73. FAIL ft_printf("%5c", 42);                         -> "    *"
+  74. FAIL ft_printf("%-5c", 42);                        -> "*    "
+  75.      ft_printf("@moulitest: %c", 0);               -> "@moulitest: ^@"
+  76. FAIL ft_printf("%2c", 0);                          -> " ^@"
+  77.      ft_printf("null %c and text", 0);             -> "null ^@ and text"
+  78.      ft_printf("% c", 0);                          -> "^@"
+  79.      ft_printf("%o", 40);                          -> "50"
+  80. FAIL ft_printf("%5o", 41);                         -> "   51"
+  81. FAIL ft_printf("%05o", 42);                        -> "00052"
+  82. FAIL ft_printf("%-5o", 2500);                      -> "4704 "
+  83. FAIL ft_printf("%#6o", 2500);                      -> " 04704"
+  84. FAIL ft_printf("%-#6o", 2500);                     -> "04704 "
+  85. FAIL ft_printf("%-05o", 2500);                     -> "4704 "
+  86. FAIL ft_printf("%-5.10o", 2500);                   -> "0000004704"
+  87. FAIL ft_printf("%-10.5o", 2500);                   -> "04704     "
+  88. FAIL ft_printf("@moulitest: %o", 0);               -> "@moulitest: 0"
+  89.      ft_printf("@moulitest: %.o %.0o", 0, 0);      -> "@moulitest:  "
+  90. FAIL ft_printf("@moulitest: %5.o %5.0o", 0, 0);    -> "@moulitest:            "
+  91.      ft_printf("@moulitest: %#.o %#.0o", 0, 0);    -> "@moulitest: 0 0"
+  92. FAIL ft_printf("@moulitest: %.10o", 42);           -> "@moulitest: 0000000052"
+  93.      ft_printf("%d", 1);                           -> "1"
+  94.      ft_printf("the %d", 1);                       -> "the 1"
+  95.      ft_printf("%d is one", 1);                    -> "1 is one"
+  96.      ft_printf("%d", -1);                          -> "-1"
+  97.      ft_printf("%d", 4242);                        -> "4242"
+  98.      ft_printf("%d", -4242);                       -> "-4242"
+  99.      ft_printf("%d", 2147483647);                  -> "2147483647"
+ 100.      ft_printf("%d", 2147483648);                  -> "-2147483648"
+ 101.      ft_printf("%d", -2147483648);                 -> "-2147483648"
+ 102.      ft_printf("%d", -2147483649);                 -> "2147483647"
+ 103.      ft_printf("% d", 42);                         -> " 42"
+ 104.      ft_printf("% d", -42);                        -> "-42"
+ 105.      ft_printf("%+d", 42);                         -> "+42"
+ 106.      ft_printf("%+d", -42);                        -> "-42"
+ 107.      ft_printf("%+d", 0);                          -> "+0"
+ 108.      ft_printf("%+d", 4242424242424242424242);     -> "-1"
+ 109.      ft_printf("% +d", 42);                        -> "+42"
+ 110.      ft_printf("% +d", -42);                       -> "-42"
+ 111.      ft_printf("%+ d", 42);                        -> "+42"
+ 112.      ft_printf("%+ d", -42);                       -> "-42"
+ 113.      ft_printf("%  +d", 42);                       -> "+42"
+ 114.      ft_printf("%  +d", -42);                      -> "-42"
+ 115.      ft_printf("%+  d", 42);                       -> "+42"
+ 116.      ft_printf("%+  d", -42);                      -> "-42"
+ 117.      ft_printf("% ++d", 42);                       -> "+42"
+ 118.      ft_printf("% ++d", -42);                      -> "-42"
+ 119.      ft_printf("%++ d", 42);                       -> "+42"
+ 120.      ft_printf("%++ d", -42);                      -> "-42"
+ 121.      ft_printf("%0d", -42);                        -> "-42"
+ 122.      ft_printf("%00d", -42);                       -> "-42"
+ 123.      ft_printf("%5d", 42);                         -> "   42"
+ 124.      ft_printf("%05d", 42);                        -> "00042"
+ 125. FAIL ft_printf("%0+5d", 42);                       -> "+0042"
+ 126.      ft_printf("%5d", -42);                        -> "  -42"
+ 127. FAIL ft_printf("%05d", -42);                       -> "-0042"
+ 128. FAIL ft_printf("%0+5d", -42);                      -> "-0042"
+ 129.      ft_printf("%-5d", 42);                        -> "42   "
+ 130.      ft_printf("%-05d", 42);                       -> "42   "
+ 131.      ft_printf("%-5d", -42);                       -> "-42  "
+ 132.      ft_printf("%-05d", -42);                      -> "-42  "
+ 133.      ft_printf("%hd", 32767);                      -> "32767"
+ 134.      ft_printf("%hd", −32768);                   -> "0"
+ 135. FAIL ft_printf("%hd", 32768);                      -> "-32768"
+ 136.      ft_printf("%hd", −32769);                   -> "0"
+ 137.      ft_printf("%hhd", 127);                       -> "127"
+ 138. FAIL ft_printf("%hhd", 128);                       -> "-128"
+ 139.      ft_printf("%hhd", -128);                      -> "-128"
+ 140. FAIL ft_printf("%hhd", -129);                      -> "127"
+ 141.      ft_printf("%ld", 2147483647);                 -> "2147483647"
+ 142.      ft_printf("%ld", -2147483648);                -> "-2147483648"
+ 143. FAIL ft_printf("%ld", 2147483648);                 -> "2147483648"
+ 144. FAIL ft_printf("%ld", -2147483649);                -> "-2147483649"
+ 145. FAIL ft_printf("%lld", 9223372036854775807);       -> "9223372036854775807"
+ 146. FAIL ft_printf("%lld", -9223372036854775808);      -> "-9223372036854775808"
+ 147.      ft_printf("%d", 1);                           -> "1"
+ 148.      ft_printf("%d %d", 1, -2);                    -> "1 -2"
+ 149.      ft_printf("%d %d %d", 1, -2, 33);             -> "1 -2 33"
+ 150.      ft_printf("%d %d %d %d", 1, -2, 33, 42);      -> "1 -2 33 42"
+ 151.      ft_printf("%d %d %d %d gg!", 1, -2, 33, 42, 0); -> "1 -2 33 42 gg!"
+ 152. FAIL ft_printf("%4.15d", 42);                      -> "000000000000042"
+ 153.      ft_printf("%.2d", 4242);                      -> "4242"
+ 154. FAIL ft_printf("%.10d", 4242);                     -> "0000004242"
+ 155. FAIL ft_printf("%10.5d", 4242);                    -> "     04242"
+ 156. FAIL ft_printf("%-10.5d", 4242);                   -> "04242     "
+ 157. FAIL ft_printf("% 10.5d", 4242);                   -> "     04242"
+ 158. FAIL ft_printf("%+10.5d", 4242);                   -> "    +04242"
+ 159. FAIL ft_printf("%-+10.5d", 4242);                  -> "+04242    "
+ 160. FAIL ft_printf("%03.2d", 0);                       -> " 00"
+ 161. FAIL ft_printf("%03.2d", 1);                       -> " 01"
+ 162. FAIL ft_printf("%03.2d", -1);                      -> "-01"
+ 163. FAIL ft_printf("@moulitest: %.10d", -42);          -> "@moulitest: -0000000042"
+ 164.      ft_printf("@moulitest: %.d %.0d", 42, 43);    -> "@moulitest: 42 43"
+ 165. FAIL ft_printf("@moulitest: %.d %.0d", 0, 0);      -> "@moulitest:  "
+ 166. FAIL ft_printf("@moulitest: %5.d %5.0d", 0, 0);    -> "@moulitest:            "
+ 167.      ft_printf("%u", 0);                           -> "0"
+ 168.      ft_printf("%u", 1);                           -> "1"
+ 169.      ft_printf("%u", -1);                          -> "4294967295"
+ 170.      ft_printf("%u", 4294967295);                  -> "4294967295"
+ 171.      ft_printf("%u", 4294967296);                  -> "0"
+ 172.      ft_printf("%5u", 4294967295);                 -> "4294967295"
+ 173. FAIL ft_printf("%15u", 4294967295);                -> "     4294967295"
+ 174. FAIL ft_printf("%-15u", 4294967295);               -> "4294967295     "
+ 175. FAIL ft_printf("%015u", 4294967295);               -> "000004294967295"
+ 176.      ft_printf("% u", 4294967295);                 -> "4294967295"
+ 177.      ft_printf("%+u", 4294967295);                 -> "4294967295"
+ 178.      ft_printf("%lu", 4294967295);                 -> "4294967295"
+ 179. FAIL ft_printf("%lu", 4294967296);                 -> "4294967296"
+ 180. FAIL ft_printf("%lu", -42);                        -> "18446744073709551574"
+ 181. FAIL ft_printf("%llu", 4999999999);                -> "4999999999"
+ 182. FAIL ft_printf("@moulitest: %.5u", 42);            -> "@moulitest: 00042"
