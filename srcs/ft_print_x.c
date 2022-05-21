@@ -30,7 +30,7 @@ static uintmax_t	unsigned_conv(t_flags *flag_s, va_list ap)
 		i =  (unsigned int) va_arg(ap, unsigned int);
 	return (i);
 }
-
+/*
 int	print_before_ox(t_flags *flag, int c_p, char *s, char c)
 {
 	if (flag->space == 1 && s[0] != '-' && flag->plus == 0)
@@ -65,6 +65,7 @@ int	print_before_ox(t_flags *flag, int c_p, char *s, char c)
 	}
 	return (c_p);
 }
+*/
 
 int	print_u(const char *flags, va_list ap, int chars_printed)
 {
@@ -108,7 +109,7 @@ int	print_x(const char *flags, va_list ap, int chars_printed)
 	//	chars_printed += ft_putnchar("0x", 2);
 	//	s = ft_strjoin("0x", s);
 	
-	chars_printed += print_before_ox(flag_s, chars_printed, s, ' ');
+	chars_printed += print_before(flag_s, chars_printed, s, ' ');
 	
 	if (i == 0)
 		chars_printed += print_c('0');
