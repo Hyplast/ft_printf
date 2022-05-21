@@ -31,6 +31,41 @@ static uintmax_t	unsigned_conv(t_flags *flag_s, va_list ap)
 	return (i);
 }
 
+int	print_before_ox(t_flags *flag, int c_p, char *s, char c)
+{
+	if (flag->space == 1 && s[0] != '-' && flag->plus == 0)
+		c_p += print_c(' ');
+	if (flag->zero == 1)
+		c = '0';
+	if (flag->minus == 1)
+	{
+		if (flag->plus == 1)
+		{
+			if (s[0] != '-')
+				c_p += print_c('+');
+		}
+		if (flag->sharp == 1)
+			c_p += ft_putnchar("0x", 2);
+		c_p += ft_putnchar(s, ft_strlen(s));
+		c_p += ft_putcx(c, flag->width - c_p);
+	}
+	else
+	{
+		if (flag->sharp == 1 && flag->zero == 1)
+			c_p += ft_putnchar("0x", 2);
+		c_p += ft_putcx(c, flag->width - ft_strlen(s) - flag->plus - (flag->sharp * 2));
+		if (flag->sharp == 1 && flag->zero == 0)
+			c_p += ft_putnchar("0x", 2);
+		if (flag->plus == 1)
+		{
+			if (s[0] != '-')
+				c_p += print_c('+');
+		}
+		c_p += ft_putnchar(s, ft_strlen(s));
+	}
+	return (c_p);
+}
+
 int	print_u(const char *flags, va_list ap, int chars_printed)
 {
 	char			*s;
@@ -49,6 +84,8 @@ int	print_o(const char *flags, va_list ap, int chars_printed)
 	unsigned int	i;
 
 	i = (unsigned int) va_arg(ap, unsigned int);
+	if (i == 0)
+		return (chars_printed += print_c('0'));
 	s = ft_basetoa(i, 8, ' ');
 	if (flags[0] == '#')
 		chars_printed += ft_putnchar("0", 1);
@@ -64,10 +101,15 @@ int	print_x(const char *flags, va_list ap, int chars_printed)
 
 	flag_s = return_flags(flags);
 	i = unsigned_conv(flag_s, ap);
+	if (i == 0)
+		return (chars_printed += print_c('0'));
 	s = ft_basetoa(i, 16, ' ');
-	if (flag_s->sharp == 1)
-		s = ft_strjoin("0x", s);
-	chars_printed += print_before(flag_s, chars_printed, s, ' ');
+	// if (flag_s->sharp == 1)
+	//	chars_printed += ft_putnchar("0x", 2);
+	//	s = ft_strjoin("0x", s);
+	
+	chars_printed += print_before_ox(flag_s, chars_printed, s, ' ');
+	
 	if (i == 0)
 		chars_printed += print_c('0');
 	return (chars_printed);
@@ -83,6 +125,8 @@ int	print_big_x(const char *flags, va_list ap, int chars_printed)
 	j = 0;
 	flag_s = return_flags(flags);
 	i = unsigned_conv(flag_s, ap);
+	if (i == 0)
+		return (chars_printed += ft_putnchar("0", ft_strlen("0")));
 	s = ft_basetoa(i, 16, ' ');
 	if (flag_s->sharp == 1)
 		s = ft_strjoin("0X", s);

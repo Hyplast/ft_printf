@@ -20,7 +20,11 @@ int	print_c(char c)
 
 int	print_s(char *s, int chars_printed)
 {
-	chars_printed += ft_putnchar(s, ft_strlen(s));
+	if (s != NULL)
+		chars_printed += ft_putnchar(s, ft_strlen(s));
+
+
+	
 	return (chars_printed);
 }
 

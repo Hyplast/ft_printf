@@ -38,12 +38,44 @@ int	ft_putcx(char c, int n)
 	return (i);
 }
 
+int	print_before_0(t_flags *flag, int c_p, char *s, char c)
+{
+	char	*temp;
+	if (s[0] == '-')
+	{
+		temp = ft_strsub(s, 1, ft_strlen(s) - 1);
+		ft_strcpy(s, temp);
+		c_p += print_c('-');
+	}
+	if (flag->minus == 1)
+		{
+			if (flag->plus == 1)
+			{
+				if (s[0] != '-')
+					c_p += print_c('+');
+			}
+			c_p += ft_putnchar(s, ft_strlen(s));
+			c_p += ft_putcx(c, flag->width - c_p);
+		}
+	else
+		{
+			if (flag->plus == 1)
+			{
+				if (s[0] != '-')
+					c_p += print_c('+');
+			}
+			c_p += ft_putcx(c, flag->width - ft_strlen(s) - flag->plus - c_p);
+			c_p += ft_putnchar(s, ft_strlen(s));
+		}
+	return (c_p);
+}
+
 int	print_before(t_flags *flag, int c_p, char *s, char c)
 {
 	if (flag->space == 1 && s[0] != '-' && flag->plus == 0)
 		c_p += print_c(' ');
 	if (flag->zero == 1)
-		c = '0';
+		return (print_before_0(flag,  c_p, s, '0'));
 	if (flag->minus == 1)
 	{
 		if (flag->plus == 1)
@@ -66,3 +98,5 @@ int	print_before(t_flags *flag, int c_p, char *s, char c)
 	}
 	return (c_p);
 }
+
+
