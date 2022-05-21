@@ -28,50 +28,52 @@ int	main()
 	printf("BASIC TESTING WITH ONLY SPECIFIERS\n");
 	printf("*************************************\n");
 	
+
+
 	printf("Test 1. \n");
 	i = ft_printf("myve: %s :\n", my);
 	o =    printf("sysv: %s :\n", system);
-	printf(" my length %i. system lenght %i\n", i,o);
+	printf(" my length %i. system lenght %i\n\n", i,o);
 	
 	printf("Test 2. \n");
 	i = ft_printf("myve: %i :\n", 333);
 	o =    printf("sysv: %i :\n", 333);
-	printf(" my length %i. system lenght %i\n", i,o);
+	printf(" my length %i. system lenght %i\n\n", i,o);
 
 	printf("Test 3. \n"); 
 	i = ft_printf("myve: %c :\n", 'X');
 	o =    printf("sysv: %c :\n", 'X');
-	printf(" my length %i. system lenght %i\n", i,o);
+	printf(" my length %i. system lenght %i\n\n", i,o);
 
 	printf("Test 4. \n");
 	i = ft_printf("myve: \"%s\" starts with letter %c and is %i long.\n", my, my[0], ft_strlen(my));
 	o =    printf("sysv: \"%s\" starts with letter %c and is %i long.\n", my, my[0], (int)ft_strlen(my));
-	printf(" my length %i. system lenght %i\n", i,o);
+	printf(" my length %i. system lenght %i\n\n", i,o);
 
 	ft_printf("Test 5. (now with ft_printf) \n");
 	i = ft_printf("myve: %p :\n", system);
 	o =    printf("sysv: %p :\n", system);
-	printf(" my length %i. system lenght %i\n", i,o);
+	printf(" my length %i. system lenght %i\n\n", i,o);
 
 	ft_printf("Test 6. \n");
 	o =    printf("sysv: %x,%x,%x :\n", 100, 1000, 100000);
 	i = ft_printf("myve: %x,%x,%x :\n", 100, 1000, 100000);	
-	printf(" my length %i. system lenght %i\n", i,o);
+	printf(" my length %i. system lenght %i\n\n", i,o);
 
 	ft_printf("Test 7. \n");
 	o =    printf("sysv: %X,%X,%X :\n", 100, 1000, 100000);
 	i = ft_printf("myve: %X,%X,%X :\n", 100, 1000, 100000);	
-	printf(" my length %i. system lenght %i\n", i,o);
+	printf(" my length %i. system lenght %i\n\n", i,o);
 
 	ft_printf("Test 8. \n");
 	o =    printf("sysv: %o,%o,%o :\n", 100, 1000, 100000);
 	i = ft_printf("myve: %o,%o,%o :\n", 100, 1000, 100000);	
-	printf(" my length %i. system lenght %i\n", i,o);
+	printf(" my length %i. system lenght %i\n\n", i,o);
 
 	ft_printf("Test 9. \n");
 	o =    printf("sysv: %u,%u,%u :\n", -100, -1000, -100000);
 	i = ft_printf("myve: %u,%u,%u :\n", -100, -1000, -100000);	
-	printf(" my length %i. system lenght %i\n", i,o);
+	printf(" my length %i. system lenght %i\n\n", i,o);
 
 /*
 	ft_printf("Test 24. - ");
@@ -117,7 +119,7 @@ int	main()
 	ft_printf("Test 11. \n");
 	o =    printf("   float 1249328409.34897329487 = %f\n", 1249328409.34897329487);
 	i = ft_printf ("ft_float 1249328409.34897329487 = %f\n", 1249328409.34897329487);
-	printf(" my length %i. system lenght %i\n", i,o);
+	printf(" my length %i. system lenght %i\n\n", i,o);
 
 	long double lo = 1249328409.34897329487;
 	long double li = 1249328409.34897329487;
@@ -125,77 +127,77 @@ int	main()
 	ft_printf("Test 11.b) L \n");
 	o =    printf("long    float 1249328409.34897329487 = %Lf\n", lo);
 	i = ft_printf ("long ft_float 1249328409.34897329487 = %Lf\n", li);
-	printf(" my length %i. system lenght %i\n", i,o);
+	printf(" my length %i. system lenght %i\n\n", i,o);
 
 	ft_printf("Test 12. \n");
 	o =    printf("   float 12493284091249328409.34897329487 = %f\n", 12493284091249328409.34897329487);
 	i = ft_printf ("ft_float 12493284091249328409.34897329487 = %f\n", 12493284091249328409.34897329487);
-	printf(" my length %i. system lenght %i\n", i,o);
+	printf(" my length %i. system lenght %i\n\n", i,o);
 
 	lo = 12493284091249328409.34897329487;
 	li = 12493284091249328409.34897329487;
 	ft_printf("Test 12.b) L \n");
 	o =    printf("   float 12493284091249328409.34897329487 = %Lf\n", lo);
 	i = ft_printf ("ft_float 12493284091249328409.34897329487 = %Lf\n", li);
-	printf(" my length %i. system lenght %i\n", i,o);
+	printf(" my length %i. system lenght %i\n\n", i,o);
 
 	ft_printf("Test 13. \n");
 	o =    printf("   float 123456789123456789123456789.123456789 = %f\n", 123456789123456789123456789.123456789);
 	i = ft_printf ("ft_float 123456789123456789123456789.123456789 = %f\n", 123456789123456789123456789.123456789);
-	printf(" my length %i. system lenght %i\n", i,o);
+	printf(" my length %i. system lenght %i\n\n", i,o);
 
 	ft_printf("Test 14. \n");
 	o =    printf ("   printf printing float 3.1416 = %f\n", 3.1416);
 	i = ft_printf("ft_printf printing float 3.1416 = %f\n", 3.1416);
-	printf(" my length %i. system lenght %i\n", i,o);
+	printf(" my length %i. system lenght %i\n\n", i,o);
 	
 	ft_printf("Test 15. \n");
 	o =    printf ("   printf printing float 3.1416 with .10 = %.10f\n", 3.1416);
 	i = ft_printf("ft_printf printing float 3.1416 with .10 = %.10f\n", 3.1416);
-	printf(" my length %i. system lenght %i\n", i,o);
+	printf(" my length %i. system lenght %i\n\n", i,o);
 	
 	ft_printf("Test 16. \n");
 	o =    printf ("   printf printing float 3.1416 with .3 = %.3f\n", 3.1416);
 	i = ft_printf("ft_printf printing float 3.1416 with .3 = %.3f\n", 3.1416);
-	printf(" my length %i. system lenght %i\n", i,o);
+	printf(" my length %i. system lenght %i\n\n", i,o);
 	
 	ft_printf("Test 17. \n");
 	o =    printf ("   printf printing float 3.1416 with .53 = %.53f\n", 3.1416);
 	i = ft_printf("ft_printf printing float 3.1416 with .53 = %.53f\n", 3.1416);
-	printf(" my length %i. system lenght %i\n", i,o);
+	printf(" my length %i. system lenght %i\n\n", i,o);
 	
 	ft_printf("Test 18. \n");
 	o =    printf ("   printf printing float 3.1416 with .153 = %.153f\n", 3.1416);
 	i = ft_printf("ft_printf printing float 3.1416 with .153 = %.153f\n", 3.1416);
-	printf(" my length %i. system lenght %i\n", i,o);
+	printf(" my length %i. system lenght %i\n\n", i,o);
 
 	ft_printf("Test 18.b) 0-pad \n");
 	o =    printf ("   printf printing float 3.1416 with .153 = %0.153f\n", 3.1416);
 	i = ft_printf("ft_printf printing float 3.1416 with .153 = %0.153f\n", 3.1416);
-	printf(" my length %i. system lenght %i\n", i,o);
+	printf(" my length %i. system lenght %i\n\n", i,o);
 
 	li = 3.1416;
 	lo = 3.1416;
 	ft_printf("Test 18.c) L \n");
 	o =    printf ("   printf printing float 3.1416 with .153 = %.153Lf\n", lo);
 	i = ft_printf("ft_printf printing float 3.1416 with .153 = %.153Lf\n", li);
-	printf(" my length %i. system lenght %i\n", i,o);
+	printf(" my length %i. system lenght %i\n\n", i,o);
 	
 	ft_printf("Test 19. \n");
 	o =    printf("ft_printf printing float 3.1416 with .10 = %.10f\n", 3.1416);
 	i = ft_printf("ft_printf printing float 3.1416 with .10 = %.10f\n", 3.1416);
-	printf(" my length %i. system lenght %i\n", i,o);
+	printf(" my length %i. system lenght %i\n\n", i,o);
 	
 	ft_printf("Test 20. \n");
 	float flow = 2.96f;
 	o =    printf("double with    printf: %f \n", flow);
 	i = ft_printf("double with ft_printf: %f \n", flow);
-	printf(" my length %i. system lenght %i\n", i,o);
+	printf(" my length %i. system lenght %i\n\n", i,o);
 	
 	ft_printf("Test 21. \n");
 	o =    printf ("   printf printing float 3.1416 with .10 = %14.10f\n", 3.1416);
 	i = ft_printf("ft_printf printing float 3.1416 with .10 = %14.10f\n", 3.1416);
-	printf(" my length %i. system lenght %i\n", i,o);
+	printf(" my length %i. system lenght %i\n\n", i,o);
 	
 	ft_printf("Test 22. \n");
 	o =    printf ("ft_float 3.1416 with 51.51f = \"%10f\"\n", 3.1416);
@@ -591,7 +593,7 @@ printf("\n");
 ft_printf("%#8x", 42);                       // "    0x2a"
   printf("\n");
   printf("%#8x", 42);                       // "    0x2a"¨
-  
+
 printf("\n6.c\n");
   ft_printf("%-#8x", 42);                       // "    0x2a"
   printf("\n");
@@ -602,23 +604,29 @@ printf("FAIL: 7");
 printf("\n");
 
   ft_printf("@moulitest: %#.x %#.0x", 0, 0);    // "@moulitest:  "
+  printf("<->");
   printf("\n");
   printf("@moulitest: %#.x %#.0x", 0, 0);    // "@moulitest:  "
+  printf("<->");
 printf("\n");
 printf("FAIL: 8");
 printf("\n");
 
 
   ft_printf("@moulitest: %.x %.0x", 0, 0);      // "@moulitest:  "
+  printf("<->");
   printf("\n");
   printf("@moulitest: %.x %.0x", 0, 0);      // "@moulitest:  
+  printf("<->");
 printf("\n");
 printf("FAIL: 9");
 printf("\n");
 
   ft_printf("@moulitest: %5.x %5.0x", 0, 0);    // "@moulitest:            "
+  printf("<->");
   printf("\n");
   printf("@moulitest: %5.x %5.0x", 0, 0);    // "@moulitest:            "
+  printf("<->");
 printf("\n");
 printf("FAIL: 10");
 printf("\n");
@@ -991,6 +999,39 @@ printf("\n");
   ft_printf("@moulitest: %.5u", 42);            // "@moulitest: 00042"
   printf("@moulitest: %.5u", 42);            // "@moulitest: 00042"
   printf("\n");
+
+
+  	printf("\n");
+	printf("@moulitest:            <-- example output");
+	printf("\n");
+	ft_printf("@moulitest: %5.x %5.0x", 0, 0);    // "@moulitest:            "
+	printf("<-- mine\n");
+	printf("@moulitest: %5.x %5.0x", 0, 0);    // "@moulitest:            "
+
+	printf("<-- system\n");
+	printf("\n");
+	printf("@moulitest:  <-- example output");
+	printf("\n");
+	ft_printf("@moulitest: %#.x %#.0x", 0, 0);    // "@moulitest:  "
+	printf("<-- mine\n");
+	printf("@moulitest: %#.x %#.0x", 0, 0);    // "@moulitest:  "
+		printf("<-- system\n");
+		printf("\n");
+
+	printf("\n");
+	ft_printf("@moulitest: ->%#.x<-", 0);    // "@moulitest:  "
+	printf("\n");
+	ft_printf("@moulitest: ->%#.0x<-", 0);    // "@moulitest:  "
+	printf("\n");
+
+	printf("\n");
+	printf("@moulitest: ->%#.x<-", 0);    // "@moulitest:  "
+	printf("\n");
+	printf("@moulitest: ->%#.0x<-", 0);    // "@moulitest:  "
+	printf("\n");
+
+
+
   printf("***************END\n");
 
 

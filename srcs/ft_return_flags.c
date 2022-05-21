@@ -69,7 +69,7 @@ static char	*find_prec(t_flags *flag_s, char *flags)
 		if (index == 0)
 			flags = "";
 		else
-			flags = ft_strsub(flags, 0, ft_strlen(flags) - index - 1);
+			flags = ft_strsub(flags, 0, ft_strlen(flags) - index );
 	}
 	return (flags);
 }
