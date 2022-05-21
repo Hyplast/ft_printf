@@ -105,12 +105,7 @@ int	print_x(const char *flags, va_list ap, int chars_printed)
 	if (i == 0)
 		return (chars_printed += print_c('0'));
 	s = ft_basetoa(i, 16, ' ');
-	// if (flag_s->sharp == 1)
-	//	chars_printed += ft_putnchar("0x", 2);
-	//	s = ft_strjoin("0x", s);
-	
-	chars_printed += print_before(flag_s, chars_printed, s, ' ');
-	
+	chars_printed += print_before(flag_s, chars_printed, s, 'x');
 	if (i == 0)
 		chars_printed += print_c('0');
 	return (chars_printed);
@@ -127,16 +122,14 @@ int	print_big_x(const char *flags, va_list ap, int chars_printed)
 	flag_s = return_flags(flags);
 	i = unsigned_conv(flag_s, ap);
 	if (i == 0)
-		return (chars_printed += ft_putnchar("0", ft_strlen("0")));
+		return (chars_printed += print_c('0'));
 	s = ft_basetoa(i, 16, ' ');
-	if (flag_s->sharp == 1)
-		s = ft_strjoin("0X", s);
 	while (s[j] != '\0')
 	{
 		s[j] = (char)ft_toupper(s[j]);
 		j++;
 	}
-	chars_printed += print_before(flag_s, chars_printed, s, ' ');
+	chars_printed += print_before(flag_s, chars_printed, s, 'X');
 	if (i == 0)
 		chars_printed += print_c('0');
 	return (chars_printed);
