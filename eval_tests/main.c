@@ -16,7 +16,8 @@
 
 int	main()
 {
-
+	ft_printf("%-#6o", 2500);                     // "04704 "
+	
 	char *my;
 	char *system;
 	int i=0,o=0;
@@ -28,7 +29,6 @@ int	main()
 	printf("BASIC TESTING WITH ONLY SPECIFIERS\n");
 	printf("*************************************\n");
 	
-
 
 	printf("Test 1. \n");
 	i = ft_printf("myve: %s :\n", my);
@@ -715,293 +715,416 @@ printf("\n");
   printf("\n");
 //  printf("@moulitest: %s", NULL);            // "@moulitest: (null)"
 printf("\n");
+
 printf("FAIL: 23");
 printf("\n");
-
   ft_printf("%.2c", NULL);                      // "^@"
   printf("\n");
   //printf("%.2c", NULL);                      // "^@"
 printf("\n");
-printf("FAIL: 24");
 printf("\n");
 
+printf("FAIL: 24");
+printf("\n");
   ft_printf("%s %s", NULL, "string");             // "(null) string"
   printf("\n");
   //printf("%s %s", NULL, "string");             // "(null) string"
 printf("\n");
+printf("\n");
+
 printf("FAIL: 25");
 printf("\n");
   ft_printf("%c", 42);                          // "*"
+  printf("\n");
   printf("%c", 42);                          // "*"
 printf("\n");
+printf("\n");
+
 printf("FAIL: 26");
 printf("\n");
-
   ft_printf("%5c", 42);                         // "    *"
+  printf("\n");
   printf("%5c", 42);                         // "    *"
 printf("\n");
-printf("FAIL: 27");
 printf("\n");
 
+printf("FAIL: 27");
+printf("\n");
   ft_printf("%-5c", 42);                        // "*    "
+  printf("\n");
   printf("%-5c", 42);                        // "*    "
 printf("\n");
+printf("\n");
+
+
 printf("FAIL: 28");
 printf("\n");
   ft_printf("@moulitest: %c", 0);               // "@moulitest: ^@"
+  printf("\n");
   printf("@moulitest: %c", 0);               // "@moulitest: ^@"
 printf("\n");
+printf("\n");
+
 printf("FAIL: 29");
 printf("\n");
-
   ft_printf("%2c", 0);                          // " ^@"
+  printf("\n");
   printf("%2c", 0);                          // " ^@"
 printf("\n");
+printf("\n");
+
 printf("FAIL: 30");
 printf("\n");
-
   ft_printf("%5o", 41);                         // "   51"
+  printf("\n");
   printf("%5o", 41);                         // "   51"
 printf("\n");
+printf("\n");
+
 printf("FAIL: 31");
 printf("\n");
-
   ft_printf("%05o", 42);                        // "00052"
+  printf("\n");
   printf("%05o", 42);                        // "00052"
 printf("\n");
+printf("\n");
+
 printf("FAIL: 32");
 printf("\n");
-
   ft_printf("%-5o", 2500);                      // "4704 "
+  printf("\n");
   printf("%-5o", 2500);                      // "4704 "
 printf("\n");
+printf("\n");
+
 printf("FAIL: 33");
 printf("\n");
-
   ft_printf("%#6o", 2500);                      // " 04704"
+  printf("\n");
   printf("%#6o", 2500);                      // " 04704"
 printf("\n");
+printf("\n");
+
 printf("FAIL: 34");
 printf("\n");
-
   ft_printf("%-#6o", 2500);                     // "04704 "
+  printf("\n");
   printf("%-#6o", 2500);                     // "04704 "
 printf("\n");
-printf("FAIL: 35");
 printf("\n");
 
+printf("FAIL: 35");
+printf("\n");
   ft_printf("%-05o", 2500);                     // "4704 "
+  printf("\n");
  // printf("%-05o", 2500);                     // "4704 "
 printf("\n");
+printf("\n");
+
 printf("FAIL: 36");
 printf("\n");
   ft_printf("%-5.10o", 2500);                   // "0000004704"
+  printf("\n");
   printf("%-5.10o", 2500);                   // "0000004704"
 printf("\n");
+printf("\n");
+
 printf("FAIL: 37");
 printf("\n");
-
   ft_printf("%-10.5o", 2500);                   // "04704     "
+  printf("\n");
   printf("%-10.5o", 2500);                   // "04704     "
 printf("\n");
+printf("\n");
+
 printf("FAIL: 38");
 printf("\n");
-
   ft_printf("@moulitest: %o", 0);               // "@moulitest: 0"
+  printf("\n");
   printf("@moulitest: %o", 0);               // "@moulitest: 0"
 printf("\n");
+printf("\n");
+
 printf("FAIL: 39");
 printf("\n");
-
   ft_printf("@moulitest: %.o %.0o", 0, 0);      // "@moulitest:  "
+  printf("\n");
   printf("@moulitest: %.o %.0o", 0, 0);      // "@moulitest:  "
 printf("\n");
-printf("FAIL: 40");
 printf("\n");
 
+printf("FAIL: 40");
+printf("\n");
   ft_printf("@moulitest: %5.o %5.0o", 0, 0);    // "@moulitest:            "
+  printf("\n");
   printf("@moulitest: %5.o %5.0o", 0, 0);    // "@moulitest:            "
 printf("\n");
+printf("\n");
+
 printf("FAIL: 41");
 printf("\n");
   ft_printf("@moulitest: %#.o %#.0o", 0, 0);    // "@moulitest: 0 0"
+  printf("\n");
   printf("@moulitest: %#.o %#.0o", 0, 0);    // "@moulitest: 0 0"
+  printf("\n");
 printf("\n");
+
 printf("FAIL: 42");
 printf("\n");
   ft_printf("@moulitest: %.10o", 42);           // "@moulitest: 0000000052"
+  printf("\n");
   printf("@moulitest: %.10o", 42);           // "@moulitest: 0000000052"
 printf("\n");
+printf("\n");
+
 printf("FAIL: 43");
 printf("\n");
   ft_printf("%d", 1);                           // "1"
+  printf("\n");
   printf("%d", 1);                           // "1"
 printf("\n");
+printf("\n");
+
 printf("FAIL: 44");
 printf("\n");
   ft_printf("%0+5d", 42);                       // "+0042"
+  printf("\n");
   printf("%0+5d", 42);                       // "+0042"
 printf("\n");
+printf("\n");
+
 printf("FAIL: 45");
 printf("\n");
   ft_printf("%5d", -42);                        // "  -42"
+  printf("\n");
   printf("%5d", -42);                        // "  -42"
 printf("\n");
+printf("\n");
+
 printf("FAIL: 46");
 printf("\n");
   ft_printf("%05d", -42);                       // "-0042"
+  printf("\n");
   printf("%05d", -42);                       // "-0042"
 printf("\n");
+printf("\n");
+
 printf("FAIL: 47");
 printf("\n");
   ft_printf("%0+5d", -42);                      // "-0042"
+  printf("\n");
   printf("%0+5d", -42);                      // "-0042"
 printf("\n");
+printf("\n");
+
 printf("FAIL: 48");
 printf("\n");
   ft_printf("%hd", 32768);                      // "-32768"
+  printf("\n");
   printf("%hd", 32768);                      // "-32768"
 printf("\n");
+printf("\n");
+
 printf("FAIL: 49");
 printf("\n");
   ft_printf("%hhd", 128);                       // "-128"
+  printf("\n");
   printf("%hhd", 128);                       // "-128"
 printf("\n");
+printf("\n");
+
 printf("FAIL: 50");
 printf("\n");
   ft_printf("%hhd", -129);                      // "127"
+  printf("\n");
   printf("%hhd", -129);                      // "127"
 printf("\n");
+printf("\n");
+
 printf("FAIL: 51");
 printf("\n");
   ft_printf("%ld", 2147483648);                 // "2147483648"
+  printf("\n");
   printf("%ld", 2147483648);                 // "2147483648"
+  printf("\n");
 printf("\n");
+
 printf("FAIL: 52");
 printf("\n");
   ft_printf("%ld", -2147483649);                // "-2147483649"
+  printf("\n");
   printf("%ld", -2147483649);                // "-2147483649"
 printf("\n");
+printf("\n");
+
 printf("FAIL: 53");
 printf("\n");
  // ft_printf("%lld", 9223372036854775807);       // "9223372036854775807"
  // printf("%lld", 9223372036854775807);       // "9223372036854775807"
 printf("\n");
+
 printf("FAIL: 54");
 printf("\n");
 //  ft_printf("%lld", -9223372036854775808);      // "-9223372036854775808"
 //  printf("%lld", -9223372036854775808);      // "-9223372036854775808"
 printf("\n");
+
 printf("FAIL: 55");
 printf("\n");
   ft_printf("%4.15d", 42);                      // "000000000000042"
+  printf("\n");
   printf("%4.15d", 42);                      // "000000000000042"
 printf("\n");
+printf("\n");
+
 printf("FAIL: 56");
 printf("\n");
   ft_printf("%.10d", 4242);                     // "0000004242"
+  printf("\n");
   printf("%.10d", 4242);                     // "0000004242"
 printf("\n");
+printf("\n");
+
 printf("FAIL: 57");
 printf("\n");
   ft_printf("%10.5d", 4242);                    // "     04242"
+  printf("\n");
   printf("%10.5d", 4242);                    // "     04242"
 printf("\n");
+
 printf("FAIL: 58");
 printf("\n");
   ft_printf("%-10.5d", 4242);                   // "04242     "
+  printf("\n");
   printf("%-10.5d", 4242);                   // "04242     "
 printf("\n");
+printf("\n");
+
 printf("FAIL: 59");
 printf("\n");
   ft_printf("% 10.5d", 4242);                   // "     04242"
+  printf("\n");
   printf("% 10.5d", 4242);                   // "     04242"
 printf("\n");
+printf("\n");
+
 printf("FAIL: 60");
 printf("\n");
   ft_printf("%+10.5d", 4242);                   // "    +04242"
+  printf("\n");
   printf("%+10.5d", 4242);                   // "    +04242"
 printf("\n");
+printf("\n");
+
 printf("FAIL: 61");
 printf("\n");
   ft_printf("%-+10.5d", 4242);                  // "+04242    "
+  printf("\n");
   printf("%-+10.5d", 4242);                  // "+04242    "
 printf("\n");
+printf("\n");
+
 printf("FAIL: 62");
 printf("\n");
   ft_printf("%03.2d", 0);                       // " 00"
   //printf("%03.2d", 0);                       // " 00"
 printf("\n");
+printf("\n");
+
 printf("FAIL: 63");
 printf("\n");
 
   ft_printf("%03.2d", 1);                       // " 01"
   //printf("%03.2d", 1);                       // " 01"
 printf("\n");
+printf("\n");
+
 printf("FAIL: 64");
 printf("\n");
   ft_printf("%03.2d", -1);                      // "-01"
   //printf("%03.2d", -1);                      // "-01"
 printf("\n");
+printf("\n");
+
 printf("FAIL: 65");
 printf("\n");
   ft_printf("@moulitest: %.10d", -42);          // "@moulitest: -0000000042"
+  printf("\n");
   printf("@moulitest: %.10d", -42);          // "@moulitest: -0000000042"
 printf("\n");
+printf("\n");
+
 printf("FAIL: 66");
 printf("\n");
   ft_printf("@moulitest: %.d %.0d", 0, 0);      // "@moulitest:  "
+  printf("\n");
   printf("@moulitest: %.d %.0d", 0, 0);      // "@moulitest:  "
 printf("\n");
+
 printf("FAIL: 67");
 printf("\n");
-
   ft_printf("@moulitest: %5.d %5.0d", 0, 0);    // "@moulitest:            "
+  printf("\n");
   printf("@moulitest: %5.d %5.0d", 0, 0);    // "@moulitest:            "
 printf("\n");
+
 printf("FAIL: 68");
 printf("\n");
   ft_printf("%15u", (unsigned int)4294967295);                // "     4294967295"
+  printf("\n");
   printf("%15u", (unsigned int)4294967295);                // "     4294967295"
 printf("\n");
+printf("\n");
+
 printf("FAIL: 69");
 printf("\n");
   ft_printf("%-15u", (unsigned int)4294967295);               // "4294967295     "
+  printf("\n");
   printf("%-15u", (unsigned int)4294967295);               // "4294967295     "
 printf("\n");
+printf("\n");
+
 printf("FAIL: 70");
 printf("\n");
-  
-  ft_printf("%015u", (unsigned int)4294967295);               // "000004294967295"
+ft_printf("%015u", (unsigned int)4294967295);               // "000004294967295"
+	printf("\n");
   printf("%015u", (unsigned int)4294967295);               // "000004294967295"
 printf("\n");
+printf("\n");
+
 printf("FAIL: 71");
 printf("\n");
-  
   ft_printf("%lu", 4294967296);                 // "4294967296"
+  printf("\n");
   printf("%lu", 4294967296);                 // "4294967296"
+  printf("\n");
 printf("\n");
+
 printf("FAIL: 72");
 printf("\n");
-  
-  ft_printf("%lu", (long unsigned int)-42);                        // "18446744073709551574"
+    ft_printf("%lu", (long unsigned int)-42);                        // "18446744073709551574"
+	printf("\n");
   printf("%lu", (long unsigned int)-42);                        // "18446744073709551574"
 printf("\n");
+printf("\n");
+
 printf("FAIL: 73");
 printf("\n");
-  
-  ft_printf("%llu", (long long unsigned int)4999999999);                // "4999999999"
+    ft_printf("%llu", (long long unsigned int)4999999999);                // "4999999999"
+	printf("\n");
   printf("%llu", (long long unsigned int)4999999999);                // "4999999999"
 printf("\n");
+printf("\n");
+
 printf("FAIL: 74");
 printf("\n");
   
   ft_printf("@moulitest: %.5u", 42);            // "@moulitest: 00042"
+  printf("\n");
   printf("@moulitest: %.5u", 42);            // "@moulitest: 00042"
   printf("\n");
-
-
   	printf("\n");
+
 	printf("@moulitest:            <-- example output");
 	printf("\n");
 	ft_printf("@moulitest: %5.x %5.0x", 0, 0);    // "@moulitest:            "

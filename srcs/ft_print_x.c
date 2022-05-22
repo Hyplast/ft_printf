@@ -83,14 +83,17 @@ int	print_o(const char *flags, va_list ap, int chars_printed)
 {
 	char			*s;
 	unsigned int	i;
+	t_flags		*flag_s;
 
+	flag_s = return_flags(flags);
 	i = (unsigned int) va_arg(ap, unsigned int);
 	if (i == 0)
 		return (chars_printed += print_c('0'));
 	s = ft_basetoa(i, 8, ' ');
-	if (flags[0] == '#')
-		chars_printed += ft_putnchar("0", 1);
-	chars_printed += ft_putnchar(s, ft_strlen(s));
+	//if (flags[0] == '#')
+	//	chars_printed += print_c('0');
+	chars_printed += print_before(flag_s, chars_printed, s, 'o');
+	//chars_printed += ft_putnchar(s, ft_strlen(s));
 	return (chars_printed);
 }
 

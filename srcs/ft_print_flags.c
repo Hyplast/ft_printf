@@ -48,7 +48,8 @@ int	print_before_minus(t_flags *flag, int c_p, char *s, char c)
 	if (flag->sharp == 1)
 	{
 		c_p += print_c('0');
-		c_p += print_c(c);
+		if (c != 'o')
+			c_p += print_c(c);
 	}
 	c_p += ft_putnchar(s, ft_strlen(s));
 	if (flag->zero == 1)
@@ -108,7 +109,8 @@ int	print_before(t_flags *flag, int c_p, char *s, char c)
 		if (flag->sharp == 1)
 		{
 			ft_putchar('0');
-			ft_putchar(c);
+			if (c != 'o')
+				ft_putchar(c);
 		}
 		if (flag->plus == 1)
 		{

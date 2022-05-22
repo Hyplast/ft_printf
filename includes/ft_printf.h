@@ -97,6 +97,7 @@ size_t			count_digits(long c);
 void			ft_add_zeros(char **str, int zeros);
 int				print_b(const char *flags, va_list ap, int chars_printed);
 int				print_c(char c);
+int				print_char(const char *flags, char c, int chars_printed);
 int				print_d(const char *flags, int d, int chars_printed);
 int				print_f(const char *flags, va_list ap, int chars_printed);
 int				print_i(int i);

@@ -22,7 +22,7 @@ int	match_function(const char *flags, va_list ap, int c, int printed_chars)
 	if (c == 'b')
 		printed_chars += print_b(flags, ap, printed_chars);
 	else if (c == 'c')
-		printed_chars += print_c((char) va_arg(ap, int));
+		printed_chars += print_char(flags, (char) va_arg(ap, int), printed_chars);
 	else if (c == 'd')
 		printed_chars += print_d(flags, (int) va_arg(ap, int), printed_chars);
 	else if (c == 'f')
