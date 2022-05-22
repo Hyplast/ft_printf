@@ -6,7 +6,7 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 09:54:01 by severi            #+#    #+#             */
-/*   Updated: 2022/04/08 00:37:06 by severi           ###   ########.fr       */
+/*   Updated: 2022/05/22 14:21:14 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ int				print_f(const char *flags, va_list ap, int chars_printed);
 int				print_i(int i);
 int				print_o(const char *flags, va_list ap, int chars_printed);
 int				print_p(void *pointer);
-int				print_s(char *s, int chars_printed);
+int				print_s(const char *flags, char *s, int chars_printed);
 int				print_u(const char *flags, va_list ap, int chars_printed);
 int				print_x(const char *flags, va_list ap, int chars_printed);
 int				print_big_x(const char *flags, va_list ap, int chars_printed);

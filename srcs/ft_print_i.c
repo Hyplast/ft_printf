@@ -6,7 +6,7 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 01:47:10 by severi            #+#    #+#             */
-/*   Updated: 2022/04/08 00:46:24 by severi           ###   ########.fr       */
+/*   Updated: 2022/05/22 15:00:32 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,24 @@ int	print_c(char c)
 	return (1);
 }
 
-int	print_s(char *s, int chars_printed)
+int	print_s(const char *flags, char *s, int chars_printed)
 {
+	t_flags		*flag_s;
+	char		*temp;
+
+	flag_s = return_flags(flags);
+//	temp = ft_strsub(s, 0, (flag_s->prec));
 	if (s != NULL)
-		chars_printed += ft_putnchar(s, ft_strlen(s));
-
-
-	
+		return (chars_printed);
+	if (flag_s->prec < (int)ft_strlen(s) && flag_s->prec != 6)
+	{
+		temp = ft_strsub(s, 0, (flag_s->prec));
+		ft_strcpy(s, temp);
+	}
+//	if (s != NULL)
+//		return (chars_printed);
+	chars_printed += print_before(flag_s, chars_printed, s, 's');
+		//chars_printed += ft_putnchar(s, ft_strlen(s));
 	return (chars_printed);
 }
 

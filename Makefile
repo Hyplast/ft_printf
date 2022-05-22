@@ -6,7 +6,7 @@
 #    By: severi <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/30 18:43:06 by severi            #+#    #+#              #
-#    Updated: 2022/04/07 23:39:10 by severi           ###   ########.fr        #
+#    Updated: 2022/04/08 01:22:16 by severi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -135,6 +135,7 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f $(LIBFT_DIR)/$(LIBFT)
 
 re: fclean all
 

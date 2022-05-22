@@ -6,7 +6,7 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 09:54:52 by severi            #+#    #+#             */
-/*   Updated: 2022/04/08 00:51:28 by severi           ###   ########.fr       */
+/*   Updated: 2022/05/22 14:22:10 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	match_function(const char *flags, va_list ap, int c, int printed_chars)
 	else if (c == 'p')
 		printed_chars += print_p((void *) va_arg(ap, void *));
 	else if (c == 's')
-		printed_chars += print_s((char *) va_arg(ap, char *), printed_chars);
+		printed_chars += print_s(flags, (char *) va_arg(ap, char *), printed_chars);
 	else if (c == 'u')
 		printed_chars += print_u(flags, ap, printed_chars);
 	else if (c == 'x')
