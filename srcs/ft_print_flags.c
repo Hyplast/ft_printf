@@ -51,6 +51,13 @@ int	print_before_minus(t_flags *flag, int c_p, char *s, char c)
 		if (c != 'o')
 			c_p += print_c(c);
 	}
+	if (flag->prec > c_p + (int)ft_strlen(s) && flag->prec != -1 && s[0] != '\0')
+	{
+		if (c == 'o')
+			c_p += ft_putcx('0', flag->prec - c_p - ft_strlen(s));
+		else
+			c_p += ft_putcx(' ', flag->prec - c_p - ft_strlen(s));
+	}
 	c_p += ft_putnchar(s, ft_strlen(s));
 	if (flag->zero == 1)
 		c_p += ft_putcx('0', flag->width - c_p);
@@ -64,7 +71,8 @@ int	print_before_plus(t_flags *flag, int c_p, char *s, char c)
 	if (flag->sharp == 1)
 	{
 		c_p += print_c('0');
-		c_p += print_c(c);
+		if (c != 'o')
+			c_p += print_c(c);
 	}
 	if (flag->plus == 1)
 	{
@@ -89,23 +97,32 @@ int	print_before_0(t_flags *flag, int c_p, char *s, char c)
 	if (flag->minus == 1)
 		c_p += print_before_minus(flag, c_p, s, c);
 	else
-		c_p += print_before_plus(flag, c_p, s, c);
+		c_p = print_before_plus(flag, c_p, s, c);
 	return (c_p);
 }
+/*
+int	just_print(t_flags *flag, int c_p, char *s, char c)
+{
 
+}
+*/
 int	print_before(t_flags *flag, int c_p, char *s, char c)
 {
 	if (flag->space == 1 && s[0] != '-' && flag->plus == 0)
 		c_p += print_c(' ');
-	if (flag->zero == 1)
+	if (flag->zero == 1 || (flag->sharp == 1 && (c == 'o' || c == 'u' || c == 'x' || c == 'X')))
 		return (print_before_0(flag, c_p, s, c));
 	if (flag->minus == 1)
-		c_p += print_before_minus(flag, c_p, s, c);
+		c_p = print_before_minus(flag, c_p, s, c);
 	else
 	{
 		if (flag->sharp == 1)
 			c_p += 2;
-		c_p += ft_putcx(' ', flag->width - ft_strlen(s) - flag->plus - c_p);
+		if ((c == 'o' || c == 'u' || c == 'x' || c == 'X') && (flag->prec > (int)ft_strlen(s)))
+			c_p += flag->prec - ft_strlen(s) - flag->plus;
+		c_p = ft_putcx(' ', flag->width - ft_strlen(s) - flag->plus - c_p);
+		if (c == 'o' || c == 'u' || c == 'x' || c == 'X')
+			c_p += ft_putcx('0', flag->prec - ft_strlen(s) - flag->plus);
 		if (flag->sharp == 1)
 		{
 			ft_putchar('0');

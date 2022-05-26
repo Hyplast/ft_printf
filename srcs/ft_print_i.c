@@ -39,7 +39,7 @@ int	print_s(const char *flags, char *s, int chars_printed)
 //	temp = ft_strsub(s, 0, (flag_s->prec));
 	if (s == NULL)
 		return (chars_printed);
-	if (flag_s->prec < (int)ft_strlen(s) && flag_s->prec != 6)
+	if (flag_s->prec < (int)ft_strlen(s) && flag_s->prec != -1)
 	{
 		temp = ft_strsub(s, 0, (flag_s->prec));
 		s = temp;

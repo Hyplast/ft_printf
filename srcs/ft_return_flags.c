@@ -115,7 +115,7 @@ t_flags	*return_flags(const char *flags)
 	temp = find_prec(flag_s, temp);
 	if (ft_strcmp(temp, "") != 0)
 		temp = find_flags(flag_s, temp, -1);
-	fix_overrides(flag_s);
+	fix_overrides(flag_s, flags[ft_strlen(flags) - 1]);
 	if (ft_strcmp(temp, "") != 0)
 		temp = find_width(flag_s, temp);
 	if (ft_strcmp(temp, "") != 0)

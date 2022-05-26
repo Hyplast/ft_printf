@@ -27,13 +27,19 @@ void	fill_prec(char *ret, char *str, int size)
 	ret[i] = '\0';
 }
 
-void	fix_overrides(t_flags *flag_s)
+void	fix_overrides(t_flags *flag_s, const char c)
 {
+	if (c == 'f' && flag_s->prec == -1)
+		flag_s->prec = 6;
+	if ((c == 'd' || c == 'i') && flag_s->prec == -1)
+		flag_s->prec = 1;
+	if ((c == 'o' || c == 'u' || c == 'x' || c == 'X') && flag_s->prec == -1)
+		flag_s->prec = 1;
 	if (flag_s->plus == 1)
 		flag_s->space = 0;
 	if (flag_s->minus == 1)
 		flag_s->zero = 0;
-	if (flag_s->prec != 6 && flag_s->spec != 0)
+	if (flag_s->prec != -1 && flag_s->spec != 0)
 		flag_s->zero = 0;
 }
 
@@ -42,7 +48,7 @@ void	init_flags(t_flags *flag_s, const char *flags)
 	flag_s->len = ft_strlen(flags) - 1;
 	flag_s->spec = 0;
 	flag_s->width = 0;
-	flag_s->prec = 6;
+	flag_s->prec = -1;
 	flag_s->sharp = 0;
 	flag_s->minus = 0;
 	flag_s->plus = 0;

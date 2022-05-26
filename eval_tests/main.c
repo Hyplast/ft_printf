@@ -16,14 +16,98 @@
 
 int	main()
 {
-	ft_printf("%-#6o", 2500);                     // "04704 "
-	
+	//ft_printf("%-#6o", 2500);                     // "04704 "
+	//ft_printf("%-5c", 42);                        // "*    "
+
+//	ft_printf("%#6o", 2500);                      // " 04704"
+//	ft_printf("%-5.10o", 2500);                   // "0000004704"
 	char *my;
 	char *system;
 	int i=0,o=0;
 
+
 	my = "hello";
 	system = "hello";
+
+
+	ft_printf("Test 66. \n");
+	i = ft_printf("%10x", 42);
+	printf(" <-- yours\n");
+	o = printf("%10x", 42);
+	printf(" <-- system\n");
+	printf(" my length %i. system lenght %i\n", i,o);
+
+
+	ft_printf("Test 66.a \n");
+	i = ft_printf("%10.4x", 42);
+	printf(" <-- yours\n");
+	o = printf("%10.4x", 42);
+	printf(" <-- system\n");
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 66.b \n");
+	i = ft_printf("%10.14x", 42);
+	printf(" <-- yours\n");
+	o = printf("%10.14x", 42);
+	printf(" <-- system\n");
+	printf(" my length %i. system lenght %i\n", i,o);
+
+
+
+printf("FAIL: 42");
+printf("\n");
+  ft_printf("@moulitest: %.10o", 42);           // "@moulitest: 0000000052"
+  printf("\n");
+  printf("@moulitest: %.10o", 42);           // "@moulitest: 0000000052"
+printf("\n");
+
+
+printf("FAIL: 36");
+printf("\n");
+  ft_printf("%-5.10o", 2500);                   // "0000004704"
+  printf("\n");
+  printf("%-5.10o", 2500);                   // "0000004704"
+printf("\n");
+
+
+
+
+	printf("\n");
+  ft_printf("%#6o", 2500);                      // " 04704"
+  printf("\n");
+  printf("%#6o", 2500);                      // " 04704"
+printf("\n");
+
+
+printf("\n");
+ft_printf("%-.2s is a string", "");           // " is a string"
+  printf("\n");
+  printf("%-.2s is a string", "");           // " is a string"
+
+
+/*
+	ft_printf("Test 44. \n");
+	o =    printf ("Preceding with -10d:  '%-10d' \n", 1977);
+	i = ft_printf ("Preceding with -10d:  '%-10d' \n", 1977);
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 45. \n");
+	i =    printf ("Preceding with blanks:'%10d' \n", -1977);
+	o = ft_printf ("Preceding with blanks:'%10d' \n", -1977);
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 52. \n");
+	o =    printf ("Preceding with zeros: '%0 10d' \n", 1977);
+	i = ft_printf ("Preceding with zeros: '%0 10d' \n", 1977);
+	printf(" my length %i. system lenght %i\n", o,i);
+	
+	ft_printf("Test 46. b)\n");
+	o =    printf("->% -10d<-", 1977);
+	printf("\n");
+	i = ft_printf("->% -10d<-", 1977);
+	printf("\n");
+	printf(" my length %i. system lenght %i\n", i,o);
+*/
 
 	printf("************************************\n");
 	printf("BASIC TESTING WITH ONLY SPECIFIERS\n");
@@ -330,75 +414,85 @@ int	main()
 	printf(" my length %i. system lenght %i\n", i,o);
 
 	ft_printf("Test 45. \n");
-	i =    printf ("Preceding with blanks:'%10d' \n", -1977);
-	o = ft_printf ("Preceding with blanks:'%10d' \n", -1977);
+	o =    printf ("Preceding with blanks:'%10d' \n", -1977);
+	i = ft_printf ("Preceding with blanks:'%10d' \n", -1977);
 	printf(" my length %i. system lenght %i\n", i,o);
 
 	ft_printf("Test 45. \n");
-	i =    printf ("Preceding with - 10d: '%- 10d' \n", 1977);
-	o = ft_printf ("Preceding with - 10d: '%- 10d' \n", 1977);
+	o =    printf("Preceding with - 10d: '%- 10d' \n", 1977);
+	i = ft_printf("Preceding with - 10d: '%- 10d' \n", 1977);
 	printf(" my length %i. system lenght %i\n", i,o);
 
 	ft_printf("Test 46. \n");
-	i =    printf ("Preceding with -10d:  '% -10d' \n", 1977);
-	o = ft_printf ("Preceding with -10d:  '% -10d' \n", 1977);
+	o =    printf("Preceding with -10d:  '% -10d' \n", 1977);
+	i = ft_printf("Preceding with -10d:  '% -10d' \n", 1977);
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 46. b)\n");
+	o =    printf("% -10d\n", 1977);
+	i = ft_printf("% -10d\n", 1977);
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 46. c) \n");
+	o =    printf("Preceding with -10d:  '      ' \n");
+	i = ft_printf("Preceding with -10d:  '      ' \n");
 	printf(" my length %i. system lenght %i\n", i,o);
 
 	ft_printf("Test 47. \n");
-	i =    printf ("Preceding with - 10d: '%- 10d' \n", -1977);
-	o = ft_printf ("Preceding with - 10d: '%- 10d' \n", -1977);
+	o =    printf ("Preceding with - 10d: '%- 10d' \n", -1977);
+	i = ft_printf ("Preceding with - 10d: '%- 10d' \n", -1977);
 	printf(" my length %i. system lenght %i\n", i,o);
 
 	ft_printf("Test 48. \n");
-	i =    printf ("Preceding with -10d:  '% -10d' \n", -1977);
-	o = ft_printf ("Preceding with -10d:  '% -10d' \n", -1977);
+	o =    printf ("Preceding with -10d:  '% -10d' \n", -1977);
+	i = ft_printf ("Preceding with -10d:  '% -10d' \n", -1977);
 	printf(" my length %i. system lenght %i\n", i,o);
 
 	ft_printf("Test 49. \n");
-	i =    printf ("Preceding with -10d:  '% -10d' \n", -1977);
-	o = ft_printf ("Preceding with -10d:  '% -10d' \n", -1977);
+	o =    printf ("Preceding with -10d:  '% -10d' \n", -1977);
+	i = ft_printf ("Preceding with -10d:  '% -10d' \n", -1977);
 	printf(" my length %i. system lenght %i\n", i,o);
 
 	ft_printf("Test 50. \n");
-	i =    printf ("Preceding with blanks:'% 10d'", 1977);
+	o =    printf ("Preceding with blanks:'% 10d'", 1977);
 	printf(" <-- system\n");
-	o = ft_printf ("Preceding with blanks:'% 10d'", 1977);
+	i = ft_printf ("Preceding with blanks:'% 10d'", 1977);
 	printf(" <-- yours\n");
 	printf(" my length %i. system lenght %i\n", o,i);
 
 	ft_printf("Test 51. \n");
-	i =    printf ("Preceding with blanks:'% 10d' \n", -1977);
-	o = ft_printf ("Preceding with blanks:'% 10d' \n", -1977);
+	o =    printf ("Preceding with blanks:'% 10d' \n", -1977);
+	i = ft_printf ("Preceding with blanks:'% 10d' \n", -1977);
 	printf(" my length %i. system lenght %i\n", i,o);
 
 	ft_printf("Test 52. \n");
-	i =    printf ("Preceding with zeros: '%0 10d' \n", 1977);
-	o = ft_printf ("Preceding with zeros: '%0 10d' \n", 1977);
+	o =    printf ("Preceding with zeros: '%0 10d' \n", 1977);
+	i = ft_printf ("Preceding with zeros: '%0 10d' \n", 1977);
 	printf(" my length %i. system lenght %i\n", o,i);
 
 	ft_printf("Test 53. \n");
-	i =    printf ("Preceding with -+: '%-+10d' \n", 1977);
-	o = ft_printf ("Preceding with -+: '%-+10d' \n", 1977);
+	o =    printf ("Preceding with -+: '%-+10d' \n", 1977);
+	i = ft_printf ("Preceding with -+: '%-+10d' \n", 1977);
 	printf(" my length %i. system lenght %i\n", i,o);
 
 	ft_printf("Test 54. \n");
-	i =    printf ("Preceding with +-: '%+-10d' \n", 1977);
-	o = ft_printf ("Preceding with +-: '%+-10d' \n", 1977);
+	o =    printf ("Preceding with +-: '%+-10d' \n", 1977);
+	i = ft_printf ("Preceding with +-: '%+-10d' \n", 1977);
 	printf(" my length %i. system lenght %i\n", i,o);
 
 	ft_printf("Test 55. \n");
-	i =    printf ("Preceding with ' ': '% 10d' \n", -1977);
-	o = ft_printf ("Preceding with ' ': '% 10d' \n", -1977);
+	o =    printf ("Preceding with ' ': '% 10d' \n", -1977);
+	i = ft_printf ("Preceding with ' ': '% 10d' \n", -1977);
 	printf(" my length %i. system lenght %i\n", i,o);
 
 	ft_printf("Test 56. \n");
-	i =    printf ("Preceding with 0' ': '%0 10d' \n", -1977);
-	o = ft_printf ("Preceding with 0' ': '%0 10d' \n", -1977);
+	o =    printf ("Preceding with 0' ': '%0 10d' \n", -1977);
+	i = ft_printf ("Preceding with 0' ': '%0 10d' \n", -1977);
 	printf(" my length %i. system lenght %i\n", i,o);
 
 	ft_printf("Test 57. \n");
-	i =    printf ("Preceding with 0' ': '% d' \n", 1977);
-	o = ft_printf ("Preceding with 0' ': '% d' \n", 1977);
+	o =    printf ("Preceding with 0' ': '% d' \n", 1977);
+	i = ft_printf ("Preceding with 0' ': '% d' \n", 1977);
 	printf(" my length %i. system lenght %i\n", i,o);
 /*
 	ft_printf("Test 58. \n");
@@ -696,12 +790,15 @@ printf("\n");
   printf("\n");
   printf("%-10s is a string", "");           // "           is a string"
 printf("\n");
+
 printf("FAIL: 20");
 printf("\n");
   ft_printf("%-.2s is a string", "");           // " is a string"
   printf("\n");
   printf("%-.2s is a string", "");           // " is a string"
 printf("\n");
+
+
 printf("FAIL: 21");
 printf("\n");
   ft_printf("%-5.2s is a string", "");          // "      is a string"
@@ -820,6 +917,7 @@ printf("\n");
  // printf("%-05o", 2500);                     // "4704 "
 printf("\n");
 printf("\n");
+
 
 printf("FAIL: 36");
 printf("\n");
