@@ -12,6 +12,32 @@
 
 #include "ft_printf.h"
 
+int	ft_putnchar(const char *s, size_t n)
+{
+	int	i;
+
+	i = 0;
+	while (n-- > 0 && *s != '\0')
+	{	
+		ft_putchar(*s++);
+		i++;
+	}
+	return (i);
+}
+
+int	ft_putcx(char c, int n)
+{
+	int	i;
+
+	i = 0;
+	while (i < n)
+	{	
+		ft_putchar(c);
+		i++;
+	}
+	return (i);
+}
+
 void	fill_prec(char *ret, char *str, int size)
 {
 	int	j;
