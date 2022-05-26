@@ -30,15 +30,23 @@ int	main()
 	system = "hello";
 	printf("\n");
 		
-	
+
+
 	printf("FAIL: XXX");
 		printf("\n");
 	i = ft_printf("%#6o", 2500);                      // " 04704"
 	printf("\n");
 	o = printf("%#6o", 2500);                      // " 04704"
 	printf("\n");
-	printf(" my length %i. system lenght %i\n", o,i);
+	printf(" my length %i. system lenght %i\n", i,o);
 	printf("\n");
+
+	
+		ft_printf("Test 38. \n");
+	o =    printf ("Preceding with plus:  '%+10d' \n", 1977);
+	i = ft_printf ("Preceding with plus:  '%+10d' \n", 1977);
+	printf(" my length %i. system lenght %i\n", i,o);
+
 
 	printf("\n");
 	printf("FAIL: 31");
