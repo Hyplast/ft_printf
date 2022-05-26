@@ -88,7 +88,11 @@ int	print_o(const char *flags, va_list ap, int chars_printed)
 	flag_s = return_flags(flags);
 	i = (unsigned int) va_arg(ap, unsigned int);
 	if (i == 0)
+	{
+		if (flag_s->width != 0)
+			return (print_before(flag_s, chars_printed, "", 'o'));
 		return (chars_printed += print_c('0'));
+	}
 	s = ft_basetoa(i, 8, ' ');
 	//if (flags[0] == '#')
 	//	chars_printed += print_c('0');

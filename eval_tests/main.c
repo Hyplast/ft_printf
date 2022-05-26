@@ -32,6 +32,38 @@ int	main()
 		
 
 
+printf("FAIL: 40");
+printf("\n");
+  i = ft_printf("@moulitest: %5.o %5.0o", 0, 0);    // "@moulitest:            "
+  printf("\n");
+  o = printf("@moulitest: %5.o %5.0o", 0, 0);    // "@moulitest:            "
+printf("\n");
+printf(" my length %i. system lenght %i\n", i,o);
+printf("\n");
+
+
+printf("FAIL: 47");
+printf("\n");
+  ft_printf("%0+5d", -42);                      // "-0042"
+  printf("\n");
+  printf("%0+5d", -42);                      // "-0042"
+printf("\n");
+printf("\n");
+
+
+
+printf("FAIL: 44");
+printf("\n");
+  ft_printf("%0+5d", 42);                       // "+0042"
+  printf("\n");
+  printf("%0+5d", 42);                       // "+0042"
+printf("\n");
+printf("\n");
+
+
+
+
+
 	printf("FAIL: XXX");
 		printf("\n");
 	i = ft_printf("%#6o", 2500);                      // " 04704"

@@ -21,17 +21,25 @@ int	is_sharp(int c_p, char c)
 	return (c_p);
 }
 
-int	is_plus(int c_p, char *s)
+int	is_plus(int c_p, char **s)
 {
-	if (s[0] != '-')
+	char	*temp;
+
+	if ((*s)[0] != '-')
 		c_p += print_c('+');
+	if ((*s)[0] == '-')
+	{
+		temp = ft_strsub((*s), 1, ft_strlen((*s)) - 1);
+		ft_strcpy((*s), temp);	
+		ft_strdel(&temp);
+	}
 	return (c_p);
 }
 
 int	print_before_minus(t_flags *flag, int c_p, char *s, char c)
 {
 	if (flag->plus == 1)
-		c_p = is_plus(c_p, s);
+		c_p = is_plus(c_p, &s);
 	if (flag->sharp == 1)
 		c_p = is_sharp(c_p, c);
 	if (flag->prec > c_p + (int)ft_strlen(s) && flag->prec != -1 && s[0] != '\0')
@@ -64,22 +72,16 @@ int	print_before_plus(t_flags *flag, int c_p, char *s, char c)
 	if (flag->sharp == 1 && flag->zero == 0)
 		c_p = is_sharp(c_p, c);
 	if (flag->plus == 1)
-		c_p = is_plus(c_p, s);
-	c_p += ft_putcx('0', flag->width - ft_strlen(s) - flag->plus - c_p);
+		c_p = is_plus(c_p, &s);
+	c_p += ft_putcx('0', flag->width - ft_strlen(s) - c_p);
 	c_p += ft_putnchar(s, ft_strlen(s));
 	return (c_p);
 }
 
 int	print_before_0(t_flags *flag, int c_p, char *s, char c)
 {
-	char	*temp;
-
 	if (s[0] == '-')
-	{
-		temp = ft_strsub(s, 1, ft_strlen(s) - 1);
-		ft_strcpy(s, temp);
 		c_p += print_c('-');
-	}
 	if (flag->minus == 1)
 		c_p += print_before_minus(flag, c_p, s, c);
 	else
@@ -99,7 +101,7 @@ int	just_print(t_flags *flag, int c_p, char *s, char c)
 	if (flag->sharp == 1)
 		c_p = is_sharp(c_p, c);
 	if (flag->plus == 1)
-		c_p = is_plus(c_p, s);
+		c_p = is_plus(c_p, &s);
 	c_p += ft_putnchar(s, ft_strlen(s));
 	return (c_p);
 }
