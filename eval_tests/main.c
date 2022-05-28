@@ -66,6 +66,8 @@ int	main()
 
 
 	printf("\n");
+	i = ft_printf("ft_printf printing float 3.1416 with . = %.f\n", 3.1416);
+	o =    printf("   printf printing float 3.1416 with . = %.f\n", 3.1416);
 
 	i = ft_printf("ft_printf printing float 3.1416 with . = %.Lf\n", li);
 	o =    printf("   printf printing float 3.1416 with . = %.Lf\n", li);
@@ -81,6 +83,10 @@ int	main()
 	lo = 1249328409.34897329487;
 	li = 1249328409.34897329487;
 	
+
+	i = ft_printf("ft_printf printing float 1249328409.34897329487 with . = %.f\n", 1249328409.34897329487);
+	o =    printf("   printf printing float 1249328409.34897329487 with . = %.f\n", 1249328409.34897329487);
+
 	i = ft_printf("ft_printf printing float 1249328409.34897329487 with . = %.Lf\n", li);
 	o =    printf("   printf printing float 1249328409.34897329487 with . = %.Lf\n", li);
 	i = ft_printf("ft_printf printing float 1249328409.34897329487 with .1 = %.1Lf\n", li);
@@ -100,6 +106,23 @@ int	main()
 
 
 
+
+	i = ft_printf("ft_printf printing float 3.1416 with . = %.48f\n", 3.1416);
+	o =    printf("   printf printing float 3.1416 with . = %.48f\n", 3.1416);
+	i = ft_printf("ft_printf printing float 3.1416 with . = %.49f\n", 3.1416);
+	o =    printf("   printf printing float 3.1416 with . = %.49f\n", 3.1416);
+	i = ft_printf("ft_printf printing float 3.1416 with . = %.50f\n", 3.1416);
+	o =    printf("   printf printing float 3.1416 with . = %.50f\n", 3.1416);
+	i = ft_printf("ft_printf printing float 3.1416 with . = %.51f\n", 3.1416);
+	o =    printf("   printf printing float 3.1416 with . = %.51f\n", 3.1416);
+	i = ft_printf("ft_printf printing float 3.1416 with . = %.52f\n", 3.1416);
+	o =    printf("   printf printing float 3.1416 with . = %.52f\n", 3.1416);
+	i = ft_printf("ft_printf printing float 3.1416 with . = %.53f\n", 3.1416);
+	o =    printf("   printf printing float 3.1416 with . = %.53f\n", 3.1416);
+	i = ft_printf("ft_printf printing float 3.1416 with . = %.54f\n", 3.1416);
+	o =    printf("   printf printing float 3.1416 with . = %.54f\n", 3.1416);
+	i = ft_printf("ft_printf printing float 3.1416 with . = %.55f\n", 3.1416);
+	o =    printf("   printf printing float 3.1416 with . = %.55f\n", 3.1416);
 
 	printf("\n");
 printf("FAIL: 40");

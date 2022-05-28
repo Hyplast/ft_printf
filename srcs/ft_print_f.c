@@ -40,18 +40,25 @@ int	print_llong(t_flags *flag_s, va_list ap, int chars_printed)
 {
 	long double	ld;
 	char		**s;
+	int			decimals;
 
 	ld = (long double) va_arg(ap, long double);
 	s = ft_frexpl(ld);
 	if (ft_strcmp(s[1], "") == 0 && ft_strlen(s[1]) <= 1)
 		ft_add_zeros(&s[1], flag_s->prec - ft_strlen(s[1]));
 	ft_round(s, flag_s->prec);
+	decimals = ft_strlen(s[1]);
+	if (decimals < flag_s->prec)
+		ft_add_zeros(&s[1], flag_s->prec - decimals);
 	if (s[1][0] == '0' && ft_strlen(s[1]) == 1)
 		ft_add_zeros(&s[1], flag_s->prec - ft_strlen(s[1]));
-	chars_printed = print_before(flag_s, chars_printed,
-			ft_strjoin(ft_strjoin(s[0], "."), s[1]), ' ');
-	if (flag_s->prec > (51))
-		chars_printed += ft_putcx('0', flag_s->prec - 51);
+	if (decimals != 0)
+		chars_printed = print_before(flag_s, chars_printed,
+				ft_strjoin(ft_strjoin(s[0], "."), s[1]), ' ');
+	else
+		chars_printed = print_before(flag_s, chars_printed, s[0], ' ');
+//	if (flag_s->prec > (51))
+//		chars_printed += ft_putcx('0', flag_s->prec - 51);
 	return (chars_printed);
 }
 
@@ -70,8 +77,11 @@ int	print_f(const char *flags, va_list ap, int chars_printed)
 	ft_round(s, flag_s->prec);
 	if (s[1][0] == '0' && ft_strlen(s[1]) == 1)
 		ft_add_zeros(&s[1], flag_s->prec - ft_strlen(s[1]));
-	chars_printed = print_before(flag_s, chars_printed,
-			ft_strjoin(ft_strjoin(s[0], "."), s[1]), ' ');
+	if (ft_strlen(s[1]) != 0)
+		chars_printed = print_before(flag_s, chars_printed,
+				ft_strjoin(ft_strjoin(s[0], "."), s[1]), ' ');
+	else
+		chars_printed = print_before(flag_s, chars_printed, s[0], ' ');
 	if (flag_s->prec > 51)
 		chars_printed += ft_putcx('0', flag_s->prec - 51);
 	return (chars_printed);
