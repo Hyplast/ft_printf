@@ -17,15 +17,10 @@
 # include <stdint.h>
 # include "libft.h"
 
-/*
-typedef enum	e_modif
-{
-	n, l, ll, L, h, hh
-}				t_modif;
+/* spec
+* n l ll L h hh
+* 0 1 2  3 4 5
 */
-// spec
-// n l ll L h hh
-// 0 1 2  3 4 5
 typedef struct s_flags
 {
 	int			len;
@@ -33,10 +28,8 @@ typedef struct s_flags
 	int			width;
 	int			prec;
 	int			sharp;
-	//t_modif		modif;
 	int			minus;
 	int			plus;
-	//char		id_conv;
 	int			space;
 	int			zero;
 }				t_flags;

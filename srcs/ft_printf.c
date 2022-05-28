@@ -19,7 +19,7 @@ static const int	g_specifier[] = {'b', 'c', 'd', 'f', 'i', 'o',
 //static const void	(*g_f_ptrs[]) = {print_c, print_i, print_s};
 //const static g_print_f = [print_c()]
 
-int	match_function(const char *flags, va_list ap, int c, int printed_c)
+static	int	match_function(const char *flags, va_list ap, int c, int printed_c)
 {
 	if (c == 'b')
 		printed_c += print_b(flags, ap, printed_c);
@@ -46,7 +46,7 @@ int	match_function(const char *flags, va_list ap, int c, int printed_c)
 	return (printed_c);
 }
 
-int	read_flags(char *flags, va_list ap)
+static	int	read_flags(char *flags, va_list ap)
 {
 	int		chars_printed;
 	size_t	len;
@@ -57,32 +57,31 @@ int	read_flags(char *flags, va_list ap)
 	return (chars_printed);
 }
 
-char	*parse_specifier(const char *flags)
+static	char	*parse_specifier(const char *flags)
 {
 	size_t	len;
 	int		i;
 	int		elem;
+	char	*temp;
 
 	i = 0;
-	elem = (sizeof(g_specifier) / sizeof(g_specifier[0]));
+	elem = (sizeof(g_specifier) / sizeof(g_specifier[0]) - 1);
 	len = 0;
 	if (*flags == '%')
 		return ("%");
-	while (flags[len] != '\0')
+	while (flags[len] != '\0' && flags[len] != '%')
 	{
 		while (flags[len] != g_specifier[i] && i < elem)
-		{
 			i++;
-		}
 		if (flags[len] == g_specifier[i])
-		{
 			return (ft_strsub(flags, 0, len + 1));
-		}
 		i = 0;
 		len++;
 	}
-	exit(1);
-	return (NULL);
+	temp = ft_strnew(len + 1);
+	while (i < (int)len + 1)
+		temp[i++] = '\1';
+	return (temp);
 }
 
 /*
@@ -106,7 +105,7 @@ int	ft_printf(const char *format, ...)
 		chars_printed += ft_putnchar(format, (size_t)i);
 		format = ft_strchr(format, '%') + 1;
 		flags = parse_specifier(format);
-		if (flags[0] != '%')
+		if (flags[0] != '%' && flags[0] != '\1')
 			chars_printed += read_flags(flags, ap);
 		else
 			chars_printed += ft_putnchar("%", 1);
