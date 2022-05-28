@@ -22,27 +22,27 @@ static const int	g_specifier[] = {'b', 'c', 'd', 'f', 'i', 'o',
 int	match_function(const char *flags, va_list ap, int c, int printed_c)
 {
 	if (c == 'b')
-		printed_c += print_b(flags, ap, printed_chars);
+		printed_c += print_b(flags, ap, printed_c);
 	else if (c == 'c')
-		printed_c += print_char(flags, (char) va_arg(ap, int), printed_chars);
+		printed_c += print_char(flags, (char) va_arg(ap, int), printed_c);
 	else if (c == 'd')
-		printed_c += print_d(flags, (int) va_arg(ap, int), printed_chars);
+		printed_c += print_d(flags, (int) va_arg(ap, int), printed_c);
 	else if (c == 'f')
-		printed_c += print_f(flags, ap, printed_chars);
+		printed_c += print_f(flags, ap, printed_c);
 	else if (c == 'i')
 		printed_c += print_i((int) va_arg(ap, int));
 	else if (c == 'o')
-		printed_c += print_o(flags, ap, printed_chars);
+		printed_c += print_o(flags, ap, printed_c);
 	else if (c == 'p')
 		printed_c += print_p((void *) va_arg(ap, void *));
 	else if (c == 's')
-		printed_c += print_s(flags, (char *) va_arg(ap, char *), printed_chars);
+		printed_c += print_s(flags, (char *) va_arg(ap, char *), printed_c);
 	else if (c == 'u')
-		printed_c += print_u(flags, ap, printed_chars);
+		printed_c += print_u(flags, ap, printed_c);
 	else if (c == 'x')
-		printed_c += print_x(flags, ap, printed_chars);
+		printed_c += print_x(flags, ap, printed_c);
 	else if (c == 'X')
-		printed_c += print_big_x(flags, ap, printed_chars);
+		printed_c += print_big_x(flags, ap, printed_c);
 	return (printed_c);
 }
 
