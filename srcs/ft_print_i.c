@@ -12,12 +12,6 @@
 
 #include "ft_printf.h"
 
-int	print_c(char c)
-{
-	ft_putchar(c);
-	return (1);
-}
-
 int	print_char(const char *flags, char c, int chars_printed)
 {
 	t_flags		*flag_s;
@@ -36,7 +30,6 @@ int	print_s(const char *flags, char *s, int chars_printed)
 	char		*temp;
 
 	flag_s = return_flags(flags);
-//	temp = ft_strsub(s, 0, (flag_s->prec));
 	if (s == NULL)
 		return (chars_printed);
 	if (flag_s->prec < (int)ft_strlen(s) && flag_s->prec != -1)
@@ -44,10 +37,7 @@ int	print_s(const char *flags, char *s, int chars_printed)
 		temp = ft_strsub(s, 0, (flag_s->prec));
 		s = temp;
 	}
-//	if (s != NULL)
-//		return (chars_printed);
 	chars_printed += print_before(flag_s, chars_printed, s, 's');
-		//chars_printed += ft_putnchar(s, ft_strlen(s));
 	return (chars_printed);
 }
 

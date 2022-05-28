@@ -12,36 +12,38 @@
 
 #include "ft_printf.h"
 
-static const int	g_specifier[] = {'b', 'c', 'd', 'f', 'i', 'o', 'p', 's', 'u', 'x', 'X'};
-//static const char	*g_extra_f[] = {"hh", "h", "l", "ll", "L", "#", "0", "-", "+", " "};
+static const int	g_specifier[] = {'b', 'c', 'd', 'f', 'i', 'o',
+	'p', 's', 'u', 'x', 'X'};
+//static const char	*g_extra_f[] = {"hh", "h", "l", "ll", "L",
+// "#", "0", "-", "+", " "};
 //static const void	(*g_f_ptrs[]) = {print_c, print_i, print_s};
 //const static g_print_f = [print_c()]
 
-int	match_function(const char *flags, va_list ap, int c, int printed_chars)
+int	match_function(const char *flags, va_list ap, int c, int printed_c)
 {
 	if (c == 'b')
-		printed_chars += print_b(flags, ap, printed_chars);
+		printed_c += print_b(flags, ap, printed_chars);
 	else if (c == 'c')
-		printed_chars += print_char(flags, (char) va_arg(ap, int), printed_chars);
+		printed_c += print_char(flags, (char) va_arg(ap, int), printed_chars);
 	else if (c == 'd')
-		printed_chars += print_d(flags, (int) va_arg(ap, int), printed_chars);
+		printed_c += print_d(flags, (int) va_arg(ap, int), printed_chars);
 	else if (c == 'f')
-		printed_chars += print_f(flags, ap, printed_chars);
+		printed_c += print_f(flags, ap, printed_chars);
 	else if (c == 'i')
-		printed_chars += print_i((int) va_arg(ap, int));
+		printed_c += print_i((int) va_arg(ap, int));
 	else if (c == 'o')
-		printed_chars += print_o(flags, ap, printed_chars);
+		printed_c += print_o(flags, ap, printed_chars);
 	else if (c == 'p')
-		printed_chars += print_p((void *) va_arg(ap, void *));
+		printed_c += print_p((void *) va_arg(ap, void *));
 	else if (c == 's')
-		printed_chars += print_s(flags, (char *) va_arg(ap, char *), printed_chars);
+		printed_c += print_s(flags, (char *) va_arg(ap, char *), printed_chars);
 	else if (c == 'u')
-		printed_chars += print_u(flags, ap, printed_chars);
+		printed_c += print_u(flags, ap, printed_chars);
 	else if (c == 'x')
-		printed_chars += print_x(flags, ap, printed_chars);
+		printed_c += print_x(flags, ap, printed_chars);
 	else if (c == 'X')
-		printed_chars += print_big_x(flags, ap, printed_chars);
-	return (printed_chars);
+		printed_c += print_big_x(flags, ap, printed_chars);
+	return (printed_c);
 }
 
 int	read_flags(char *flags, va_list ap)

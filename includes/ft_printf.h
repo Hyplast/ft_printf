@@ -110,5 +110,7 @@ int				print_big_x(const char *flags, va_list ap, int chars_printed);
 t_flags			*return_flags(const char *flags);
 void			init_flags(t_flags *flag_s, const char *flags);
 void			fix_overrides(t_flags *flag_s, const char c);
+int				is_plus(int c_p, char **s);
+int				is_sharp(int c_p, char c);
 
 #endif

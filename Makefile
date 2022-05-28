@@ -85,6 +85,7 @@ ft_vlq_mult.c \
 ft_vlq_conv.c \
 ft_vlq_pow.c \
 ft_print_flags.c \
+ft_print_before.c \
 ft_return_flags.c \
 ft_print_f.c \
 ft_print_i.c \
