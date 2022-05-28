@@ -50,7 +50,7 @@ int	print_llong(t_flags *flag_s, va_list ap, int chars_printed)
 		ft_add_zeros(&s[1], flag_s->prec - ft_strlen(s[1]));
 	chars_printed = print_before(flag_s, chars_printed,
 			ft_strjoin(ft_strjoin(s[0], "."), s[1]), ' ');
-	if (flag_s->prec > 51)
+	if (flag_s->prec > (51))
 		chars_printed += ft_putcx('0', flag_s->prec - 51);
 	return (chars_printed);
 }

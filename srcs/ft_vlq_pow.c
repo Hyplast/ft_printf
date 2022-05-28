@@ -69,6 +69,9 @@ char	*vlq_binpow(int n)
 	return (res);
 }
 
+/*
+*	Get the power of five variable lenght que (vlq).
+*/
 char	*vlq_fivepow(int n)
 {
 	int		i;
@@ -97,6 +100,9 @@ char	*vlq_fivepow(int n)
 	return (res);
 }
 
+/*
+*	Get the power of ten variable lenght que (vlq).
+*/
 char	*get_pow_ten(char *vlq, int n)
 {
 	char	*ret;

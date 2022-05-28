@@ -12,6 +12,9 @@
 
 #include "ft_printf.h"
 
+/*
+*	fill_nb fills the string "nb_str" with 0's and 1's from "tmp"
+*/
 static void	fill_nb(char *nb_str, unsigned char *tmp)
 {
 	int	i;
@@ -39,6 +42,9 @@ static void	fill_nb(char *nb_str, unsigned char *tmp)
 	nb_str[k] = '\0';
 }
 
+/*
+*	ft_ldftoa extracts the binary value of the float into a string
+*/
 char	*ft_ldftoa(long double x)
 {
 	unsigned char		*tmp;
@@ -97,6 +103,11 @@ static char	**lhandle_ni(char **res, char *nb_str, char *mantissa, char *exp)
 	return (NULL);
 }
 
+/*
+*	ft_frexpl computes the mantissa and the exponent and stocks them in
+*	strings it then calls out other functions (get_expl and get_rels) to convert
+*	them into decimal strings
+*/
 char	**ft_frexpl(long double x)
 {
 	char	*nb_str;

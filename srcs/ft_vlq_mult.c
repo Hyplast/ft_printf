@@ -20,7 +20,6 @@ static void	do_mult(t_calc *info, char *s1, char *s2, char *res)
 
 	i = info->sum;
 	j = info->len1 + 1;
-	hold = 0;
 	while (--j >= 0)
 	{
 		hold = 0;
@@ -84,6 +83,10 @@ static char	*mult_inter_sums(t_calc *info, char *s1, char *s2, char *res)
 	return (sum);
 }
 
+/*
+*	Multiply 2 variable length que (vlq) -arrays together.
+*	@return	New array
+*/
 char	*vlq_mult(char *s1, char *s2)
 {
 	char	*sum;

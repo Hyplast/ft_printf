@@ -12,6 +12,9 @@
 
 #include "ft_printf.h"
 
+/*
+*	Computes the length of the new variable lenght que (vlq) for sum.
+*/
 static char	compute_res(t_calc *info, char *s1, char *s2, char res)
 {
 	if (info->len1 >= 0)
@@ -25,6 +28,16 @@ static char	compute_res(t_calc *info, char *s1, char *s2, char res)
 	return (res);
 }
 
+/*
+*	Adds 2 variable lenght que (vlq) -arrays together.
+*	48 = 11000	57 = 111001
+* 		if ((info->len1 >= 0 && info->len2 >= 0
+*				&& ((s1[info->len1] + s2[info->len2] + res[i] - 48) > 57))
+*			|| (info->len1 >= 0 && s1[info->len1] + res[i] > 57)
+*			|| (info->len2 >= 0 && s2[info->len2] + res[i] > 57))
+*		-1 >= 0 && 0 >= 0 && (s1[-1] + s2[0] + res[21845] - 48) > 57
+*			-1 >= 0 && s1[-1] + res[21845] > 57
+*/
 static char	*do_sum(t_calc *info, char *s1, char *s2)
 {
 	int		i;
@@ -54,6 +67,9 @@ static char	*do_sum(t_calc *info, char *s1, char *s2)
 	return (res);
 }
 
+/*
+*	Removes excess zeros in a new a variable lenght que (vlq).
+*/
 static char	*trim_zero(char *s)
 {
 	int		i;
@@ -68,6 +84,10 @@ static char	*trim_zero(char *s)
 	return (ret);
 }
 
+/*
+*	Adds 2 variable length que (vlq) -arrays together.
+*	@return	New array
+*/
 char	*vlq_sum(char *s1, char *s2)
 {
 	char	*res;

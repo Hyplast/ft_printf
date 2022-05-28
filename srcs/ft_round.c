@@ -120,5 +120,6 @@ void	ft_round(char **res, int precision)
 	if (!(ret))
 		return ;
 	fill_prec(ret, res[1], prec + 1);
+//	ft_strncpy(ret, res[1], prec + 1);
 	do_rounding(ret, prec + 2, res);
 }
