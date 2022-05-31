@@ -93,7 +93,7 @@ int				print_c(char c);
 int				print_char(const char *flags, char c, int chars_printed);
 int				print_d(const char *flags, int d, int chars_printed);
 int				print_f(const char *flags, va_list ap, int chars_printed);
-int				print_i(int i);
+int				print_i(const char *flags, int d, int chars_printed);
 int				print_o(const char *flags, va_list ap, int chars_printed);
 int				print_p(void *pointer);
 int				print_s(const char *flags, char *s, int chars_printed);
@@ -103,7 +103,8 @@ int				print_big_x(const char *flags, va_list ap, int chars_printed);
 t_flags			*return_flags(const char *flags);
 void			init_flags(t_flags *flag_s, const char *flags);
 void			fix_overrides(t_flags *flag_s, const char c);
-int				is_plus(int c_p, char **s);
+int				is_plus(t_flags *flag, int c_p, char **s);
 int				is_sharp(int c_p, char c);
+int				print_sign(t_flags *flag, int c_p, char **s);
 
 #endif

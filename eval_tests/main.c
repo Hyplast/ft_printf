@@ -32,8 +32,149 @@ int	main()
 	printf("\n");
 	
 
+		ft_printf("Test 38. \n");
+	o =    printf ("Preceding with plus:  '%+10d' \n", 1977);
+	i = ft_printf ("Preceding with plus:  '%+10d' \n", 1977);
+	printf(" my length %i. system lenght %i\n", i,o);
 
 
+printf("\n");
+printf("FAIL: 47");
+printf("\n");
+  ft_printf("%0+5d", -42);                      // "-0042"
+  printf("\n");
+  printf("%0+5d", -42);                      // "-0042"
+printf("\n");
+printf("\n");
+
+
+
+printf("FAIL: 44");
+printf("\n");
+  ft_printf("%0+5d", 42);                       // "+0042"
+  printf("\n");
+  printf("%0+5d", 42);                       // "+0042"
+printf("\n");
+printf("\n");
+
+
+
+	ft_printf("Test 56. \n");
+	o =    printf ("Preceding with 0' ': '%0 10d' \n", -1977);
+	i = ft_printf ("Preceding with 0' ': '%0 10d' \n", -1977);
+	printf(" my length %i. system lenght %i\n", i,o);
+
+
+printf("\n");
+	
+		ft_printf("Test 67. \n");
+	i = ft_printf("%-10x", 42);
+	printf(" <-- yours\n");
+	o = printf("%-10x", 42);
+	printf(" <-- system\n");
+	printf(" my length %i. system lenght %i\n", i,o);
+
+
+
+printf("\n");
+
+	ft_printf("Test 66. \n");
+	i = ft_printf("%10x", 42);
+	printf(" <-- yours\n");
+	o = printf("%10x", 42);
+	printf(" <-- system\n");
+	printf(" my length %i. system lenght %i\n", i,o);
+
+
+	ft_printf("Test 66.a \n");
+	i = ft_printf("%10.4x", 42);
+	printf(" <-- yours\n");
+	o = printf("%10.4x", 42);
+	printf(" <-- system\n");
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 66.b \n");
+	i = ft_printf("%10.14x", 42);
+	printf(" <-- yours\n");
+	o = printf("%10.14x", 42);
+	printf(" <-- system\n");
+	printf(" my length %i. system lenght %i\n", i,o);
+
+printf("\n");
+
+printf("FAIL: 42");
+printf("\n");
+  ft_printf("@moulitest: %.10o", 42);           // "@moulitest: 0000000052"
+  printf("\n");
+  printf("@moulitest: %.10o", 42);           // "@moulitest: 0000000052"
+printf("\n");
+
+
+printf("FAIL: 36");
+printf("\n");
+  ft_printf("%-5.10o", 2500);                   // "0000004704"
+  printf("\n");
+  printf("%-5.10o", 2500);                   // "0000004704"
+printf("\n");
+
+
+
+	printf("\n");
+printf("FAIL: 6");
+printf("\n");
+
+  ft_printf("%#08x", 42);                       // "0x00002a"
+  printf("\n");
+  printf("%#08x", 42);                       // "0x00002a"
+
+  printf("\n6.b\n");
+ft_printf("%#8x", 42);                       // "    0x2a"
+  printf("\n");
+  printf("%#8x", 42);                       // "    0x2a"¨
+
+printf("\n6.c\n");
+  ft_printf("%-#8x", 42);                       // "    0x2a"
+  printf("\n");
+  printf("%-#8x", 42);                       // "    0x2a"
+
+printf("\n");
+
+
+
+
+
+		printf("FAIL: XXX");
+		printf("\n");
+	i = ft_printf("%#6o", 2500);                      // " 04704"
+	printf("\n");
+	o = printf("%#6o", 2500);                      // " 04704"
+	printf("\n");
+	printf(" my length %i. system lenght %i\n", i,o);
+	printf("\n");
+
+
+	ft_printf("Test 31. c with #x,#X,#o \n");
+	o =    printf("sysv:   %#o :\n",    100000);
+	i = ft_printf("myve:   %#o :\n",  100000);	
+	printf(" my length %i. system lenght %i\n", i,o);
+
+printf("\n");
+	o =    printf("%#o",    10);
+	printf("\n");
+	i = ft_printf("%#o",  10);	
+	printf("\n");
+	printf(" my length %i. system lenght %i\n", i,o);
+printf("\n");
+	ft_printf("Test 31. a with #x,#X,#o \n");
+	o =    printf("sysv: %#x,   :\n", 100   );
+	i = ft_printf("myve: %#x,   :\n", 100   );	
+	printf(" my length %i. system lenght %i\n", i,o);
+	ft_printf("Test 31. b with #x,#X,#o \n");
+	o =    printf("sysv:   %#X,   :\n",  1000  );
+	i = ft_printf("myve:   %#X,   :\n",   1000  );	
+	printf(" my length %i. system lenght %i\n", i,o);
+	
+	
 
 /*
 0007 
@@ -523,36 +664,11 @@ printf(" my length %i. system lenght %i\n", i,o);
 printf("\n");
 
 
-printf("FAIL: 47");
-printf("\n");
-  ft_printf("%0+5d", -42);                      // "-0042"
-  printf("\n");
-  printf("%0+5d", -42);                      // "-0042"
-printf("\n");
-printf("\n");
-
-
-
-printf("FAIL: 44");
-printf("\n");
-  ft_printf("%0+5d", 42);                       // "+0042"
-  printf("\n");
-  printf("%0+5d", 42);                       // "+0042"
-printf("\n");
-printf("\n");
 
 
 
 
 
-	printf("FAIL: XXX");
-		printf("\n");
-	i = ft_printf("%#6o", 2500);                      // " 04704"
-	printf("\n");
-	o = printf("%#6o", 2500);                      // " 04704"
-	printf("\n");
-	printf(" my length %i. system lenght %i\n", i,o);
-	printf("\n");
 
 	
 		ft_printf("Test 38. \n");
@@ -602,25 +718,6 @@ printf("\n");
 
 
 
-printf("\n");
-printf("FAIL: 6");
-printf("\n");
-
-  ft_printf("%#08x", 42);                       // "0x00002a"
-  printf("\n");
-  printf("%#08x", 42);                       // "0x00002a"
-
-  printf("\n6.b\n");
-ft_printf("%#8x", 42);                       // "    0x2a"
-  printf("\n");
-  printf("%#8x", 42);                       // "    0x2a"¨
-
-printf("\n6.c\n");
-  ft_printf("%-#8x", 42);                       // "    0x2a"
-  printf("\n");
-  printf("%-#8x", 42);                       // "    0x2a"
-
-printf("\n");
 
 
 printf("\n");
@@ -634,44 +731,6 @@ printf(" my length %i. system lenght %i\n", o,i);
 	printf(" my length %i. system lenght %i\n", o,i);
 
 
-	ft_printf("Test 66. \n");
-	i = ft_printf("%10x", 42);
-	printf(" <-- yours\n");
-	o = printf("%10x", 42);
-	printf(" <-- system\n");
-	printf(" my length %i. system lenght %i\n", i,o);
-
-
-	ft_printf("Test 66.a \n");
-	i = ft_printf("%10.4x", 42);
-	printf(" <-- yours\n");
-	o = printf("%10.4x", 42);
-	printf(" <-- system\n");
-	printf(" my length %i. system lenght %i\n", i,o);
-
-	ft_printf("Test 66.b \n");
-	i = ft_printf("%10.14x", 42);
-	printf(" <-- yours\n");
-	o = printf("%10.14x", 42);
-	printf(" <-- system\n");
-	printf(" my length %i. system lenght %i\n", i,o);
-
-
-
-printf("FAIL: 42");
-printf("\n");
-  ft_printf("@moulitest: %.10o", 42);           // "@moulitest: 0000000052"
-  printf("\n");
-  printf("@moulitest: %.10o", 42);           // "@moulitest: 0000000052"
-printf("\n");
-
-
-printf("FAIL: 36");
-printf("\n");
-  ft_printf("%-5.10o", 2500);                   // "0000004704"
-  printf("\n");
-  printf("%-5.10o", 2500);                   // "0000004704"
-printf("\n");
 
 
 

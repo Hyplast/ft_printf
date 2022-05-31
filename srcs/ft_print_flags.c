@@ -20,7 +20,23 @@ int	is_sharp(int c_p, char c)
 	return (c_p);
 }
 
-int	is_plus(int c_p, char **s)
+
+int	print_sign(t_flags *flag, int c_p, char **s)
+{
+	char	*temp;
+
+	if ((*s)[0] == '-')
+	{
+		c_p += print_c('-');
+		temp = ft_strsub((*s), 1, ft_strlen((*s)) - 1);
+		ft_strcpy((*s), temp);
+		ft_strdel(&temp);
+		flag->plus = 0;
+	}
+	return (c_p);
+}
+
+int	is_plus(t_flags *flag, int c_p, char **s)
 {
 	char	*temp;
 
@@ -32,5 +48,6 @@ int	is_plus(int c_p, char **s)
 		ft_strcpy((*s), temp);
 		ft_strdel(&temp);
 	}
+	flag->plus = 0;
 	return (c_p);
 }

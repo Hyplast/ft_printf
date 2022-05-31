@@ -62,17 +62,17 @@ int	print_d(const char *flags, int d, int chars_printed)
 
 	flag_s = return_flags(flags);
 	s = ft_itoa(d);
-	chars_printed = print_before(flag_s, chars_printed, s, 32);
+	chars_printed = print_before(flag_s, chars_printed, s, 'd');
 	return (chars_printed);
 }
 
-int	print_i(int i)
+int	print_i(const char *flags, int d, int chars_printed)
 {
 	char	*s;
-	int		chars_printed;
+	t_flags	*flag_s;
 
-	chars_printed = 0;
-	s = ft_itoa(i);
-	chars_printed = ft_putnchar(s, ft_strlen(s));
+	flag_s = return_flags(flags);
+	s = ft_itoa(d);
+	chars_printed = print_before(flag_s, chars_printed, s, 'i');
 	return (chars_printed);
 }
