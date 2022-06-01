@@ -32,6 +32,7 @@ int	print_sign(t_flags *flag, int c_p, char **s)
 		ft_strcpy((*s), temp);
 		ft_strdel(&temp);
 		flag->plus = 0;
+		flag->space = 0;
 	}
 	return (c_p);
 }
