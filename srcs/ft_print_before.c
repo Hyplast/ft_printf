@@ -46,19 +46,21 @@ int	print_minus(t_flags *flag, int c_p, char *s, char c)
 
 int	print_normal(t_flags *flag, int c_p, char *s, char c)
 {
-	if (flag->prec > (int)ft_strlen(s) - flag->plus)
+	if (flag->prec > (int)ft_strlen(s))
 		c_p += flag->prec;
 	else 
-		c_p += (int)ft_strlen(s) + flag->plus;
+		c_p += (int)ft_strlen(s);
 	if (flag->space == 1 && s[0] != '-')
 		c_p += print_c(' ');
-	c_p += ft_putcx(' ', flag->width - c_p);
+	c_p += ft_putcx(' ', flag->width - c_p - flag->plus);
+	c_p = print_section(flag, c_p, s, c);
+	print_sign(flag, c_p, &s);
 	if (flag->prec > (int)ft_strlen(s) - flag->plus)
 		ft_putcx('0', flag->prec - ft_strlen(s) - flag->plus);
 	else
 		c_p += ft_putcx('0', flag->prec - (int)ft_strlen(s) - flag->plus);
 
-	print_section(flag, c_p, s, c);
+	
 	
 	if (flag->minus == 1)
 		ft_putnchar(s, ft_strlen(s));

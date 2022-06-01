@@ -34,12 +34,13 @@ uintmax_t	unsigned_conv(t_flags *flag_s, va_list ap)
 int	print_u(const char *flags, va_list ap, int chars_printed)
 {
 	char			*s;
-	unsigned int	u;
+	uintmax_t		u;
+	t_flags			*flag_s;
 
-	u = (unsigned int)flags[0];
-	u = (unsigned int) va_arg(ap, unsigned int);
+	flag_s = return_flags(flags);
+	u = unsigned_conv(flag_s, ap);
 	s = ft_utoa(u);
-		chars_printed += ft_putnchar(s, ft_strlen(s));
+	chars_printed += print_before(flag_s, chars_printed, s, 'u');
 	return (chars_printed);
 }
 
