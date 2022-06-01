@@ -12,6 +12,25 @@
 
 #include "ft_printf.h"
 
+uintmax_t	signed_conv(t_flags *flag_s, va_list ap)
+{
+	uintmax_t		i;
+
+	if (flag_s->spec == 0)
+		i = (signed int) va_arg(ap, signed int);
+	else if (flag_s->spec == 1)
+		i = (signed long int) va_arg(ap, signed long int);
+	else if (flag_s->spec == 2)
+		i = (signed long long int) va_arg(ap, signed long long int);
+	else if (flag_s->spec == 4)
+		i = (signed short int) va_arg(ap, signed int);
+	else if (flag_s->spec == 5)
+		i = (signed char) va_arg(ap, unsigned int);
+	else
+		i = (signed int) va_arg(ap, signed int);
+	return (i);
+}
+
 int	print_char(const char *flags, char c, int chars_printed)
 {
 	t_flags		*flag_s;
@@ -55,13 +74,18 @@ int	print_p(void *pointer)
 	return (chars_printed);
 }
 
-int	print_d(const char *flags, int d, int chars_printed)
+int	print_d(const char *flags, va_list ap, int chars_printed)
 {
 	char	*s;
 	t_flags	*flag_s;
+	uintmax_t	i;
 
 	flag_s = return_flags(flags);
-	s = ft_itoa(d);
+	i = signed_conv(flag_s, ap);
+	if (flag_s->spec == 1 || flag_s->spec == 2)
+		s = ft_litoa(i);
+	else
+		s = ft_itoa(i);
 	chars_printed = print_before(flag_s, chars_printed, s, 'd');
 	return (chars_printed);
 }

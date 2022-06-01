@@ -61,6 +61,7 @@ ft_strtrim.c \
 ft_strjoin.c \
 ft_strsplit.c \
 ft_itoa.c \
+ft_litoa.c \
 ft_utoa.c \
 ft_putchar_fd.c \
 ft_putstr_fd.c \

@@ -26,7 +26,7 @@ static	int	match_function(const char *flags, va_list ap, int c, int printed_c)
 	else if (c == 'c')
 		printed_c += print_char(flags, (char) va_arg(ap, int), printed_c);
 	else if (c == 'd')
-		printed_c += print_d(flags, (int) va_arg(ap, int), printed_c);
+		printed_c += print_d(flags, ap, printed_c);
 	else if (c == 'f')
 		printed_c += print_f(flags, ap, printed_c);
 	else if (c == 'i')

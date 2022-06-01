@@ -62,6 +62,7 @@ char	*ft_strdup(const char *src);
 size_t	ft_strlen(const char *s);
 int		ft_atoi(const char *nptr);
 char	*ft_itoa(int c);
+char	*ft_litoa(long c);
 char	*ft_utoa(unsigned int c);
 int		ft_tolower(int c);
 int		ft_toupper(int c);

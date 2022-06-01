@@ -90,7 +90,7 @@ static char	*find_spec(t_flags *flag_s, char *flags)
 	else if (flags[flag_s->len - 1] == 'h')
 	{
 		flag_s->spec = 4;
-		if (flag_s->len - 1 - 1 > 0)
+		if (flag_s->len - 1 > 0)
 		{
 			if (flags[flag_s->len - 1 - 1] == 'h')
 				flag_s->spec = 5;

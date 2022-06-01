@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-static uintmax_t	unsigned_conv(t_flags *flag_s, va_list ap)
+uintmax_t	unsigned_conv(t_flags *flag_s, va_list ap)
 {
 	uintmax_t		i;
 

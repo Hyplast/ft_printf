@@ -32,6 +32,61 @@ int	main()
 	printf("\n");
 	
 
+	printf("\n");
+
+printf("FAIL: 48");
+printf("\n");
+ft_printf("%b", 32768);                      // "-32768"
+printf("\n");
+  ft_printf("%hd", 32768);                      // "-32768"
+  printf("\n");
+  printf("%hd", 32768);                      // "-32768"
+printf("\n");
+printf("\n");
+
+printf("FAIL: 49");
+printf("\n");
+  ft_printf("%hhd", 128);                       // "-128"
+  printf("\n");
+  printf("%hhd", 128);                       // "-128"
+printf("\n");
+printf("\n");
+
+printf("FAIL: 50");
+printf("\n");
+  ft_printf("%hhd", -129);                      // "127"
+  printf("\n");
+  printf("%hhd", -129);                      // "127"
+printf("\n");
+printf("\n");
+
+printf("FAIL: 51");
+printf("\n");
+  ft_printf("%ld", 2147483648);                 // "2147483648"
+  printf("\n");
+  printf("%ld", 2147483648);                 // "2147483648"
+  printf("\n");
+printf("\n");
+
+
+
+ft_printf("Test 45. \n");
+	o =    printf ("Preceding with blanks:'%10d' \n", -1977);
+	i = ft_printf ("Preceding with blanks:'%10d' \n", -1977);
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 45. \n");
+	o =    printf("Preceding with - 10d: '%- 10d' \n", 1977);
+	i = ft_printf("Preceding with - 10d: '%- 10d' \n", 1977);
+	printf(" my length %i. system lenght %i\n", i,o);
+
+	ft_printf("Test 46. \n");
+	o =    printf("Preceding with -10d:  '% -10d' \n", 1977);
+	i = ft_printf("Preceding with -10d:  '% -10d' \n", 1977);
+	printf(" my length %i. system lenght %i\n", i,o);
+
+
+		printf("\n");
 		ft_printf("Test 38. \n");
 	o =    printf ("Preceding with plus:  '%+10d' \n", 1977);
 	i = ft_printf ("Preceding with plus:  '%+10d' \n", 1977);
