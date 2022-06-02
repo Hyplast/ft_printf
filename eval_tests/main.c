@@ -35,13 +35,102 @@ int	main()
 printf("\n");
 
 
+ft_printf("sdaölkdölAS<LDKWe%35oweröwk5po5e5ölj5jkl%ölwölaejsjj5eaw", 2423423423);
+printf("\n");
+// ft_printf("%js");
+// printf("\n");
+// printf("%js");
+// printf("\n");
+
+// ft_printf("%ölwölaejs");
+// printf("\n");
+// printf("%ölwölaejs");
+
+ft_printf("sdaölkdölAS<LDKWe%3523.432422oweröwk5po5e5ölj5jkl%ölwölaejsjj5eaw", 2423423423);
+printf("\n");
+
+printf("# 0176 (%% ho)");
+printf("\n");
+  ft_printf("%ho", 67295);
+printf("\n");
+printf("%ho", 67295);
+printf("\n");
+printf("\n");
+
+printf("# 0176 (%% hx)");
+printf("\n");
+  ft_printf("%hx", 4294967295);
+printf("\n");
+printf("%hx", 4294967295);
+printf("\n");
+printf("\n");
+
+
+printf("# 0176 (%% hX)");
+printf("\n");
+  ft_printf("%hX", 4294967295);
+printf("\n");
+printf("%hX", 4294967295);
+printf("\n");
+printf("\n");
+
+printf("# 0176 (%% hu)");
+printf("\n");
+  ft_printf("%hu", 4294967295);
+printf("\n");
+printf("%hu", 4294967295);
+printf("\n");
+printf("\n");
+
+
+
+printf("\n");
+
+printf("# 0176 (%% hho)");
+printf("\n");
+  ft_printf("%hho", 67295);
+printf("\n");
+printf("%hho", 67295);
+printf("\n");
+printf("\n");
+
+printf("# 0176 (%% hhx)");
+printf("\n");
+  ft_printf("%hhx", 4294967295);
+printf("\n");
+printf("%hhx", 4294967295);
+printf("\n");
+printf("\n");
+
+
+printf("# 0176 (%% hhX)");
+printf("\n");
+  ft_printf("%hhX", 4294967295);
+printf("\n");
+printf("%hhX", 4294967295);
+printf("\n");
+printf("\n");
+
+printf("# 0176 (%% hhu)");
+printf("\n");
+  ft_printf("%hhu", 4294967295);
+printf("\n");
+printf("%hhu", 4294967295);
+printf("\n");
+printf("\n");
+
+
+
+
+
+
 printf("\n");
 
 printf("# 0176 (%% o)");
 printf("\n");
-  ft_printf("%o", 4294967295);
+  ft_printf("%o", 67295);
 printf("\n");
-printf("%o", 4294967295);
+printf("%o", 67295);
 printf("\n");
 printf("\n");
 
@@ -74,9 +163,9 @@ printf("\n");
 
 printf("# 0176 (%% lo)");
 printf("\n");
-  ft_printf("%lo", 4294967295);
+  ft_printf("%lo", (long unsigned)4294967295);
 printf("\n");
-printf("%lo", 4294967295);
+printf("%lo", (long unsigned)4294967295);
 printf("\n");
 printf("\n");
 
@@ -137,6 +226,8 @@ printf("\n");
 printf("%llo", 9223372036854775807);
 printf("\n");
 printf("\n");
+
+/*
 
 printf("\n");
 printf("#d 0070 (NULL)");
