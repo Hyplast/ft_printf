@@ -30,7 +30,105 @@ int	main()
 	my = "hello";
 	system = "hello";
 
+
+
 printf("\n");
+
+printf("# 0176 (unsigned int)");
+printf("\n");
+  ft_printf("% i", 4294967295);
+printf("\n");
+printf("% i", 4294967295);
+printf("\n");
+printf("\n");
+
+
+
+
+printf("\n");
+
+printf("# 0176 (unsigned int)");
+printf("\n");
+  ft_printf("% d", 4294967295);
+printf("\n");
+printf("% d", 4294967295);
+printf("\n");
+printf("\n");
+
+
+printf("\n");
+
+printf("# 0176 (unsigned int)");
+printf("\n");
+  ft_printf("% u", 4294967295);
+printf("\n");
+printf("% u", 4294967295);
+printf("\n");
+printf("\n");
+
+//   1. (   11) --> 4294967295<--
+//   2. (   10) -->4294967295<--
+
+printf("# 0177 (unsigned int)");
+printf("\n");
+  ft_printf("%+u", 4294967295);
+printf("\n");
+printf("%+u", 4294967295);
+printf("\n");
+printf("\n");
+
+//   1. (   11) -->+4294967295<--
+//   2. (   10) -->4294967295<--
+
+printf("# 0146 (long long)");
+printf("\n");     //-9223372036854775807
+  ft_printf("%lld", -9223372036854775807);
+printf("\n");
+printf("%lld", -9223372036854775807);
+printf("\n");
+printf("\n");
+
+
+
+printf("\n");
+
+
+printf("# 0146 (long long)");
+printf("\n");     //-9223372036854775808
+  ft_printf("%lld", -9223372036854775808);
+printf("\n");
+printf("%lld", -9223372036854775808);
+printf("\n");
+printf("\n");
+
+//   1. (    1) -->-0<--
+//   2. (   20) -->-9223372036854775808<--
+
+printf("# 0162 (int)");
+printf("\n");
+  ft_printf("%03.2d", -1);
+printf("\n");
+printf("%03.2d", -1);
+printf("\n");
+printf("\n");
+
+//   1. (    3) --> -01<--
+//   2. (    3) -->-01<--
+
+printf("# 0163 (int)");
+printf("\n");
+  ft_printf("@moulitest: %.10d", -42);
+printf("\n");
+printf("@moulitest: %.10d", -42);
+printf("\n");
+printf("\n");
+
+//   1. (   22) -->@moulitest: -0000000042<--
+//   2. (   23) -->@moulitest: -0000000042<--
+
+
+
+
 //   1. (    1) --> <--
 //   2. (    1) -->^@<--
 
@@ -123,61 +221,6 @@ printf("\n");
 
 //   1. (    3) -->42<--
 //   2. (    3) -->-42<--
-
-printf("# 0146 (long long)");
-printf("\n");
-  ft_printf("%lld", -9223372036854775808);
-printf("\n");
-printf("%lld", -9223372036854775808);
-printf("\n");
-printf("\n");
-
-//   1. (    1) -->-0<--
-//   2. (   20) -->-9223372036854775808<--
-
-printf("# 0162 (int)");
-printf("\n");
-  ft_printf("%03.2d", -1);
-printf("\n");
-printf("%03.2d", -1);
-printf("\n");
-printf("\n");
-
-//   1. (    3) --> -01<--
-//   2. (    3) -->-01<--
-
-printf("# 0163 (int)");
-printf("\n");
-  ft_printf("@moulitest: %.10d", -42);
-printf("\n");
-printf("@moulitest: %.10d", -42);
-printf("\n");
-printf("\n");
-
-//   1. (   22) -->@moulitest: -0000000042<--
-//   2. (   23) -->@moulitest: -0000000042<--
-
-printf("# 0176 (unsigned int)");
-printf("\n");
-  ft_printf("% u", 4294967295);
-printf("\n");
-printf("% u", 4294967295);
-printf("\n");
-printf("\n");
-
-//   1. (   11) --> 4294967295<--
-//   2. (   10) -->4294967295<--
-
-printf("# 0177 (unsigned int)");
-printf("\n");
-  ft_printf("%+u", 4294967295);
-printf("\n");
-printf("%+u", 4294967295);
-printf("\n");
-printf("\n");
-
-//   1. (   11) -->+4294967295<--
-//   2. (   10) -->4294967295<--
 
 
 printf("\n");

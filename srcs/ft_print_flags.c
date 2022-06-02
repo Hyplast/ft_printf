@@ -29,19 +29,20 @@ int	print_sign(t_flags *flag, int c_p, char **s)
 	{
 		c_p += print_c('-');
 		temp = ft_strsub((*s), 1, ft_strlen((*s)) - 1);
-		ft_strcpy((*s), temp);
-		ft_strdel(&temp);
+		(*s) = temp;
+		// ft_strcpy((*s), temp);
+		// ft_strdel(&temp);
 		flag->plus = 0;
 		flag->space = 0;
 	}
 	return (c_p);
 }
 
-int	is_plus(t_flags *flag, int c_p, char **s)
+int	is_plus(t_flags *flag, int c_p, char **s, char c)
 {
 	char	*temp;
 
-	if ((*s)[0] != '-')
+	if ((*s)[0] != '-' && (c == 'i' || c == 'd'))
 		c_p += print_c('+');
 	if ((*s)[0] == '-')
 	{
