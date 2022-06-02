@@ -31,6 +31,32 @@ int	main()
 	system = "hello";
 
 printf("\n");
+	printf("\n");
+printf("FAIL: 40");
+printf("\n");
+  i = ft_printf("@moulitest: %5.o %5.0o", 0, 0);    // "@moulitest:            "
+  printf("\n");
+  o = printf("@moulitest: %5.o %5.0o", 0, 0);    // "@moulitest:            "
+printf("\n");
+printf(" my length %i. system lenght %i\n", i,o);
+printf("\n");
+printf("\n");
+  i = ft_printf("%5.o", 0);    // "@moulitest:            "
+  printf("\n");
+  o = printf("%5.o", 0);    // "@moulitest:            "
+printf("\n");
+printf(" my length %i. system lenght %i\n", i,o);
+printf("\n");
+printf("\n");
+  i = ft_printf("@moulitest: %5.0o", 0);    // "@moulitest:            "
+  printf("\n");
+  o =    printf("@moulitest: %5.0o", 0);    // "@moulitest:            "
+printf("\n");
+printf(" my length %i. system lenght %i\n", i,o);
+printf("\n");
+ o = printf("@moulitest: %5.o %5.0o", 13, 13);    // "@moulitest:            "
+printf("\n");
+printf("\n");
 printf("FAIL: 60");
 printf("\n");
   ft_printf("%+10.5d", 4242);                   // "    +04242"
@@ -774,16 +800,6 @@ includes/projects/ft_printf/ft_printf_main.sh: line 206: printf: %   : invalid n
 	o =    printf("   printf printing float 3.1416 with . = %.54f\n", 3.1416);
 	i = ft_printf("ft_printf printing float 3.1416 with . = %.55f\n", 3.1416);
 	o =    printf("   printf printing float 3.1416 with . = %.55f\n", 3.1416);
-
-	printf("\n");
-printf("FAIL: 40");
-printf("\n");
-  i = ft_printf("@moulitest: %5.o %5.0o", 0, 0);    // "@moulitest:            "
-  printf("\n");
-  o = printf("@moulitest: %5.o %5.0o", 0, 0);    // "@moulitest:            "
-printf("\n");
-printf(" my length %i. system lenght %i\n", i,o);
-printf("\n");
 
 
 

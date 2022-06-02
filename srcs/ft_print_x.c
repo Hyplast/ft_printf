@@ -56,6 +56,8 @@ int	print_o(const char *flags, va_list ap, int chars_printed)
 	{
 		if (flag_s->width != 0)
 			return (print_before(flag_s, chars_printed, "", 'o'));
+		else if (i == 0 && flag_s->prec == 0)
+			return (chars_printed += print_before(flag_s, chars_printed, "", 'o'));
 		return (chars_printed += print_c('0'));
 	}
 	s = ft_basetoa(i, 8, ' ');
