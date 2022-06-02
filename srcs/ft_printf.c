@@ -30,7 +30,7 @@ static	int	match_function(const char *flags, va_list ap, int c, int printed_c)
 	else if (c == 'f')
 		printed_c += print_f(flags, ap, printed_c);
 	else if (c == 'i')
-		printed_c += print_i(flags, (int) va_arg(ap, int), printed_c);
+		printed_c += print_i(flags, ap, printed_c);
 	else if (c == 'o')
 		printed_c += print_o(flags, ap, printed_c);
 	else if (c == 'p')

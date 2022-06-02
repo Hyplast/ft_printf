@@ -34,21 +34,32 @@ int	main()
 
 printf("\n");
 
+printf("\n");
+printf("#d 0070 (NULL)");
+printf("\n");
+ i =  ft_printf("->%03c<-", NULL);
+  printf("\n");
+o =      printf("->%03c<-", NULL);
+printf("\n");
+printf(" my length %i. system lenght %i\n", i,o);
+//   1. (    0) --><--
+//   2. (    1) -->^@<--
 
 //   1. (   12) -->@moulitest: <--
 //   2. (   13) -->@moulitest: ^@<--
 
 printf("\n");
 printf("\n");
-  ft_printf("%+d", 111114242424242424242424242);
+ i =  ft_printf("%+d", 111114242424242424242424242);
 
 // printf("\n");
 //   1. (    3) -->-1<--
 //   2. (    2) -->-1<--
 
 printf("\n");
-  printf("%+d", 111114242424242424242424242);
-
+o =  printf("%+d", 111114242424242424242424242);
+printf("\n");
+printf(" my length %i. system lenght %i\n", i,o);
   printf("\n");
 
 
@@ -1387,7 +1398,7 @@ printf(" my length %i. system lenght %i\n", o,i);
 	i = ft_printf("myve: %u,%u,%u :\n", -100, -1000, -100000);	
 	printf(" my length %i. system lenght %i\n\n", i,o);
 
-/*
+
 	ft_printf("Test 24. - ");
 	printf("From discord\n");
 	o = printf("%.30f", 0.0025);
@@ -1395,7 +1406,7 @@ printf(" my length %i. system lenght %i\n", o,i);
 	i = ft_printf("%.30f", 0.0025);
 	printf(" <-- yours\n");
 	printf(" my length %i. system lenght %i\n", i,o);
-*/
+
 
 	ft_printf("Test 10. \n");
 	o =    ft_printf ("ft_float 3.1416 = %.51f\n", 3.1416);
@@ -1722,7 +1733,7 @@ printf(" my length %i. system lenght %i\n", o,i);
 	o =    printf ("Preceding with 0' ': '% d' \n", 1977);
 	i = ft_printf ("Preceding with 0' ': '% d' \n", 1977);
 	printf(" my length %i. system lenght %i\n", i,o);
-/*
+
 	ft_printf("Test 58. \n");
 	i = ft_printf("%5%");
 	printf(" <-- yours\n");
@@ -1736,8 +1747,8 @@ printf(" my length %i. system lenght %i\n", o,i);
 	o = printf("%-5%");
 	printf(" <-- system\n");
 	printf(" my length %i. system lenght %i\n", i,o);
-*/
-/*	ft_printf("Test 60. \n");
+
+	ft_printf("Test 60. \n");
 	i = ft_printf("%.0%");
 	printf(" <-- yours\n");
 	o = printf("%.0%");
@@ -1750,7 +1761,7 @@ printf(" my length %i. system lenght %i\n", o,i);
 	o = printf("%   %", "test");
 	printf(" <-- system\n");
 	printf(" my length %i. system lenght %i\n", i,o);
-*/
+
 	ft_printf("Test 62. \n");
 	i = ft_printf("%x", 0);
 	printf(" <-- yours\n");
@@ -1773,14 +1784,15 @@ printf(" my length %i. system lenght %i\n", o,i);
 	o = printf("%lx", lui);
 	printf(" <-- system\n");
 	printf(" my length %i. system lenght %i\n", i,o);
-/*
-	ft_printf("Test 65. \n");
-	i = ft_printf("%x", test);
-	printf(" <-- yours\n");
-	o = printf("%x", test);
-	printf(" <-- system\n");
-	printf(" my length %i. system lenght %i\n", i,o);
-*/
+
+	
+	// ft_printf("Test 65. \n");
+	// i = ft_printf("%x", test);
+	// printf(" <-- yours\n");
+	// o = printf("%x", test);
+	// printf(" <-- system\n");
+	// printf(" my length %i. system lenght %i\n", i,o);
+
 	ft_printf("Test 66. \n");
 	i = ft_printf("%10x", 42);
 	printf(" <-- yours\n");
@@ -1884,31 +1896,31 @@ printf("\n");
 
 
 
- // ft_printf("%5%");                             // "    %"
- // printf("%5%");                             // "    %"
+  ft_printf("%5%");                             // "    %"
+  printf("%5%");                             // "    %"
 printf("\n");
 printf("FAIL: 1");
 printf("\n");
- // ft_printf("%-5%");                            // "%    "
- // printf("%-5%");                            // "%    "
+  ft_printf("%-5%");                            // "%    "
+  printf("%-5%");                            // "%    "
 printf("\n");
 printf("FAIL: 2");
 printf("\n");
-  //ft_printf("%.0%");                            // "%"
- // printf("%.0%");                            // "%"
+  ft_printf("%.0%");                            // "%"
+  printf("%.0%");                            // "%"
 printf("\n");
 printf("FAIL: 3");
 printf("\n");
 
-  // ft_printf("%%", "test");                      // "%"
- // printf("%%", "test");                      // "%"
+  ft_printf("%%", "test");                      // "%"
+  printf("%%", "test");                      // "%"
 printf("\n");
 printf("FAIL: 4");
 printf("\n");
 
 
-  // ft_printf("%   %", "test");                   // "%"
-  //printf("%   %", "test");                   // "%"
+   ft_printf("%   %", "test");                   // "%"
+  printf("%   %", "test");                   // "%"
 printf("\n");
 printf("FAIL: 5");
 printf("\n");
@@ -2051,14 +2063,14 @@ printf("\n");
 
   ft_printf("@moulitest: %s", NULL);            // "@moulitest: (null)"
   printf("\n");
-//  printf("@moulitest: %s", NULL);            // "@moulitest: (null)"
+printf("@moulitest: %s", NULL);            // "@moulitest: (null)"
 printf("\n");
 
 printf("FAIL: 23");
 printf("\n");
   ft_printf("%.2c", NULL);                      // "^@"
   printf("\n");
-  //printf("%.2c", NULL);                      // "^@"
+  printf("%.2c", NULL);                      // "^@"
 printf("\n");
 printf("\n");
 
@@ -2066,7 +2078,7 @@ printf("FAIL: 24");
 printf("\n");
   ft_printf("%s %s", NULL, "string");             // "(null) string"
   printf("\n");
-  //printf("%s %s", NULL, "string");             // "(null) string"
+  printf("%s %s", NULL, "string");             // "(null) string"
 printf("\n");
 printf("\n");
 
@@ -2155,7 +2167,7 @@ printf("FAIL: 35");
 printf("\n");
   ft_printf("%-05o", 2500);                     // "4704 "
   printf("\n");
- // printf("%-05o", 2500);                     // "4704 "
+  printf("%-05o", 2500);                     // "4704 "
 printf("\n");
 printf("\n");
 
@@ -2298,14 +2310,14 @@ printf("\n");
 
 printf("FAIL: 53");
 printf("\n");
- // ft_printf("%lld", 9223372036854775807);       // "9223372036854775807"
- // printf("%lld", 9223372036854775807);       // "9223372036854775807"
+  ft_printf("%lld", 9223372036854775807);       // "9223372036854775807"
+  printf("%lld", 9223372036854775807);       // "9223372036854775807"
 printf("\n");
 
 printf("FAIL: 54");
 printf("\n");
-//  ft_printf("%lld", -9223372036854775808);      // "-9223372036854775808"
-//  printf("%lld", -9223372036854775808);      // "-9223372036854775808"
+  ft_printf("%lld", -9223372036854775808);      // "-9223372036854775808"
+  printf("%lld", -9223372036854775808);      // "-9223372036854775808"
 printf("\n");
 
 printf("FAIL: 55");

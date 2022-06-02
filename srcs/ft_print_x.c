@@ -66,8 +66,6 @@ int	print_x(const char *flags, va_list ap, int chars_printed)
 		return (chars_printed += print_before(flag_s, chars_printed, "", 32));
 	s = ft_basetoa(i, 16, ' ');
 	chars_printed += print_before(flag_s, chars_printed, s, 'x');
-	if (i == 0)
-		chars_printed += print_c('0');
 	return (chars_printed);
 }
 
@@ -81,8 +79,12 @@ int	print_big_x(const char *flags, va_list ap, int chars_printed)
 	j = 0;
 	flag_s = return_flags(flags);
 	i = unsigned_conv(flag_s, ap);
-	if (i == 0)
+	if (i == 0 && flag_s->prec != 0)
 		return (chars_printed += print_c('0'));
+	else if (i == 0 && flag_s->prec == 0 && flag_s->sharp == 1)
+		return (chars_printed);
+	else if (i == 0 && flag_s->prec == 0)
+		return (chars_printed += print_before(flag_s, chars_printed, "", 32));
 	s = ft_basetoa(i, 16, ' ');
 	while (s[j] != '\0')
 	{
@@ -90,7 +92,5 @@ int	print_big_x(const char *flags, va_list ap, int chars_printed)
 		j++;
 	}
 	chars_printed += print_before(flag_s, chars_printed, s, 'X');
-	if (i == 0)
-		chars_printed += print_c('0');
 	return (chars_printed);
 }

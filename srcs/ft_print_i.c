@@ -80,13 +80,24 @@ int	print_d(const char *flags, va_list ap, int chars_printed)
 	return (chars_printed);
 }
 
-int	print_i(const char *flags, int d, int chars_printed)
+int	print_i(const char *flags, va_list ap, int chars_printed)
 {
-	char	*s;
-	t_flags	*flag_s;
+	char		*s;
+	t_flags		*flag_s;
+	uintmax_t	i;
 
 	flag_s = return_flags(flags);
-	s = ft_itoa(d);
-	chars_printed = print_before(flag_s, chars_printed, s, 'i');
+	i = signed_conv(flag_s, ap);
+	if (flag_s->spec == 1)
+		s = ft_litoa(i);
+	else if (flag_s->spec == 2)
+		s = ft_llitoa(i);
+	else
+		s = ft_itoa(i);
+	if (i == 0 && flag_s->prec == 0 && flag_s->sharp == 1)
+		return (chars_printed);
+	else if (i == 0 && flag_s->prec == 0)
+		return (chars_printed += print_before(flag_s, chars_printed, "", 32));
+	chars_printed = print_before(flag_s, chars_printed, s, 'd');
 	return (chars_printed);
 }

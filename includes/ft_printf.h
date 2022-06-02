@@ -101,7 +101,7 @@ int				print_c(char c);
 int				print_char(const char *flags, char c, int chars_printed);
 int				print_d(const char *flags, va_list ap, int chars_printed);
 int				print_f(const char *flags, va_list ap, int chars_printed);
-int				print_i(const char *flags, int d, int chars_printed);
+int				print_i(const char *flags, va_list ap, int chars_printed);
 int				print_o(const char *flags, va_list ap, int chars_printed);
 int				print_p(void *pointer);
 int				print_s(const char *flags, char *s, int chars_printed);
