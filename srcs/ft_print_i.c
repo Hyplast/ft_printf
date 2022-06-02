@@ -12,37 +12,14 @@
 
 #include "ft_printf.h"
 
-uintmax_t	signed_conv(t_flags *flag_s, va_list ap)
-{
-	uintmax_t		i;
-
-	if (flag_s->spec == 0)
-		i = (signed int) va_arg(ap, signed int);
-	else if (flag_s->spec == 1)
-		i = (signed long int) va_arg(ap, signed long int);
-	else if (flag_s->spec == 2)
-		i = (signed long long int) va_arg(ap, signed long long int);
-	else if (flag_s->spec == 4)
-		i = (signed short int) va_arg(ap, signed int);
-	else if (flag_s->spec == 5)
-		i = (signed char) va_arg(ap, unsigned int);
-	else
-		i = (signed int) va_arg(ap, signed int);
-	return (i);
-}
-
 int	print_char(const char *flags, char c, int chars_printed)
 {
 	t_flags		*flag_s;
 	char		*temp;
 
-
 	flag_s = return_flags(flags);
 	if (c == '\0')
-	{
-		
 		return (chars_printed = print_before(flag_s, chars_printed, "", '\0'));
-	}
 	temp = ft_strnew(1);
 	temp[0] = c;
 	chars_printed += print_before(flag_s, chars_printed, temp, 'c');
@@ -56,7 +33,8 @@ int	print_s(const char *flags, char *s, int chars_printed)
 
 	flag_s = return_flags(flags);
 	if (s == NULL)
-		return (chars_printed += print_before(flag_s, chars_printed, "(null)", 's'));
+		return (chars_printed += print_before(flag_s,
+				chars_printed, "(null)", 's'));
 	if (flag_s->prec < (int)ft_strlen(s) && flag_s->prec != -1)
 	{
 		temp = ft_strsub(s, 0, (flag_s->prec));
@@ -82,8 +60,8 @@ int	print_p(void *pointer)
 
 int	print_d(const char *flags, va_list ap, int chars_printed)
 {
-	char	*s;
-	t_flags	*flag_s;
+	char		*s;
+	t_flags		*flag_s;
 	uintmax_t	i;
 
 	flag_s = return_flags(flags);
@@ -94,8 +72,6 @@ int	print_d(const char *flags, va_list ap, int chars_printed)
 		s = ft_llitoa(i);
 	else
 		s = ft_itoa(i);
-	//if (i == 0 && flag_s->prec != 0)
-		//return (chars_printed += print_c('0'));
 	if (i == 0 && flag_s->prec == 0 && flag_s->sharp == 1)
 		return (chars_printed);
 	else if (i == 0 && flag_s->prec == 0)

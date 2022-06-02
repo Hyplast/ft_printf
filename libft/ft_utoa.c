@@ -27,8 +27,8 @@ static size_t	count_digits(unsigned long c)
 
 char	*ft_utoa(unsigned int c)
 {
-	char	*s;
-	size_t	digits;
+	char			*s;
+	size_t			digits;
 	unsigned long	value;
 
 	value = c;

@@ -12,25 +12,6 @@
 
 #include "ft_printf.h"
 
-uintmax_t	unsigned_conv(t_flags *flag_s, va_list ap)
-{
-	uintmax_t		i;
-
-	if (flag_s->spec == 0)
-		i = (unsigned int) va_arg(ap, unsigned int);
-	else if (flag_s->spec == 1)
-		i = (unsigned long int) va_arg(ap, unsigned long int);
-	else if (flag_s->spec == 2)
-		i = (unsigned long long int) va_arg(ap, unsigned long long int);
-	else if (flag_s->spec == 4)
-		i = (unsigned short int) va_arg(ap, unsigned int);
-	else if (flag_s->spec == 5)
-		i = (unsigned char) va_arg(ap, unsigned int);
-	else
-		i = (unsigned int) va_arg(ap, unsigned int);
-	return (i);
-}
-
 int	print_u(const char *flags, va_list ap, int chars_printed)
 {
 	char			*s;
@@ -55,16 +36,13 @@ int	print_o(const char *flags, va_list ap, int chars_printed)
 
 	flag_s = return_flags(flags);
 	i = (unsigned int) va_arg(ap, unsigned int);
-	// if (flag_s->spec == 1 || flag_s->spec == 2)
-	// 	s = ft_litoa(i);
-	// else
-	// 	s = ft_itoa(i);
 	if (i == 0)
 	{
 		if (flag_s->width != 0)
 			return (print_before(flag_s, chars_printed, "", 'o'));
 		else if (i == 0 && flag_s->prec == 0)
-			return (chars_printed += print_before(flag_s, chars_printed, "", 'o'));
+			return (chars_printed += print_before(flag_s,
+					chars_printed, "", 'o'));
 		return (chars_printed += print_c('0'));
 	}
 	s = ft_basetoa(i, 8, ' ');

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lutoa.c                                          :+:      :+:    :+:   */
+/*   ft_lutoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -27,8 +27,8 @@ static size_t	count_digits(unsigned long long c)
 
 char	*ft_lutoa(long unsigned int c)
 {
-	char	*s;
-	size_t	digits;
+	char				*s;
+	size_t				digits;
 	unsigned long long	value;
 
 	value = c;

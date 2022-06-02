@@ -20,7 +20,6 @@ int	is_sharp(int c_p, char c)
 	return (c_p);
 }
 
-
 int	print_sign(t_flags *flag, int c_p, char **s)
 {
 	char	*temp;
@@ -30,8 +29,6 @@ int	print_sign(t_flags *flag, int c_p, char **s)
 		c_p += print_c('-');
 		temp = ft_strsub((*s), 1, ft_strlen((*s)) - 1);
 		(*s) = temp;
-		// ft_strcpy((*s), temp);
-		// ft_strdel(&temp);
 		flag->plus = 0;
 		flag->space = 0;
 	}

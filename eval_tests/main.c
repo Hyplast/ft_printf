@@ -38,6 +38,21 @@ printf("\n");
 //   1. (   12) -->@moulitest: <--
 //   2. (   13) -->@moulitest: ^@<--
 
+printf("\n");
+printf("\n");
+  ft_printf("%+d", 111114242424242424242424242);
+
+// printf("\n");
+//   1. (    3) -->-1<--
+//   2. (    2) -->-1<--
+
+printf("\n");
+  printf("%+d", 111114242424242424242424242);
+
+  printf("\n");
+
+
+  
 printf("# 0076 (char)");
 printf("\n");
 i =   ft_printf("->%2c<-", 0);
@@ -78,7 +93,7 @@ printf("\n");
 
 printf("# 0108 (int)");
 printf("\n");
-  i =   ft_printf("%+d-", 4242424242424242424242);
+  i =   ft_printf("%+d", 4242424242424242424242);
   printf("\n");
 o = printf("%+d", 4242424242424242424242);
 printf("\n");

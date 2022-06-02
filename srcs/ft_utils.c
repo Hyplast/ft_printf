@@ -55,7 +55,7 @@ void	fill_prec(char *ret, char *str, int size)
 
 void	fix_overrides(t_flags *flag_s, const char c)
 {
-	if (flag_s->prec != -1) //&& flag_s->spec != 0)
+	if (flag_s->prec != -1)
 		flag_s->zero = 0;
 	if (c == 'f' && flag_s->prec == -1)
 		flag_s->prec = 6;
