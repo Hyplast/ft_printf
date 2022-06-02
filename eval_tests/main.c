@@ -34,11 +34,83 @@ int	main()
 
 printf("\n");
 
+
+//   1. (   12) -->@moulitest: <--
+//   2. (   13) -->@moulitest: ^@<--
+
+printf("# 0076 (char)");
+printf("\n");
+i =   ft_printf("->%2c<-", 0);
+printf("\n");
+o = printf("->%2c<-", 0);
+printf("\n");
+printf(" my length %i. system lenght %i\n", i,o);
+printf("\n");
+printf("\n");
+
+//   1. (    2) -->  <--
+//   2. (    2) --> ^@<--
+
+printf("# 0077 (char)");
+printf("\n");
+ i =    ft_printf("null %c and text", 0);
+printf("\n");
+o = printf("null %c and text", 0);
+printf("\n");
+printf(" my length %i. system lenght %i\n", i,o);
+printf("\n");
+printf("\n");
+
+//   1. (   14) -->null  and text<--
+//   2. (   15) -->null ^@ and text<--
+
+printf("# 0078 (char)");
+printf("\n");
+ i =    ft_printf("->% c<-", 0);
+printf("\n");
+o = printf("->% c<-", 0);
+printf("\n");
+printf(" my length %i. system lenght %i\n", i,o);
+printf("\n");
+printf("\n");
+
+
+
+printf("# 0108 (int)");
+printf("\n");
+  i =   ft_printf("%+d-", 4242424242424242424242);
+  printf("\n");
+o = printf("%+d", 4242424242424242424242);
+printf("\n");
+printf(" my length %i. system lenght %i\n", i,o);
+  printf("\n");
+  printf("\n");
+//   1. (    3) -->-1<--
+//   2. (    2) -->-1<--
+
+
+printf("# 0108 (int)");
+printf("\n");
+  i =   ft_printf("->%+d<-", 4242424242424242424242);
+  printf("\n");
+o = printf("->%+d<-", 4242424242424242424242);
+printf("\n");
+printf(" my length %i. system lenght %i\n", i,o);
+  printf("\n");
+  printf("\n");
+//   1. (    3) -->-1<--
+//   2. (    2) -->-1<--
+
+
+
+
 printf("# 0176 (unsigned int)");
 printf("\n");
-  ft_printf("% i", 4294967295);
+  i =   ft_printf("% i", 4294967295);
 printf("\n");
-printf("% i", 4294967295);
+o = printf("% i", 4294967295);
+printf("\n");
+printf(" my length %i. system lenght %i\n", i,o);
 printf("\n");
 printf("\n");
 
@@ -49,9 +121,11 @@ printf("\n");
 
 printf("# 0176 (unsigned int)");
 printf("\n");
-  ft_printf("% d", 4294967295);
+ i = ft_printf("% d", 4294967295);
 printf("\n");
-printf("% d", 4294967295);
+o = printf("% d", 4294967295);
+printf("\n");
+printf(" my length %i. system lenght %i\n", i,o);
 printf("\n");
 printf("\n");
 
@@ -327,38 +401,6 @@ printf("@moulitest: %c", 0);
 printf("\n");
 printf("\n");
 
-//   1. (   12) -->@moulitest: <--
-//   2. (   13) -->@moulitest: ^@<--
-
-printf("# 0076 (char)");
-printf("\n");
-  ft_printf("%2c", 0);
-printf("\n");
-printf("%2c", 0);
-printf("\n");
-printf("\n");
-
-//   1. (    2) -->  <--
-//   2. (    2) --> ^@<--
-
-printf("# 0077 (char)");
-printf("\n");
-  ft_printf("null %c and text", 0);
-printf("\n");
-printf("null %c and text", 0);
-printf("\n");
-printf("\n");
-
-//   1. (   14) -->null  and text<--
-//   2. (   15) -->null ^@ and text<--
-
-printf("# 0078 (char)");
-printf("\n");
-  ft_printf("% c", 0);
-printf("\n");
-printf("% c", 0);
-printf("\n");
-printf("\n");
 
 
 

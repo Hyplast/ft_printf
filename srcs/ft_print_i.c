@@ -40,8 +40,8 @@ int	print_char(const char *flags, char c, int chars_printed)
 	flag_s = return_flags(flags);
 	if (c == '\0')
 	{
-		chars_printed += print_c('\0');
-		return (chars_printed = print_before(flag_s, chars_printed, "", 'c'));
+		
+		return (chars_printed = print_before(flag_s, chars_printed, "", '\0'));
 	}
 	temp = ft_strnew(1);
 	temp[0] = c;
