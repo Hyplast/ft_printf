@@ -31,21 +31,21 @@ int	print_u(const char *flags, va_list ap, int chars_printed)
 int	print_o(const char *flags, va_list ap, int chars_printed)
 {
 	char			*s;
-	unsigned int	i;
+	uintmax_t		o;
 	t_flags			*flag_s;
 
 	flag_s = return_flags(flags);
-	i = (unsigned int) va_arg(ap, unsigned int);
-	if (i == 0)
+	o = unsigned_conv(flag_s, ap);
+	if (o == 0)
 	{
 		if (flag_s->width != 0)
 			return (print_before(flag_s, chars_printed, "", 'o'));
-		else if (i == 0 && flag_s->prec == 0)
+		else if (o == 0 && flag_s->prec == 0)
 			return (chars_printed += print_before(flag_s,
 					chars_printed, "", 'o'));
 		return (chars_printed += print_c('0'));
 	}
-	s = ft_basetoa(i, 8, ' ');
+	s = ft_basetoa(o, 8, ' ');
 	chars_printed += print_before(flag_s, chars_printed, s, 'o');
 	return (chars_printed);
 }
@@ -54,17 +54,17 @@ int	print_x(const char *flags, va_list ap, int chars_printed)
 {
 	char		*s;
 	t_flags		*flag_s;
-	uintmax_t	i;
+	uintmax_t	x;
 
 	flag_s = return_flags(flags);
-	i = unsigned_conv(flag_s, ap);
-	if (i == 0 && flag_s->prec != 0)
+	x = unsigned_conv(flag_s, ap);
+	if (x == 0 && flag_s->prec != 0)
 		return (chars_printed += print_c('0'));
-	else if (i == 0 && flag_s->prec == 0 && flag_s->sharp == 1)
+	else if (x == 0 && flag_s->prec == 0 && flag_s->sharp == 1)
 		return (chars_printed);
-	else if (i == 0 && flag_s->prec == 0)
+	else if (x == 0 && flag_s->prec == 0)
 		return (chars_printed += print_before(flag_s, chars_printed, "", 32));
-	s = ft_basetoa(i, 16, ' ');
+	s = ft_basetoa(x, 16, ' ');
 	chars_printed += print_before(flag_s, chars_printed, s, 'x');
 	return (chars_printed);
 }
@@ -74,18 +74,18 @@ int	print_big_x(const char *flags, va_list ap, int chars_printed)
 	char		*s;
 	int			j;
 	t_flags		*flag_s;
-	uintmax_t	i;
+	uintmax_t	x;
 
 	j = 0;
 	flag_s = return_flags(flags);
-	i = unsigned_conv(flag_s, ap);
-	if (i == 0 && flag_s->prec != 0)
+	x = unsigned_conv(flag_s, ap);
+	if (x == 0 && flag_s->prec != 0)
 		return (chars_printed += print_c('0'));
-	else if (i == 0 && flag_s->prec == 0 && flag_s->sharp == 1)
+	else if (x == 0 && flag_s->prec == 0 && flag_s->sharp == 1)
 		return (chars_printed);
-	else if (i == 0 && flag_s->prec == 0)
+	else if (x == 0 && flag_s->prec == 0)
 		return (chars_printed += print_before(flag_s, chars_printed, "", 32));
-	s = ft_basetoa(i, 16, ' ');
+	s = ft_basetoa(x, 16, ' ');
 	while (s[j] != '\0')
 	{
 		s[j] = (char)ft_toupper(s[j]);

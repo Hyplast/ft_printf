@@ -34,6 +34,110 @@ int	main()
 
 printf("\n");
 
+
+printf("\n");
+
+printf("# 0176 (%% o)");
+printf("\n");
+  ft_printf("%o", 4294967295);
+printf("\n");
+printf("%o", 4294967295);
+printf("\n");
+printf("\n");
+
+printf("# 0176 (%% x)");
+printf("\n");
+  ft_printf("%x", 4294967295);
+printf("\n");
+printf("%x", 4294967295);
+printf("\n");
+printf("\n");
+
+
+printf("# 0176 (%% X)");
+printf("\n");
+  ft_printf("%X", 4294967295);
+printf("\n");
+printf("%X", 4294967295);
+printf("\n");
+printf("\n");
+
+printf("# 0176 (%% u)");
+printf("\n");
+  ft_printf("%u", 4294967295);
+printf("\n");
+printf("%u", 4294967295);
+printf("\n");
+printf("\n");
+
+printf("\n");
+
+printf("# 0176 (%% lo)");
+printf("\n");
+  ft_printf("%lo", 4294967295);
+printf("\n");
+printf("%lo", 4294967295);
+printf("\n");
+printf("\n");
+
+printf("# 0176 (%% lx)");
+printf("\n");
+  ft_printf("%lx", 4294967295);
+printf("\n");
+printf("%lx", 4294967295);
+printf("\n");
+printf("\n");
+
+
+printf("# 0176 (%% lX)");
+printf("\n");
+  ft_printf("%lX", 4294967295);
+printf("\n");
+printf("%lX", 4294967295);
+printf("\n");
+printf("\n");
+
+printf("# 0176 (%% lu)");
+printf("\n");
+  ft_printf("%lu", 4294967295);
+printf("\n");
+printf("%lu", 4294967295);
+printf("\n");
+printf("\n");
+
+
+printf("# 0176 (%%llx)");
+printf("\n");
+  ft_printf("%llx", 9223372036854775807);
+printf("\n");
+printf("%llx", 9223372036854775807);
+printf("\n");
+printf("\n");
+
+printf("# 0176 (%%llX)");
+printf("\n");
+  ft_printf("%llX", 9223372036854775807);
+printf("\n");
+printf("%llX", 9223372036854775807);
+printf("\n");
+printf("\n");
+
+printf("# 0176 (%%llu)");
+printf("\n");
+  ft_printf("%llu", 9223372036854775807);
+printf("\n");
+printf("%llu", 9223372036854775807);
+printf("\n");
+printf("\n");
+ 
+printf("# 0176 (%%llo)");
+printf("\n");
+  ft_printf("%llo", 9223372036854775807);
+printf("\n");
+printf("%llo", 9223372036854775807);
+printf("\n");
+printf("\n");
+
 printf("\n");
 printf("#d 0070 (NULL)");
 printf("\n");
@@ -792,6 +896,9 @@ printf("\n");
 /*
 0007 
 */
+
+
+/*
  printf("\n");
   printf("**1**");
   printf("\n");
@@ -1173,6 +1280,8 @@ includes/projects/ft_printf/ft_printf_main.sh: line 206: printf: %   : invalid n
 
 */
 
+
+/*
 	li = 3.1416;
 	lo = 3.1416;
 	ft_printf("Test 18.c)1 L \n");
@@ -1856,7 +1965,7 @@ printf(" my length %i. system lenght %i\n", o,i);
 	printf(" my length %i. system lenght %i\n", i,o);
 */
 
-	printf("{%*d}\n", -5, 42); 	
+	// printf("{%*d}\n", -5, 42); 	
 	// ft_printf("%llx", 9223372036854775807);
 
 /*/	ft_printf("%llx", 9223372036854775808);
@@ -1875,6 +1984,8 @@ printf(" my length %i. system lenght %i\n", o,i);
 	ft_printf("%5.2s is a string", "this");
 
 */
+
+/*
 
 
   printf("\n");
