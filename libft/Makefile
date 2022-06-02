@@ -58,6 +58,7 @@ ft_strjoin.c \
 ft_strsplit.c \
 ft_itoa.c \
 ft_litoa.c \
+ft_llitoa.c \
 ft_utoa.c \
 ft_lutoa.c \
 ft_putchar_fd.c \

@@ -88,8 +88,10 @@ int	print_d(const char *flags, va_list ap, int chars_printed)
 
 	flag_s = return_flags(flags);
 	i = signed_conv(flag_s, ap);
-	if (flag_s->spec == 1 || flag_s->spec == 2)
+	if (flag_s->spec == 1)
 		s = ft_litoa(i);
+	else if (flag_s->spec == 2)
+		s = ft_llitoa(i);
 	else
 		s = ft_itoa(i);
 	//if (i == 0 && flag_s->prec != 0)
