@@ -79,7 +79,7 @@ static char	*find_spec(t_flags *flag_s, char *flags)
 	if (flags[flag_s->len - 1] == 'l')
 	{
 		flag_s->spec = 1;
-		if (flag_s->len - 1 - 1 > 0)
+		if (flag_s->len - 1 > 0)
 		{
 			if (flags[flag_s->len - 1 - 1] == 'l')
 				flag_s->spec = 2;
