@@ -36,9 +36,15 @@ int	print_char(const char *flags, char c, int chars_printed)
 	t_flags		*flag_s;
 	char		*temp;
 
+
+	flag_s = return_flags(flags);
+	if (c == '\0')
+	{
+		chars_printed += print_c('\0');
+		return (chars_printed = print_before(flag_s, chars_printed, "", 'c'));
+	}
 	temp = ft_strnew(1);
 	temp[0] = c;
-	flag_s = return_flags(flags);
 	chars_printed += print_before(flag_s, chars_printed, temp, 'c');
 	return (chars_printed);
 }
@@ -50,7 +56,7 @@ int	print_s(const char *flags, char *s, int chars_printed)
 
 	flag_s = return_flags(flags);
 	if (s == NULL)
-		return (chars_printed);
+		return (chars_printed += print_before(flag_s, chars_printed, "(null)", 's'));
 	if (flag_s->prec < (int)ft_strlen(s) && flag_s->prec != -1)
 	{
 		temp = ft_strsub(s, 0, (flag_s->prec));

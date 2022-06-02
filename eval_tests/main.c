@@ -31,6 +31,294 @@ int	main()
 	system = "hello";
 
 printf("\n");
+//   1. (    1) --> <--
+//   2. (    1) -->^@<--
+
+printf("# 0106 (int)");
+printf("\n");
+  ft_printf("%+d", -42);
+printf("\n");
+printf("%+d", -42);
+printf("\n");
+printf("\n");
+
+//   1. (    3) -->42<--
+//   2. (    3) -->-42<--
+
+printf("# 0108 (int)");
+printf("\n");
+  ft_printf("%+d", 4242424242424242424242);
+printf("\n");
+printf("%+d", 4242424242424242424242);
+printf("\n");
+printf("\n");
+
+//   1. (    2) -->1<--
+//   2. (    2) -->-1<--
+
+printf("# 0110 (int)");
+printf("\n");
+  ft_printf("% +d", -42);
+printf("\n");
+printf("% +d", -42);
+printf("\n");
+printf("\n");
+
+//   1. (    3) -->42<--
+//   2. (    3) -->-42<--
+
+
+
+printf("# 0112 (int)");
+printf("\n");
+  ft_printf("%+ d", -42);
+printf("\n");
+printf("%+ d", -42);
+printf("\n");
+printf("\n");
+
+//   1. (    3) -->42<--
+//   2. (    3) -->-42<--
+
+printf("# 0114 (int)");
+printf("\n");
+  ft_printf("%  +d", -42);
+printf("\n");
+printf("%  +d", -42);
+printf("\n");
+printf("\n");
+
+//   1. (    3) -->42<--
+//   2. (    3) -->-42<--
+
+printf("# 0116 (int)");
+printf("\n");
+  ft_printf("%+  d", -42);
+printf("\n");
+printf("%+  d", -42);
+printf("\n");
+printf("\n");
+
+//   1. (    3) -->42<--
+//   2. (    3) -->-42<--
+
+printf("# 0118 (int)");
+printf("\n");
+  ft_printf("% ++d", -42);
+printf("\n");
+printf("% ++d", -42);
+printf("\n");
+printf("\n");
+
+//   1. (    3) -->42<--
+//   2. (    3) -->-42<--
+
+printf("# 0120 (int)");
+printf("\n");
+  ft_printf("%++ d", -42);
+printf("\n");
+printf("%++ d", -42);
+printf("\n");
+printf("\n");
+
+//   1. (    3) -->42<--
+//   2. (    3) -->-42<--
+
+printf("# 0146 (long long)");
+printf("\n");
+  ft_printf("%lld", -9223372036854775808);
+printf("\n");
+printf("%lld", -9223372036854775808);
+printf("\n");
+printf("\n");
+
+//   1. (    1) -->-0<--
+//   2. (   20) -->-9223372036854775808<--
+
+printf("# 0162 (int)");
+printf("\n");
+  ft_printf("%03.2d", -1);
+printf("\n");
+printf("%03.2d", -1);
+printf("\n");
+printf("\n");
+
+//   1. (    3) --> -01<--
+//   2. (    3) -->-01<--
+
+printf("# 0163 (int)");
+printf("\n");
+  ft_printf("@moulitest: %.10d", -42);
+printf("\n");
+printf("@moulitest: %.10d", -42);
+printf("\n");
+printf("\n");
+
+//   1. (   22) -->@moulitest: -0000000042<--
+//   2. (   23) -->@moulitest: -0000000042<--
+
+printf("# 0176 (unsigned int)");
+printf("\n");
+  ft_printf("% u", 4294967295);
+printf("\n");
+printf("% u", 4294967295);
+printf("\n");
+printf("\n");
+
+//   1. (   11) --> 4294967295<--
+//   2. (   10) -->4294967295<--
+
+printf("# 0177 (unsigned int)");
+printf("\n");
+  ft_printf("%+u", 4294967295);
+printf("\n");
+printf("%+u", 4294967295);
+printf("\n");
+printf("\n");
+
+//   1. (   11) -->+4294967295<--
+//   2. (   10) -->4294967295<--
+
+
+printf("\n");
+printf(" # 0069 (NULL)");
+printf("\n");
+ i =  ft_printf("@moulitest: %s", NULL);
+printf("\n");
+o =printf("@moulitest: %s", NULL);
+printf("\n");
+printf(" my length %i. system lenght %i\n", i,o);
+// 1. (   12) -->@moulitest: <--
+// 2. (   18) -->@moulitest: (null)<--
+
+printf("\n");
+printf("#a 0070 (NULL)");
+printf("\n");
+ i =  ft_printf("->%.2c<-", NULL);
+  printf("\n");
+o = printf("->%.2c<-", NULL);
+printf("\n");
+printf(" my length %i. system lenght %i\n", i,o);
+//   1. (    0) --><--
+//   2. (    1) -->^@<--
+
+
+printf("\n");
+printf("#b 0070 (NULL)");
+printf("\n");
+ i =  ft_printf("->%.c<-", NULL);
+  printf("\n");
+o = printf("->%.c<-", NULL);
+printf("\n");
+printf(" my length %i. system lenght %i\n", i,o);
+//   1. (    0) --><--
+//   2. (    1) -->^@<--
+
+printf("\n");
+printf("#c 0070 (NULL)");
+printf("\n");
+ i =  ft_printf("->%c<-", NULL);
+  printf("\n");
+o = printf("->%c<-", NULL);
+printf("\n");
+printf(" my length %i. system lenght %i\n", i,o);
+//   1. (    0) --><--
+//   2. (    1) -->^@<--
+
+printf("\n");
+printf("#d 0070 (NULL)");
+printf("\n");
+ i =  ft_printf("->%08c<-", NULL);
+  printf("\n");
+o = printf("->%08c<-", NULL);
+printf("\n");
+printf(" my length %i. system lenght %i\n", i,o);
+//   1. (    0) --><--
+//   2. (    1) -->^@<--
+
+printf("# 0069 (NULL)");
+printf("\n");
+ i = ft_printf("@moulitest: %s", NULL);
+printf("\n");
+o = printf("@moulitest: %s", NULL);
+printf("\n");
+printf(" my length %i. system lenght %i\n", i,o);
+printf("\n");
+
+//   1. (   12) -->@moulitest: <--
+//   2. (   18) -->@moulitest: (null)<--
+
+printf("# 0070 (NULL)");
+printf("\n");
+ i =  ft_printf("%.2c", NULL);
+printf("\n");
+o = printf("%.2c", NULL);
+printf("\n");
+printf(" my length %i. system lenght %i\n", i,o);
+printf("\n");
+printf("\n");
+
+//   1. (    0) --><--
+//   2. (    1) -->^@<--
+
+char *string = "string";
+
+printf("# 0071 (NULL)");
+printf("\n");
+i =   ft_printf("%s %s", NULL, string);
+printf("\n");
+o =printf("%s %s", NULL, string);
+printf("\n");
+printf(" my length %i. system lenght %i\n", i,o);
+printf("\n");
+printf("\n");
+
+//   1. (    7) --> string<--
+//   2. (   13) -->(null) string<--
+
+printf("# 0075 (char)");
+printf("\n");
+  ft_printf("@moulitest: %c", 0);
+printf("\n");
+printf("@moulitest: %c", 0);
+printf("\n");
+printf("\n");
+
+//   1. (   12) -->@moulitest: <--
+//   2. (   13) -->@moulitest: ^@<--
+
+printf("# 0076 (char)");
+printf("\n");
+  ft_printf("%2c", 0);
+printf("\n");
+printf("%2c", 0);
+printf("\n");
+printf("\n");
+
+//   1. (    2) -->  <--
+//   2. (    2) --> ^@<--
+
+printf("# 0077 (char)");
+printf("\n");
+  ft_printf("null %c and text", 0);
+printf("\n");
+printf("null %c and text", 0);
+printf("\n");
+printf("\n");
+
+//   1. (   14) -->null  and text<--
+//   2. (   15) -->null ^@ and text<--
+
+printf("# 0078 (char)");
+printf("\n");
+  ft_printf("% c", 0);
+printf("\n");
+printf("% c", 0);
+printf("\n");
+printf("\n");
+
+
+
 
 
 printf("FAIL: 62");
