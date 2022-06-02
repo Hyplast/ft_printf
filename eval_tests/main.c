@@ -33,14 +33,6 @@ int	main()
 printf("\n");
 
 
-printf("FAIL: 70");
-printf("\n");
-ft_printf("%015u", (unsigned int)4294967295);               // "000004294967295"
-	printf("\n");
-  printf("%015u", (unsigned int)4294967295);               // "000004294967295"
-printf("\n");
-printf("\n");
-
 printf("FAIL: 62");
 printf("\n");
   ft_printf("%03.2d", 0);                       // " 00"
@@ -57,6 +49,7 @@ printf("\n");
   printf("%03.2d", 1);                       // " 01"
 printf("\n");
 printf("\n");
+
 
 
 printf("FAIL: 66");
@@ -76,6 +69,14 @@ printf("\n");
 printf("\n");
 
 
+printf("FAIL: 72- a");
+printf("\n");
+    ft_printf("%u", (unsigned int)-42);                        // "18446744073709551574"
+	printf("\n");
+  printf("%u", (unsigned int)-42);                        // "18446744073709551574"
+printf("\n");
+printf("\n");
+
 printf("FAIL: 72");
 printf("\n");
     ft_printf("%lu", (long unsigned int)-42);                        // "18446744073709551574"
@@ -93,6 +94,13 @@ printf("\n");
 printf("\n");
 printf("\n");
 
+printf("FAIL: 70");
+printf("\n");
+ft_printf("%015u", (unsigned int)4294967295);               // "000004294967295"
+	printf("\n");
+  printf("%015u", (unsigned int)4294967295);               // "000004294967295"
+printf("\n");
+printf("\n");
 
 
 	printf("\n");

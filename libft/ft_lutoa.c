@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utoa.c                                          :+:      :+:    :+:   */
+/*   ft_lutoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static size_t	count_digits(unsigned long c)
+static size_t	count_digits(unsigned long long c)
 {
 	size_t	digits;
 
@@ -25,11 +25,11 @@ static size_t	count_digits(unsigned long c)
 	return (digits);
 }
 
-char	*ft_utoa(unsigned int c)
+char	*ft_lutoa(long unsigned int c)
 {
 	char	*s;
 	size_t	digits;
-	unsigned long	value;
+	unsigned long long	value;
 
 	value = c;
 	digits = count_digits(value);

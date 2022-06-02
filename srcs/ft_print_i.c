@@ -86,6 +86,12 @@ int	print_d(const char *flags, va_list ap, int chars_printed)
 		s = ft_litoa(i);
 	else
 		s = ft_itoa(i);
+	//if (i == 0 && flag_s->prec != 0)
+		//return (chars_printed += print_c('0'));
+	if (i == 0 && flag_s->prec == 0 && flag_s->sharp == 1)
+		return (chars_printed);
+	else if (i == 0 && flag_s->prec == 0)
+		return (chars_printed += print_before(flag_s, chars_printed, "", 32));
 	chars_printed = print_before(flag_s, chars_printed, s, 'd');
 	return (chars_printed);
 }

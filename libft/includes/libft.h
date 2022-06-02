@@ -64,6 +64,7 @@ int		ft_atoi(const char *nptr);
 char	*ft_itoa(int c);
 char	*ft_litoa(long c);
 char	*ft_utoa(unsigned int c);
+char	*ft_lutoa(long unsigned int c);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 int		ft_isdigit(int c);

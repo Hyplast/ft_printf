@@ -39,7 +39,10 @@ int	print_u(const char *flags, va_list ap, int chars_printed)
 
 	flag_s = return_flags(flags);
 	u = unsigned_conv(flag_s, ap);
-	s = ft_utoa(u);
+	if (flag_s->spec == 1 || flag_s->spec == 2)
+		s = ft_lutoa(u);
+	else
+		s = ft_utoa(u);
 	chars_printed += print_before(flag_s, chars_printed, s, 'u');
 	return (chars_printed);
 }
@@ -52,6 +55,10 @@ int	print_o(const char *flags, va_list ap, int chars_printed)
 
 	flag_s = return_flags(flags);
 	i = (unsigned int) va_arg(ap, unsigned int);
+	// if (flag_s->spec == 1 || flag_s->spec == 2)
+	// 	s = ft_litoa(i);
+	// else
+	// 	s = ft_itoa(i);
 	if (i == 0)
 	{
 		if (flag_s->width != 0)
