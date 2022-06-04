@@ -16,65 +16,6 @@ LIBFT_DIR = libft
 
 LIBFT = libft.a
 
-LIBFT_SRC = \
-ft_atoi.c \
-ft_bzero.c \
-ft_strlen.c \
-ft_strdup.c \
-ft_strcmp.c \
-ft_strncmp.c\
-ft_strcpy.c \
-ft_strncpy.c \
-ft_strcat.c \
-ft_strncat.c \
-ft_strlcat.c \
-ft_strchr.c \
-ft_strrchr.c \
-ft_strstr.c \
-ft_strnstr.c \
-ft_isalpha.c \
-ft_isdigit.c \
-ft_isalnum.c \
-ft_isprint.c \
-ft_isascii.c \
-ft_toupper.c \
-ft_tolower.c \
-ft_memset.c \
-ft_memcpy.c \
-ft_memccpy.c \
-ft_memchr.c \
-ft_memmove.c \
-ft_memcmp.c \
-ft_memalloc.c \
-ft_memdel.c \
-ft_strnew.c \
-ft_strdel.c \
-ft_strclr.c \
-ft_striter.c \
-ft_striteri.c \
-ft_strmap.c \
-ft_strmapi.c \
-ft_strequ.c \
-ft_strnequ.c \
-ft_strsub.c \
-ft_strtrim.c \
-ft_strjoin.c \
-ft_strsplit.c \
-ft_itoa.c \
-ft_litoa.c \
-ft_llitoa.c \
-ft_utoa.c \
-ft_lutoa.c \
-ft_putchar_fd.c \
-ft_putstr_fd.c \
-ft_putendl_fd.c \
-ft_putchar.c \
-ft_putstr.c \
-ft_putendl.c \
-ft_putnbr.c \
-ft_putnbr_fd.c \
-get_next_line.c
-
 SRC = ft_printf.c \
 ft_frexp.c \
 ft_frexpl.c \
@@ -104,7 +45,7 @@ SRCS = $(addprefix srcs/, $(SRC))
 
 OBJ = $(SRC:.c=.o)
 
-OBJS = $(addprefix srcs/, $(OBJ))
+OBJS = $(addprefix obj/, $(SRC:.c=.o))
 
 LIB_OBJ = $(LIBFT_SRC:.c=.o)
 
@@ -121,28 +62,29 @@ CC = gcc
 CFLAGS = -Wall -Werror -Wextra -g#-Wconversion -g
 # -g -fsanitize=address
 
-all: $(NAME) 
+all: dir $(NAME) 
 
-$(NAME): $(OBJS) $(LIB_OBJS)
-	ar rc $(NAME) $(OBJS) $(LIB_OBJS)
+$(NAME): $(OBJS) 
+	make -C $(LIBFT_DIR)
+	cp $(LIBFT_DIR)/$(LIBFT) ./$(NAME)
+	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
-
-$(OBJS): srcs/%.o : srcs/%.c
-	$(CC) $(CFLAGS) -I $(LIBFT_INC) -I $(INC) -c $< -o $@ 
-
-$(LIB_OBJS): libft/%.o : libft/%.c
-	$(CC) $(CFLAGS) -I $(LIBFT_INC) -c $< -o $@
 
 dir:
 	mkdir -p $(OBJ_DIR)
 
+$(OBJS): obj/%.o : srcs/%.c
+	$(CC) $(CFLAGS) -I $(LIBFT_INC) -I $(INC) -c $< -o $@ 
+
+
 clean:
-	rm -f $(OBJS)
-	rm -f $(LIB_OBJS) 
+	make clean -C $(LIBFT_DIR)
+	rm -f -r $(OBJ_DIR)
 
 fclean: clean
+	make fclean -C $(LIBFT_DIR)
 	rm -f $(NAME)
-	rm -f $(LIBFT_DIR)/$(LIBFT)
+	
 
 re: fclean all
 
