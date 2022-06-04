@@ -61,6 +61,9 @@ ft_litoa.c \
 ft_llitoa.c \
 ft_utoa.c \
 ft_lutoa.c \
+ft_count_digits.c \
+ft_count_ldigits.c \
+ft_count_u_digits.c \
 ft_putchar_fd.c \
 ft_putstr_fd.c \
 ft_putendl_fd.c \

@@ -52,3 +52,18 @@ int	is_plus(t_flags *flag, int c_p, char **s, char c)
 	flag->plus = 0;
 	return (c_p);
 }
+
+int	ft_lookforchar(const char *s, int c)
+{
+	int	s_len;
+	int	i;
+
+	i = -1;
+	s_len = (int)ft_strlen(s);
+	while (s_len >= ++i)
+	{
+		if (s[i] == c)
+			return (i);
+	}
+	return (-1);
+}

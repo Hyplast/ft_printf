@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static size_t	count_digits(unsigned long long c)
+static size_t	count_u_ldigits(unsigned long long c)
 {
 	size_t	digits;
 
@@ -32,7 +32,7 @@ char	*ft_lutoa(long unsigned int c)
 	unsigned long long	value;
 
 	value = c;
-	digits = count_digits(value);
+	digits = count_u_ldigits(value);
 	s = ft_strnew(digits);
 	if (s == NULL)
 		return (NULL);

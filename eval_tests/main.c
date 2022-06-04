@@ -31,16 +31,39 @@ int	main()
 	system = "hello";
 
 
+printf("\n"); //9223372036854775807
+printf("%i ja %i", sizeof(long long int), sizeof(long int));
+printf("\n");
+printf("%lo", 9223372036854775807);
+printf("\n");
+ft_printf("%lo", 9223372036854775807);
+
 printf("\n");
 printf("%llo", 9223372036854775807);
 printf("\n");
+ft_printf("%llo", 9223372036854775807);
+printf("\n");
 // ft_printf("%llo", 92233);
+printf("\n");
+printf("%lo", 9223372036854775);
+printf("\n");
+ft_printf("%lo", 9223372036854775);
+printf("\n");
+printf("%llo", 9223372036854775);
 printf("\n");
 ft_printf("%llo", 9223372036854775);
 printf("\n");
+ft_printf("%llo", 9223372036854775);
+printf("\n");
+printf("%llo", 92233720368547758);
+printf("\n");
 ft_printf("%llo", 92233720368547758);
 printf("\n");
+printf("%llo", 922337203685477580);
+printf("\n");
 ft_printf("%llo", 922337203685477580);
+printf("\n");    // 9223372036854775808
+printf("%llo", 9223372036854775807);
 printf("\n");
 ft_printf("%llo", 9223372036854775807);
 printf("\n");
@@ -48,8 +71,10 @@ printf("\n");
 printf("\n");
 printf("\n");
 
+printf("%-10d\\n", 3);
+printf("\n");
 ft_printf("%-10d\\n", 3);
-
+printf("\n");
 /*
 //ft_printf("%d\\n", 42);
 ft_printf("%20.15d\\n", 54321);

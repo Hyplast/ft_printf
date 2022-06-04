@@ -12,24 +12,6 @@
 
 #include "libft.h"
 
-static size_t	count_digits(long long c)
-{
-	size_t	digits;
-
-	digits = 0;
-	if (c <= 0)
-	{
-		digits++;
-		c *= -1;
-	}
-	while (c > 0)
-	{
-		digits++;
-		c /= 10;
-	}
-	return (digits);
-}
-
 char	*ft_litoa(long c)
 {
 	char		*s;
@@ -37,7 +19,7 @@ char	*ft_litoa(long c)
 	long long	value;
 
 	value = c;
-	digits = count_digits(value);
+	digits = count_ldigits(value);
 	s = ft_strnew(digits);
 	if (s == NULL)
 		return (NULL);
