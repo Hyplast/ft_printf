@@ -19,7 +19,7 @@ static const int	g_specifier[] = {'b', 'c', 'd', 'f', 'i', 'o',
 //static const void	(*g_f_ptrs[]) = {print_c, print_i, print_s};
 //const static g_print_f = [print_c()]
 
-static	int	match_function(const char *flags, va_list ap, int c, int printed_c)
+static	int	match_function(t_flags *flags, va_list ap, int c, int printed_c)
 {
 	if (c == 'b')
 		printed_c += print_b(flags, ap, printed_c);
@@ -50,10 +50,13 @@ static	int	read_flags(char *flags, va_list ap)
 {
 	int		chars_printed;
 	size_t	len;
+	t_flags	*flag_s;
 
+	flag_s = return_flags(flags);
 	len = ft_strlen(flags);
 	chars_printed = 0;
-	chars_printed = match_function(flags, ap, flags[len - 1], 0);
+	chars_printed = match_function(flag_s, ap, flags[len - 1], 0);
+	free_flags(flag_s);
 	return (chars_printed);
 }
 
@@ -113,7 +116,11 @@ int	ft_printf(const char *format, ...)
 		i = ft_lookforchar(format, '%');
 	}
 	chars_printed += ft_putnchar(format, ft_strlen(format));
-	ft_strdel(&flags);
+	if (flags != NULL)
+	{
+		if (*flags != '%')
+			ft_strdel(&flags);
+	}
 	va_end(ap);
 	return (chars_printed);
 }

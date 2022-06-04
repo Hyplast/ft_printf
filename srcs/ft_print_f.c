@@ -60,14 +60,12 @@ int	print_llong(t_flags *flag_s, va_list ap, int chars_printed)
 	return (chars_printed);
 }
 
-int	print_f(const char *flags, va_list ap, int chars_printed)
+int	print_f(t_flags *flag_s, va_list ap, int chars_printed)
 {
 	double		f;
 	char		**s;
-	t_flags		*flag_s;
 
 	f = 0;
-	flag_s = return_flags(flags);
 	if (flag_s->spec == 3)
 		return (print_llong(flag_s, ap, chars_printed));
 	f = va_arg(ap, double);
@@ -85,14 +83,15 @@ int	print_f(const char *flags, va_list ap, int chars_printed)
 	return (chars_printed);
 }
 
-int	print_b(const char *flags, va_list ap, int chars_printed)
+int	print_b(t_flags *flag_s, va_list ap, int chars_printed)
 {
 	char			*s;
 	unsigned int	i;
 
-	i = (unsigned int)flags[0];
+	//i = (unsigned int)flags[0];
 	i = (unsigned int) va_arg(ap, unsigned int);
 	s = ft_basetoa(i, 2, ' ');
-	chars_printed += ft_putnchar(s, ft_strlen(s));
+
+	chars_printed += print_before(flag_s, chars_printed, s, 'b');
 	return (chars_printed);
 }

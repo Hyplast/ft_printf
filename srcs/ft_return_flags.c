@@ -14,7 +14,7 @@
 
 static char	*find_flags(t_flags *flag_s, const char *flags, int i)
 {
-	while (++i < flag_s->len)
+	while (++i < (int)ft_strlen(flags))
 	{
 		if (flags[i] == '0')
 		{
@@ -59,17 +59,19 @@ static char	*find_width(t_flags *flag_s, char *flags)
 
 static char	*find_prec(t_flags *flag_s, char *flags)
 {
-	int	index;
+	int		index;
+	char	*temp;
 
 	index = ft_lookforchar(flags, '.');
 	if (index != -1)
 	{
-		flag_s->prec = ft_atoi(ft_strsub(flags,
-					index + 1, ft_strlen(flags) - index));
+		temp = ft_strsub(flags,	index + 1, ft_strlen(flags) - index);
+		flag_s->prec = ft_atoi(temp);
+		ft_strdel(&temp);
 		if (index == 0)
 			flags = "";
 		else
-			flags = ft_strsub(flags, 0, index);
+			return (ft_strsub(flags, 0, index));
 	}
 	return (flags);
 }
@@ -107,22 +109,44 @@ t_flags	*return_flags(const char *flags)
 {
 	t_flags	*flag_s;
 	char	*temp;
+	char	*remainder;
 
-	temp = ft_strsub(flags, 0, ft_strlen(flags) - 1);
+	remainder = ft_strsub(flags, 0, ft_strlen(flags) - 1);
+	temp = ft_strdup(remainder);
+	ft_strdel(&remainder);
 	flag_s = malloc(sizeof(t_flags));
 	init_flags(flag_s, flags);
 	if (flag_s->len != 0)
-		temp = find_spec(flag_s, temp);
-	if (flag_s->len != 0)
-		temp = find_prec(flag_s, temp);
+	{
+		remainder = find_spec(flag_s, temp);
+		temp = ft_strdup(remainder);
+		ft_strdel(&remainder);
+		if (ft_strcmp(temp, "") != 0)
+		{
+			remainder = find_prec(flag_s, temp);
+			ft_strdel(&temp);
+			temp = ft_strdup(remainder);
+			ft_strdel(&remainder);
+			if (ft_strcmp(temp, "") != 0)
+				remainder = find_flags(flag_s, temp, -1);
+			ft_strdel(&temp);
+			temp = ft_strdup(remainder);
+			ft_strdel(&remainder);
+		}
+	}
+	fix_overrides(flag_s, flags[ft_strlen(flags) - 1]);
 	if (ft_strcmp(temp, "") != 0)
-		temp = find_flags(flag_s, temp, -1);
-	if (flag_s->len != 0)
-		fix_overrides(flag_s, flags[ft_strlen(flags) - 1]);
-	if (ft_strcmp(temp, "") != 0)
-		temp = find_width(flag_s, temp);
-	if (ft_strcmp(temp, "") != 0)
-		ft_strdel(&temp);
+	{
+		remainder = find_width(flag_s, temp);
+		//ft_strdel(&remainder);
+	}
+	// if (ft_strcmp(temp, "") != 0)
+	// 	ft_strdel(&temp);
+	// if (temp != NULL)
+	// 	ft_strdel(&temp);
+	// if (ft_strcmp(temp, "") == 0)
 	ft_strdel(&temp);
+	// if (remainder != NULL)
+	// 	ft_strdel(&remainder);
 	return (flag_s);
 }

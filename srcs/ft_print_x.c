@@ -12,13 +12,11 @@
 
 #include "ft_printf.h"
 
-int	print_u(const char *flags, va_list ap, int chars_printed)
+int	print_u(t_flags *flag_s, va_list ap, int chars_printed)
 {
 	char			*s;
 	uintmax_t		u;
-	t_flags			*flag_s;
 
-	flag_s = return_flags(flags);
 	u = unsigned_conv(flag_s, ap);
 	if (flag_s->spec == 1 || flag_s->spec == 2)
 		s = ft_lutoa(u);
@@ -28,13 +26,11 @@ int	print_u(const char *flags, va_list ap, int chars_printed)
 	return (chars_printed);
 }
 
-int	print_o(const char *flags, va_list ap, int chars_printed)
+int	print_o(t_flags *flag_s, va_list ap, int chars_printed)
 {
 	char			*s;
 	uintmax_t		o;
-	t_flags			*flag_s;
 
-	flag_s = return_flags(flags);
 	o = unsigned_conv(flag_s, ap);
 	if (o == 0)
 	{
@@ -50,13 +46,11 @@ int	print_o(const char *flags, va_list ap, int chars_printed)
 	return (chars_printed);
 }
 
-int	print_x(const char *flags, va_list ap, int chars_printed)
+int	print_x(t_flags *flag_s, va_list ap, int chars_printed)
 {
 	char		*s;
-	t_flags		*flag_s;
 	uintmax_t	x;
 
-	flag_s = return_flags(flags);
 	x = unsigned_conv(flag_s, ap);
 	if (x == 0 && flag_s->prec != 0)
 		return (chars_printed += print_c('0'));
@@ -69,15 +63,13 @@ int	print_x(const char *flags, va_list ap, int chars_printed)
 	return (chars_printed);
 }
 
-int	print_big_x(const char *flags, va_list ap, int chars_printed)
+int	print_big_x(t_flags *flag_s, va_list ap, int chars_printed)
 {
 	char		*s;
 	int			j;
-	t_flags		*flag_s;
 	uintmax_t	x;
 
 	j = 0;
-	flag_s = return_flags(flags);
 	x = unsigned_conv(flag_s, ap);
 	if (x == 0 && flag_s->prec != 0)
 		return (chars_printed += print_c('0'));

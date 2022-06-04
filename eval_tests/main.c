@@ -30,6 +30,12 @@ int	main()
 	my = "hello";
 	system = "hello";
 
+
+printf("\n");
+//ft_printf("%d\\n", 42);
+
+ft_printf("%ld\\n", 2147483647);
+
 /*
 
 printf("\n");
@@ -56,6 +62,8 @@ printf("\n");
 */
 
 ft_printf("\\n");
+ft_printf("%%\\n");
+
 printf("\n");
 printf("****1******");
 printf("\n");
@@ -118,10 +126,15 @@ printf("\n");
   printf("%p\\n", &ft_printf);
 printf("\n");
 printf("\n");
+
+
+
 printf("****10******");
 printf("\n");
   ft_printf("%20.15d\\n", 54321);
   printf("\n");
+
+/*
   printf("%20.15d\\n", 54321);
 printf("\n");
 printf("\n");
