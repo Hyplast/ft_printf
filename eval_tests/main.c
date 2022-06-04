@@ -31,6 +31,108 @@ int	main()
 	system = "hello";
 
 
+printf("\n");
+printf("****18**a****");
+
+
+printf("\n");
+o =    printf("%10w.02%10w.02%");
+   printf("\n");
+i =    ft_printf("%10w.02%10w.02%");
+   printf("\n");
+
+   printf("my length = %i", i);
+printf("\n");
+printf("sy length = %i", o);
+  printf("\n");
+
+printf("\n");
+printf("\n");
+
+
+printf("->");
+printf("\n");
+  o =  printf("%");
+   printf("\n");
+ i = ft_printf("%");
+   printf("\n");
+ 
+printf("\n");
+printf("sy length = %i", o);
+printf("\n");
+printf("my length = %i", i);
+
+
+printf("\n");
+printf("\n");
+  o =  printf("%sisafineday%sindeedisa %s fine.", "SIR", "LORD", "MADAM");
+   printf("\n");
+i =  ft_printf("%sisafineday%sindeedisa %s fine.", "SIR", "LORD", "MADAM");
+   printf("\n");
+printf("\n");
+printf("my length = %i", i);
+printf("\n");
+printf("sy length = %i", o);
+printf("\n");
+printf("\n");
+
+
+printf("\n");
+printf("\n");
+  o =  printf("%bgv342");
+   printf("\n");
+i =  ft_printf("%bgv342");
+   printf("\n");
+printf("\n");
+printf("my length = %i", i);
+printf("\n");
+printf("sy length = %i", o);
+printf("\n");
+printf("\n");
+  o =  printf("%10.02d", 3423);
+   printf("\n");
+printf("\n");
+printf("sy length = %i", o);
+
+printf("\n");
+printf("\n");
+ o =   printf("%10w.02%10w.02", 3423);
+   printf("\n");
+i =  ft_printf("%10w.02%10w.02", 3423);
+   printf("\n"); 
+printf("my length = %i", i);
+printf("\n");
+printf("sy length = %i", o);
+
+  printf("<-");
+printf("\n");
+printf("\n");
+
+
+
+
+
+
+printf("\n");
+printf("->");
+printf("\n");
+i =   ft_printf("%");
+    printf("\n");
+	printf("my length = %i", i);
+  printf("<-");
+  printf("\n");
+printf("\n");
+printf("->");
+printf("\n");
+  printf("%");
+    printf("\n");
+  printf("<-");
+  printf("\n");
+printf("\n");
+printf("\n");
+
+
+
 printf("\n"); //9223372036854775807
 printf("%i ja %i", sizeof(long long int), sizeof(long int));
 printf("\n");
@@ -109,7 +211,7 @@ printf("\n");
 */
 
 
-/*
+
 ft_printf("\\n");
 ft_printf("%%\\n");
 

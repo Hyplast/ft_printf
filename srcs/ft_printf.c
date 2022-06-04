@@ -87,26 +87,17 @@ static	char	*parse_specifier(const char *flags)
 	return (temp);
 }
 
-/*
-*	Print function, use % with specifiers.
-*
-*	@param string in ("string %'x'", %bcdfiopsuxX) -format
-*	@return Number characters written in stdout
-*/
-int	ft_printf(const char *format, ...)
-{
-	va_list	ap;
-	char	*flags;
-	int		i;
-	int		chars_printed;
 
-	va_start(ap, format);
-	chars_printed = 0;
-	i = ft_lookforchar(format, '%');
+int	read_while(const char *format, va_list ap, int i, int chars_printed)
+{
+	char	*flags;
+
 	while (i != -1)
 	{
 		chars_printed += ft_putnchar(format, (size_t)i);
 		format = ft_strchr(format, '%') + 1;
+		if (ft_strcmp(format, "") == 0)
+			return (-1);
 		flags = parse_specifier(format);
 		if (flags[0] != '%' && flags[0] != '\1')
 			chars_printed += read_flags(flags, ap);
@@ -123,6 +114,48 @@ int	ft_printf(const char *format, ...)
 		if (*flags != '%')
 			ft_strdel(&flags);
 	}
+	return (chars_printed);
+}
+
+/*
+*	Print function, use % with specifiers.
+*
+*	@param string in ("string %'x'", %bcdfiopsuxX) -format
+*	@return Number characters written in stdout
+*/
+int	ft_printf(const char *format, ...)
+{
+	va_list	ap;
+	// char	*flags;
+	int		i;
+	int		chars_printed;
+
+	va_start(ap, format);
+	chars_printed = 0;
+	i = ft_lookforchar(format, '%');
+	chars_printed = read_while(format, ap, i, chars_printed);
+	// while (i != -1)
+	// {
+	// 	chars_printed += ft_putnchar(format, (size_t)i);
+	// 	format = ft_strchr(format, '%') + 1;
+	// 	if (ft_strcmp(format, "") == 0)
+	// 		exit (-1);
+	// 	flags = parse_specifier(format);
+	// 	if (flags[0] != '%' && flags[0] != '\1')
+	// 		chars_printed += read_flags(flags, ap);
+	// 	else
+	// 		chars_printed += ft_putnchar("%", 1);
+	// 	format += ft_strlen(flags);
+	// 	if (*flags != '%')
+	// 		ft_strdel(&flags);
+	// 	i = ft_lookforchar(format, '%');
+	// }
+	// chars_printed += ft_putnchar(format, ft_strlen(format));
+	// if (flags != NULL)
+	// {
+	// 	if (*flags != '%')
+	// 		ft_strdel(&flags);
+	// }
 	va_end(ap);
 	return (chars_printed);
 }

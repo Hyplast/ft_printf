@@ -59,6 +59,10 @@ int	ft_lookforchar(const char *s, int c)
 	int	i;
 
 	i = -1;
+	if (!s)
+		return (-1);
+	if (ft_strcmp(s, "") == 0)
+		return (-1);
 	s_len = (int)ft_strlen(s);
 	while (s_len >= ++i)
 	{
