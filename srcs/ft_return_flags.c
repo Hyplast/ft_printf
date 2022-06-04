@@ -73,7 +73,7 @@ static char	*find_prec(t_flags *flag_s, char *flags)
 		else
 			return (ft_strsub(flags, 0, index));
 	}
-	return (flags);
+	return  (ft_strsub(flags, 0, ft_strlen(flags)));
 }
 
 static char	*find_spec(t_flags *flag_s, char *flags)
@@ -98,11 +98,11 @@ static char	*find_spec(t_flags *flag_s, char *flags)
 				flag_s->spec = 5;
 		}
 	}
-	if (flag_s->spec != 0)
-		flags = ft_strsub(flags, 0, ft_strlen(flags) - 1);
-	if (flag_s->spec == 2 || flag_s->spec == 5)
-		flags = ft_strsub(flags, 0, ft_strlen(flags) - 1);
-	return (flags);
+	if (flag_s->spec == 1 || flag_s->spec == 3 || flag_s->spec == 4)
+		return (ft_strsub(flags, 0, ft_strlen(flags) - 1));
+	else if (flag_s->spec == 2 || flag_s->spec == 5)
+		return (ft_strsub(flags, 0, ft_strlen(flags) - 2));
+	return (ft_strsub(flags, 0, ft_strlen(flags)));
 }
 
 t_flags	*return_flags(const char *flags)
@@ -119,6 +119,7 @@ t_flags	*return_flags(const char *flags)
 	if (flag_s->len != 0)
 	{
 		remainder = find_spec(flag_s, temp);
+		ft_strdel(&temp);
 		temp = ft_strdup(remainder);
 		ft_strdel(&remainder);
 		if (ft_strcmp(temp, "") != 0)

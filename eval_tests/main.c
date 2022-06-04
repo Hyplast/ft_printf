@@ -32,7 +32,29 @@ int	main()
 
 
 printf("\n");
+printf("%llo", 9223372036854775807);
+printf("\n");
+// ft_printf("%llo", 92233);
+printf("\n");
+ft_printf("%llo", 9223372036854775);
+printf("\n");
+ft_printf("%llo", 92233720368547758);
+printf("\n");
+ft_printf("%llo", 922337203685477580);
+printf("\n");
+ft_printf("%llo", 9223372036854775807);
+printf("\n");
+
+printf("\n");
+printf("\n");
+
+ft_printf("%-10d\\n", 3);
+
+/*
 //ft_printf("%d\\n", 42);
+ft_printf("%20.15d\\n", 54321);
+
+
 
 ft_printf("%ld\\n", 2147483647);
 
@@ -61,6 +83,8 @@ printf("\n");
 
 */
 
+
+/*
 ft_printf("\\n");
 ft_printf("%%\\n");
 
@@ -134,7 +158,7 @@ printf("\n");
   ft_printf("%20.15d\\n", 54321);
   printf("\n");
 
-/*
+
   printf("%20.15d\\n", 54321);
 printf("\n");
 printf("\n");
@@ -451,7 +475,7 @@ printf("\n");
 
 
 
-/*
+
 ft_printf("sdaölkdölAS<LDKWe%35oweröwk5po5e5ölj5jkl%ölwölaejsjj5eaw", 2423423423);
 printf("\n");
 // ft_printf("%js");
@@ -643,7 +667,7 @@ printf("\n");
 printf("%llo", 9223372036854775807);
 printf("\n");
 printf("\n");
-*/
+
 /*
 
 printf("\n");

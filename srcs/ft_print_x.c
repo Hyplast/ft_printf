@@ -23,6 +23,7 @@ int	print_u(t_flags *flag_s, va_list ap, int chars_printed)
 	else
 		s = ft_utoa(u);
 	chars_printed += print_before(flag_s, chars_printed, s, 'u');
+	ft_strdel(&s);
 	return (chars_printed);
 }
 
@@ -43,6 +44,7 @@ int	print_o(t_flags *flag_s, va_list ap, int chars_printed)
 	}
 	s = ft_basetoa(o, 8, ' ');
 	chars_printed += print_before(flag_s, chars_printed, s, 'o');
+	ft_strdel(&s);
 	return (chars_printed);
 }
 
@@ -60,6 +62,7 @@ int	print_x(t_flags *flag_s, va_list ap, int chars_printed)
 		return (chars_printed += print_before(flag_s, chars_printed, "", 32));
 	s = ft_basetoa(x, 16, ' ');
 	chars_printed += print_before(flag_s, chars_printed, s, 'x');
+	ft_strdel(&s);
 	return (chars_printed);
 }
 
@@ -84,5 +87,6 @@ int	print_big_x(t_flags *flag_s, va_list ap, int chars_printed)
 		j++;
 	}
 	chars_printed += print_before(flag_s, chars_printed, s, 'X');
+	ft_strdel(&s);
 	return (chars_printed);
 }
