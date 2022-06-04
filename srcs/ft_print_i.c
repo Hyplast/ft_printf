@@ -41,6 +41,7 @@ int	print_s(const char *flags, char *s, int chars_printed)
 		s = temp;
 	}
 	chars_printed += print_before(flag_s, chars_printed, s, 's');
+	free_flags(flag_s);
 	return (chars_printed);
 }
 

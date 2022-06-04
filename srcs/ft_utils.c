@@ -38,21 +38,6 @@ int	ft_putcx(char c, int n)
 	return (i);
 }
 
-void	fill_prec(char *ret, char *str, int size)
-{
-	int	j;
-	int	i;
-
-	i = 0;
-	j = ft_strlen(str);
-	while (i <= size && i < j)
-	{
-		ret[i] = str[i];
-		i += 1;
-	}
-	ret[i] = '\0';
-}
-
 void	fix_overrides(t_flags *flag_s, const char c)
 {
 	if (flag_s->prec != -1)
@@ -80,4 +65,11 @@ void	init_flags(t_flags *flag_s, const char *flags)
 	flag_s->plus = 0;
 	flag_s->space = 0;
 	flag_s->zero = 0;
+}
+
+void	free_flags(t_flags *flags)
+{
+	ft_bzero(flags, sizeof(t_flags));
+	free(flags);
+	flags = NULL;
 }

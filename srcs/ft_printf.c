@@ -113,6 +113,7 @@ int	ft_printf(const char *format, ...)
 		i = ft_lookforchar(format, '%');
 	}
 	chars_printed += ft_putnchar(format, ft_strlen(format));
+	ft_strdel(&flags);
 	va_end(ap);
 	return (chars_printed);
 }

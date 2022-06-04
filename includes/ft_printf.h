@@ -116,5 +116,6 @@ void			fix_overrides(t_flags *flag_s, const char c);
 int				is_plus(t_flags *flag, int c_p, char **s, char c);
 int				is_sharp(int c_p, char c);
 int				print_sign(t_flags *flag, int c_p, char **s);
+void			free_flags(t_flags *flags);
 
 #endif

@@ -30,11 +30,415 @@ int	main()
 	my = "hello";
 	system = "hello";
 
+/*
 
+printf("\n");
+printf("\n");
+printf("\n");
+o = printf("%s\\n", L"ݗݜशব");
+printf("\n");
+printf("\n");
+printf(" my length %i. system lenght %i\n", i,o);
+printf("\n");
+printf("\n");
+printf("\n");
+printf("\n");
+i = ft_printf("%s\\n", L"ݗݜशব");
+printf("\n");
+printf(" my length %i. system lenght %i\n", i,o);
+printf("\n");
+printf("\n");
+printf("Normal hlet okay");
+printf("\n");
+printf("\n");
+
+
+*/
+
+ft_printf("\\n");
+printf("\n");
+printf("****1******");
+printf("\n");
+  ft_printf("%%\\n");
+printf("\n");
+printf("%%\\n");
+printf("\n");
+printf("****2******");
+printf("\n");
+  ft_printf("%d\\n", 42);
+printf("\n");
+printf("%d\\n", 42);
+printf("\n");
+printf("****3******");
+printf("\n");
+  ft_printf("%d%d\\n", 42, 41);
+  printf("\n");
+  printf("%d%d\\n", 42, 41);
+printf("\n");
+printf("\n");
+printf("****4******");
+printf("\n");
+  ft_printf("%d%d%d\\n", 42, 43, 44);
+  printf("\n");
+  printf("%d%d%d\\n", 42, 43, 44);
+printf("\n");
+printf("\n");
+printf("****5******");
+printf("\n");
+  ft_printf("%ld\\n", 2147483647);
+  printf("\n");
+  printf("%ld\\n", 2147483647);
+printf("\n");
+printf("\n");
+printf("****6******");
+printf("\n");
+  ft_printf("%lld\\n", 9223372036854775807);
+  printf("\n");
+  printf("%lld\\n", 9223372036854775807);
+printf("\n");
+printf("\n");
+printf("****7******");
+printf("\n");
+  ft_printf("%x\\n", 505);
+  printf("\n");
+  printf("%x\\n", 505);
+printf("\n");
+printf("\n");
+printf("****8******");
+printf("\n");
+  ft_printf("%X\\n", 505);
+  printf("\n");
+  printf("%X\\n", 505);
+printf("\n");
+printf("\n");
+printf("****9******");
+printf("\n");
+  ft_printf("%p\\n", &ft_printf);
+  printf("\n");
+  printf("%p\\n", &ft_printf);
+printf("\n");
+printf("\n");
+printf("****10******");
+printf("\n");
+  ft_printf("%20.15d\\n", 54321);
+  printf("\n");
+  printf("%20.15d\\n", 54321);
+printf("\n");
+printf("\n");
+printf("****11******");
+printf("\n");
+  ft_printf("%-10d\\n", 3);
+  printf("\n");
+  printf("%-10d\\n", 3);
+printf("\n");
+printf("\n");
+printf("****12******");
+printf("\n");
+  ft_printf("% d\\n", 3);
+  printf("\n");
+  printf("% d\\n", 3);
+printf("\n");
+printf("\n");
+printf("****13******");
+printf("\n");
+  ft_printf("%+d\\n", 3);
+  printf("\n");
+  printf("%+d\\n", 3);
+printf("\n");
+printf("\n");
+printf("****14******");
+printf("\n");
+  ft_printf("%010d\\n", 1);
+  printf("\n");
+  printf("%010d\\n", 1);
+printf("\n");
+printf("\n");
+printf("****15******");
+printf("\n");
+  ft_printf("%hhd\\n", 0);
+  printf("\n");
+  printf("%hhd\\n", 0);
+printf("\n");
+printf("\n");
+printf("****16******");
+printf("\n");
+  ft_printf("%jd\\n", 9223372036854775807);
+  printf("\n");
+  printf("%jd\\n", 9223372036854775807);
+printf("\n");
+printf("\n");
+
+printf("****16 without j******");
+printf("\n");
+  ft_printf("%d\\n", 9223372036854775807);
+  printf("\n");
+  printf("%d\\n", 9223372036854775807);
+printf("\n");
+printf("\n");
+
+
+printf("****17******");
+printf("\n");
+  ft_printf("%zd\\n", 4294967295);
+  printf("\n");
+  printf("%zd\\n", 4294967295);
+printf("\n");
+printf("\n");
+
+printf("****17***without z***");
+printf("\n");
+  ft_printf("%d\\n", 4294967295);
+  printf("\n");
+  printf("%d\\n", 4294967295);
+printf("\n");
+printf("\n");
+
+
+printf("****18**a****");
+printf("\n");
+printf("->");
+printf("\n");
+  ft_printf("%");
+    printf("\n");
+  printf("<-");
+  printf("\n");
+printf("\n");
+printf("->");
+printf("\n");
+  printf("%");
+    printf("\n");
+  printf("<-");
+  printf("\n");
+printf("\n");
+printf("\n");
+
+
+printf("****18******");
+printf("\n");
+printf("->");
+printf("\n");
+  ft_printf("%\\n");
+    printf("\n");
+  printf("<-");
+  printf("\n");
+printf("\n");
+printf("->");
+printf("\n");
+  printf("%\\n");
+    printf("\n");
+  printf("<-");
+  printf("\n");
+printf("\n");
+printf("\n");
+printf("****19******");
+printf("\n");
+printf("->");
+printf("\n");
+  ft_printf("%U\\n", 4294967295);
+  printf("\n");
+  printf("<-");
+  printf("\n");
+printf("->");
+printf("\n");
+  printf("%U\\n", 4294967295);
+  printf("\n");
+  printf("<-");
+printf("\n");
+printf("\n");
+printf("****20******");
+printf("\n");
+  ft_printf("%u\\n", 4294967295);
+  printf("\n");
+  printf("%u\\n", 4294967295);
+printf("\n");
+printf("\n");
+printf("****21******");
+printf("\n");
+  ft_printf("%o\\n", 40);
+  printf("\n");
+  printf("%o\\n", 40);
+printf("\n");
+printf("\n");
+printf("****22******");
+printf("\n");
+  ft_printf("%%#08x\\n", 42);
+  printf("\n");
+  printf("%%#08x\\n", 42);
+printf("\n");
+printf("\n");
+printf("****21******");
+printf("\n");
+  ft_printf("%x\\n", 1000);
+  printf("\n");
+  printf("%x\\n", 1000);
+printf("\n");
+printf("\n");
+printf("****22******");
+printf("\n");
+  ft_printf("%#X\\n", 1000);
+  printf("\n");
+  printf("%#X\\n", 1000);
+printf("\n");
+printf("\n");
+printf("****23******");
+printf("\n");
+  ft_printf("%s\\n", NULL);
+  printf("\n");
+  printf("%s\\n", NULL);
+printf("\n");
+printf("\n");
+printf("****24******");
+printf("\n");
+printf("->");
+  ft_printf("%S\\n", L"ݗݜशব");
+  printf("<-");
+  printf("\n");
+  printf("->");
+  printf("%S\\n", L"ݗݜशব");
+  printf("<-");
+printf("\n");
+printf("what is going on\n");
+printf("****25******");
+printf("\n");
+printf("here?");
+printf("\n");
+printf("->");
+  ft_printf("%s%s\\n", "test", "test");
+printf("<-");
+  printf("\n");
+  printf("->");
+  printf("%s%s\\n", "test", "test");
+  printf("<-");
+printf("\n");
+printf("\n");
+printf("****26******");
+printf("\n");
+  ft_printf("%s%s%s\\n", "test", "test", "test");
+  printf("\n");
+  printf("%s%s%s\\n", "test", "test", "test");
+printf("\n");
+printf("\n");
+
+printf("****27***c***");
+printf("\n");
+  ft_printf("%c\\n", 15000);
+  printf("\n");
+  printf("%c\\n", 15000);
+
+printf("\n");
+printf("\n");
+
+
+printf("****27******");
+printf("\n");
+  ft_printf("%C\\n", 15000);
+  printf("\n");
+  printf("%C\\n", 15000);
+
+printf("\n");
+printf("\n");
+printf("\n");
+printf("\n");
 
 printf("\n");
 
 
+
+   printf("\\n");
+printf("\n");
+
+   printf("%%\\n");
+printf("\n");
+
+   printf("%d\\n", 42);
+printf("\n");
+
+   printf("%d%d\\n", 42, 41);
+printf("\n");
+
+   printf("%d%d%d\\n", 42, 43, 44);
+printf("\n");
+
+   printf("%ld\\n", 2147483647);
+printf("\n");
+
+   printf("%lld\\n", 9223372036854775807);
+printf("\n");
+
+   printf("%x\\n", 505);
+printf("\n");
+
+   printf("%X\\n", 505);
+printf("\n");
+
+   printf("%p\\n", &ft_printf);
+printf("\n");
+
+   printf("%20.15d\\n", 54321);
+printf("\n");
+
+   printf("%-10d\\n", 3);
+printf("\n");
+
+   printf("% d\\n", 3);
+printf("\n");
+
+   printf("%+d\\n", 3);
+printf("\n");
+
+   printf("%010d\\n", 1);
+printf("\n");
+
+   printf("%hhd\\n", 0);
+printf("\n");
+
+   printf("%jd\\n", 9223372036854775807);
+printf("\n");
+
+   printf("%zd\\n", 4294967295);
+printf("\n");
+
+   printf("%\\n");
+printf("\n");
+
+   printf("%U\\n", 4294967295);
+printf("\n");
+
+   printf("%u\\n", 4294967295);
+printf("\n");
+
+   printf("%o\\n", 40);
+printf("\n");
+
+   printf("%%#08x\\n", 42);
+printf("\n");
+
+   printf("%x\\n", 1000);
+printf("\n");
+
+   printf("%#X\\n", 1000);
+printf("\n");
+
+   printf("%s\\n", NULL);
+printf("\n");
+
+   printf("%S\\n", L"ݗݜशব");
+printf("\n");
+
+   printf("%s%s\\n", "test", "test");
+printf("\n");
+
+   printf("%s%s%s\\n", "test", "test", "test");
+printf("\n");
+
+   printf("%C\\n", 15000);
+printf("\n");
+
+
+
+
+
+/*
 ft_printf("sdaölkdölAS<LDKWe%35oweröwk5po5e5ölj5jkl%ölwölaejsjj5eaw", 2423423423);
 printf("\n");
 // ft_printf("%js");
@@ -226,7 +630,7 @@ printf("\n");
 printf("%llo", 9223372036854775807);
 printf("\n");
 printf("\n");
-
+*/
 /*
 
 printf("\n");

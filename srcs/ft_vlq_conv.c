@@ -56,3 +56,18 @@ void	vlq_tmp_conv_rev2(t_calc *info, char *s1, char *s2)
 	while (i < info->len2_static)
 		s2[i++] += 48;
 }
+
+void	fill_prec(char *ret, char *str, int size)
+{
+	int	j;
+	int	i;
+
+	i = 0;
+	j = ft_strlen(str);
+	while (i <= size && i < j)
+	{
+		ret[i] = str[i];
+		i += 1;
+	}
+	ret[i] = '\0';
+}

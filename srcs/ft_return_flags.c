@@ -108,17 +108,21 @@ t_flags	*return_flags(const char *flags)
 	t_flags	*flag_s;
 	char	*temp;
 
-	temp = ft_strdup(ft_strsub(flags, 0, ft_strlen(flags) - 1));
+	temp = ft_strsub(flags, 0, ft_strlen(flags) - 1);
 	flag_s = malloc(sizeof(t_flags));
 	init_flags(flag_s, flags);
-	temp = find_spec(flag_s, temp);
-	temp = find_prec(flag_s, temp);
+	if (flag_s->len != 0)
+		temp = find_spec(flag_s, temp);
+	if (flag_s->len != 0)
+		temp = find_prec(flag_s, temp);
 	if (ft_strcmp(temp, "") != 0)
 		temp = find_flags(flag_s, temp, -1);
-	fix_overrides(flag_s, flags[ft_strlen(flags) - 1]);
+	if (flag_s->len != 0)
+		fix_overrides(flag_s, flags[ft_strlen(flags) - 1]);
 	if (ft_strcmp(temp, "") != 0)
 		temp = find_width(flag_s, temp);
 	if (ft_strcmp(temp, "") != 0)
 		ft_strdel(&temp);
+	ft_strdel(&temp);
 	return (flag_s);
 }
