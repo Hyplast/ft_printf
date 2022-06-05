@@ -65,7 +65,7 @@ static char	*find_prec(t_flags *flag_s, char *flags)
 	index = ft_lookforchar(flags, '.');
 	if (index != -1)
 	{
-		temp = ft_strsub(flags,	index + 1, ft_strlen(flags) - index);
+		temp = ft_strsub(flags, index + 1, ft_strlen(flags) - index);
 		flag_s->prec = ft_atoi(temp);
 		ft_strdel(&temp);
 		if (index == 0)
@@ -73,7 +73,7 @@ static char	*find_prec(t_flags *flag_s, char *flags)
 		else
 			return (ft_strsub(flags, 0, index));
 	}
-	return  (ft_strsub(flags, 0, ft_strlen(flags)));
+	return (ft_strsub(flags, 0, ft_strlen(flags)));
 }
 
 static char	*find_spec(t_flags *flag_s, char *flags)
@@ -137,17 +137,7 @@ t_flags	*return_flags(const char *flags)
 	}
 	fix_overrides(flag_s, flags[ft_strlen(flags) - 1]);
 	if (ft_strcmp(temp, "") != 0)
-	{
 		remainder = find_width(flag_s, temp);
-		//ft_strdel(&remainder);
-	}
-	// if (ft_strcmp(temp, "") != 0)
-	// 	ft_strdel(&temp);
-	// if (temp != NULL)
-	// 	ft_strdel(&temp);
-	// if (ft_strcmp(temp, "") == 0)
 	ft_strdel(&temp);
-	// if (remainder != NULL)
-	// 	ft_strdel(&remainder);
 	return (flag_s);
 }

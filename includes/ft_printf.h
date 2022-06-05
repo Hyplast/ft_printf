@@ -17,6 +17,7 @@
 # include <stdint.h>
 # include "libft.h"
 
+# define SPECIFIERS "bcdfiopsuxX"
 /* spec
 * n l ll L h hh
 * 0 1 2  3 4 5

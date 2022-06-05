@@ -88,10 +88,9 @@ int	print_b(t_flags *flag_s, va_list ap, int chars_printed)
 	char			*s;
 	unsigned int	i;
 
-	//i = (unsigned int)flags[0];
 	i = (unsigned int) va_arg(ap, unsigned int);
 	s = ft_basetoa(i, 2, ' ');
-
 	chars_printed += print_before(flag_s, chars_printed, s, 'b');
+	ft_strdel(&s);
 	return (chars_printed);
 }
