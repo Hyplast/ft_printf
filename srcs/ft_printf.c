@@ -99,6 +99,7 @@ int	read_while(const char *format, va_list ap, int i, int chars_printed)
 	flags = ft_strnew(1);
 	while (i != -1)
 	{
+		ft_strdel(&flags);
 		chars_printed += ft_putnchar(format, (size_t)i);
 		format = ft_strchr(format, '%') + 1;
 		if (ft_strcmp(format, "") == 0 && chars_printed == 0)

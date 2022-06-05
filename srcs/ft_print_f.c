@@ -39,7 +39,7 @@ void	ft_add_zeros(char **str, int zeros)
 void	free_double_char(char ***s)
 {
 	// ft_putstr(s[0]);
-	ft_putstr(*s[0]);
+	// ft_putstr(*s[0]);
 	// ft_putstr(*s[1]);
 	// ft_putstr(**s[0]);
 	if(s)
@@ -59,6 +59,19 @@ void	free_double_char(char ***s)
 	}
 }
 
+void	combine_chars(char **s1, char *s2, char **s3)
+{
+	char	*temp;
+	char	*result;
+
+	temp = ft_strjoin(*s1, s2);
+	result = ft_strjoin(temp, *s3);
+	*s1 = ft_strdup(result);
+	ft_strdel(&result);
+	ft_strdel(&temp);
+	ft_strdel(s3);
+}
+
 int	print_llong(t_flags *flag_s, va_list ap, int chars_printed)
 {
 	long double	ld;
@@ -76,11 +89,14 @@ int	print_llong(t_flags *flag_s, va_list ap, int chars_printed)
 	if (s[1][0] == '0' && ft_strlen(s[1]) == 1)
 		ft_add_zeros(&s[1], flag_s->prec - ft_strlen(s[1]));
 	if (decimals != 0)
-		chars_printed = print_before(flag_s, chars_printed,
-				ft_strjoin(ft_strjoin(s[0], "."), s[1]), ' ');
+	{
+		combine_chars(&s[0], ".", &s[1]);
+		chars_printed = print_before(flag_s, chars_printed, s[0], ' ');
+	}
 	else
 		chars_printed = print_before(flag_s, chars_printed, s[0], ' ');
 	free_double_char(&s);
+	ft_strdel(s);
 	return (chars_printed);
 }
 
@@ -89,7 +105,6 @@ int	print_f(t_flags *flag_s, va_list ap, int chars_printed)
 	double		f;
 	char		**s;
 
-	f = 0;
 	if (flag_s->spec == 3)
 		return (print_llong(flag_s, ap, chars_printed));
 	f = va_arg(ap, double);
@@ -98,13 +113,16 @@ int	print_f(t_flags *flag_s, va_list ap, int chars_printed)
 	if (s[1][0] == '0' && ft_strlen(s[1]) == 1)
 		ft_add_zeros(&s[1], flag_s->prec - ft_strlen(s[1]));
 	if (ft_strlen(s[1]) != 0)
-		chars_printed = print_before(flag_s, chars_printed,
-				ft_strjoin(ft_strjoin(s[0], "."), s[1]), ' ');
+	{
+		combine_chars(&s[0], ".", &s[1]);
+		chars_printed = print_before(flag_s, chars_printed, s[0], ' ');
+	}
 	else
 		chars_printed = print_before(flag_s, chars_printed, s[0], ' ');
 	if (flag_s->prec > 51)
 		chars_printed += ft_putcx('0', flag_s->prec - 51);
 	free_double_char(&s);
+	ft_strdel(s);
 	return (chars_printed);
 }
 
