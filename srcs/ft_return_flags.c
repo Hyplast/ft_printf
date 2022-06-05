@@ -13,11 +13,11 @@
 #include "ft_printf.h"
 
 
-static char	*return_char(char *flags, int i)
+static char	*shorten_chars(char *flags, int start, int end)
 {
 	char	*temp;
 
-	temp = ft_strsub(flags, i, ft_strlen(flags) - i);
+	temp = ft_strsub(flags, start, ft_strlen(flags) - end);
 	ft_strclr(flags);
 	flags = ft_memcpy(flags, temp, ft_strlen(temp));
 	ft_strdel(&temp);
@@ -49,7 +49,7 @@ static char	*find_flags(t_flags *flag_s, char *flags, int i)
 	}
 	i = flag_s->zero + flag_s->space
 		+ flag_s->plus + flag_s->minus + flag_s->sharp;
-	return (return_char(flags, i));
+	return (shorten_chars(flags, i, i));
 }
 
 static char	*find_width(t_flags *flag_s, char *flags)
@@ -72,23 +72,16 @@ static char	*find_width(t_flags *flag_s, char *flags)
 static char	*find_prec(t_flags *flag_s, char *flags)
 {
 	int		index;
-	char	*temp;
 
 	index = ft_lookforchar(flags, '.');
 	if (index != -1)
 	{
-		temp = ft_strsub(flags, index + 1, ft_strlen(flags) - index);
-		flag_s->prec = ft_atoi(temp);
-		ft_strdel(&temp);
+		flag_s->prec = ft_atoi(ft_strsub(flags, index + 1,
+			ft_strlen(flags) - index));
 		if (index == 0)
 			flags = "";
 		else
-		{
-			temp = ft_strsub(flags, 0, index);
-			ft_strclr(flags);
-			flags = ft_memcpy(flags, temp, ft_strlen(temp));
-			ft_strdel(&temp);
-		}
+			flags = shorten_chars(flags, 0, index);
 	}
 	return (flags);
 }
@@ -116,9 +109,9 @@ static char	*find_spec(t_flags *flag_s, char *flags)
 		}
 	}
 	if (flag_s->spec == 1 || flag_s->spec == 3 || flag_s->spec == 4)
-		flags += 1;
+		flags = shorten_chars(flags, 0, 1);
 	else if (flag_s->spec == 2 || flag_s->spec == 5)
-		flags += 2;;
+		flags = shorten_chars(flags, 0, 2);
 	return (flags);
 }
 
@@ -138,12 +131,12 @@ t_flags	*return_flags(const char *flags)
 		if (ft_strcmp(remainder, "") != 0)
 		{
 			remainder = find_prec(flag_s, remainder);
-			if (ft_strcmp(temp, "") != 0)
+			if (ft_strcmp(remainder, "") != 0)
 				remainder = find_flags(flag_s, remainder, -1);
 		}
 	}
 	fix_overrides(flag_s, flags[ft_strlen(flags) - 1]);
-	if (ft_strcmp(temp, "") != 0)
+	if (ft_strcmp(remainder, "") != 0)
 		remainder = find_width(flag_s, remainder);
 	ft_strdel(&temp);
 	return (flag_s);

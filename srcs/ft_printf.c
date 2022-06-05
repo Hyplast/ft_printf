@@ -80,10 +80,23 @@ static	char	*parse_specifier(const char *flags)
 	return (temp);
 }
 
+
+static void	free_char(char **flags)
+{
+	if (flags != NULL)
+	{
+		if (*flags != NULL)
+		{
+			if (**flags != '%')
+				ft_strdel(flags);
+		}	
+	}
+}
 int	read_while(const char *format, va_list ap, int i, int chars_printed)
 {
 	char	*flags;
 
+	flags = ft_strnew(1);
 	while (i != -1)
 	{
 		chars_printed += ft_putnchar(format, (size_t)i);
@@ -104,11 +117,7 @@ int	read_while(const char *format, va_list ap, int i, int chars_printed)
 		i = ft_lookforchar(format, '%');
 	}
 	chars_printed += ft_putnchar(format, ft_strlen(format));
-	if (flags != NULL)
-	{
-		if (*flags != '%')
-			ft_strdel(&flags);
-	}
+	free_char(&flags);
 	return (chars_printed);
 }
 

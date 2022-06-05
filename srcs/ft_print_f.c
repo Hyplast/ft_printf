@@ -36,6 +36,29 @@ void	ft_add_zeros(char **str, int zeros)
 	*str = ft_strdup(str_0);
 }
 
+void	free_double_char(char ***s)
+{
+	// ft_putstr(s[0]);
+	ft_putstr(*s[0]);
+	// ft_putstr(*s[1]);
+	// ft_putstr(**s[0]);
+	if(s)
+	{
+		if(*s)
+		{
+			ft_strdel(s[0]);
+			// ft_strdel(*s[1]);
+			// ft_strdel(*s[2]);
+		}
+		ft_strdel(*s);
+
+		free(*s);
+		*s = NULL;
+		// free(s);
+		// s = NULL;
+	}
+}
+
 int	print_llong(t_flags *flag_s, va_list ap, int chars_printed)
 {
 	long double	ld;
@@ -57,6 +80,7 @@ int	print_llong(t_flags *flag_s, va_list ap, int chars_printed)
 				ft_strjoin(ft_strjoin(s[0], "."), s[1]), ' ');
 	else
 		chars_printed = print_before(flag_s, chars_printed, s[0], ' ');
+	free_double_char(&s);
 	return (chars_printed);
 }
 
@@ -80,6 +104,7 @@ int	print_f(t_flags *flag_s, va_list ap, int chars_printed)
 		chars_printed = print_before(flag_s, chars_printed, s[0], ' ');
 	if (flag_s->prec > 51)
 		chars_printed += ft_putcx('0', flag_s->prec - 51);
+	free_double_char(&s);
 	return (chars_printed);
 }
 
