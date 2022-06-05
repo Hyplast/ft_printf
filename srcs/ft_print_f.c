@@ -109,6 +109,13 @@ int	print_f(t_flags *flag_s, va_list ap, int chars_printed)
 		return (print_llong(flag_s, ap, chars_printed));
 	f = va_arg(ap, double);
 	s = ft_frexp(f);
+	ft_putstr("\n\n\n");
+	ft_putstr(s[0]);
+	ft_putstr("-*-");
+	ft_putstr(s[1]);
+	ft_putstr("-*-");
+	ft_putstr(s[2]);
+	ft_putstr("\n\n\n");
 	ft_round(s, flag_s->prec);
 	if (s[1][0] == '0' && ft_strlen(s[1]) == 1)
 		ft_add_zeros(&s[1], flag_s->prec - ft_strlen(s[1]));

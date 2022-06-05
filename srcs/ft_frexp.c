@@ -103,6 +103,8 @@ char	**ft_frexp(double x)
 	get_res(mantissa, get_exp(exp_str), res);
 	if (!ft_strchr(nb_str + 1, '1') && nb_str[0] == '1')
 		ft_strcpy(res[2], "-\0");
+	else
+		ft_strdel(&res[2]);
 	ft_strdel(&mantissa);
 	ft_strdel(&nb_str);
 	return (res);
