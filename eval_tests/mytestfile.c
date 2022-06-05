@@ -192,6 +192,47 @@ static int	ft_putnchar(const char *s, size_t n)
 	return (i);
 }
 
+void	ft_strclr(char *s)
+{
+	if (s != NULL)
+		ft_bzero(s, ft_strlen(s));
+}
+void	*ft_memcpy(void *dest, const void *src, size_t size)
+{
+	size_t		i;
+	const char	*s;
+	char		*d;
+
+	i = 0;
+	s = (const char *)src;
+	d = (char *)dest;
+	while (i < size && (src != NULL || dest != NULL))
+	{
+		d[i] = s[i];
+		i++;
+	}
+	return (dest);
+}
+
+
+char	*ft_strsub(const char *s, unsigned int start, size_t len)
+{
+	size_t	i;
+	char	*subs;
+
+	i = 0;
+	if (s == NULL || start > ft_strlen(s) || len > ft_strlen(s))
+		return (NULL);
+	subs = ft_strnew(len);
+	if (subs == NULL)
+		return (NULL);
+	while (i < len)
+	{
+		subs[i] = s[start + i];
+		i++;
+	}
+	return (subs);
+}
 
 static void    move_forward_adree(char **s)
 {
@@ -201,6 +242,16 @@ static void    move_forward_adree(char **s)
 static void    move_forward(char *s)
 {
     s += 1;
+}
+
+static char    *move_forward_sub(char *s)
+{
+    char *temp;
+    temp = ft_strsub(s, 0, ft_strlen(s) - 1);
+    ft_strclr(s);
+    s = ft_memcpy(s, temp, ft_strlen(temp));
+    ft_strdel(&temp);
+    return (s);
 }
 
 static char     *move_forward_return(char *s)
@@ -224,76 +275,85 @@ int    main(void)
 
     copy = s;
 
-    ft_putnchar("\n", 1);
-    ft_putnchar("copy", 4);
-    ft_putnchar("\n", 1);
-    ft_putnchar(copy, 20);
-    ft_putnchar("\n", 1);
-
-    ft_putnchar("\n", 1);
-    ft_putnchar("s", 1);
-    ft_putnchar("\n", 1);
-    ft_putnchar(s, 20);
-    ft_putnchar("\n", 1);
-    
-    move_forward(s);
-
-    ft_putnchar("\n", 1);
-    ft_putnchar("copy", 4);
-    ft_putnchar("\n", 1);
-    ft_putnchar(copy, 20);
-    ft_putnchar("\n", 1);
-
-    ft_putnchar("\n", 1);
-    ft_putnchar("s", 1);
-    ft_putnchar("\n", 1);
-    ft_putnchar(s, 20);
-    ft_putnchar("\n", 1);
-    
-// this is okay
-    s = move_forward_return(s);
-
         ft_putnchar("\n", 1);
     ft_putnchar("copy", 4);
     ft_putnchar("\n", 1);
     ft_putnchar(copy, 20);
     ft_putnchar("\n", 1);
-
-    ft_putnchar("\n", 1);
     ft_putnchar("s", 1);
     ft_putnchar("\n", 1);
     ft_putnchar(s, 20);
     ft_putnchar("\n", 1);
+    ft_putnchar("\n", 1);
     
-    s = copy;
     move_forward(s);
-
-    ft_putnchar("\n", 1);
-    ft_putnchar("copy", 4);
-    ft_putnchar("\n", 1);
-    ft_putnchar(copy, 20);
-    ft_putnchar("\n", 1);
-
-    ft_putnchar("\n", 1);
-    ft_putnchar("s", 1);
-    ft_putnchar("\n", 1);
-    ft_putnchar(s, 20);
-    ft_putnchar("\n", 1);
-    
-
-// and this is also okay
-    move_forward_adree(&s);
 
        ft_putnchar("\n", 1);
     ft_putnchar("copy", 4);
     ft_putnchar("\n", 1);
     ft_putnchar(copy, 20);
     ft_putnchar("\n", 1);
+    ft_putnchar("s", 1);
+    ft_putnchar("\n", 1);
+    ft_putnchar(s, 20);
+    ft_putnchar("\n", 1);
+    ft_putnchar("\n", 1);
+    ft_putnchar("ret4", 4);
 
+// this is okay
+    s = move_forward_return(s);
+
+       ft_putnchar("\n", 1);
+    ft_putnchar("copy", 4);
+    ft_putnchar("\n", 1);
+    ft_putnchar(copy, 20);
     ft_putnchar("\n", 1);
     ft_putnchar("s", 1);
     ft_putnchar("\n", 1);
     ft_putnchar(s, 20);
+    ft_putnchar("\n", 1);
+    ft_putnchar("\n", 1);
+    
+    move_forward(s);
+
+       ft_putnchar("\n", 1);
+    ft_putnchar("copy", 4);
+    ft_putnchar("\n", 1);
+    ft_putnchar(copy, 20);
+    ft_putnchar("\n", 1);
+    ft_putnchar("s", 1);
+    ft_putnchar("\n", 1);
+    ft_putnchar(s, 20);
+    ft_putnchar("\n", 1);
+    ft_putnchar("\n", 1);
+    ft_putnchar("sub1", 4);
+
+    s = move_forward_sub(s);
+
+       ft_putnchar("\n", 1);
+    ft_putnchar("copy", 4);
+    ft_putnchar("\n", 1);
+    ft_putnchar(copy, 20);
+    ft_putnchar("\n", 1);
+    ft_putnchar("s", 1);
+    ft_putnchar("\n", 1);
+    ft_putnchar(s, 20);
+    ft_putnchar("\n", 1);
+    ft_putnchar("\n", 1);
+    ft_putnchar("adree", 4);
+
+// and this is also okay
+   move_forward_adree(&s);
+
+       ft_putnchar("\n", 1);
+    ft_putnchar("copy", 4);
+    ft_putnchar("\n", 1);
+    ft_putnchar(copy, 20);
+    ft_putnchar("\n", 1);
+    ft_putnchar("s", 1);
+    ft_putnchar("\n", 1);
+    ft_putnchar(s, 20);
+    ft_putnchar("\n", 1);
     ft_putnchar("\n", 1);
 
 

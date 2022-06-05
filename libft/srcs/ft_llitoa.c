@@ -19,7 +19,7 @@ char	*ft_llitoa(long long c)
 	long long	value;
 
     if ((long unsigned int)c == 0x8000000000000000)
-        return (ft_strdup("-9223372036854775808"));
+		return (ft_strdup("-9223372036854775808"));
 	value = c;
 	digits = count_ldigits(value);
 	s = ft_strnew(digits);

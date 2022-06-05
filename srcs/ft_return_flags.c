@@ -12,7 +12,19 @@
 
 #include "ft_printf.h"
 
-static char	*find_flags(t_flags *flag_s, const char *flags, int i)
+
+static char	*return_char(char *flags, int i)
+{
+	char	*temp;
+
+	temp = ft_strsub(flags, i, ft_strlen(flags) - i);
+	ft_strclr(flags);
+	flags = ft_memcpy(flags, temp, ft_strlen(temp));
+	ft_strdel(&temp);
+	return (flags);
+}
+
+static char	*find_flags(t_flags *flag_s, char *flags, int i)
 {
 	while (++i < (int)ft_strlen(flags))
 	{
@@ -37,7 +49,7 @@ static char	*find_flags(t_flags *flag_s, const char *flags, int i)
 	}
 	i = flag_s->zero + flag_s->space
 		+ flag_s->plus + flag_s->minus + flag_s->sharp;
-	return (ft_strsub(flags, i, ft_strlen(flags) - i));
+	return (return_char(flags, i));
 }
 
 static char	*find_width(t_flags *flag_s, char *flags)
@@ -71,9 +83,14 @@ static char	*find_prec(t_flags *flag_s, char *flags)
 		if (index == 0)
 			flags = "";
 		else
-			return (ft_strsub(flags, 0, index));
+		{
+			temp = ft_strsub(flags, 0, index);
+			ft_strclr(flags);
+			flags = ft_memcpy(flags, temp, ft_strlen(temp));
+			ft_strdel(&temp);
+		}
 	}
-	return (ft_strsub(flags, 0, ft_strlen(flags)));
+	return (flags);
 }
 
 static char	*find_spec(t_flags *flag_s, char *flags)
@@ -99,10 +116,10 @@ static char	*find_spec(t_flags *flag_s, char *flags)
 		}
 	}
 	if (flag_s->spec == 1 || flag_s->spec == 3 || flag_s->spec == 4)
-		return (ft_strsub(flags, 0, ft_strlen(flags) - 1));
+		flags += 1;
 	else if (flag_s->spec == 2 || flag_s->spec == 5)
-		return (ft_strsub(flags, 0, ft_strlen(flags) - 2));
-	return (ft_strsub(flags, 0, ft_strlen(flags)));
+		flags += 2;;
+	return (flags);
 }
 
 t_flags	*return_flags(const char *flags)
@@ -112,32 +129,22 @@ t_flags	*return_flags(const char *flags)
 	char	*remainder;
 
 	remainder = ft_strsub(flags, 0, ft_strlen(flags) - 1);
-	temp = ft_strdup(remainder);
-	ft_strdel(&remainder);
+	temp = remainder;
 	flag_s = malloc(sizeof(t_flags));
 	init_flags(flag_s, flags);
 	if (flag_s->len != 0)
 	{
 		remainder = find_spec(flag_s, temp);
-		ft_strdel(&temp);
-		temp = ft_strdup(remainder);
-		ft_strdel(&remainder);
-		if (ft_strcmp(temp, "") != 0)
+		if (ft_strcmp(remainder, "") != 0)
 		{
-			remainder = find_prec(flag_s, temp);
-			ft_strdel(&temp);
-			temp = ft_strdup(remainder);
-			ft_strdel(&remainder);
+			remainder = find_prec(flag_s, remainder);
 			if (ft_strcmp(temp, "") != 0)
-				remainder = find_flags(flag_s, temp, -1);
-			ft_strdel(&temp);
-			temp = ft_strdup(remainder);
-			ft_strdel(&remainder);
+				remainder = find_flags(flag_s, remainder, -1);
 		}
 	}
 	fix_overrides(flag_s, flags[ft_strlen(flags) - 1]);
 	if (ft_strcmp(temp, "") != 0)
-		remainder = find_width(flag_s, temp);
+		remainder = find_width(flag_s, remainder);
 	ft_strdel(&temp);
 	return (flag_s);
 }
