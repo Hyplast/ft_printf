@@ -62,8 +62,8 @@ int	print_d(t_flags *flag_s, va_list ap, int chars_printed)
 	uintmax_t	i;
 
 	i = signed_conv(flag_s, ap);
-	if ((long unsigned int)i == 0x8000000000000000)
-		s = "-9223372036854775808";
+	// if ((long unsigned int)i == 0x8000000000000000)
+	// 	s = "-9223372036854775808";
 	if(flag_s->spec == 1)
 		s = ft_litoa(i);
 	else if (flag_s->spec == 2)
