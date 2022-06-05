@@ -16,6 +16,8 @@ LIBFT_DIR = libft
 
 LIBFT = libft.a
 
+LIB = libft/libft.a
+
 SRC = ft_printf.c \
 ft_frexp.c \
 ft_frexpl.c \
@@ -47,10 +49,6 @@ OBJ = $(SRC:.c=.o)
 
 OBJS = $(addprefix obj/, $(SRC:.c=.o))
 
-LIB_OBJ = $(LIBFT_SRC:.c=.o)
-
-LIB_OBJS = $(addprefix libft/, $(LIB_OBJ))
-
 INC = includes/
 
 LIBFT_INC = libft/includes/
@@ -62,30 +60,29 @@ CC = gcc
 CFLAGS = -Wall -Werror -Wextra -g -fsanitize=address
 #-Wconversion -g -g -fsanitize=address
 
-all: dir $(NAME) 
+all: $(NAME) 
 
-$(NAME): $(OBJS) 
+$(NAME): $(OBJS)
 	make -C $(LIBFT_DIR)
+	mkdir -p $(OBJ_DIR)
 	cp $(LIBFT_DIR)/$(LIBFT) ./$(NAME)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
 
 dir:
 	mkdir -p $(OBJ_DIR)
-
+	
 $(OBJS): obj/%.o : srcs/%.c
-	$(CC) $(CFLAGS) -I $(LIBFT_INC) -I $(INC) -c $< -o $@ 
-
+	$(CC) $(CFLAGS) -I $(LIBFT_INC) -I $(INC) -c $< -o $@
 
 clean:
 	make clean -C $(LIBFT_DIR)
-	rm -f -r $(OBJ_DIR)
+	rm -f -r $(OBJS)
 
 fclean: clean
 	make fclean -C $(LIBFT_DIR)
 	rm -f $(NAME)
 	
-
 re: fclean all
 
 .PHONY: clean fclean all

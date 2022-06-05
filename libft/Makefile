@@ -74,24 +74,37 @@ ft_putnbr.c \
 ft_putnbr_fd.c \
 get_next_line.c
 
+SRCS = $(addprefix srcs/, $(SRC))
+
 OBJ = $(SRC:.c=.o)
 
+OBJS = $(addprefix obj/, $(SRC:.c=.o))
+
 INC = includes/
+
+OBJ_DIR = obj/
 
 CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra -Wconversion -g
 # -g -fsanitize=address
 
-all: $(NAME)
+all: dir $(NAME)
 
-$(NAME):
-	$(CC) $(CFLAGS) -I $(INC) -c $(SRC)
-	ar rc $(NAME) $(OBJ)
+$(NAME): $(OBJS)
+#	$(CC) $(CFLAGS) -I $(INC) -c $(SRC)
+	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
+
+dir:
+	mkdir -p $(OBJ_DIR)
+
+$(OBJS): obj/%.o : srcs/%.c
+	$(CC) $(CFLAGS) -I $(INC) -c $< -o $@ 
 
 clean:
 	rm -f $(OBJ)
+	rm -f -r $(OBJ_DIR)
 
 fclean: clean
 	rm -f $(NAME)

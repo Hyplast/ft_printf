@@ -18,13 +18,17 @@ char	*ft_llitoa(long long c)
 	size_t		digits;
 	long long	value;
 
-	if (c < -9223372036854775807)
-		return ("-9223372036854775808");
 	value = c;
 	digits = count_ldigits(value);
 	s = ft_strnew(digits);
-	if (s == NULL)
-		return (NULL);
+	if (s == NULL || (long unsigned int)c == 0x8000000000000000)
+	{
+		if ((long unsigned int)c == 0x8000000000000000)
+			s = "-9223372036854775808";
+		else
+			s = NULL;
+		return (s);
+	}
 	if (c < 0)
 	{
 		s[0] = '-';

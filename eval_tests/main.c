@@ -32,6 +32,94 @@ int	main()
 
 
 printf("\n");
+
+printf("# 0146 (long long)");
+printf("\n");
+printf("\n");
+o = printf("%lld", -9223372036854775808);
+printf("\n");
+i = printf("%lld", -9223372036854775808);
+printf("\n");
+  printf("\n");
+   printf("my length = %i", i);
+printf("\n");
+printf("sy length = %i", o);
+  printf("\n");
+printf("\n");
+printf("\n");
+
+
+printf("# 0146 (long long)");
+printf("\n");
+printf("\n");
+o = printf("%lld", -9223372036854775819);
+printf("\n");
+i = printf("%lld", -9223372036854775819);
+printf("\n");
+  printf("\n");
+   printf("my length = %i", i);
+printf("\n");
+printf("sy length = %i", o);
+  printf("\n");
+printf("\n");
+printf("\n");
+
+o = printf("%lld", -9223372036854775809);
+printf("\n");
+i = printf("%lld", -9223372036854775809);
+printf("\n");
+  printf("\n");
+   printf("my length = %i", i);
+printf("\n");
+printf("sy length = %i", o);
+  printf("\n");
+printf("\n");
+printf("\n");
+
+
+
+o = printf("%lld", -9223372036854775808);
+printf("\n");
+i = printf("%lld", -9223372036854775808);
+printf("\n");
+  printf("\n");
+   printf("my length = %i", i);
+printf("\n");
+printf("sy length = %i", o);
+  printf("\n");
+printf("\n");
+printf("\n");
+
+
+
+o = printf("%lld", -9223372036854775819);
+printf("\n");
+i = printf("%lld", -9223372036854775819);
+printf("\n");
+  printf("\n");
+   printf("my length = %i", i);
+printf("\n");
+printf("sy length = %i", o);
+  printf("\n");
+printf("\n");
+printf("\n");
+
+
+
+o = printf("%lld", -9223372036854775808);
+printf("\n");
+i = printf("%lld", -9223372036854775808);
+printf("\n");
+  printf("\n");
+   printf("my length = %i", i);
+printf("\n");
+printf("sy length = %i", o);
+  printf("\n");
+printf("\n");
+printf("\n");
+
+
+
 printf("****18**a****");
 
 
@@ -795,7 +883,7 @@ printf("%llo", 9223372036854775807);
 printf("\n");
 printf("\n");
 
-/*
+
 
 printf("\n");
 printf("#d 0070 (NULL)");
@@ -1557,7 +1645,7 @@ printf("\n");
 */
 
 
-/*
+
  printf("\n");
   printf("**1**");
   printf("\n");
@@ -1940,7 +2028,7 @@ includes/projects/ft_printf/ft_printf_main.sh: line 206: printf: %   : invalid n
 */
 
 
-/*
+
 	li = 3.1416;
 	lo = 3.1416;
 	ft_printf("Test 18.c)1 L \n");
@@ -2644,7 +2732,7 @@ printf(" my length %i. system lenght %i\n", o,i);
 
 */
 
-/*
+
 
 
   printf("\n");

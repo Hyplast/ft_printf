@@ -27,7 +27,7 @@ OBJ = $(SRC:.c=.o)
 CC = gcc
 
 #CFLAGS = -Wall -Wextra -Werror -Wconversion -g
-CFLAGS = -Wall -Wextra -g -fsanitize=address
+CFLAGS = -Wall -Wextra -w -g -fsanitize=address
 
 all: $(NAME)
 
@@ -40,9 +40,11 @@ $(LIB):
 #fclean && make -C $(LIBDIR)
 
 clean:
+	make clean -C $(LIBDIR)
 	rm -f $(OBJ)
 
 fclean: clean
+	make fclean -C $(LIBDIR)
 	rm -f $(NAME)
 
-re: $(LIB) fclean all
+re: fclean all

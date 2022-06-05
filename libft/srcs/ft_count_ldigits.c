@@ -17,6 +17,8 @@ size_t	count_ldigits(long long c)
 	size_t	digits;
 
 	digits = 0;
+	if ((long unsigned int)c == 0x8000000000000000)
+		return (20);
 	if (c <= 0)
 	{
 		digits++;
