@@ -6,7 +6,7 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 09:54:01 by severi            #+#    #+#             */
-/*   Updated: 2022/05/22 14:21:14 by severi           ###   ########.fr       */
+/*   Updated: 2022/06/06 10:41:54 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char			*ft_dftoa(double x);
 char			*ft_ldftoa(long double x);
 char			*ft_bintowhole(char *vlq);
 char			*ft_bintodec(char *vlq);
-void			get_res(char *mantissa, int exp, char **res);
+void			calculate_result(char *mantissa, int exp, char **res);
 void			get_res_l(char *mantissa, int exp, char **res);
 int				get_exp(char *exp_str);
 int				get_exp_l(char *exp_str);
@@ -70,9 +70,9 @@ void			free_res(char **res);
 void			free_calc(t_calc *info);
 char			*vlq_sum(char *s1, char *s2);
 char			*vlq_mult(char *s1, char *s2);
-char			*vlq_binpow(int n);
-char			*vlq_fivepow(int n);
-int				pow2(int pow);
+char			*vlq_power_of_two(int n);
+char			*vlq_power_of_five(int n);
+int				power_of_two(int n);
 char			*get_pow_ten(char *vlq, int n);
 void			vlq_nshift(char *s, int size, int shifts);
 void			vlq_shift_left(char *s, int size);

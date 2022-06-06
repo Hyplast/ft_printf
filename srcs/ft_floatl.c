@@ -6,7 +6,7 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 01:14:03 by severi            #+#    #+#             */
-/*   Updated: 2022/03/11 01:18:58 by severi           ###   ########.fr       */
+/*   Updated: 2022/06/06 10:46:30 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,20 +95,20 @@ void	get_res_l(char *mantissa, int exp, char **res)
 
 int	get_exp_l(char *exp_str)
 {
-	int	nb;
+	int	number;
 	int	i;
 	int	j;
 
 	j = 14;
 	i = 0;
-	nb = 0;
+	number = 0;
 	while (exp_str[i] != '\0')
 	{
 		if (exp_str[i] == '1')
-			nb = nb + pow2(j);
+			number = number + power_of_two(j);
 		i++;
 		j--;
 	}
-	nb -= 16383;
-	return (nb);
+	number -= 16383;
+	return (number);
 }

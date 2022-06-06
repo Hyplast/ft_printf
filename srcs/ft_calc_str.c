@@ -6,7 +6,7 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 01:43:57 by severi            #+#    #+#             */
-/*   Updated: 2022/04/07 23:19:00 by severi           ###   ########.fr       */
+/*   Updated: 2022/06/06 10:55:06 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,74 +19,74 @@
 char	*ft_bintowhole(char *vlq)
 {
 	int		i;
-	char	*ret;
-	char	*tmp;
+	char	*result;
+	char	*temp;
 	char	*pow;
 
 	i = 0;
-	ret = ft_strnew(ft_strlen(vlq) + 1);
-	if (!ret)
+	result = ft_strnew(ft_strlen(vlq) + 1);
+	if (!result)
 		return (NULL);
 	ft_strrev(vlq);
 	while (vlq[i] != 0)
 	{
 		if (vlq[i] == '1')
 		{
-			pow = vlq_binpow(i);
-			tmp = ft_strdup(ret);
-			ft_strdel(&ret);
-			ret = vlq_sum(tmp, pow);
+			pow = vlq_power_of_two(i);
+			temp = ft_strdup(result);
+			ft_strdel(&result);
+			result = vlq_sum(temp, pow);
 			ft_strdel(&pow);
-			ft_strdel(&tmp);
+			ft_strdel(&temp);
 		}
 		i++;
 	}
-	return (ret);
+	return (result);
 }
 
 /*
 *	bintodec computes the following sum : (sum 5^(frac_digits - i)
 *	which is equal to the decimal part (in base 10)
 */
-static char	*compute_sum(char *vlq, char *ret, int i, int j)
+static char	*compute_sum(char *vlq, char *result, int i, int j)
 {
-	char	*tmp;
+	char	*temp;
 	char	*pow;
-	char	*tmp_pow;
+	char	*temp_pow;
 
 	while (vlq[++i] != '\0')
 	{
 		if (vlq[i] == '1')
 		{
-			pow = vlq_fivepow(i);
-			tmp_pow = ft_strdup(pow);
-			if (!pow || !tmp_pow)
+			pow = vlq_power_of_five(i);
+			temp_pow = ft_strdup(pow);
+			if (!pow || !temp_pow)
 				return (NULL);
 			ft_strdel(&pow);
-			pow = get_pow_ten(tmp_pow, j);
-			tmp = ft_strdup(ret);
-			ft_strdel(&tmp_pow);
-			ft_strdel(&ret);
-			ret = vlq_sum(tmp, pow);
+			pow = get_pow_ten(temp_pow, j);
+			temp = ft_strdup(result);
+			ft_strdel(&temp_pow);
+			ft_strdel(&result);
+			result = vlq_sum(temp, pow);
 			ft_strdel(&pow);
-			ft_strdel(&tmp);
+			ft_strdel(&temp);
 		}
 		j--;
 	}
-	return (ret);
+	return (result);
 }
 
 char	*ft_bintodec(char *vlq)
 {
 	int		i;
 	int		j;
-	char	*ret;
+	char	*result;
 
 	i = -1;
 	j = (int)ft_strlen(vlq) - 1;
-	ret = ft_strnew(ft_strlen(vlq) + 1);
-	if (!ret)
+	result = ft_strnew(ft_strlen(vlq) + 1);
+	if (!result)
 		return (NULL);
-	vlq_initialize(ret, '0', (int)ft_strlen(vlq));
-	return (compute_sum(vlq, ret, i, j));
+	vlq_initialize(result, '0', (int)ft_strlen(vlq));
+	return (compute_sum(vlq, result, i, j));
 }

@@ -6,38 +6,38 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 01:00:08 by severi            #+#    #+#             */
-/*   Updated: 2022/04/07 23:28:54 by severi           ###   ########.fr       */
+/*   Updated: 2022/06/06 11:37:24 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /*
-*	ft_dftoa extracts the binary value of the float into a string
+*	ft_dftoa converts binary of the float into a string
 */
 char	*ft_dftoa(double x)
 {
 	int					i;
-	unsigned long		tmp;
-	char				*nb_str;
+	unsigned long		temp;
+	char				*binary_in_string;
 
 	i = 0;
-	nb_str = (char *)malloc(sizeof(char) * 65);
-	if (!nb_str)
+	binary_in_string = (char *)malloc(sizeof(char) * 65);
+	if (!binary_in_string)
 		return (NULL);
-	tmp = *(unsigned long *)(&x);
+	temp = *(unsigned long *)(&x);
 	while (i <= 63)
 	{
-		if (tmp & 1)
-			nb_str[i] = '1';
+		if (temp & 1)
+			binary_in_string[i] = '1';
 		else
-			nb_str[i] = '0';
-		tmp >>= 1;
+			binary_in_string[i] = '0';
+		temp >>= 1;
 		i++;
 	}
-	nb_str[i] = '\0';
-	ft_strrev(nb_str);
-	return (nb_str);
+	binary_in_string[i] = '\0';
+	ft_strrev(binary_in_string);
+	return (binary_in_string);
 }
 
 /*
@@ -53,7 +53,7 @@ static int	check_nan_inf(char *mantissa, char *exp_str)
 	return (0);
 }
 
-static char	**handle_ni(char **res, char *nb_str, char *mantissa, char *exp)
+static char	**handle_nan_inf(char **res, char *str, char *mantissa, char *exp)
 {
 	if (check_nan_inf(mantissa, exp) == 1)
 	{
@@ -62,7 +62,7 @@ static char	**handle_ni(char **res, char *nb_str, char *mantissa, char *exp)
 			return (NULL);
 		res[1] = NULL;
 		ft_strdel(&mantissa);
-		ft_strdel(&nb_str);
+		ft_strdel(&str);
 		return (res);
 	}
 	if (check_nan_inf(mantissa, exp) == -1)
@@ -71,7 +71,7 @@ static char	**handle_ni(char **res, char *nb_str, char *mantissa, char *exp)
 		if (!(res[0]))
 			return (NULL);
 		res[1] = NULL;
-		ft_strdel(&nb_str);
+		ft_strdel(&str);
 		ft_strdel(&mantissa);
 		return (res);
 	}
@@ -79,33 +79,35 @@ static char	**handle_ni(char **res, char *nb_str, char *mantissa, char *exp)
 }
 
 /*
-*	ft_frexp computes the mantissa and the exponent and stocks them in
-*	strings it then calls out other functions (get_exp and get_res) to convert
-*	them into decimal strings
+*	ft_frexp converts floating point double to strings
+*	@param double x
+*	@return result[] = result[0] and result[1] = decimal strings x.x
+*	@return result[2] = Nan
 */
 char	**ft_frexp(double x)
 {
-	char	*nb_str;
+	char	*number_in_string;
 	char	*mantissa;
-	char	exp_str[12];
-	char	**res;
+	char	exp_bin_in_string[12];
+	char	**result;
 
-	exp_str[11] = '\0';
-	res = (char **)malloc(sizeof(char *) * 3);
-	nb_str = ft_dftoa(x);
-	res[2] = ft_strnew(1);
-	ft_strncpy(exp_str, nb_str + 1, 11);
-	mantissa = ft_strdup(nb_str + 12);
-	if (!(res) || !(nb_str) || !(res[2]) || !(mantissa))
+	exp_bin_in_string[11] = '\0';
+	result = (char **)malloc(sizeof(char *) * 3);
+	number_in_string = ft_dftoa(x);
+	result[2] = ft_strnew(1);
+	ft_strncpy(exp_bin_in_string, number_in_string + 1, 11);
+	mantissa = ft_strdup(number_in_string + 12);
+	if (!(result) || !(number_in_string) || !(result[2]) || !(mantissa))
 		return (NULL);
-	if (check_nan_inf(mantissa, exp_str) != 0)
-		return (handle_ni(res, nb_str, mantissa, exp_str));
-	get_res(mantissa, get_exp(exp_str), res);
-	if (!ft_strchr(nb_str + 1, '1') && nb_str[0] == '1')
-		ft_strcpy(res[2], "-\0");
+	if (check_nan_inf(mantissa, exp_bin_in_string) != 0)
+		return (handle_nan_inf(result, number_in_string, mantissa,
+				exp_bin_in_string));
+	calculate_result(mantissa, get_exp(exp_bin_in_string), result);
+	if (!ft_strchr(number_in_string + 1, '1') && number_in_string[0] == '1')
+		ft_strcpy(result[2], "-\0");
 	else
-		ft_strdel(&res[2]);
+		ft_strdel(&result[2]);
 	ft_strdel(&mantissa);
-	ft_strdel(&nb_str);
-	return (res);
+	ft_strdel(&number_in_string);
+	return (result);
 }

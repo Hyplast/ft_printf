@@ -6,7 +6,7 @@
 #    By: severi <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/30 18:43:06 by severi            #+#    #+#              #
-#    Updated: 2022/04/08 01:22:16 by severi           ###   ########.fr        #
+#    Updated: 2022/06/06 08:43:32 by severi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,6 +63,7 @@ CFLAGS = -Wall -Werror -Wextra -g -fsanitize=address
 all: $(NAME) 
 
 $(NAME): $(OBJS)
+	mkdir -p $(OBJ_DIR)
 	make -C $(LIBFT_DIR)
 	mkdir -p $(OBJ_DIR)
 	cp $(LIBFT_DIR)/$(LIBFT) ./$(NAME)

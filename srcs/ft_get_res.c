@@ -6,7 +6,7 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 01:47:10 by severi            #+#    #+#             */
-/*   Updated: 2022/04/08 00:57:02 by severi           ###   ########.fr       */
+/*   Updated: 2022/06/06 10:34:17 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ static void	res_pos_exp(char *mantissa, int exp, char **res)
 	ft_strdel(&right);
 }
 
-void	get_res(char *mantissa, int exp, char **res)
+void	calculate_result(char *mantissa, int exp, char **res)
 {
 	if (exp < 0)
 		res_neg_exp(mantissa, exp, res);
@@ -106,25 +106,24 @@ void	get_res(char *mantissa, int exp, char **res)
 }
 
 /*
-**	---> get_exp computes the decimal value of the exponent and
-**	returns an int. 1023 is the bias for 64 bits (float convention)
+**	get_exp computes the decimal value of the exponent 
 */
 int	get_exp(char *exp_str)
 {
-	int	nb;
+	int	number;
 	int	i;
 	int	j;
 
 	j = 10;
 	i = 0;
-	nb = 0;
+	number = 0;
 	while (exp_str[i] != '\0')
 	{
 		if (exp_str[i] == '1')
-			nb = nb + pow2(j);
+			number = number + power_of_two(j);
 		i++;
 		j--;
 	}
-	nb -= 1023;
-	return (nb);
+	number -= 1023;
+	return (number);
 }
