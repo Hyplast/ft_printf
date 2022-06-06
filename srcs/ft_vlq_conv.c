@@ -12,31 +12,31 @@
 
 #include "ft_printf.h"
 
-void	calc_info(t_calc *info, char *s1, char *s2)
+void	vlq_calculate_info(t_calc *info, char *s1, char *s2)
 {
-	info->len1 = ft_strlen(s1);
-	info->len2 = ft_strlen(s2);
-	info->len1_static = info->len1;
-	info->len2_static = info->len2;
-	info->max = ft_max(info->len1, info->len2);
-	info->min = ft_min(info->len1, info->len2);
-	info->sum = info->len1 + info->len2;
+	info->len_one = ft_strlen(s1);
+	info->len_two = ft_strlen(s2);
+	info->len_one_static = info->len_one;
+	info->len_two_static = info->len_two;
+	info->max = ft_max(info->len_one, info->len_two);
+	info->min = ft_min(info->len_one, info->len_two);
+	info->sum = info->len_one + info->len_two;
 	info->ten_dec = 1;
 }
 
-void	vlq_tmp_conv(t_calc *info, char *s1, char *s2)
+void	vlq_char_conv(t_calc *info, char *s1, char *s2)
 {
 	int	i;
 
 	i = 0;
-	while (i <= info->len1)
+	while (i <= info->len_one)
 		s1[i++] -= 48;
 	i = 0;
-	while (i <= info->len2)
+	while (i <= info->len_two)
 		s2[i++] -= 48;
 }
 
-void	vlq_tmp_conv_rev(char *s, int size)
+void	vlq_char_conv_rev(char *s, int size)
 {
 	int	i;
 
@@ -45,15 +45,15 @@ void	vlq_tmp_conv_rev(char *s, int size)
 		s[i++] += 48;
 }
 
-void	vlq_tmp_conv_rev2(t_calc *info, char *s1, char *s2)
+void	vlq_char_conv_rev_both(t_calc *info, char *s1, char *s2)
 {
 	int	i;
 
 	i = 0;
-	while (i < info->len1_static)
+	while (i < info->len_one_static)
 		s1[i++] += 48;
 	i = 0;
-	while (i < info->len2_static)
+	while (i < info->len_two_static)
 		s2[i++] += 48;
 }
 

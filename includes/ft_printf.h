@@ -37,10 +37,10 @@ typedef struct s_flags
 
 typedef struct s_calc
 {
-	int			len1;
-	int			len2;
-	int			len1_static;
-	int			len2_static;
+	int			len_one;
+	int			len_two;
+	int			len_one_static;
+	int			len_two_static;
 	int			max;
 	int			min;
 	int			sum;
@@ -65,11 +65,11 @@ int				get_exp(char *exp_str);
 int				get_exp_l(char *exp_str);
 char			**ft_frexp(double x);
 char			**ft_frexpl(long double x);
-void			calc_info(t_calc *info, char *s1, char *s2);
+void			vlq_calculate_info(t_calc *info, char *s1, char *s2);
 void			free_res(char **res);
 void			free_calc(t_calc *info);
 char			*vlq_sum(char *s1, char *s2);
-char			*vlq_mult(char *s1, char *s2);
+char			*vlq_multiply(char *s1, char *s2);
 char			*vlq_power_of_two(int n);
 char			*vlq_power_of_five(int n);
 int				power_of_two(int n);
@@ -77,9 +77,9 @@ char			*get_pow_ten(char *vlq, int n);
 void			vlq_nshift(char *s, int size, int shifts);
 void			vlq_shift_left(char *s, int size);
 void			vlq_initialize(char *vlq, int c, int size);
-void			vlq_tmp_conv(t_calc *info, char *s1, char *s2);
-void			vlq_tmp_conv_rev(char *s, int size);
-void			vlq_tmp_conv_rev2(t_calc *info, char *s1, char *s2);
+void			vlq_char_conv(t_calc *info, char *s1, char *s2);
+void			vlq_char_conv_rev(char *s, int size);
+void			vlq_char_conv_rev_both(t_calc *info, char *s1, char *s2);
 int				ft_print_c_ntimes(char c, int n);
 int				ft_putnchar(const char *s, size_t n);
 int				ft_putcx(char c, int n);

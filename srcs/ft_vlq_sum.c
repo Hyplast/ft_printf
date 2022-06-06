@@ -15,17 +15,17 @@
 /*
 *	Computes the length of the new variable lenght que (vlq) for sum.
 */
-static char	compute_res(t_calc *info, char *s1, char *s2, char res)
+static char	compute_res(t_calc *info, char *s1, char *s2, char result)
 {
-	if (info->len1 >= 0)
-		res += s1[info->len1];
-	if (info->len2 >= 0)
-		res += s2[info->len2];
-	if (info->len1 >= 0 && info->len2 >= 0)
-		res -= 48;
-	info->len1--;
-	info->len2--;
-	return (res);
+	if (info->len_one >= 0)
+		result += s1[info->len_one];
+	if (info->len_two >= 0)
+		result += s2[info->len_two];
+	if (info->len_one >= 0 && info->len_two >= 0)
+		result -= 48;
+	info->len_one--;
+	info->len_two--;
+	return (result);
 }
 
 /*
@@ -51,10 +51,10 @@ static char	*do_sum(t_calc *info, char *s1, char *s2)
 	while (i > 0)
 	{
 		hold = 0;
-		if ((info->len1 >= 0 && info->len2 >= 0
-				&& ((s1[info->len1] + s2[info->len2] + res[i] - 48) > 57))
-			|| (info->len1 >= 0 && s1[info->len1] + res[i] > 57)
-			|| (info->len2 >= 0 && s2[info->len2] + res[i] > 57))
+		if ((info->len_one >= 0 && info->len_two >= 0
+				&& ((s1[info->len_one] + s2[info->len_two] + res[i] - 48) > 57))
+			|| (info->len_one >= 0 && s1[info->len_two] + res[i] > 57)
+			|| (info->len_one >= 0 && s2[info->len_two] + res[i] > 57))
 		{
 			res[i] -= 10;
 			hold = 1;
@@ -73,15 +73,15 @@ static char	*do_sum(t_calc *info, char *s1, char *s2)
 static char	*trim_zero(char *s)
 {
 	int		i;
-	char	*ret;
+	char	*result;
 
 	i = 0;
 	while (s[i] == 0)
 		i++;
-	ret = ft_strdup(s + i);
-	if (!ret)
+	result = ft_strdup(s + i);
+	if (!result)
 		return (NULL);
-	return (ret);
+	return (result);
 }
 
 /*
@@ -90,8 +90,8 @@ static char	*trim_zero(char *s)
 */
 char	*vlq_sum(char *s1, char *s2)
 {
-	char	*res;
-	char	*ret;
+	char	*temp;
+	char	*result;
 	t_calc	*info;
 
 	if (!ft_str_isdigit(s1) || !ft_str_isdigit(s2))
@@ -99,14 +99,14 @@ char	*vlq_sum(char *s1, char *s2)
 	info = (t_calc *)malloc(sizeof(t_calc));
 	if (!info)
 		return (NULL);
-	calc_info(info, s1, s2);
-	info->len1 -= 1;
-	info->len2 -= 1;
-	res = do_sum(info, s1, s2);
-	ret = trim_zero(res);
-	if (!res || !ret)
+	vlq_calculate_info(info, s1, s2);
+	info->len_one -= 1;
+	info->len_two -= 1;
+	temp = do_sum(info, s1, s2);
+	result = trim_zero(temp);
+	if (!result || !temp)
 		return (NULL);
-	ft_strdel(&res);
+	ft_strdel(&temp);
 	free_calc(info);
-	return (ret);
+	return (result);
 }
