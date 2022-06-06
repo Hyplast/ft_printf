@@ -50,17 +50,40 @@ void	free_double_char(char ***s)
 	}
 }
 
-void	combine_chars(char **s1, char *s2, char **s3)
+// void	combine_chars(char **s1, char *s2, char **s3)
+// {
+
+	// 	ft_putstr("\n\n\n");
+	// ft_putstr(str[0]);
+	// ft_putstr("-*-");
+	// ft_putstr(str[1]);
+	// ft_putstr("-*-");
+	// ft_putstr(str[2]);
+	// ft_putstr("\n\n\n");
+// 	char	*temp;
+// 	char	*result;
+
+// 	temp = ft_strjoin(*s1, s2);
+// 	result = ft_strjoin(temp, *s3);
+// 	*s1 = ft_strdup(result);
+// 	ft_strdel(&result);
+// 	ft_strdel(&temp);
+// 	ft_strdel(s3);
+// }
+
+static void	combine_chars(char **str)
 {
 	char	*temp;
 	char	*result;
 
-	temp = ft_strjoin(*s1, s2);
-	result = ft_strjoin(temp, *s3);
-	*s1 = ft_strdup(result);
+	temp = ft_strjoin(str[0], ".");
+	result = ft_strjoin(temp, str[1]);
+	ft_strdel(&str[0]);
+	ft_strdel(&str[1]);
+	ft_strdel(&str[2]);
+	*str = ft_strdup(result);
 	ft_strdel(&result);
 	ft_strdel(&temp);
-	ft_strdel(s3);
 }
 
 int	print_llong(t_flags *flag_s, va_list ap, int chars_printed)
@@ -81,8 +104,9 @@ int	print_llong(t_flags *flag_s, va_list ap, int chars_printed)
 		ft_add_zeros(&s[1], flag_s->prec - ft_strlen(s[1]));
 	if (decimals != 0)
 	{
-		combine_chars(&s[0], ".", &s[1]);
-		chars_printed = print_before(flag_s, chars_printed, s[0], ' ');
+		combine_chars(s);
+		// s = combine_chars(&s[0], ".", &s[1]);
+		chars_printed = print_before(flag_s, chars_printed, *s, ' ');
 	}
 	else
 		chars_printed = print_before(flag_s, chars_printed, s[0], ' ');
@@ -113,8 +137,9 @@ int	print_f(t_flags *flag_s, va_list ap, int chars_printed)
 		ft_add_zeros(&s[1], flag_s->prec - ft_strlen(s[1]));
 	if (ft_strlen(s[1]) != 0)
 	{
-		combine_chars(&s[0], ".", &s[1]);
-		chars_printed = print_before(flag_s, chars_printed, s[0], ' ');
+		combine_chars(s);
+		// s = combine_chars(&s[0], ".", &s[1]);
+		chars_printed = print_before(flag_s, chars_printed, *s, ' ');
 	}
 	else
 		chars_printed = print_before(flag_s, chars_printed, s[0], ' ');
