@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-static void	is_neg_exp(char *mantissa, int exp, char **res)
+static void	is_neg_exp(char *mantissa, int exp, char **result)
 {
 	char	*right;
 	int		i;
@@ -37,9 +37,9 @@ static void	is_neg_exp(char *mantissa, int exp, char **res)
 	}
 	right[i] = '\0';
 	// ft_strdel(&(res[0]));
-	res[0] = ft_strdup("0");
+	result[0] = ft_strdup("0");
 	// ft_strdel(&(res[0]));
-	res[1] = ft_bin_to_dec(right);
+	result[1] = ft_bin_to_dec(right);
 	ft_strdel(&right);
 }
 

@@ -57,7 +57,7 @@ void	vlq_char_conv_rev_both(t_calc *info, char *s1, char *s2)
 		s2[i++] += 48;
 }
 
-void	fill_prec(char *ret, char *str, int size)
+void	fill_prec(char *result, char *str, int size)
 {
 	int	j;
 	int	i;
@@ -66,8 +66,8 @@ void	fill_prec(char *ret, char *str, int size)
 	j = ft_strlen(str);
 	while (i <= size && i < j)
 	{
-		ret[i] = str[i];
+		result[i] = str[i];
 		i += 1;
 	}
-	ret[i] = '\0';
+	result[i] = '\0';
 }

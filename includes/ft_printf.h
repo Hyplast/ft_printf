@@ -48,7 +48,7 @@ typedef struct s_calc
 }				t_calc;
 
 int				ft_printf(const char *format, ...);
-void			ft_round(char **res, int precision);
+void			ft_round(char **result, int precision);
 void			fill_prec(char *ret, char *str, int size);
 int				ft_max(int a, int b);
 int				ft_min(int a, int b);
@@ -60,7 +60,7 @@ char			*ft_ldftoa(long double x);
 char			*ft_bin_to_int(char *vlq);
 char			*ft_bin_to_dec(char *vlq);
 void			calculate_float(char *mantissa, int exp, char **res);
-void			get_res_l(char *mantissa, int exp, char **res);
+void			calculate_float_l(char *mantissa, int exp, char **res);
 int				get_exp(char *exp_str);
 int				get_exp_l(char *exp_str);
 char			**ft_frexp(double x);

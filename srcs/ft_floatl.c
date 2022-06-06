@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-static void	is_neg_exp_l(char *mantissa, int exp, char **res)
+static void	is_neg_exp_l(char *mantissa, int exp, char **result)
 {
 	char	*right;
 	int		i;
@@ -32,9 +32,9 @@ static void	is_neg_exp_l(char *mantissa, int exp, char **res)
 			right[i++] = mantissa[j++];
 	}
 	right[i] = '\0';
-	res[0] = ft_strdup("0");
-	res[1] = ft_bin_to_dec(right);
-	if (!res[0] || !res[1])
+	result[0] = ft_strdup("0");
+	result[1] = ft_bin_to_dec(right);
+	if (!result[0] || !result[1])
 		return ;
 	ft_strdel(&right);
 }
@@ -85,7 +85,7 @@ static void	is_pos_exp_l(char *mantissa, int exp, char **res)
 	ft_strdel(&right);
 }
 
-void	get_res_l(char *mantissa, int exp, char **res)
+void	calculate_float_l(char *mantissa, int exp, char **res)
 {
 	if (exp < 0)
 		is_neg_exp_l(mantissa, exp, res);

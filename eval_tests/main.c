@@ -26,26 +26,42 @@ int	main()
 	int i=0,o=0;
 	long double lo = 1249328409.34897329487;
 	long double li = 1249328409.34897329487;
-
+// 					 1249328409.3489732742309570312500
 	my = "hello";
 	system = "hello";
 
 
 printf("\n");
+	ft_printf("Test 18.c)1 L \n");
+	o =    printf("   printf printing float 3.1416 with .222f = %.222f\n", 3.1416);
+	i = ft_printf("ft_printf printing float 3.1416 with .222f = %.222f\n", 3.1416);
+	printf(" my length %i. system lenght %i\n\n", i,o);
 
+
+printf("\n");
+	ft_printf("Test 18.c)1 L \n");
+	o =    printf("   printf printing float 1249328409.34897329487 with .22Lf = %.22Lf\n", lo);
+	i = ft_printf("ft_printf printing float 1249328409.34897329487 with .22Lf = %.22Lf\n", li);
+	printf(" my length %i. system lenght %i\n\n", i,o);
+
+printf("\n");
+	ft_printf("Test 18.c)1 L \n");
+	o =    printf ("   printf printing float 1249328409.34897329487 with .153 = %.222Lf\n", lo);
+	i = ft_printf("ft_printf printing float 1249328409.34897329487 with .222Lf = %.222Lf\n", li);
+	printf(" my length %i. system lenght %i\n\n", i,o);
 
 	printf("\n");
-	i = ft_printf("ft_printf printing float 3.1416 with . = %.13f\n", 443.14168);
-	o =    printf("   printf printing float 3.1416 with . = %.13f\n", 443.14168);
+	i = ft_printf("ft_printf printing float 3.1416 with . = %.13Lf\n", 443.14168);
+	o =    printf("   printf printing float 3.1416 with . = %.13Lf\n", 443.14168);
 
 
 
 
-li = 3.1416;
+	li = 3.1416;
 	lo = 3.1416;
 	ft_printf("Test 18.c)1 L \n");
-	o =    printf ("   printf printing float 3.1416 with .153 = %.153f\n", lo);
-	i = ft_printf("ft_printf printing float 3.1416 with .153 = %.153f\n", li);
+	o =    printf ("   printf printing float 3.1416 with .153 = %.153Lf\n", lo);
+	i = ft_printf("ft_printf printing float 3.1416 with .153 = %.153Lf\n", li);
 	printf(" my length %i. system lenght %i\n\n", i,o);
 
 	ft_printf("Test 18.c)2 L \n");
@@ -54,7 +70,6 @@ li = 3.1416;
 	printf(" my length %i. system lenght %i\n\n", i,o);
 
 
-/*
 
 printf("# 0146 (long long)");
 printf("\n");

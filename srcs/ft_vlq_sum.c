@@ -13,9 +13,9 @@
 #include "ft_printf.h"
 
 /*
-*	.
+*	
 */
-static char	compute_res(t_calc *info, char *s1, char *s2, char c)
+static char	compute_char(t_calc *info, char *s1, char *s2, char c)
 {
 	if (info->len_one >= 0)
 		c += s1[info->len_one];
@@ -59,7 +59,7 @@ static char	*do_sum(t_calc *info, char *s1, char *s2)
 			res[i] -= 10;
 			hold = 1;
 		}
-		res[i] = compute_res(info, s1, s2, res[i]);
+		res[i] = compute_char(info, s1, s2, res[i]);
 		res[--i] += hold;
 		if (res[0] == 1)
 			res[i] += 48;
