@@ -44,15 +44,15 @@ static void	do_mult(t_calc *info, char *s1, char *s2, char *res)
 static char	*trim_zero_char(char *s)
 {
 	int		i;
-	char	*result;
+	char	*ret;
 
 	i = 0;
 	while (s[i] == '0')
 		i++;
-	result = ft_strdup(s + i);
-	if (!result)
+	ret = ft_strdup(s + i);
+	if (!ret)
 		return (NULL);
-	return (result);
+	return (ret);
 }
 
 static char	*mult_inter_sums(t_calc *info, char *s1, char *s2, char *res)
@@ -87,29 +87,29 @@ static char	*mult_inter_sums(t_calc *info, char *s1, char *s2, char *res)
 *	Multiply 2 variable length que (vlq) -arrays together.
 *	@return	New array
 */
-char	*vlq_multiply(char *s1, char *s2)
+char	*vlq_mult(char *s1, char *s2)
 {
 	char	*sum;
-	char	*temp;
+	char	*res;
 	t_calc	*info;
-	char	*result;
+	char	*ret;
 
 	if (!ft_str_isdigit(s1) || !ft_str_isdigit(s2))
 		return (NULL);
 	info = (t_calc *)malloc(sizeof(t_calc));
 	if (!info)
 		return (NULL);
-	vlq_calculate_info(info, s1, s2);
+	calculate_info(info, s1, s2);
 	info->len_one -= 1;
 	info->len_two -= 1;
-	temp = ft_strnew((size_t)info->sum + 1);
-	sum = mult_inter_sums(info, s1, s2, temp);
-	result = trim_zero_char(sum);
-	if (!temp || !sum || !result)
+	res = ft_strnew((size_t)info->sum + 1);
+	sum = mult_inter_sums(info, s1, s2, res);
+	ret = trim_zero_char(sum);
+	if (!res || !sum || !ret)
 		return (NULL);
 	ft_strdel(&sum);
 	vlq_char_conv_rev_both(info, s1, s2);
 	free_calc(info);
-	ft_strdel(&temp);
-	return (result);
+	ft_strdel(&res);
+	return (ret);
 }

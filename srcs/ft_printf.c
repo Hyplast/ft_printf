@@ -80,7 +80,6 @@ static	char	*parse_specifier(const char *flags)
 	return (temp);
 }
 
-
 static void	free_char(char **flags)
 {
 	if (flags != NULL)
@@ -92,6 +91,7 @@ static void	free_char(char **flags)
 		}	
 	}
 }
+
 int	read_while(const char *format, va_list ap, int i, int chars_printed)
 {
 	char	*flags;

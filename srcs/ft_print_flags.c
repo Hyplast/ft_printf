@@ -20,23 +20,32 @@ int	is_sharp(int c_p, char c)
 	return (c_p);
 }
 
+// int	print_sign(t_flags *flag, int c_p, char **s)
+// {
+// 	// char	*temp;
+// 	// char	*delete;
+// 	if ((*s)[0] == '-')
+// 	{
+// 		c_p += print_c('-');
+// 		(*s) = (*s) + 1;
+// 		// temp = ft_strsub((*s), 1, ft_strlen((*s)) - 1);
+// 		// delete = ft_strcpy(delete, (*s));
+// 		// (*s) = ft_strdup(temp);
+// 		// ft_strcpy((*s), temp);
+// 		// ft_strdel(&delete);
+// 		// ft_strdel(&temp);
+// 		// (*s) = temp;
+// 		flag->plus = 0;
+// 		flag->space = 0;
+// 	}
+// 	return (c_p);
+// }
 int	print_sign(t_flags *flag, int c_p, char **s)
 {
-	// char	*temp;
-	// char	*delete;
-
 	if ((*s)[0] == '-')
 	{
 		c_p += print_c('-');
 		(*s) = (*s) + 1;
-		// temp = ft_strsub((*s), 1, ft_strlen((*s)) - 1);
-		// delete = ft_strcpy(delete, (*s));
-		
-		// (*s) = ft_strdup(temp);
-		// ft_strcpy((*s), temp);
-		// ft_strdel(&delete);
-		// ft_strdel(&temp);
-		// (*s) = temp;
 		flag->plus = 0;
 		flag->space = 0;
 	}

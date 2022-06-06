@@ -59,7 +59,7 @@ char	*vlq_power_of_two(int n)
 		{
 			temp = ft_strdup(result);
 			ft_strdel(&result);
-			result = vlq_multiply(temp, two);
+			result = vlq_mult(temp, two);
 			if (!result)
 				return (NULL);
 			ft_strdel(&temp);
@@ -90,7 +90,7 @@ char	*vlq_power_of_five(int n)
 		if (!temp)
 			return (NULL);
 		ft_strdel(&result);
-		result = vlq_multiply(temp, five);
+		result = vlq_mult(temp, five);
 		if (!result)
 			return (NULL);
 		ft_strdel(&temp);

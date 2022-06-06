@@ -13,28 +13,28 @@
 #include "ft_printf.h"
 
 /*
-*	Computes the length of the new variable lenght que (vlq) for sum.
+*	.
 */
-static char	compute_res(t_calc *info, char *s1, char *s2, char result)
+static char	compute_res(t_calc *info, char *s1, char *s2, char c)
 {
 	if (info->len_one >= 0)
-		result += s1[info->len_one];
+		c += s1[info->len_one];
 	if (info->len_two >= 0)
-		result += s2[info->len_two];
+		c += s2[info->len_two];
 	if (info->len_one >= 0 && info->len_two >= 0)
-		result -= 48;
+		c -= 48;
 	info->len_one--;
 	info->len_two--;
-	return (result);
+	return (c);
 }
 
 /*
 *	Adds 2 variable lenght que (vlq) -arrays together.
 *	48 = 11000	57 = 111001
-* 		if ((info->len1 >= 0 && info->len2 >= 0
-*				&& ((s1[info->len1] + s2[info->len2] + res[i] - 48) > 57))
-*			|| (info->len1 >= 0 && s1[info->len1] + res[i] > 57)
-*			|| (info->len2 >= 0 && s2[info->len2] + res[i] > 57))
+* 		if ((info->len_one >= 0 && info->len_two >= 0
+*				&& ((s1[info->len_one] + s2[info->len_two] + res[i] - 48) > 57))
+*			|| (info->len_one >= 0 && s1[info->len_one] + res[i] > 57)
+*			|| (info->len_two >= 0 && s2[info->len_two] + res[i] > 57))
 *		-1 >= 0 && 0 >= 0 && (s1[-1] + s2[0] + res[21845] - 48) > 57
 *			-1 >= 0 && s1[-1] + res[21845] > 57
 */
@@ -51,10 +51,10 @@ static char	*do_sum(t_calc *info, char *s1, char *s2)
 	while (i > 0)
 	{
 		hold = 0;
-		if ((info->len_one >= 0 && info->len_two >= 0
-				&& ((s1[info->len_one] + s2[info->len_two] + res[i] - 48) > 57))
-			|| (info->len_one >= 0 && s1[info->len_two] + res[i] > 57)
-			|| (info->len_one >= 0 && s2[info->len_two] + res[i] > 57))
+		if ((info->len_one >= 0 && info->len_two >= 0 && ((s1[info->len_one]
+						+ s2[info->len_two] + res[i] - 48) > 57))
+			|| (info->len_one >= 0 && s1[info->len_one] + res[i] > 57)
+			|| (info->len_two >= 0 && s2[info->len_two] + res[i] > 57))
 		{
 			res[i] -= 10;
 			hold = 1;
@@ -90,8 +90,8 @@ static char	*trim_zero(char *s)
 */
 char	*vlq_sum(char *s1, char *s2)
 {
-	char	*temp;
-	char	*result;
+	char	*res;
+	char	*ret;
 	t_calc	*info;
 
 	if (!ft_str_isdigit(s1) || !ft_str_isdigit(s2))
@@ -99,14 +99,14 @@ char	*vlq_sum(char *s1, char *s2)
 	info = (t_calc *)malloc(sizeof(t_calc));
 	if (!info)
 		return (NULL);
-	vlq_calculate_info(info, s1, s2);
+	calculate_info(info, s1, s2);
 	info->len_one -= 1;
 	info->len_two -= 1;
-	temp = do_sum(info, s1, s2);
-	result = trim_zero(temp);
-	if (!result || !temp)
+	res = do_sum(info, s1, s2);
+	ret = trim_zero(res);
+	if (!res || !ret)
 		return (NULL);
-	ft_strdel(&temp);
+	ft_strdel(&res);
 	free_calc(info);
-	return (result);
+	return (ret);
 }
