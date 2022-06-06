@@ -102,7 +102,7 @@ char	**ft_frexp(double x)
 	if (check_nan_inf(mantissa, exp_bin_in_string) != 0)
 		return (handle_nan_inf(result, number_in_string, mantissa,
 				exp_bin_in_string));
-	calculate_result(mantissa, get_exp(exp_bin_in_string), result);
+	calculate_float(mantissa, get_exp(exp_bin_in_string), result);
 	if (!ft_strchr(number_in_string + 1, '1') && number_in_string[0] == '1')
 		ft_strcpy(result[2], "-\0");
 	else

@@ -13,10 +13,10 @@
 #include "ft_printf.h"
 
 /*
-*	bintowhole converts the exponent binary string into a decimal string
+*	ft_bin_to_int converts the exponent binary string into a decimal string
 *	by multiplying corresponding powers of two by '1' bits
 */
-char	*ft_bintowhole(char *vlq)
+char	*ft_bin_to_int(char *vlq)
 {
 	int		i;
 	char	*result;
@@ -44,10 +44,6 @@ char	*ft_bintowhole(char *vlq)
 	return (result);
 }
 
-/*
-*	bintodec computes the following sum : (sum 5^(frac_digits - i)
-*	which is equal to the decimal part (in base 10)
-*/
 static char	*compute_sum(char *vlq, char *result, int i, int j)
 {
 	char	*temp;
@@ -63,7 +59,7 @@ static char	*compute_sum(char *vlq, char *result, int i, int j)
 			if (!pow || !temp_pow)
 				return (NULL);
 			ft_strdel(&pow);
-			pow = get_pow_ten(temp_pow, j);
+			pow = vlq_raise_pow_ten(temp_pow, j);
 			temp = ft_strdup(result);
 			ft_strdel(&temp_pow);
 			ft_strdel(&result);
@@ -76,7 +72,12 @@ static char	*compute_sum(char *vlq, char *result, int i, int j)
 	return (result);
 }
 
-char	*ft_bintodec(char *vlq)
+/*
+*	ft_bin_to_dec computes the following sum : 
+*	(sum 5^(fractional digits - i)
+*	which is equal to the decimal part in base 10
+*/
+char	*ft_bin_to_dec(char *vlq)
 {
 	int		i;
 	int		j;

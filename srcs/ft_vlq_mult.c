@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vlq_mult.c                                      :+:      :+:    :+:   */
+/*   ft_vlq_multiply.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -68,7 +68,7 @@ static char	*mult_inter_sums(t_calc *info, char *s1, char *s2, char *res)
 		do_mult(info, s1, s2, res);
 		vlq_char_conv_rev(res, info->sum + 1);
 		if (info->ten_dec > 1)
-			vlq_nshift(res, info->sum + 1, info->ten_dec);
+			vlq_n_shift(res, info->sum + 1, info->ten_dec);
 		info->ten_dec++;
 		tmp_sum = ft_strdup(sum);
 		if (!tmp_sum)
@@ -87,7 +87,7 @@ static char	*mult_inter_sums(t_calc *info, char *s1, char *s2, char *res)
 *	Multiply 2 variable length que (vlq) -arrays together.
 *	@return	New array
 */
-char	*vlq_mult(char *s1, char *s2)
+char	*vlq_multiply(char *s1, char *s2)
 {
 	char	*sum;
 	char	*res;
@@ -99,7 +99,7 @@ char	*vlq_mult(char *s1, char *s2)
 	info = (t_calc *)malloc(sizeof(t_calc));
 	if (!info)
 		return (NULL);
-	calculate_info(info, s1, s2);
+	vlq_calculate_info(info, s1, s2);
 	info->len_one -= 1;
 	info->len_two -= 1;
 	res = ft_strnew((size_t)info->sum + 1);

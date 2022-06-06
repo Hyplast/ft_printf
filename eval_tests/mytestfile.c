@@ -261,16 +261,64 @@ static char     *move_forward_return(char *s)
 }
 
 
+
+char	**create_str(void)
+{
+	char		**str;
+
+	str = (char **)malloc(sizeof(char *) * 3);
+
+	str[0] = ft_llitoa(-9223372036854775808);
+	str[1] = ft_llitoa(36854775);
+	str[2] = ft_strnew(1);
+	// str[2][0] = '\0';
+	return	(str);
+}
+
+
+// void	free_all(char	**s)
+// {
+// 	if (!s)
+
+// }
+
 int    main(void)
 {
-    char		*s;
-    char    *copy;
-    int i;
+    // char		*s;
+    // char    *copy;
+    // int i;
+	char		**str;
 
     // s = ft_lutoa(-9223372036854775808);
     
+	str = create_str();
+
+	ft_putnchar("\n", 1);
+    ft_putnchar("str0", 4);
+    ft_putnchar("\n", 1);
+    	ft_putnchar(str[0], 20);
+    ft_putnchar("\n", 1);
+	ft_putnchar("\n", 1);
+    ft_putnchar("str1", 4);
+    ft_putnchar("\n", 1);
+    	ft_putnchar(str[1], 20);
+    ft_putnchar("\n", 1);
+	ft_putnchar("\n", 1);
+    ft_putnchar("str2", 4);
+    ft_putnchar("\n", 1);
+    	ft_putnchar(str[2], 20);
+    ft_putnchar("\n", 1);
+
+	ft_strdel(&str[0]);
+	ft_strdel(&str[1]);
+	ft_strdel(&str[2]);
+	
+	free(str);
+	str = NULL;
+	// ft_strdel(str);
 
 
+	/*
     s = ft_llitoa(-9223372036854775808);
 
     copy = s;
@@ -361,6 +409,8 @@ int    main(void)
     // s += 1;
 
     ft_strdel(&copy);
+
+	*/
     return (0);
 }
 

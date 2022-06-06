@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-static void	res_neg_exp_l(char *mantissa, int exp, char **res)
+static void	is_neg_exp_l(char *mantissa, int exp, char **res)
 {
 	char	*right;
 	int		i;
@@ -33,13 +33,13 @@ static void	res_neg_exp_l(char *mantissa, int exp, char **res)
 	}
 	right[i] = '\0';
 	res[0] = ft_strdup("0");
-	res[1] = ft_bintodec(right);
+	res[1] = ft_bin_to_dec(right);
 	if (!res[0] || !res[1])
 		return ;
 	ft_strdel(&right);
 }
 
-static void	res_big_exp_l(char *mantissa, int exp, char **res)
+static void	is_big_exp_l(char *mantissa, int exp, char **res)
 {
 	char	*left;
 	int		i;
@@ -54,21 +54,21 @@ static void	res_big_exp_l(char *mantissa, int exp, char **res)
 		i++;
 	while (i < exp + 1)
 		left[i++] = '0';
-	res[0] = ft_bintowhole(left);
+	res[0] = ft_bin_to_int(left);
 	res[1] = ft_strdup("0");
 	if (!res[0] || !res[1])
 		return ;
 	ft_strdel(&left);
 }
 
-static void	res_pos_exp_l(char *mantissa, int exp, char **res)
+static void	is_pos_exp_l(char *mantissa, int exp, char **res)
 {
 	char	*left;
 	char	*right;
 
 	if (exp > 64)
 	{
-		res_big_exp_l(mantissa, exp, res);
+		is_big_exp_l(mantissa, exp, res);
 		return ;
 	}
 	left = ft_strnew(exp + 1);
@@ -77,8 +77,8 @@ static void	res_pos_exp_l(char *mantissa, int exp, char **res)
 		|| !(ft_strncat(left, mantissa, exp + 1))
 		|| !(ft_strcpy(right, mantissa + exp + 1)))
 		return ;
-	res[0] = ft_bintowhole(left);
-	res[1] = ft_bintodec(right);
+	res[0] = ft_bin_to_int(left);
+	res[1] = ft_bin_to_dec(right);
 	if (!res[0] || !res[1])
 		return ;
 	ft_strdel(&left);
@@ -88,9 +88,9 @@ static void	res_pos_exp_l(char *mantissa, int exp, char **res)
 void	get_res_l(char *mantissa, int exp, char **res)
 {
 	if (exp < 0)
-		res_neg_exp_l(mantissa, exp, res);
+		is_neg_exp_l(mantissa, exp, res);
 	else
-		res_pos_exp_l(mantissa, exp, res);
+		is_pos_exp_l(mantissa, exp, res);
 }
 
 int	get_exp_l(char *exp_str)

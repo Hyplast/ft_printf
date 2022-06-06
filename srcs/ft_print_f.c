@@ -120,8 +120,31 @@ int	print_f(t_flags *flag_s, va_list ap, int chars_printed)
 		chars_printed = print_before(flag_s, chars_printed, s[0], ' ');
 	if (flag_s->prec > 51)
 		chars_printed += ft_putcx('0', flag_s->prec - 51);
-	free_double_char(&s);
-	ft_strdel(s);
+	
+	ft_strdel(&s[0]);
+	ft_strdel(&s[1]);
+	ft_strdel(&s[2]);
+	free(s);
+	s = NULL;
+
+// 	ft_putstr("\n\n\n");
+// 	ft_putstr(s[0] + 0);
+// 	ft_putstr("-*-");
+// 	ft_putstr(s[0] + 1);
+// ft_putstr("\n\n\n");
+// 	ft_putstr(s[1] + 0);
+// 	ft_putstr("-*-");
+// 	ft_putstr(s[1] );
+// ft_putstr("\n\n\n");
+// 	ft_strdel(&s[2]);
+// 	ft_strdel(&s[1]);
+// 	ft_strdel(&s[0]);
+// 	free(s);
+// 	s = NULL;
+// 	ft_putstr("\n\n\n");
+	// ft_strdel(s);
+	// free_double_char(&s);
+	// ft_strdel(s);
 	return (chars_printed);
 }
 

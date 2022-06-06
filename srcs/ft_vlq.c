@@ -40,7 +40,7 @@ void	vlq_shift_left(char *s, int size)
 	ft_strdel(&tmp);
 }
 
-void	vlq_nshift(char *s, int size, int shifts)
+void	vlq_n_shift(char *s, int size, int shifts)
 {
 	int	i;
 

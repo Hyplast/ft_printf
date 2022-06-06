@@ -59,7 +59,7 @@ char	*vlq_power_of_two(int n)
 		{
 			temp = ft_strdup(result);
 			ft_strdel(&result);
-			result = vlq_mult(temp, two);
+			result = vlq_multiply(temp, two);
 			if (!result)
 				return (NULL);
 			ft_strdel(&temp);
@@ -90,7 +90,7 @@ char	*vlq_power_of_five(int n)
 		if (!temp)
 			return (NULL);
 		ft_strdel(&result);
-		result = vlq_mult(temp, five);
+		result = vlq_multiply(temp, five);
 		if (!result)
 			return (NULL);
 		ft_strdel(&temp);
@@ -101,9 +101,9 @@ char	*vlq_power_of_five(int n)
 }
 
 /*
-*	Get the power of ten variable lenght que (vlq).
+*	Multiply 10^n of the variable lenght que (vlq).
 */
-char	*get_pow_ten(char *vlq, int n)
+char	*vlq_raise_pow_ten(char *vlq, int n)
 {
 	char	*result;
 	int		size;

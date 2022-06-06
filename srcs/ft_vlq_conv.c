@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void	calculate_info(t_calc *info, char *s1, char *s2)
+void	vlq_calculate_info(t_calc *info, char *s1, char *s2)
 {
 	info->len_one = ft_strlen(s1);
 	info->len_two = ft_strlen(s2);

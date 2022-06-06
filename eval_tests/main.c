@@ -39,20 +39,22 @@ printf("\n");
 	o =    printf("   printf printing float 3.1416 with . = %.13f\n", 443.14168);
 
 
-/*
+
 
 li = 3.1416;
 	lo = 3.1416;
 	ft_printf("Test 18.c)1 L \n");
-	o =    printf ("   printf printing float 3.1416 with .153 = %.153Lf\n", lo);
-	i = ft_printf("ft_printf printing float 3.1416 with .153 = %.153Lf\n", li);
+	o =    printf ("   printf printing float 3.1416 with .153 = %.153f\n", lo);
+	i = ft_printf("ft_printf printing float 3.1416 with .153 = %.153f\n", li);
 	printf(" my length %i. system lenght %i\n\n", i,o);
 
 	ft_printf("Test 18.c)2 L \n");
-	o =    printf ("   printf printing float 3.1416 with .112 = %.112Lf\n", lo);
-	i = ft_printf("ft_printf printing float 3.1416 with .112 = %.112Lf\n", li);
+	o =    printf ("   printf printing float 3.1416 with .112 = %.112f\n", lo);
+	i = ft_printf("ft_printf printing float 3.1416 with .112 = %.112f\n", li);
 	printf(" my length %i. system lenght %i\n\n", i,o);
 
+
+/*
 
 printf("# 0146 (long long)");
 printf("\n");

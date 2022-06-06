@@ -68,7 +68,7 @@ static char	*do_sum(t_calc *info, char *s1, char *s2)
 }
 
 /*
-*	Removes excess zeros in a new a variable lenght que (vlq).
+*	Removes leading zeros in a string.
 */
 static char	*trim_zero(char *s)
 {
@@ -86,12 +86,12 @@ static char	*trim_zero(char *s)
 
 /*
 *	Adds 2 variable length que (vlq) -arrays together.
-*	@return	New array
+*	@return	Sum vlq
 */
 char	*vlq_sum(char *s1, char *s2)
 {
-	char	*res;
-	char	*ret;
+	char	*temp;
+	char	*result;
 	t_calc	*info;
 
 	if (!ft_str_isdigit(s1) || !ft_str_isdigit(s2))
@@ -99,14 +99,14 @@ char	*vlq_sum(char *s1, char *s2)
 	info = (t_calc *)malloc(sizeof(t_calc));
 	if (!info)
 		return (NULL);
-	calculate_info(info, s1, s2);
+	vlq_calculate_info(info, s1, s2);
 	info->len_one -= 1;
 	info->len_two -= 1;
-	res = do_sum(info, s1, s2);
-	ret = trim_zero(res);
-	if (!res || !ret)
+	temp = do_sum(info, s1, s2);
+	result = trim_zero(temp);
+	if (!temp || !result)
 		return (NULL);
-	ft_strdel(&res);
+	ft_strdel(&temp);
 	free_calc(info);
-	return (ret);
+	return (result);
 }
