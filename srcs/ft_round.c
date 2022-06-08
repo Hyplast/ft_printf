@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	only_nine(char *result)
+static int	only_nine(char *result)
 {
 	int	i;
 
@@ -54,11 +54,11 @@ static void	round_whole(char **result)
 	ft_strdel(&one);
 }
 
-static void	round_up(char *ret, int i, char **result)
+static void	round_up(char *str, int i, char **result)
 {
 	char	*five;
 
-	if ((only_nine(ret) && i - 1 < (int)ft_strlen(ret)) || i == 1)
+	if ((only_nine(str) && i - 1 < (int)ft_strlen(str)) || i == 1)
 	{
 		round_whole(result);
 		return ;
@@ -67,7 +67,7 @@ static void	round_up(char *ret, int i, char **result)
 	if (!(five))
 		return ;
 	ft_strdel(&result[1]);
-	result[1] = vlq_sum(ret, five);
+	result[1] = vlq_sum(str, five);
 	if (!(result[1]))
 		return ;
 	result[1][i - 1] = '\0';
@@ -76,14 +76,14 @@ static void	round_up(char *ret, int i, char **result)
 	ft_strdel(&five);
 }
 
-static void	do_rounding(char *ret, int i, char **result)
+static void	do_rounding(char *str, int i, char **result)
 {
 	char	*temp;
 
-	if (ret[i - 1] == '0')
+	if (str[i - 1] == '0')
 	{
-		ret[i - 1] = '\0';
-		temp = ft_strdup(ret);
+		str[i - 1] = '\0';
+		temp = ft_strdup(str);
 		if (!(temp))
 			return ;
 		ft_strdel(&result[1]);
@@ -92,15 +92,15 @@ static void	do_rounding(char *ret, int i, char **result)
 			return ;
 		ft_strdel(&temp);
 	}
-	else if (ret[i - 1] >= '5')
-		round_up(ret, i, result);
+	else if (str[i - 1] >= '5')
+		round_up(str, i, result);
 	else
 	{
-		fill_prec(ret, ret, i - 2);
+		fill_prec(str, str, i - 2);
 		ft_strdel(&result[1]);
-		result[1] = ft_strdup(ret);
+		result[1] = ft_strdup(str);
 	}
-	ft_strdel(&ret);
+	ft_strdel(&str);
 }
 
 /*
@@ -111,15 +111,15 @@ static void	do_rounding(char *ret, int i, char **result)
 */
 void	ft_round(char **result, int precision)
 {
-	char	*ret;
+	char	*str;
 	int		prec;
 
 	prec = precision - 1;
 	if (!ft_strcmp(result[1], "0"))
 		return ;
-	ret = ft_strnew(prec + 2);
-	if (!(ret))
+	str = ft_strnew(prec + 2);
+	if (!(str))
 		return ;
-	fill_prec(ret, result[1], prec + 1);
-	do_rounding(ret, prec + 2, result);
+	fill_prec(str, result[1], prec + 1);
+	do_rounding(str, prec + 2, result);
 }

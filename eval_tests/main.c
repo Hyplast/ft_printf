@@ -35,6 +35,54 @@ int	main()
 printf("\n");
 
 
+printf("NOT WORKING -23");
+printf("\n");
+o = printf("%-7.5s", "yolo");
+
+printf("\n");
+i = ft_printf("%-7.5s", "yolo");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+printf("\n");
+o = printf("%.03s", NULL);
+
+printf("\n");
+i = ft_printf("%.03s", NULL);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+
+
+
+printf("NOT WORKING -22");
+printf("\n");
+o = printf("%*d", 5, 42);
+
+printf("\n");
+i = ft_printf("%*d", 5, 42);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+
+
+
+printf("NOT WORKING -21");
+printf("\n");
+o = printf("{%f}{%lf}{%Lf}", -1.42, -1.42, -1.42l);
+
+printf("\n");
+i = ft_printf("{%f}{%lf}{%Lf}", -1.42, -1.42, -1.42l);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+
 
 
 printf("NOT WORKING -20");

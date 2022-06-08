@@ -78,6 +78,16 @@ static char	**handle_nan_inf(char **res, char *str, char *mantissa, char *exp)
 	return (NULL);
 }
 
+static void	add_minus_sign(char **str)
+{
+	char	*temp;
+
+	temp = ft_strjoin("-" , str[0]);
+	ft_strdel(&str[0]);
+	*str = ft_strdup(temp);
+	ft_strdel(&temp);
+}
+
 /*
 *	ft_frexp converts floating point double to strings
 *	@param double x
@@ -109,5 +119,7 @@ char	**ft_frexp(double x)
 		ft_strdel(&result[2]);
 	ft_strdel(&mantissa);
 	ft_strdel(&number_in_string);
+	if (x < 0)
+		add_minus_sign(result);
 	return (result);
 }

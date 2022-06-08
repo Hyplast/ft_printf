@@ -133,6 +133,8 @@ int	print_llong(t_flags *flag_s, va_list ap, int chars_printed)
 	// free_double_char(s);
 	// free(s);
 	// s = NULL;
+
+
 int	print_f(t_flags *flag_s, va_list ap, int chars_printed)
 {
 	double		f;
@@ -157,7 +159,6 @@ int	print_f(t_flags *flag_s, va_list ap, int chars_printed)
 	else
 		chars_printed = print_before(flag_s, chars_printed, s[0], ' ');
 	free_double_char(s);
-
 	return (chars_printed);
 }
 

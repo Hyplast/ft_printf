@@ -103,6 +103,16 @@ static char	**handle_nan_inf_l(char **res, char *nb_str, char *mantissa, char *e
 	return (NULL);
 }
 
+static void	add_minus_sign(char **str)
+{
+	char	*temp;
+
+	temp = ft_strjoin("-" , str[0]);
+	ft_strdel(&str[0]);
+	*str = ft_strdup(temp);
+	ft_strdel(&temp);
+}
+
 /*
 *	ft_frexpl converts floating point double to strings
 *	@param double x
@@ -134,5 +144,7 @@ char	**ft_frexpl(long double x)
 		ft_strdel(&result[2]);
 	ft_strdel(&number_in_string);
 	ft_strdel(&mantissa);
+	if (x < 0)
+		add_minus_sign(result);
 	return (result);
 }
