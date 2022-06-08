@@ -33,6 +33,8 @@ int	print_s(t_flags *flag_s, char *s, int chars_printed)
 		return (print_before(flag_s, chars_printed, "(null)", 's'));
 	else if	(s == NULL)
 		return(0);
+	else if ((int)*s > 0)
+		return (0);
 	if (flag_s->prec < (int)ft_strlen(s) && flag_s->prec != -1)
 	{
 		temp = ft_strsub(s, 0, (flag_s->prec));
@@ -92,22 +94,23 @@ int	print_d(t_flags *flag_s, va_list ap, int chars_printed)
 
 int	print_i(t_flags *flag_s, va_list ap, int chars_printed)
 {
-	char		*s;
-	uintmax_t	i;
-
-	i = signed_conv(flag_s, ap);
-	if (i == 0 && flag_s->prec == 0 && flag_s->sharp == 1)
-		return (chars_printed);
-	else if (i == 0 && flag_s->prec == 0)
-		return (chars_printed += print_before(flag_s, chars_printed, "", 32));
-	if (flag_s->spec == 1)
-		s = ft_litoa(i);
-	else if (flag_s->spec == 2)
-		s = ft_llitoa(i);
-	else
-		s = ft_itoa(i);
-	chars_printed = print_before(flag_s, chars_printed, s, 'd');
-	if (ft_strcmp(s, "-9223372036854775808") != 0)
-		ft_strdel(&s);
-	return (chars_printed);
+	return (print_d(flag_s, ap, chars_printed));
+	// char		*s;
+	// uintmax_t	i;
+// 
+	// i = signed_conv(flag_s, ap);
+	// if (i == 0 && flag_s->prec == 0 && flag_s->sharp == 1)
+	// 	return (chars_printed);
+	// else if (i == 0 && flag_s->prec == 0)
+	// 	return (chars_printed += print_before(flag_s, chars_printed, "", 32));
+	// if (flag_s->spec == 1)
+	// 	s = ft_litoa(i);
+	// else if (flag_s->spec == 2)
+	// 	s = ft_llitoa(i);
+	// else
+	// 	s = ft_itoa(i);
+	// chars_printed = print_before(flag_s, chars_printed, s, 'd');
+	// if (ft_strcmp(s, "-9223372036854775808") != 0)
+	// 	ft_strdel(&s);
+	// return (chars_printed);
 }
