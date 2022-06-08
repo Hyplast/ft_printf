@@ -31,53 +31,336 @@ int	main()
 	system = "hello";
 
 
-printf("\n");
-	ft_printf("Test 18.c)1 L \n");
-	o =    printf("   printf printing float 3.1416 with .222f = %.222f\n", 3.1416);
-	i = ft_printf("ft_printf printing float 3.1416 with .222f = %.222f\n", 3.1416);
-	printf(" my length %i. system lenght %i\n\n", i,o);
-
 
 printf("\n");
-	ft_printf("Test 18.c)1 L \n");
-	o =    printf("   printf printing float 1249328409.34897329487 with .22Lf = %.22Lf\n", lo);
-	i = ft_printf("ft_printf printing float 1249328409.34897329487 with .22Lf = %.22Lf\n", li);
-	printf(" my length %i. system lenght %i\n\n", i,o);
+printf("NOT WORKING -1");
+printf("\n");
+printf("%\\n");
 
 printf("\n");
-	ft_printf("Test 18.c)1 L \n");
-	o =    printf ("   printf printing float 1249328409.34897329487 with .153 = %.222Lf\n", lo);
-	i = ft_printf("ft_printf printing float 1249328409.34897329487 with .222Lf = %.222Lf\n", li);
-	printf(" my length %i. system lenght %i\n\n", i,o);
-
-	printf("\n");
-	i = ft_printf("ft_printf printing float 3.1416 with . = %.13Lf\n", 443.14168);
-	o =    printf("   printf printing float 3.1416 with . = %.13Lf\n", 443.14168);
-
-
-
-
-	li = 3.1416;
-	lo = 3.1416;
-	ft_printf("Test 18.c)1 L \n");
-	o =    printf ("   printf printing float 3.1416 with .153 = %.153Lf\n", lo);
-	i = ft_printf("ft_printf printing float 3.1416 with .153 = %.153Lf\n", li);
-	printf(" my length %i. system lenght %i\n\n", i,o);
-
-	ft_printf("Test 18.c)2 L \n");
-	o =    printf ("   printf printing float 3.1416 with .112 = %.112f\n", lo);
-	i = ft_printf("ft_printf printing float 3.1416 with .112 = %.112f\n", li);
-	printf(" my length %i. system lenght %i\n\n", i,o);
-
-
-
-printf("# 0146 (long long)");
+ft_printf("%\\n");
 printf("\n");
 printf("\n");
-o = printf("%lld", -9223372036854775808);
+
+ 
 printf("\n");
-i = printf("%lld", -9223372036854775808);
+printf("NOT WORKING 0");
 printf("\n");
+printf("%U\\n", 4294967295);
+
+printf("\n");
+ft_printf("%U\\n", 4294967295);
+printf("\n");
+printf("\n");
+
+
+printf("\n");
+printf("%u\\n", 4294967295);
+
+printf("\n");
+ft_printf("%u\\n", 4294967295);
+printf("\n");
+printf("\n");
+
+
+
+printf("\n");
+printf("NOT WORKING 1");
+printf("\n");
+printf("%%\\n");
+
+printf("\n");
+ft_printf("%%\\n");
+printf("\n");
+printf("\n");
+
+printf("NOT WORKING 2");
+printf("\n");
+printf("%010d\\n", 1);
+
+printf("\n");
+ft_printf("%010d\\n", 1);
+printf("\n");
+printf("\n");
+
+printf("NOT WORKING 3");
+printf("\n");
+printf("%C\\n", 15000);
+
+printf("\n");
+ft_printf("%C\\n", 15000);
+printf("\n");
+printf("\n");
+
+printf("NOT WORKING 4");
+printf("\n");
+printf("%S\\n", L"ݗݜशব");
+
+printf("\n");
+ft_printf("%S\\n", L"ݗݜशব");
+printf("\n");
+printf("\n");
+
+printf("NOT WORKING 5");
+printf("\n");
+printf("%%#08x\\n", 42);
+
+printf("\n");
+ft_printf("%%#08x\\n", 42);
+printf("\n");
+printf("\n");
+
+printf("NOT WORKING 6");
+printf("\n");
+printf("%lld\\n", 9223372036854775807);
+
+printf("\n");
+ft_printf("%lld\\n", 9223372036854775807);
+printf("\n");
+printf("\n");
+
+
+printf("NOT WORKING 7");
+printf("\n");
+printf("%zd\\n", 4294967295);
+
+printf("\n");
+ft_printf("%zd\\n", 4294967295);
+printf("\n");
+printf("\n");
+
+printf("\n");
+printf("%d\\n", 4294967295);
+
+printf("\n");
+ft_printf("%d\\n", 4294967295);
+printf("\n");
+printf("\n");
+
+
+printf("NOT WORKING 8");
+printf("\n");
+printf("%jd\\n", 9223372036854775807);
+
+printf("\n");
+ft_printf("%jd\\n", 9223372036854775807);
+printf("\n");
+printf("\n");
+
+
+printf("%d\\n", 9223372036854775807);
+  printf("\n");
+  printf("%d\\n", 9223372036854775807);
+
+printf("\n");
+printf("\n");
+  ft_printf("\\n");
+  printf("\n");
+  printf("\\n");
+printf("\n");
+  ft_printf("%%\\n");
+  printf("\n");
+  printf("%%\\n");
+printf("\n");
+  ft_printf("%d\\n", 42);
+  printf("\n");
+  printf("%d\\n", 42);
+  printf("\n");
+  ft_printf("%d%d\\n", 42, 41);
+  printf("\n");
+  printf("%d%d\\n", 42, 41);
+  printf("\n");
+  ft_printf("%d%d%d\\n", 42, 43, 44);
+  printf("\n");
+  printf("%d%d%d\\n", 42, 43, 44);
+  printf("\n");
+  ft_printf("%ld\\n", 2147483647);
+  printf("\n");
+  printf("%ld\\n", 2147483647);
+  printf("\n");
+  ft_printf("%lld\\n", 9223372036854775807);
+  printf("\n");
+  printf("%lld\\n", 9223372036854775807);
+  printf("\n");
+  ft_printf("%x\\n", 505);
+  printf("\n");
+  printf("%x\\n", 505);
+  printf("\n");
+  ft_printf("%X\\n", 505);
+  printf("\n");
+  printf("%X\\n", 505);
+  printf("\n");
+  ft_printf("%p\\n", &ft_printf);
+  printf("\n");
+  printf("%p\\n", &ft_printf);
+  printf("\n");
+  ft_printf("%20.15d\\n", 54321);
+  printf("\n");
+  printf("%20.15d\\n", 54321);
+  printf("\n");
+  ft_printf("%-10d\\n", 3);
+  printf("\n");
+  printf("%-10d\\n", 3);
+  printf("\n");
+  ft_printf("% d\\n", 3);
+  printf("\n");
+  printf("% d\\n", 3);
+  printf("\n");
+  ft_printf("%+d\\n", 3);
+  printf("\n");
+  printf("%+d\\n", 3);
+  printf("\n");
+  ft_printf("%010d\\n", 1);
+  printf("\n");
+  printf("%010d\\n", 1);
+  printf("\n");
+  ft_printf("%hhd\\n", 0);
+  printf("\n");
+  printf("%hhd\\n", 0);
+  printf("\n");
+  ft_printf("%jd\\n", 9223372036854775807);
+  printf("\n");
+  printf("%jd\\n", 9223372036854775807);
+  printf("\n");
+  ft_printf("%zd\\n", 4294967295);
+  printf("\n");
+  printf("%zd\\n", 4294967295);
+  printf("\n");
+  ft_printf("%\\n");
+  printf("\n");
+  printf("%\\n");
+  printf("\n");
+  ft_printf("%U\\n", 4294967295);
+  printf("\n");
+  printf("%U\\n", 4294967295);
+  printf("\n");
+  ft_printf("%u\\n", 4294967295);
+  printf("\n");
+  printf("%u\\n", 4294967295);
+  printf("\n");
+printf("LINE 164");
+  printf("\n");
+  ft_printf("%o\\n", 40);
+  printf("\n");
+  printf("%o\\n", 40);
+  printf("\n");
+  ft_printf("%%#08x\\n", 42);
+  printf("\n");
+  printf("%%#08x\\n", 42);
+  printf("\n");
+  ft_printf("%x\\n", 1000);
+  printf("\n");
+  printf("%x\\n", 1000);
+  printf("\n");
+  
+  ft_printf("%#X\\n", 1000);
+  printf("\n");
+  printf("%#X\\n", 1000);
+  printf("\n");
+  
+  ft_printf("%s\\n", NULL);
+  printf("\n");
+  printf("%s\\n", NULL);
+  printf("\n");
+  
+  ft_printf("%S\\n", L"ݗݜशব");
+  printf("\n");
+  printf("%S\\n", L"ݗݜशব");
+  printf("\n");
+  
+  ft_printf("%s%s\\n", "test", "test");
+  printf("\n");
+  printf("%s%s\\n", "test", "test");
+  printf("\n");
+  
+  ft_printf("%s%s%s\\n", "test", "test", "test");
+  printf("\n");
+  printf("%s%s%s\\n", "test", "test", "test");
+  printf("\n");
+  
+  ft_printf("%C\\n", 15000);
+  printf("\n");
+  printf("%C\\n", 15000);
+  printf("\n");
+  printf("\n");
+
+
+
+
+  printf("\\n");
+  printf("%%\\n");
+  printf("%d\\n", 42);
+  printf("%d%d\\n", 42, 41);
+  printf("%d%d%d\\n", 42, 43, 44);
+  printf("%ld\\n", 2147483647);
+  printf("%lld\\n", 9223372036854775807);
+  printf("%x\\n", 505);
+  printf("%X\\n", 505);
+  printf("%p\\n", &printf);
+  printf("%20.15d\\n", 54321);
+  printf("%-10d\\n", 3);
+  printf("% d\\n", 3);
+  printf("%+d\\n", 3);
+  printf("%010d\\n", 1);
+  printf("%hhd\\n", 0);
+  printf("%jd\\n", 9223372036854775807);
+  printf("%zd\\n", 4294967295);
+  printf("%\\n");
+  printf("%U\\n", 4294967295);
+  printf("%u\\n", 4294967295);
+  printf("%o\\n", 40);
+  printf("%%#08x\\n", 42);
+  printf("%x\\n", 1000);
+  printf("%#X\\n", 1000);
+  printf("%s\\n", NULL);
+  printf("%S\\n", L"ݗݜशব");
+  printf("%s%s\\n", "test", "test");
+  printf("%s%s%s\\n", "test", "test", "test");
+  printf("%C\\n", 15000);
+
+
+/*
+  printf("\n");
+  ft_printf("Test 18.c)1 L \n");
+  o = printf("   printf printing float 3.1416 with .222f = %.222f\n", 3.1416);
+  i = ft_printf("ft_printf printing float 3.1416 with .222f = %.222f\n", 3.1416);
+  printf(" my length %i. system lenght %i\n\n", i, o);
+
+  printf("\n");
+  ft_printf("Test 18.c)1 L \n");
+  o = printf("   printf printing float 1249328409.34897329487 with .22Lf = %.22Lf\n", lo);
+  i = ft_printf("ft_printf printing float 1249328409.34897329487 with .22Lf = %.22Lf\n", li);
+  printf(" my length %i. system lenght %i\n\n", i, o);
+
+  printf("\n");
+  ft_printf("Test 18.c)1 L \n");
+  o = printf("   printf printing float 1249328409.34897329487 with .153 = %.222Lf\n", lo);
+  i = ft_printf("ft_printf printing float 1249328409.34897329487 with .222Lf = %.222Lf\n", li);
+  printf(" my length %i. system lenght %i\n\n", i, o);
+
+  printf("\n");
+  i = ft_printf("ft_printf printing float 3.1416 with . = %.13Lf\n", 443.14168);
+  o = printf("   printf printing float 3.1416 with . = %.13Lf\n", 443.14168);
+
+  li = 3.1416;
+  lo = 3.1416;
+  ft_printf("Test 18.c)1 L \n");
+  o = printf("   printf printing float 3.1416 with .153 = %.153Lf\n", lo);
+  i = ft_printf("ft_printf printing float 3.1416 with .153 = %.153Lf\n", li);
+  printf(" my length %i. system lenght %i\n\n", i, o);
+
+  ft_printf("Test 18.c)2 L \n");
+  o = printf("   printf printing float 3.1416 with .112 = %.112f\n", lo);
+  i = ft_printf("ft_printf printing float 3.1416 with .112 = %.112f\n", li);
+  printf(" my length %i. system lenght %i\n\n", i, o);
+
+  printf("# 0146 (long long)");
+  printf("\n");
+  printf("\n");
+  o = printf("%lld", -9223372036854775808);
+  printf("\n");
+  i = printf("%lld", -9223372036854775808);
+  printf("\n");
   printf("\n");
    printf("my length = %i", i);
 printf("\n");

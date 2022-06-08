@@ -107,6 +107,8 @@ int	read_while(const char *format, va_list ap, int i, int chars_printed)
 		flags = parse_specifier(format);
 		if (flags[0] != '%' && flags[0] != '\1')
 			chars_printed += read_flags(flags, ap);
+		else if (flags[0] == '%')
+			chars_printed += ft_putnchar("%", 1);
 		else
 		{
 			chars_printed += ft_putnchar("%", 1);
