@@ -60,12 +60,13 @@ static int		all_digits(const char *flags, int len)
 
 	i = 0;
 	c = flags[i];
-	while (c != '\0' && c != '%' && ft_issign(c) == 1 && c == '0')
+	while ((c != '\0' && c != '%') && (ft_issign(c) == 1 || c == '0'))
 		c = flags[i++];
 	while(c != '\0' && c != '%' && ft_isdigit(c) == 1)
 	{
-		if ((int)len == ++i)
+		if ((int)len == i)
 			return (1);
+		c = flags[i++];
 	}
 	return (0);
 }
@@ -111,7 +112,7 @@ static void	free_char(char **flags)
 	}
 }
 
-int	read_while(const char *format, va_list ap, int i, int chars_printed)
+static int	read_while(const char *format, va_list ap, int i, int chars_printed)
 {
 	char	*flags;
 
@@ -134,7 +135,9 @@ int	read_while(const char *format, va_list ap, int i, int chars_printed)
 			chars_printed += ft_putnchar(format, ft_strlen(flags));
 		}
 		format += ft_strlen(flags);
-		if (*flags != '%')
+		if (ft_strlen(flags) > 1)
+			ft_strdel(&flags);
+		else if (flags[0] != '%')
 			ft_strdel(&flags);
 		i = ft_lookforchar(format, '%');
 	}

@@ -35,6 +35,11 @@ int	main()
 printf("\n");
 
 
+
+
+
+
+
 printf("NOT WORKING -10");
 printf("\n");
 o = printf("%-00--+-2450%");
