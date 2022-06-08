@@ -104,7 +104,7 @@ int				print_d(t_flags *flag_s, va_list ap, int chars_printed);
 int				print_f(t_flags *flag_s, va_list ap, int chars_printed);
 int				print_i(t_flags *flag_s, va_list ap, int chars_printed);
 int				print_o(t_flags *flag_s, va_list ap, int chars_printed);
-int				print_p(void *pointer);
+int				print_p(t_flags *flag_s, va_list ap, int chars_printed);
 int				print_s(t_flags *flag_s, char *s, int chars_printed);
 int				print_u(t_flags *flag_s, va_list ap, int chars_printed);
 int				print_x(t_flags *flag_s, va_list ap, int chars_printed);

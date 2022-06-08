@@ -132,9 +132,9 @@ t_flags	*return_flags(const char *flags)
 		remainder = find_spec(flag_s, temp);
 		if (ft_strcmp(remainder, "") != 0)
 		{
-			remainder = find_flags(flag_s, remainder, -1);
+			remainder = find_prec(flag_s, remainder);
 			if (ft_strcmp(remainder, "") != 0)
-				remainder = find_prec(flag_s, remainder);
+				remainder = find_flags(flag_s, remainder, -1);
 		}
 	}
 	fix_overrides(flag_s, flags[ft_strlen(flags) - 1]);

@@ -27,7 +27,7 @@ static	int	match_function(t_flags *flags, va_list ap, int c, int printed_c)
 	else if (c == 'o')
 		printed_c += print_o(flags, ap, printed_c);
 	else if (c == 'p')
-		printed_c += print_p((void *) va_arg(ap, void *));
+		printed_c += print_p(flags, ap, printed_c);
 	else if (c == 's')
 		printed_c += print_s(flags, (char *) va_arg(ap, char *), printed_c);
 	else if (c == 'u')

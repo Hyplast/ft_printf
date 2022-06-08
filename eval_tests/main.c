@@ -30,9 +30,103 @@ int	main()
 	my = "hello";
 	system = "hello";
 
+int a01 = 1;
+int a02 = 1;
+int a03 = 1;
+int a04 = 1;
+int a05 = 1;
+int a06 = 1;
+int a07 = 1;
+int a08 = 1;
+int a09 = 1;
+int a10 = 1;
+int a11 = 1;
+int a12 = 1;
 
 
 printf("\n");
+
+
+printf("NOT WORKING -33");
+printf("\n");
+o =    printf("%-10.5d", -216);
+printf("\n");
+i = ft_printf("%-10.5d", -216);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+
+printf("NOT WORKING -32");
+printf("\n");
+o =    printf("->%-32p%-32p%-32p%-32p%-32p%-32p%-32p%-32p%-32p%-32p%-32p%-32p<-",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10);
+printf("\n");
+i = ft_printf("->%-32p%-32p%-32p%-32p%-32p%-32p%-32p%-32p%-32p%-32p%-32p%-32p<-",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+printf("NOT WORKING -31");
+printf("\n");
+printf("->");
+o = printf("%70p",&a01);
+printf("<-");
+printf("\n");
+printf("->");
+i = ft_printf("%70p",&a01);
+printf("<-");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+printf("NOT WORKING -30");
+printf("\n");
+printf("->");
+o = printf("%70p%70p%70p%70p%70p%70p%70p%70p%70p%70p%70p%70p",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12);
+printf("<-");
+printf("\n");
+printf("->");
+i = ft_printf("%70p%70p%70p%70p%70p%70p%70p%70p%70p%70p%70p%70p",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12);
+printf("<-");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+
+printf("NOT WORKING -29");
+printf("\n");
+printf("->");
+o = printf("%5p", 0);
+printf("<-");
+printf("\n");
+printf("->");
+i = ft_printf("%5p", 0);
+printf("<-");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+
+printf("NOT WORKING -28");
+printf("\n");
+printf("->");
+o = printf("%p", NULL);
+printf("<-");
+printf("\n");
+printf("->");
+i = ft_printf("%p", NULL);
+printf("<-");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+
 
 printf("NOT WORKING -27.a");
 printf("\n");
@@ -91,10 +185,10 @@ printf("\n");
 
 printf("NOT WORKING -25");
 printf("\n");
-o = printf("%-7.5d", 2);
+o = printf("->%-7.5d<-", 2);
 
 printf("\n");
-i = ft_printf("%-7.5d", 2);
+i = ft_printf("->%-7.5d<-", 2);
 printf("\n");
 printf("Mine lenght %i, system length %i\n", i, o);
 printf("\n");
@@ -110,10 +204,10 @@ printf("\n");
 
 printf("NOT WORKING -25.b");
 printf("\n");
-o = printf("%7.-5d", 2);
+o = printf("->%7.-5d<-", 2);
 
 printf("\n");
-i = ft_printf("%7.-5d", 2);
+i = ft_printf("->%7.-5d<-", 2);
 printf("\n");
 printf("Mine lenght %i, system length %i\n", i, o);
 printf("\n");
@@ -212,10 +306,10 @@ printf("\n");
 
 printf("NOT WORKING -23.c");
 printf("\n");
-o = printf("%.03s", NULL);
+o = printf("->%.03s<-", NULL);
 
 printf("\n");
-i = ft_printf("%.03s", NULL);
+i = ft_printf("->%.03s<-", NULL);
 printf("\n");
 printf("Mine lenght %i, system length %i\n", i, o);
 printf("\n");
@@ -229,17 +323,17 @@ printf("Mine lenght %i, system length %i\n", i, o);
 printf("\n");
 printf("NOT WORKING -23.e");
 printf("\n");
-o = printf("%.s", NULL);
+o = printf("->%.s<-", NULL);
 printf("\n");
-i = ft_printf("%.s", NULL);
+i = ft_printf("->%.s<-", NULL);
 printf("\n");
 printf("Mine lenght %i, system length %i\n", i, o);
 printf("\n");
 printf("NOT WORKING -23.f");
 printf("\n");
-o = printf("%.0s", NULL);
+o = printf("->%.0s<-", NULL);
 printf("\n");
-i = ft_printf("%.0s", NULL);
+i = ft_printf("->%.0s<-", NULL);
 printf("\n");
 printf("Mine lenght %i, system length %i\n", i, o);
 printf("\n");
