@@ -18,6 +18,12 @@ int	print_u(t_flags *flag_s, va_list ap, int chars_printed)
 	uintmax_t		u;
 
 	u = unsigned_conv(flag_s, ap);
+	if (u == 0 && flag_s->prec != 0)
+		return (chars_printed += print_c('0'));
+	else if (u == 0 && flag_s->prec == 0 && flag_s->sharp == 1)
+		return (chars_printed);
+	else if (u == 0 && flag_s->prec == 0)
+		return (chars_printed += print_before(flag_s, chars_printed, "", 32));
 	if (flag_s->spec == 1 || flag_s->spec == 2)
 		s = ft_lutoa(u);
 	else

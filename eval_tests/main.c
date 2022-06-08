@@ -34,7 +34,113 @@ int	main()
 
 printf("\n");
 
+printf("NOT WORKING -18");
+printf("\n");
+o = printf("%+0#c", 0);
 
+printf("\n");
+i = ft_printf("%+0#c", 0);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+printf("\n");
+o = printf("%- hhc", 0);
+
+printf("\n");
+i = ft_printf("%- hhc", 0);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+
+printf("NOT WORKING -17");
+printf("\n");
+o = printf("%.X, %.0X", 0, 0);
+
+printf("\n");
+i = ft_printf("%.X, %.0X", 0, 0);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+printf("NOT WORKING -16");
+printf("\n");
+o = printf("%.d, %.0d", 0, 0);
+
+printf("\n");
+i = ft_printf("%.d, %.0d", 0, 0); // memory leak!
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+
+printf("NOT WORKING -15");
+printf("\n");
+o = printf("%.u, %.0u", 0, 0);
+
+printf("\n");
+i = ft_printf("%.u, %.0u", 0, 0);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+
+
+printf("NOT WORKING -14");
+printf("\n");
+o = printf("%#c", 0);
+
+printf("\n");
+i = ft_printf("%#c", 0);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+printf("\n");
+o = printf("%c", 0);
+
+printf("\n");
+i = ft_printf("%c", 0);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+
+printf("NOT WORKING -13");
+printf("\n");
+o = printf("{%5p}", 0);
+
+printf("\n");
+i = ft_printf("{%5p}", 0);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+printf("NOT WORKING -12");
+printf("\n");
+o = printf("%");
+
+printf("\n");
+i = ft_printf("%");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+
+printf("NOT WORKING -11");
+printf("\n");
+o = printf("%p", 0);
+
+printf("\n");
+i = ft_printf("%p", 0);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
 
 
 
