@@ -86,16 +86,16 @@ int	print_i(t_flags *flag_s, va_list ap, int chars_printed)
 	uintmax_t	i;
 
 	i = signed_conv(flag_s, ap);
+	if (i == 0 && flag_s->prec == 0 && flag_s->sharp == 1)
+		return (chars_printed);
+	else if (i == 0 && flag_s->prec == 0)
+		return (chars_printed += print_before(flag_s, chars_printed, "", 32));
 	if (flag_s->spec == 1)
 		s = ft_litoa(i);
 	else if (flag_s->spec == 2)
 		s = ft_llitoa(i);
 	else
 		s = ft_itoa(i);
-	if (i == 0 && flag_s->prec == 0 && flag_s->sharp == 1)
-		return (chars_printed);
-	else if (i == 0 && flag_s->prec == 0)
-		return (chars_printed += print_before(flag_s, chars_printed, "", 32));
 	chars_printed = print_before(flag_s, chars_printed, s, 'd');
 	if (ft_strcmp(s, "-9223372036854775808") != 0)
 		ft_strdel(&s);

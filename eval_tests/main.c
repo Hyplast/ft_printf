@@ -34,6 +34,36 @@ int	main()
 
 printf("\n");
 
+
+
+
+printf("NOT WORKING -20");
+printf("\n");
+o = printf("{%#.5x}", 1);
+
+printf("\n");
+i = ft_printf("{%#.5x}", 1);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+
+
+printf("NOT WORKING -19");
+printf("\n");
+o = printf("%.5p", 0);
+
+printf("\n");
+i = ft_printf("%.5p", 0);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+
+
+
 printf("NOT WORKING -18");
 printf("\n");
 o = printf("%+0#c", 0);

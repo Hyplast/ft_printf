@@ -54,6 +54,7 @@ int	print_sharp_w_spaces(t_flags *flag, int c_p, char *s, char c)
 		c_p += 1;
 	c_p += ft_putcx(' ', flag->width - ft_strlen(s) - c_p);
 	print_section(flag, c_p, s, c);
+	c_p += ft_putcx('0', flag->prec - ft_strlen(s));
 	if (flag->minus == 1)
 		c_p += ft_putnchar(s, ft_strlen(s));
 	if (flag->minus == 0)
