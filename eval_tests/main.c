@@ -33,6 +33,115 @@ int	main()
 
 
 printf("\n");
+
+
+printf("NOT WORKING -10");
+printf("\n");
+o = printf("%-00--+-2450%");
+
+printf("\n");
+i = ft_printf("%-00--+5%");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+
+printf("NOT WORKING -9");
+printf("\n");
+o = printf("%00--+5%");
+
+printf("\n");
+i = ft_printf("%00--+5%");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+
+printf("NOT WORKING -8");
+printf("\n");
+o = printf("%0+5%");
+
+printf("\n");
+i = ft_printf("%0+5%");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+
+printf("NOT WORKING -7");
+printf("\n");
+o = printf("%5-5%");
+
+printf("\n");
+i = ft_printf("%5-5%");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+printf("NOT WORKING -6");
+printf("\n");
+o = printf("%543345%");
+
+printf("\n");
+i = ft_printf("%543345%");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+printf("\n");
+printf("NOT WORKING -5");
+printf("\n");
+o = printf("%543345we%");
+
+printf("\n");
+i = ft_printf("%543345we%");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+
+printf("\n");
+printf("NOT WORKING -4");
+printf("\n");
+o = printf("%5%");
+
+printf("\n");
+i = ft_printf("%5%");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+printf("\n");
+printf("NOT WORKING -3");
+printf("\n");
+o = printf("%-5%");
+
+printf("\n");
+i = ft_printf("%-5%");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+printf("\n");
+printf("NOT WORKING -2");
+printf("\n");
+o = printf("%+d", 4242424242424242424242);
+
+printf("\n");
+i = ft_printf("%+d", 4242424242424242424242);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+printf("\n");
 printf("NOT WORKING -1");
 printf("\n");
 printf("%\\n");
@@ -85,21 +194,79 @@ printf("\n");
 
 printf("NOT WORKING 3");
 printf("\n");
+printf("System ->\n");
 printf("%C\\n", 15000);
+printf("\n<- System\n");
+printf("\n");
+printf("Mine ->\n");
+ft_printf("%C\\n", 15000);
+printf("\n<- Mine\n");
+printf("\n");
+printf("\n");
 
 printf("\n");
-ft_printf("%C\\n", 15000);
+printf("System ->\n");
+printf("%lc\\n", 15000);
+printf("\n<- System\n");
+printf("\n");
+printf("Mine ->\n");
+ft_printf("%lc\\n", 15000);
+printf("\n<- Mine\n");
 printf("\n");
 printf("\n");
+
+
+printf("\n");
+printf("System ->\n");
+printf("%c\\n", 15000);
+printf("\n<- System\n");
+printf("\n");
+printf("Mine ->\n");
+ft_printf("%c\\n", 15000);
+printf("\n<- Mine\n");
+printf("\n");
+printf("\n");
+
+
 
 printf("NOT WORKING 4");
 printf("\n");
+printf("System ->\n");
 printf("%S\\n", L"ݗݜशব");
+printf("\n<- System\n");
 
 printf("\n");
+printf("Mine ->\n");
 ft_printf("%S\\n", L"ݗݜशব");
+printf("\n<- Mine\n");
 printf("\n");
 printf("\n");
+
+printf("\n");
+printf("System ->\n");
+printf("%ls\\n", L"ݗݜशব");
+printf("\n<- System\n");
+
+printf("\n");
+printf("Mine ->\n");
+ft_printf("%ls\\n", L"ݗݜशব");
+printf("\n<- Mine\n");
+printf("\n");
+printf("\n");
+
+printf("\n");
+printf("System ->\n");
+printf("%s\\n", L"ݗݜशব");
+printf("\n<- System\n");
+
+printf("\n");
+printf("Mine ->\n");
+ft_printf("%s\\n", L"ݗݜशব");
+printf("\n<- Mine\n");
+printf("\n");
+printf("\n");
+
+
 
 printf("NOT WORKING 5");
 printf("\n");

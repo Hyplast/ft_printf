@@ -53,6 +53,23 @@ static	int	read_flags(char *flags, va_list ap)
 	return (chars_printed);
 }
 
+static int		all_digits(const char *flags, int len)
+{
+	int		i;
+	char	c;
+
+	i = 0;
+	c = flags[i];
+	while (c != '\0' && c != '%' && ft_issign(c) == 1 && c == '0')
+		c = flags[i++];
+	while(c != '\0' && c != '%' && ft_isdigit(c) == 1)
+	{
+		if ((int)len == ++i)
+			return (1);
+	}
+	return (0);
+}
+
 static	char	*parse_specifier(const char *flags)
 {
 	size_t	len;
@@ -77,6 +94,8 @@ static	char	*parse_specifier(const char *flags)
 	temp = ft_strnew(len + 1);
 	while (i < (int)len + 1)
 		temp[i++] = '\1';
+	if (all_digits(flags, (int)len) == 1)
+		temp[0] = '%';
 	return (temp);
 }
 

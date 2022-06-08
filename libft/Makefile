@@ -30,6 +30,7 @@ ft_strstr.c \
 ft_strnstr.c \
 ft_isalpha.c \
 ft_isdigit.c \
+ft_issign.c \
 ft_isalnum.c \
 ft_isprint.c \
 ft_isascii.c \
