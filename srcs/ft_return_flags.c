@@ -83,7 +83,7 @@ static char	*find_prec(t_flags *flag_s, char *flags)
 		if (index == 0)
 			flags = "";
 		else
-			flags = shorten_chars(flags, 0, index);
+			flags = shorten_chars(flags, 0, ft_strlen(flags) - index);
 	}
 	return (flags);
 }
@@ -132,9 +132,9 @@ t_flags	*return_flags(const char *flags)
 		remainder = find_spec(flag_s, temp);
 		if (ft_strcmp(remainder, "") != 0)
 		{
-			remainder = find_prec(flag_s, remainder);
+			remainder = find_flags(flag_s, remainder, -1);
 			if (ft_strcmp(remainder, "") != 0)
-				remainder = find_flags(flag_s, remainder, -1);
+				remainder = find_prec(flag_s, remainder);
 		}
 	}
 	fix_overrides(flag_s, flags[ft_strlen(flags) - 1]);

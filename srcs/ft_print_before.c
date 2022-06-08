@@ -103,12 +103,44 @@ int	just_print(t_flags *flag, int c_p, char *s, char c)
 	return (c_p);
 }
 
+int	print_str_w_flags(t_flags *flag, int c_p, char *s)
+{
+	c_p += ft_strlen(s);
+	if (flag->minus == 0)
+	{
+		if (flag->zero == 1)
+			c_p += ft_putcx('0', flag->width - c_p);
+		else
+			c_p += ft_putcx(' ', flag->width - c_p);
+	}
+	ft_putnchar(s, ft_strlen(s));
+	if (flag->minus == 1)
+	{
+		if (flag->zero == 1)
+		{
+			c_p += ft_putcx('0', flag->width - c_p);
+			if	(flag->width != 0)
+				c_p += ft_putcx('0', flag->width - flag->prec - c_p);
+		}
+		else
+		{
+			c_p += ft_putcx(' ', flag->width - c_p);
+			if	(flag->width != 0)
+				c_p += ft_putcx(' ', flag->width - flag->prec - c_p);
+		}
+		
+	}
+	return (c_p);
+}
+
 int	print_before(t_flags *flag, int c_p, char *s, char c)
 {
 	if (c == 'o' || c == 'u' || c == 'x' || c == 'X')
 		return (print_u_int(flag, c_p, s, c));
 	if (c == 'd' || c == 'i')
 		return (print_int(flag, c_p, s, c));
+	if (c == 's')
+		return(print_str_w_flags(flag, c_p, s));
 	if (flag->space == 1 && s[0] != '-' && flag->plus == 0 && c != '\0')
 		c_p += print_c(' ');
 	if (flag->zero == 1 || (flag->sharp == 1))

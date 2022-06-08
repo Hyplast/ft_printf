@@ -35,9 +35,11 @@ int	print_s(t_flags *flag_s, char *s, int chars_printed)
 	if (flag_s->prec < (int)ft_strlen(s) && flag_s->prec != -1)
 	{
 		temp = ft_strsub(s, 0, (flag_s->prec));
-		s = temp;
+		chars_printed += print_before(flag_s, chars_printed, temp, 's');
+		ft_strdel(&temp);
 	}
-	chars_printed += print_before(flag_s, chars_printed, s, 's');
+	else
+		chars_printed += print_before(flag_s, chars_printed, s, 's');
 	return (chars_printed);
 }
 

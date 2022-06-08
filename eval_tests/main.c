@@ -34,16 +34,183 @@ int	main()
 
 printf("\n");
 
-
-printf("NOT WORKING -23");
+printf("NOT WORKING -27.a");
 printf("\n");
-o = printf("%-7.5s", "yolo");
-
+printf("->");
+o = printf("%-333.2s", "yoloforme");
+printf("<-");
 printf("\n");
-i = ft_printf("%-7.5s", "yolo");
+printf("->");
+i = ft_printf("%-333.2s", "yoloforme");
+printf("<-");
 printf("\n");
 printf("Mine lenght %i, system length %i\n", i, o);
 printf("\n");
+
+printf("NOT WORKING -27.b");
+printf("\n");
+printf("->");
+o = printf("%333.2s", "yoloforme");
+printf("<-");
+printf("\n");
+printf("->");
+i = ft_printf("%333.2s", "yoloforme");
+printf("<-");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+
+printf("NOT WORKING -26.a");
+printf("\n");
+printf("->");
+o = printf("%-2.33s", "yoloforme");
+printf("<-");
+printf("\n");
+printf("->");
+i = ft_printf("%-2.33s", "yoloforme");
+printf("<-");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+printf("NOT WORKING -26.b");
+printf("\n");
+printf("->");
+o = printf("%2.33s", "yoloforme");
+printf("<-");
+printf("\n");
+printf("->");
+i = ft_printf("%2.33s", "yoloforme");
+printf("<-");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+printf("NOT WORKING -25");
+printf("\n");
+o = printf("%-7.5d", 2);
+
+printf("\n");
+i = ft_printf("%-7.5d", 2);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+printf("NOT WORKING -25.a");
+printf("\n");
+o = printf("%7.5d", 2);
+
+printf("\n");
+i = ft_printf("%7.5d", 2);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+printf("NOT WORKING -25.b");
+printf("\n");
+o = printf("%7.-5d", 2);
+
+printf("\n");
+i = ft_printf("%7.-5d", 2);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+printf("NOT WORKING -25.c");
+printf("\n");
+o = printf("%7.5-d", 2);
+
+printf("\n");
+i = ft_printf("%7.5-d", 2);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+printf("NOT WORKING -24.a");
+printf("\n");
+o = printf("%.-05d", 2);
+
+printf("\n");
+i = ft_printf("%.-05d", 2);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+printf("NOT WORKING -24");
+printf("\n");
+o = printf("%.-5d", 2);
+
+printf("\n");
+i = ft_printf("%.-5d", 2);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+printf("NOT WORKING -23");
+printf("\n");
+printf("->");
+o = printf("%-7.5s", "yolo");
+printf("<-");
+printf("\n");
+printf("->");
+i = ft_printf("%-7.5s", "yolo");
+printf("<-");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+printf("NOT WORKING -23.a");
+printf("\n");
+printf("->");
+o = printf("%-27.9s", "yolo");
+printf("<-");
+printf("\n");
+printf("->");
+i = ft_printf("%-27.9s", "yolo");
+printf("<-");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+printf("\n");
+printf("->");
+o = printf("%027.9s", "yolo");
+printf("<-");
+printf("\n");
+printf("->");
+i = ft_printf("%027.9s", "yolo");
+printf("<-");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+printf("NOT WORKING -23.b");
+printf("\n");
+printf("->");
+o = printf("%-9.27s", "yolo");
+printf("<-");
+printf("\n");
+printf("->");
+i = ft_printf("%-9.27s", "yolo");
+printf("<-");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+printf("\n");
+printf("->");
+o = printf("%9.27s", "yolo");
+printf("<-");
+printf("\n");
+printf("->");
+i = ft_printf("%9.27s", "yolo");
+printf("<-");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+printf("NOT WORKING -23.c");
 printf("\n");
 o = printf("%.03s", NULL);
 
@@ -52,6 +219,33 @@ i = ft_printf("%.03s", NULL);
 printf("\n");
 printf("Mine lenght %i, system length %i\n", i, o);
 printf("\n");
+printf("NOT WORKING -23.d");
+printf("\n");
+o = printf("%s", NULL);
+printf("\n");
+i = ft_printf("%s", NULL);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+printf("NOT WORKING -23.e");
+printf("\n");
+o = printf("%.s", NULL);
+printf("\n");
+i = ft_printf("%.s", NULL);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+printf("NOT WORKING -23.f");
+printf("\n");
+o = printf("%.0s", NULL);
+printf("\n");
+i = ft_printf("%.0s", NULL);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+
 
 
 
