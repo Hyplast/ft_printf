@@ -16,7 +16,7 @@ int	print_char(t_flags *flag_s, char c, int chars_printed)
 {
 	char		*temp;
 
-	if (c == '\0')
+	if (c == '\0' && flag_s->len == 0)
 		return (print_c('\0'));
 	temp = ft_strnew(1);
 	temp[0] = c;
@@ -33,8 +33,8 @@ int	print_s(t_flags *flag_s, char *s, int chars_printed)
 		return (print_before(flag_s, chars_printed, "(null)", 's'));
 	else if	(s == NULL)
 		return(0);
-	else if ((int)*s > 0)
-		return (0);
+	// else if ((int)*s > 0)
+	// 	return (0);
 	if (flag_s->prec < (int)ft_strlen(s) && flag_s->prec != -1)
 	{
 		temp = ft_strsub(s, 0, (flag_s->prec));
@@ -55,8 +55,10 @@ int	print_p(t_flags *flag_s, va_list ap, int chars_printed)
 
 	ptr = (void *) va_arg(ap, void *);
 	// ptr = (size_t)pointer;
+	if (ptr == 0 && flag_s->prec == 0)
+		return (print_before(flag_s, chars_printed, "0x", 'p'));
 	if (ptr == 0)
-		return (ft_putnchar("(nil)", ft_strlen("(nil)")));
+		return (print_before(flag_s, chars_printed, "0x0", 'p'));
 	s = ft_basetoa((long unsigned int)ptr, 16, ' ');
 	temp = ft_strjoin("0x", s);
 	ft_strdel(&s);

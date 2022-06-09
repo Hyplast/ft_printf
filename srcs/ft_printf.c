@@ -79,15 +79,15 @@ static	char	*parse_specifier(const char *flags)
 	char	*temp;
 
 	i = 0;
-	elem = ft_strlen(SPECIFIERS);
+	elem = ft_strlen(VALID_FORMAT);
 	len = 0;
 	if (*flags == '%')
 		return (ft_strdup("%"));
 	while (flags[len] != '\0' && flags[len] != '%')
 	{
-		while (flags[len] != SPECIFIERS[i] && i < elem)
+		while (flags[len] != VALID_FORMAT[i] && i < elem)
 			i++;
-		if (flags[len] == SPECIFIERS[i])
+		if (flags[len] == VALID_FORMAT[i])
 			return (ft_strsub(flags, 0, len + 1));
 		i = 0;
 		len++;

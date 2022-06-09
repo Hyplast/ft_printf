@@ -125,7 +125,7 @@ int	print_str_w_flags(t_flags *flag, int c_p, char *s)
 		else
 		{
 			c_p += ft_putcx(' ', flag->width - c_p);
-			if	(flag->width != 0)
+			if	(flag->width != 0 && flag->prec != -1)
 				c_p += ft_putcx(' ', flag->width - flag->prec - c_p);
 		}
 		

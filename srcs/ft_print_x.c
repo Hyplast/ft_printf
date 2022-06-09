@@ -60,7 +60,7 @@ int	print_x(t_flags *flag_s, va_list ap, int chars_printed)
 	uintmax_t	x;
 
 	x = unsigned_conv(flag_s, ap);
-	if (x == 0 && flag_s->prec != 0 && flag_s->len == 0)
+	if ((x == 0 && flag_s->prec != 0 && flag_s->len == 0) || (x == 0 && flag_s->sharp == 1 && flag_s->len == 1))
 		return (chars_printed += print_c('0'));
 	else if (x == 0 && flag_s->prec == 0 && flag_s->sharp == 1)
 		return (chars_printed);

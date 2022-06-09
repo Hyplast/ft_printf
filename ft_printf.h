@@ -6,7 +6,7 @@
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 09:54:01 by severi            #+#    #+#             */
-/*   Updated: 2022/06/06 10:41:54 by severi           ###   ########.fr       */
+/*   Updated: 2022/05/22 14:21:14 by severi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,8 @@
 
 # include <stdarg.h>
 # include <stdint.h>
-# include "libft.h"
+# include "libft/includes/libft.h"
 
-# define VALID_FORMAT "bcdfiopsuxX"
-# define VALID_FLAGS "+- 0#"
-# define VALID_WIDTH "0123456789"
-# define VALID_PREC "0123456789"
-# define VALID_SPECI "lLh"
 /* spec
 * n l ll L h hh
 * 0 1 2  3 4 5
@@ -41,10 +36,10 @@ typedef struct s_flags
 
 typedef struct s_calc
 {
-	int			len_one;
-	int			len_two;
-	int			len_one_static;
-	int			len_two_static;
+	int			len1;
+	int			len2;
+	int			len1_static;
+	int			len2_static;
 	int			max;
 	int			min;
 	int			sum;
@@ -52,7 +47,7 @@ typedef struct s_calc
 }				t_calc;
 
 int				ft_printf(const char *format, ...);
-void			ft_round(char **result, int precision);
+void			ft_round(char **res, int precision);
 void			fill_prec(char *ret, char *str, int size);
 int				ft_max(int a, int b);
 int				ft_min(int a, int b);
@@ -61,29 +56,29 @@ char			*ft_strrev(char *str);
 int				ft_str_isdigit(char *s);
 char			*ft_dftoa(double x);
 char			*ft_ldftoa(long double x);
-char			*ft_bin_to_int(char *vlq);
-char			*ft_bin_to_dec(char *vlq);
-void			calculate_float(char *mantissa, int exp, char **res);
-void			calculate_float_l(char *mantissa, int exp, char **res);
+char			*ft_bintowhole(char *vlq);
+char			*ft_bintodec(char *vlq);
+void			get_res(char *mantissa, int exp, char **res);
+void			get_res_l(char *mantissa, int exp, char **res);
 int				get_exp(char *exp_str);
 int				get_exp_l(char *exp_str);
 char			**ft_frexp(double x);
 char			**ft_frexpl(long double x);
-void			vlq_calculate_info(t_calc *info, char *s1, char *s2);
+void			calc_info(t_calc *info, char *s1, char *s2);
 void			free_res(char **res);
 void			free_calc(t_calc *info);
 char			*vlq_sum(char *s1, char *s2);
-char			*vlq_multiply(char *s1, char *s2);
-char			*vlq_power_of_two(int n);
-char			*vlq_power_of_five(int n);
-int				power_of_two(int n);
-char			*vlq_raise_pow_ten(char *vlq, int n);
-void			vlq_n_shift(char *s, int size, int shifts);
+char			*vlq_mult(char *s1, char *s2);
+char			*vlq_binpow(int n);
+char			*vlq_fivepow(int n);
+int				pow2(int pow);
+char			*get_pow_ten(char *vlq, int n);
+void			vlq_nshift(char *s, int size, int shifts);
 void			vlq_shift_left(char *s, int size);
 void			vlq_initialize(char *vlq, int c, int size);
-void			vlq_char_conv(t_calc *info, char *s1, char *s2);
-void			vlq_char_conv_rev(char *s, int size);
-void			vlq_char_conv_rev_both(t_calc *info, char *s1, char *s2);
+void			vlq_tmp_conv(t_calc *info, char *s1, char *s2);
+void			vlq_tmp_conv_rev(char *s, int size);
+void			vlq_tmp_conv_rev2(t_calc *info, char *s1, char *s2);
 int				ft_print_c_ntimes(char c, int n);
 int				ft_putnchar(const char *s, size_t n);
 int				ft_putcx(char c, int n);
@@ -101,18 +96,18 @@ int				print_sharp_w_zeros(t_flags *flag, int c_p, char *s, char c);
 int				print_normal(t_flags *flag, int c_p, char *s, char c);
 size_t			count_digits(long c);
 void			ft_add_zeros(char **str, int zeros);
-int				print_b(t_flags *flag_s, va_list ap, int chars_printed);
+int				print_b(const char *flags, va_list ap, int chars_printed);
 int				print_c(char c);
-int				print_char(t_flags *flag_s, char c, int chars_printed);
-int				print_d(t_flags *flag_s, va_list ap, int chars_printed);
-int				print_f(t_flags *flag_s, va_list ap, int chars_printed);
-int				print_i(t_flags *flag_s, va_list ap, int chars_printed);
-int				print_o(t_flags *flag_s, va_list ap, int chars_printed);
-int				print_p(t_flags *flag_s, va_list ap, int chars_printed);
-int				print_s(t_flags *flag_s, char *s, int chars_printed);
-int				print_u(t_flags *flag_s, va_list ap, int chars_printed);
-int				print_x(t_flags *flag_s, va_list ap, int chars_printed);
-int				print_big_x(t_flags *flag_s, va_list ap, int chars_printed);
+int				print_char(const char *flags, char c, int chars_printed);
+int				print_d(const char *flags, va_list ap, int chars_printed);
+int				print_f(const char *flags, va_list ap, int chars_printed);
+int				print_i(const char *flags, va_list ap, int chars_printed);
+int				print_o(const char *flags, va_list ap, int chars_printed);
+int				print_p(void *pointer);
+int				print_s(const char *flags, char *s, int chars_printed);
+int				print_u(const char *flags, va_list ap, int chars_printed);
+int				print_x(const char *flags, va_list ap, int chars_printed);
+int				print_big_x(const char *flags, va_list ap, int chars_printed);
 t_flags			*return_flags(const char *flags);
 uintmax_t		unsigned_conv(t_flags *flag_s, va_list ap);
 uintmax_t		signed_conv(t_flags *flag_s, va_list ap);
@@ -121,6 +116,5 @@ void			fix_overrides(t_flags *flag_s, const char c);
 int				is_plus(t_flags *flag, int c_p, char **s, char c);
 int				is_sharp(int c_p, char c);
 int				print_sign(t_flags *flag, int c_p, char **s);
-void			free_flags(t_flags *flags);
 
 #endif
