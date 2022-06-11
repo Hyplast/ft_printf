@@ -45,6 +45,69 @@ int a12 = 1;
 
 
 printf("\n");
+printf("NOT WORKING -66");
+printf("\n");
+o =    printf("->%-+012.%i<- , ->%-+012.d%<-", 999);
+printf("\n");
+i = ft_printf("->%-+012.%i<- , ->%-+012.d%<-", 999);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+
+
+printf("\n");
+printf("NOT WORKING -65");
+printf("\n");
+o =    printf("->%-+01+2.%<- , ->%-+012.d%<-", 999);
+printf("\n");
+i = ft_printf("->%-+01+2.%<- , ->%-+012.d%<-", 999);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+
+
+
+printf("\n");
+printf("NOT WORKING -64");
+printf("\n");
+o =    printf("->%-+012.<- , ->%-+012.d%<-", 999);
+printf("\n");
+i = ft_printf("->%-+012.<- , ->%-+012.d%<-", 999);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+
+
+
+
+printf("\n");
+printf("NOT WORKING -63");
+printf("\n");
+o =    printf("->%-+012.<- , ->%-+012.d%<-");
+printf("\n");
+i = ft_printf("->%-+012.<- , ->%-+012.d%<-");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+
+
+
+
+printf("\n");
+printf("NOT WORKING -62");
+printf("\n");
+o =    printf("->%-+012.<- , ->%-+012.%<-");
+printf("\n");
+i = ft_printf("->%-+012.<- , ->%-+012.%<-");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+
+
+
+
+printf("NOT WORKING -61");
+printf("\n");
+o =    printf("->%-+012.<- , ->%-+012.%<-", 24, 25);
+printf("\n");
+i = ft_printf("->%-+012.<- , ->%-+012.%<-", 24, 25);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
 
 
 

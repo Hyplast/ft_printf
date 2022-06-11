@@ -53,6 +53,46 @@ static	int	read_flags(char *flags, va_list ap)
 	return (chars_printed);
 }
 
+
+static int	check_modifiers(const char *flags, const char *modifiers, int len)
+{
+	int len_max;
+	int	j;
+	int	i;
+
+	len_max = ft_strlen(flags);
+	if (len_max < len)
+		len = len_max;
+	i = 0;
+	j = 0;
+	while (j < len && modifiers[j] != '\0')
+	{
+		if (flags[i] == modifiers[j])
+		{
+			i++;
+			j = -1;
+		}
+		j++;
+	}
+	return (i);
+}
+
+static int		valid_order(const char *flags, int len)
+{
+	int	i;
+
+	i = check_modifiers(flags, VALID_FLAGS, len);
+	i =+ check_modifiers(flags, VALID_WIDTH, len);
+	i =+ check_modifiers(flags, ".", len);
+	i =+ check_modifiers(flags, VALID_SPECI, len);
+	if (i == len)
+		return (2);
+	i =+ check_modifiers(flags, VALID_FORMAT, len);
+	if (i == len)
+		return (1);
+	return (0);
+}
+
 static int		all_digits(const char *flags, int len)
 {
 	int		i;
@@ -92,10 +132,12 @@ static	char	*parse_specifier(const char *flags)
 		i = 0;
 		len++;
 	}
-	temp = ft_strnew(len + 1);
-	while (i < (int)len + 1)
+	if (valid_order(flags, len) == 2)
+		return (ft_strsub(flags, 0, len));
+	temp = ft_strnew(len+1);
+	while (i < (int)len+1)
 		temp[i++] = '\1';
-	if (all_digits(flags, (int)len) == 1)
+	if (all_digits(flags, (int)len) == 1 || flags[len] == '%')
 		temp[0] = '%';
 	return (temp);
 }
@@ -123,7 +165,7 @@ static int	read_while(const char *format, va_list ap, int i, int chars_printed)
 		chars_printed += ft_putnchar(format, (size_t)i);
 		format = ft_strchr(format, '%') + 1;
 		if (ft_strcmp(format, "") == 0 && chars_printed == 0)
-			return (-1);
+			return (0);
 		flags = parse_specifier(format);
 		if (flags[0] != '%' && flags[0] != '\1')
 			chars_printed += read_flags(flags, ap);
