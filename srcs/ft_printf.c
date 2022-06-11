@@ -65,7 +65,7 @@ static int	check_modifiers(const char *flags, const char *modifiers, int len)
 		len = len_max;
 	i = 0;
 	j = 0;
-	while (j < len && modifiers[j] != '\0')
+	while (flags[i] != '\0' && modifiers[j] != '\0')
 	{
 		if (flags[i] == modifiers[j])
 		{
@@ -81,35 +81,36 @@ static int		valid_order(const char *flags, int len)
 {
 	int	i;
 
-	i = check_modifiers(flags, VALID_FLAGS, len);
-	i =+ check_modifiers(flags, VALID_WIDTH, len);
-	i =+ check_modifiers(flags, ".", len);
-	i =+ check_modifiers(flags, VALID_SPECI, len);
+	i = 0;
+	i += check_modifiers(flags, VALID_FLAGS, len);
+	i += check_modifiers(flags + i, VALID_WIDTH, len);
+	i += check_modifiers(flags + i, ".", len);
+	i += check_modifiers(flags + i, VALID_SPECI, len);
 	if (i == len)
 		return (2);
-	i =+ check_modifiers(flags, VALID_FORMAT, len);
+	i += check_modifiers(flags + i, VALID_FORMAT, len);
 	if (i == len)
 		return (1);
 	return (0);
 }
 
-static int		all_digits(const char *flags, int len)
-{
-	int		i;
-	char	c;
+// static int		all_digits(const char *flags, int len)
+// {
+// 	int		i;
+// 	char	c;
 
-	i = 0;
-	c = flags[i];
-	while ((c != '\0' && c != '%') && (ft_issign(c) == 1 || c == '0'))
-		c = flags[i++];
-	while(c != '\0' && c != '%' && ft_isdigit(c) == 1)
-	{
-		if ((int)len == i)
-			return (1);
-		c = flags[i++];
-	}
-	return (0);
-}
+// 	i = 0;
+// 	c = flags[i];
+// 	while ((c != '\0' && c != '%') && (ft_issign(c) == 1 || c == '0'))
+// 		c = flags[i++];
+// 	while(c != '\0' && c != '%' && ft_isdigit(c) == 1)
+// 	{
+// 		if ((int)len == i)
+// 			return (1);
+// 		c = flags[i++];
+// 	}
+// 	return (0);
+// }
 
 static	char	*parse_specifier(const char *flags)
 {
@@ -132,13 +133,15 @@ static	char	*parse_specifier(const char *flags)
 		i = 0;
 		len++;
 	}
-	if (valid_order(flags, len) == 2)
-		return (ft_strsub(flags, 0, len));
+	// if (valid_order(flags, len) == 2)
+	// 	return (ft_strsub(flags, 0, len));
 	temp = ft_strnew(len+1);
 	while (i < (int)len+1)
 		temp[i++] = '\1';
-	if (all_digits(flags, (int)len) == 1 || flags[len] == '%')
+	if (valid_order(flags, len) == 2 && flags[len] == '%')
 		temp[0] = '%';
+	// if (all_digits(flags, (int)len) == 1 || flags[len] == '%')
+	// 	temp[0] = '%';
 	return (temp);
 }
 
@@ -170,7 +173,10 @@ static int	read_while(const char *format, va_list ap, int i, int chars_printed)
 		if (flags[0] != '%' && flags[0] != '\1')
 			chars_printed += read_flags(flags, ap);
 		else if (flags[0] == '%')
+		{
 			chars_printed += ft_putnchar("%", 1);
+			
+		}
 		else
 		{
 			chars_printed += ft_putnchar("%", 1);

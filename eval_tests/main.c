@@ -45,6 +45,17 @@ int a12 = 1;
 
 
 printf("\n");
+
+printf("NOT WORKING -48");
+printf("\n");
+o =    printf("%5%");
+printf("\n");
+i = ft_printf("%5%");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
 printf("NOT WORKING -66");
 printf("\n");
 o =    printf("->%-+012.%i<- , ->%-+012.d%<-", 999);

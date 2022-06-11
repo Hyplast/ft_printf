@@ -21,7 +21,7 @@
 # define VALID_FLAGS "+- 0#"
 # define VALID_WIDTH "0123456789"
 # define VALID_PREC "0123456789"
-# define VALID_SPECI "lLh"
+# define VALID_SPECI "llLhh"
 /* spec
 * n l ll L h hh
 * 0 1 2  3 4 5
