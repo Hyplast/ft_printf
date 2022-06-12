@@ -60,8 +60,7 @@ OBJ_DIR = obj/
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra -g -fsanitize=address
-#-Wconversion -g -g -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra
 
 all: $(NAME) 
 

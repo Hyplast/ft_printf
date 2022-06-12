@@ -87,13 +87,11 @@ OBJ_DIR = obj/
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra -Wconversion -g
-# -g -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra
 
 all: dir $(NAME)
 
 $(NAME): $(OBJS)
-#	$(CC) $(CFLAGS) -I $(INC) -c $(SRC)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
 
