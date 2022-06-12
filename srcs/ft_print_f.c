@@ -109,7 +109,7 @@ static int	print_nan_inf(t_flags *flags, int chars_printed, char **str)
 	char	*sign;
 	char	*temp;
 
-	if (str[2][0] == '-')
+	if (str[2][0] == '-' && ft_strcmp(str[0], "inf") == 0)
 	{
 		sign = ft_strjoin("-", str[0]);
 		temp = ft_strdup(sign);

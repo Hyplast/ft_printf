@@ -98,20 +98,38 @@ int a12 = 1;
 // printf("\n");
 // printf("\n");
 // printf("\n");
+printf("\n");
 
+printf("\n");
 
+printf("NOT WORKING -67");
+printf("\n");
+o =    printf("%.0%");
+printf("\n");
+i = ft_printf("%.0%");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+printf("\n");
+printf("\n");
 
 printf("New Test xxxx 56");
 printf("\n");
-  printf("%014.22f", 1.7976931348623159e+308);
+o =   printf("%014.22f", 1.7976931348623159e+308);
 printf("\n");
-ft_printf("%014.22f", 1.7976931348623159e+308);
+i = ft_printf("%014.22f", 1.7976931348623159e+308);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
 printf("\n");
 printf("\n");
-  printf("%014.22f", -1.7976931348623159e+308);
 printf("\n");
-ft_printf("%014.22f", -1.7976931348623159e+308);
-
+o =  printf("%014.22f", -1.7976931348623159e+308);
+printf("\n");
+i = ft_printf("%014.22f", -1.7976931348623159e+308);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
 
 // printf("\n");
 // printf("\n");
@@ -202,7 +220,7 @@ printf("Out of limits 4");
 printf("\n");
   printf("%f", 3.7976931348623158e+308);
 printf("\n");
-// ft_printf("%f", 3.7976931348623158e+308); // buffer overflow?
+ft_printf("%f", 3.7976931348623158e+308); // buffer overflow?
 printf("\n");
 
 printf("\n");

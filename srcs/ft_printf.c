@@ -85,7 +85,8 @@ static int		valid_order(const char *flags, int len)
 	i += check_modifiers(flags, VALID_FLAGS, len);
 	i += check_modifiers(flags + i, VALID_WIDTH, len);
 	i += check_modifiers(flags + i, ".", len);
-	i += check_modifiers(flags + i, VALID_SPECI, len);
+	i += check_modifiers(flags + i, VALID_PREC, len);
+	i += check_modifiers(flags + i, VALID_FORMAT, len);
 	if (i == len)
 		return (2);
 	i += check_modifiers(flags + i, VALID_FORMAT, len);
