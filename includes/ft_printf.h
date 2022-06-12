@@ -116,7 +116,7 @@ int				print_x(t_flags *flag_s, va_list ap, int chars_printed);
 int				print_big_x(t_flags *flag_s, va_list ap, int chars_printed);
 t_flags			*return_flags(const char *flags);
 uintmax_t		unsigned_conv(t_flags *flag_s, va_list ap);
-intmax_t		signed_conv(t_flags *flag_s, va_list ap);
+uintmax_t		signed_conv(t_flags *flag_s, va_list ap);
 void			init_flags(t_flags *flag_s, const char *flags);
 void			fix_overrides(t_flags *flag_s, const char c);
 int				is_plus(t_flags *flag, int c_p, char **s, char c);

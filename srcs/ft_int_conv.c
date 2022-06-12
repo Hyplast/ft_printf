@@ -12,9 +12,9 @@
 
 #include "ft_printf.h"
 
-intmax_t	signed_conv(t_flags *flag_s, va_list ap)
+uintmax_t	signed_conv(t_flags *flag_s, va_list ap)
 {
-	intmax_t		i;
+	uintmax_t		i;
 
 	if (flag_s->spec == 0)
 		i = (signed int) va_arg(ap, signed int);

@@ -18,7 +18,7 @@ void	vlq_initialize(char *vlq, int c, int size)
 
 	i = 0;
 	while (i < size)
-		vlq[i++] = (char)c;
+		vlq[i++] = c;
 	vlq[i] = '\0';
 }
 

@@ -60,7 +60,7 @@ static char	*do_sum(t_calc *info, char *s1, char *s2)
 			hold = 1;
 		}
 		res[i] = compute_char(info, s1, s2, res[i]);
-		res[--i] += (char)hold;
+		res[--i] += hold;
 		if (res[0] == 1)
 			res[i] += 48;
 	}

@@ -26,7 +26,7 @@ int	print_normal(t_flags *flag, int c_p, char *s, char c)
 	print_sign(flag, c_p, &s);
 	c_p = print_section(flag, c_p, s, c);
 	if (flag->prec > (int)ft_strlen(s) - flag->plus)
-		ft_putcx('0', flag->prec - (int)ft_strlen(s) - flag->plus);
+		ft_putcx('0', flag->prec - ft_strlen(s) - flag->plus);
 	else
 		c_p += ft_putcx('0', flag->prec - (int)ft_strlen(s) - flag->plus);
 	if (flag->minus == 1)
@@ -39,7 +39,7 @@ int	print_normal(t_flags *flag, int c_p, char *s, char c)
 int	print_sharp_w_zeros(t_flags *flag, int c_p, char *s, char c)
 {
 	c_p += print_section(flag, c_p, s, c);
-	c_p += ft_putcx('0', flag->width - (int)ft_strlen(s) - c_p);
+	c_p += ft_putcx('0', flag->width - ft_strlen(s) - c_p);
 	if (flag->minus == 1)
 		c_p += ft_putnchar(s, ft_strlen(s));
 	if (flag->minus == 0)
@@ -52,9 +52,9 @@ int	print_sharp_w_spaces(t_flags *flag, int c_p, char *s, char c)
 	c_p += 1;
 	if (c != 'o')
 		c_p += 1;
-	c_p += ft_putcx(' ', flag->width - (int)ft_strlen(s) - c_p);
+	c_p += ft_putcx(' ', flag->width - ft_strlen(s) - c_p);
 	print_section(flag, c_p, s, c);
-	c_p += ft_putcx('0', flag->prec - (int)ft_strlen(s));
+	c_p += ft_putcx('0', flag->prec - ft_strlen(s));
 	if (flag->minus == 1)
 		c_p += ft_putnchar(s, ft_strlen(s));
 	if (flag->minus == 0)
@@ -68,14 +68,14 @@ int	print_w_zeros(t_flags *flag, int c_p, char *s, char c)
 	if (flag->plus == 1)
 		c_p += is_plus(flag, c_p, &s, c);
 	if (flag->prec > (int)ft_strlen(s))
-		c_p += flag->prec - (int)ft_strlen(s);
+		c_p += flag->prec - ft_strlen(s);
 	if (flag->space == 1 && s[0] != '-')
 		c_p += print_c(' ');
 	if (flag->zero == 1)
-		c_p += ft_putcx('0', flag->width - (int)ft_strlen(s) - c_p);
+		c_p += ft_putcx('0', flag->width - ft_strlen(s) - c_p);
 	else
-		c_p += ft_putcx(' ', flag->width - (int)ft_strlen(s) - c_p);
-	ft_putcx('0', flag->prec - (int)ft_strlen(s) - flag->plus);
+		c_p += ft_putcx(' ', flag->width - ft_strlen(s) - c_p);
+	ft_putcx('0', flag->prec - ft_strlen(s) - flag->plus);
 	c_p = print_section(flag, c_p, s, c);
 	c_p += ft_putnchar(s, ft_strlen(s));
 	return (c_p);

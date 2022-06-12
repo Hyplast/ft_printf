@@ -37,7 +37,7 @@ static void	do_mult(t_calc *info, char *s1, char *s2, char *res)
 			else
 				res[i] += s1[j] * 1;
 		}
-		res[--i] += (char)hold;
+		res[--i] += hold;
 	}
 }
 
@@ -55,7 +55,7 @@ static char	*trim_zero_char(char *s)
 	return (ret);
 }
 
-static char	*mult_sums(t_calc *info, char *s1, char *s2, char *res)
+static char	*mult_inter_sums(t_calc *info, char *s1, char *s2, char *res)
 {
 	char	*tmp_sum;
 	char	*sum;
@@ -103,7 +103,7 @@ char	*vlq_multiply(char *s1, char *s2)
 	info->len1 -= 1;
 	info->len2 -= 1;
 	res = ft_strnew((size_t)info->sum + 1);
-	sum = mult_sums(info, s1, s2, res);
+	sum = mult_inter_sums(info, s1, s2, res);
 	ret = trim_zero_char(sum);
 	if (!res || !sum || !ret)
 		return (NULL);

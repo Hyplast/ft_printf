@@ -87,7 +87,8 @@ OBJ_DIR = obj/
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra -Wconversion -g -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra -Wconversion -g
+# -g -fsanitize=address
 
 all: dir $(NAME)
 

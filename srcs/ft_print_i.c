@@ -37,7 +37,7 @@ int	print_s(t_flags *flag_s, char *s, int chars_printed)
 		return (0);
 	if (flag_s->prec < (int)ft_strlen(s) && flag_s->prec != -1)
 	{
-		temp = ft_strsub(s, 0, (size_t)(flag_s->prec));
+		temp = ft_strsub(s, 0, (flag_s->prec));
 		chars_printed += print_before(flag_s, chars_printed, temp, 's');
 		ft_strdel(&temp);
 	}
@@ -70,7 +70,7 @@ int	print_p(t_flags *flag_s, va_list ap, int chars_printed)
 int	print_d(t_flags *flag_s, va_list ap, int chars_printed)
 {
 	char		*s;
-	intmax_t	i;
+	uintmax_t	i;
 
 	i = signed_conv(flag_s, ap);
 	if (i == 0 && flag_s->prec == 0 && flag_s->sharp == 1)
@@ -82,7 +82,7 @@ int	print_d(t_flags *flag_s, va_list ap, int chars_printed)
 	else if (flag_s->spec == 2)
 		s = ft_llitoa(i);
 	else
-		s = ft_itoa((int)i);
+		s = ft_itoa(i);
 	chars_printed = print_before(flag_s, chars_printed, s, 'd');
 	ft_strdel(&s);
 	return (chars_printed);

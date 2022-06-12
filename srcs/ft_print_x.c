@@ -27,7 +27,7 @@ int	print_u(t_flags *flag_s, va_list ap, int chars_printed)
 	if (flag_s->spec == 1 || flag_s->spec == 2)
 		s = ft_lutoa(u);
 	else
-		s = ft_utoa((unsigned int)u);
+		s = ft_utoa(u);
 	chars_printed += print_before(flag_s, chars_printed, s, 'u');
 	ft_strdel(&s);
 	return (chars_printed);

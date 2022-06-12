@@ -21,7 +21,7 @@ static void	is_neg_exp_l(char *mantissa, int exp, char **result)
 	i = 0;
 	j = 0;
 	exp = -exp;
-	right = ft_strnew(63 + (size_t)exp);
+	right = ft_strnew(63 + exp);
 	if (!right)
 		return ;
 	while (i < exp - 1)
@@ -45,10 +45,10 @@ static void	is_big_exp_l(char *mantissa, int exp, char **res)
 	int		i;
 
 	i = 0;
-	left = ft_strnew((size_t)exp + 1);
+	left = ft_strnew(exp + 1);
 	if (!left)
 		return ;
-	if (!(ft_strncat(left, mantissa, (size_t)exp + 1)))
+	if (!(ft_strncat(left, mantissa, exp + 1)))
 		return ;
 	while (left[i] == '0' || left[i] == '1')
 		i++;
@@ -71,11 +71,11 @@ static void	is_pos_exp_l(char *mantissa, int exp, char **res)
 		is_big_exp_l(mantissa, exp, res);
 		return ;
 	}
-	left = ft_strnew((size_t)exp + 1);
-	right = ft_strnew((size_t)(63 - exp));
+	left = ft_strnew(exp + 1);
+	right = ft_strnew(63 - exp);
 	if (!left || !right
-		|| !(ft_strncat(left, mantissa, (size_t)exp + 1))
-		|| !(ft_strcpy(right, mantissa + (size_t)exp + 1)))
+		|| !(ft_strncat(left, mantissa, exp + 1))
+		|| !(ft_strcpy(right, mantissa + exp + 1)))
 		return ;
 	res[0] = ft_bin_to_int(left);
 	res[1] = ft_bin_to_dec(right);

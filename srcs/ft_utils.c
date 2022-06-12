@@ -56,7 +56,7 @@ void	fix_overrides(t_flags *flag_s, const char c)
 
 void	init_flags(t_flags *flag_s, const char *flags)
 {
-	flag_s->len = (int)ft_strlen(flags) - 1;
+	flag_s->len = ft_strlen(flags) - 1;
 	flag_s->spec = 0;
 	flag_s->width = 0;
 	flag_s->prec = -1;
