@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vlq_multiply.c                                      :+:      :+:    :+:   */
+/*   ft_vlq_multiply.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -19,21 +19,21 @@ static void	do_mult(t_calc *info, char *s1, char *s2, char *res)
 	int	hold;
 
 	i = info->sum;
-	j = info->len_one + 1;
+	j = info->len_1 + 1;
 	while (--j >= 0)
 	{
 		hold = 0;
-		if (j >= 0 && info->len_two >= 0 && s1[j] * s2[info->len_two] + res[i] >= 10)
+		if (j >= 0 && info->len_2 >= 0 && s1[j] * s2[info->len_2] + res[i] >= 10)
 		{
-			hold = (res[i] + s1[j] * s2[info->len_two]) / 10;
-			res[i] = (res[i] + s1[j] * s2[info->len_two]) % 10;
+			hold = (res[i] + s1[j] * s2[info->len_2]) / 10;
+			res[i] = (res[i] + s1[j] * s2[info->len_2]) % 10;
 		}
-		else if (info->len_two < 0)
+		else if (info->len_2 < 0)
 			res[i] = 0;
 		else
 		{
-			if (info->len_two >= 0)
-				res[i] += s1[j] * s2[info->len_two];
+			if (info->len_2 >= 0)
+				res[i] += s1[j] * s2[info->len_2];
 			else
 				res[i] += s1[j] * 1;
 		}
@@ -62,7 +62,7 @@ static char	*mult_inter_sums(t_calc *info, char *s1, char *s2, char *res)
 
 	sum = ft_strdup("0");
 	vlq_char_conv(info, s1, s2);
-	while (info->len_two >= 0)
+	while (info->len_2 >= 0)
 	{
 		vlq_initialize(res, 0, info->sum + 1);
 		do_mult(info, s1, s2, res);
@@ -78,7 +78,7 @@ static char	*mult_inter_sums(t_calc *info, char *s1, char *s2, char *res)
 		if (!sum)
 			return (NULL);
 		ft_strdel(&tmp_sum);
-		info->len_two--;
+		info->len_2--;
 	}
 	return (sum);
 }
@@ -100,8 +100,8 @@ char	*vlq_multiply(char *s1, char *s2)
 	if (!info)
 		return (NULL);
 	vlq_calculate_info(info, s1, s2);
-	info->len_one -= 1;
-	info->len_two -= 1;
+	info->len_1 -= 1;
+	info->len_2 -= 1;
 	res = ft_strnew((size_t)info->sum + 1);
 	sum = mult_inter_sums(info, s1, s2, res);
 	ret = trim_zero_char(sum);

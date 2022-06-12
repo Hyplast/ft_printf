@@ -41,10 +41,10 @@ typedef struct s_flags
 
 typedef struct s_calc
 {
-	int			len_one;
-	int			len_two;
-	int			len_one_static;
-	int			len_two_static;
+	int			len_1;
+	int			len_2;
+	int			len_1_static;
+	int			len_2_static;
 	int			max;
 	int			min;
 	int			sum;

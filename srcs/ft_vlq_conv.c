@@ -14,13 +14,13 @@
 
 void	vlq_calculate_info(t_calc *info, char *s1, char *s2)
 {
-	info->len_one = ft_strlen(s1);
-	info->len_two = ft_strlen(s2);
-	info->len_one_static = info->len_one;
-	info->len_two_static = info->len_two;
-	info->max = ft_max(info->len_one, info->len_two);
-	info->min = ft_min(info->len_one, info->len_two);
-	info->sum = info->len_one + info->len_two;
+	info->len_1 = ft_strlen(s1);
+	info->len_2 = ft_strlen(s2);
+	info->len_1_static = info->len_1;
+	info->len_2_static = info->len_2;
+	info->max = ft_max(info->len_1, info->len_2);
+	info->min = ft_min(info->len_1, info->len_2);
+	info->sum = info->len_1 + info->len_2;
 	info->ten_dec = 1;
 }
 
@@ -29,10 +29,10 @@ void	vlq_char_conv(t_calc *info, char *s1, char *s2)
 	int	i;
 
 	i = 0;
-	while (i <= info->len_one)
+	while (i <= info->len_1)
 		s1[i++] -= 48;
 	i = 0;
-	while (i <= info->len_two)
+	while (i <= info->len_2)
 		s2[i++] -= 48;
 }
 
@@ -50,10 +50,10 @@ void	vlq_char_conv_rev_both(t_calc *info, char *s1, char *s2)
 	int	i;
 
 	i = 0;
-	while (i < info->len_one_static)
+	while (i < info->len_1_static)
 		s1[i++] += 48;
 	i = 0;
-	while (i < info->len_two_static)
+	while (i < info->len_2_static)
 		s2[i++] += 48;
 }
 
