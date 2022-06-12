@@ -85,8 +85,16 @@ static void	combine_chars(char **str)
 {
 	char	*temp;
 	char	*result;
+	char	*sign;
 
-	temp = ft_strjoin(str[0], ".");
+	if (*str[2] == '-')
+	{
+		sign = ft_strjoin("-", str[0]);
+		temp = ft_strjoin(sign, ".");
+		ft_strdel(&sign);
+	}
+	else 
+		temp = ft_strjoin(str[0], ".");
 	result = ft_strjoin(temp, str[1]);
 	ft_strdel(&str[0]);
 	ft_strdel(&str[1]);

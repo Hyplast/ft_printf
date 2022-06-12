@@ -78,15 +78,15 @@ static char	**handle_nan_inf(char **res, char *str, char *mantissa, char *exp)
 	return (NULL);
 }
 
-static void	add_minus_sign(char **str)
-{
-	char	*temp;
+// static void	add_minus_sign(char **str)
+// {
+// 	char	*temp;
 
-	temp = ft_strjoin("-" , str[0]);
-	ft_strdel(&str[0]);
-	*str = ft_strdup(temp);
-	ft_strdel(&temp);
-}
+// 	temp = ft_strjoin("-" , str[0]);
+// 	ft_strdel(&str[0]);
+// 	*str = ft_strdup(temp);
+// 	ft_strdel(&temp);
+// }
 
 /*
 *	ft_frexp converts floating point double to strings
@@ -114,12 +114,12 @@ char	**ft_frexp(double x)
 				exp_bin_in_string));
 	calculate_float(mantissa, get_exp(exp_bin_in_string), result);
 	if (!ft_strchr(number_in_string + 1, '1') && number_in_string[0] == '1')
-		ft_strcpy(result[2], "-\0");
-	else
-		ft_strdel(&result[2]);
+		ft_strcpy(result[2], "-");
+	// else
+	// 	ft_strdel(&result[2]);
 	ft_strdel(&mantissa);
 	ft_strdel(&number_in_string);
-	if (x < 0)
-		add_minus_sign(result);
+	// if ((unsigned long)x >> 63 == (unsigned long)1)
+	// 	add_minus_sign(result);
 	return (result);
 }
