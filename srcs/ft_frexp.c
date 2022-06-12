@@ -53,29 +53,29 @@ static int	check_nan_inf(char *mantissa, char *exp_str)
 	return (0);
 }
 
-static char	**handle_nan_inf(char **res, char *str, char *mantissa, char *exp)
+static void handle_nan_inf(char **res, char *mantissa, char *exp)
 {
 	if (check_nan_inf(mantissa, exp) == 1)
 	{
 		res[0] = ft_strdup("nan");
-		if (!(res[0]))
-			return (NULL);
+		// if (!(res[0]))
+		// 	return (NULL);
 		res[1] = NULL;
-		ft_strdel(&mantissa);
-		ft_strdel(&str);
-		return (res);
+		// ft_strdel(&mantissa);
+		// ft_strdel(&str);
+		// return (res);
 	}
 	if (check_nan_inf(mantissa, exp) == -1)
 	{
 		res[0] = ft_strdup("inf");
-		if (!(res[0]))
-			return (NULL);
+		// if (!(res[0]))
+		// 	return (NULL);
 		res[1] = NULL;
-		ft_strdel(&str);
-		ft_strdel(&mantissa);
-		return (res);
+		// ft_strdel(&str);
+		// ft_strdel(&mantissa);
+		// return (res);
 	}
-	return (NULL);
+	// return (NULL);
 }
 
 // static void	add_minus_sign(char **str)
@@ -110,10 +110,15 @@ char	**ft_frexp(double x)
 	if (!(result) || !(number_in_string) || !(result[2]) || !(mantissa))
 		return (NULL);
 	if (check_nan_inf(mantissa, exp_bin_in_string) != 0)
-		return (handle_nan_inf(result, number_in_string, mantissa,
-				exp_bin_in_string));
-	calculate_float(mantissa, get_exp(exp_bin_in_string), result);
-	if (!ft_strchr(number_in_string + 1, '1') && number_in_string[0] == '1')
+	{
+		handle_nan_inf(result, mantissa, exp_bin_in_string);
+
+	}
+		// return (handle_nan_inf(result, number_in_string, mantissa,
+		// 		exp_bin_in_string));
+	else
+		calculate_float(mantissa, get_exp(exp_bin_in_string), result);
+	if (number_in_string[0] == '1')
 		ft_strcpy(result[2], "-");
 	// else
 	// 	ft_strdel(&result[2]);

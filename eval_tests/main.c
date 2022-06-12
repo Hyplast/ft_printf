@@ -14,6 +14,42 @@
 #include "ft_printf.h"
 #include <stdio.h>
 
+//  IEEE 754 Double Precision Floating Point Visualization
+// https://bartaz.github.io/ieee754-visualization/
+
+#define B(x) S_to_binary_(#x)
+
+static inline unsigned long long S_to_binary_(const char *s)
+{
+        unsigned long long i = 0;
+        while (*s) {
+                i <<= 1;
+                i += *s++ - '0';
+        }
+        return i;
+}
+
+static double BinaryStringToDouble(char *s)
+{
+  double sign = 1;
+  int index = 1;
+  if(s[0] == '-')
+    sign = -1;
+  else if(s[0] != '+')
+    index = 0;
+
+  double d = 0;
+  for(int i = index; i < ft_strlen(s); i++)
+  {
+    char c = s[i];
+    d *= 2;
+    if(c == '1')
+      d += 1;
+  }
+
+  return sign * d;
+}
+
 int	main()
 {
 	//ft_printf("%-#6o", 2500);                     // "04704 "
@@ -43,7 +79,254 @@ int a10 = 1;
 int a11 = 1;
 int a12 = 1;
 
+// char  **test_str;
+// //                       111111111110000000000000000000000000000000000000000000000000000
+// unsigned long hexa1 = B(0111111111110000000000000000000000000000000000000000000000000000);
+// unsigned long hexa2 = B(0111111111111000000000000000000000000000000000000000000000000000);
+// unsigned long hexa3 = B(1111111111110000000000000000000000000000000000000000000000000000);
 
+// // unsigned long hexa1 = 0x7FE00000FFFFFFFF;
+// // unsigned long hexa2 = 0x7FF00000FFFFFFFF;
+// // unsigned long hexa3 = 0xFFF00000FFFFFFFF;
+
+// double hexd1 = 0b0111111111110000000000000000000000000000000000000000000000000000;
+// double hexd2 = 0b0111111111111000000000000000000000000000000000000000000000000000;
+// double hexd3 = 0b1111111111110000000000000000000000000000000000000000000000000000;
+
+// printf("\n");
+// printf("\n");
+// printf("\n");
+// printf("\n");
+// printf("\n");
+
+
+
+printf("New Test xxxx 56");
+printf("\n");
+  printf("%014.22f", 1.7976931348623159e+308);
+printf("\n");
+ft_printf("%014.22f", 1.7976931348623159e+308);
+printf("\n");
+printf("\n");
+  printf("%014.22f", -1.7976931348623159e+308);
+printf("\n");
+ft_printf("%014.22f", -1.7976931348623159e+308);
+
+
+// printf("\n");
+// printf("\n");
+
+
+// printf("IN HEX");
+// printf("\n");
+// printf("%f", hexd1);
+// printf("\n");
+// printf("\n");
+// printf("%f", hexd1);
+// printf("\n");
+// printf("\n");
+// printf("%f", hexd1);
+// printf("\n");
+
+
+// double hex_test_1 = BinaryStringToDouble(0111111111110000000000000000000000000000000000000000000000000000);
+// double hex_test_2 = BinaryStringToDouble(0111111111111000000000000000000000000000000000000000000000000000);
+// double hex_test_3 = BinaryStringToDouble(1111111111110000000000000000000000000000000000000000000000000000);
+
+// printf("IN HEX");
+// printf("\n");
+// printf("%f", hex_test_1);
+// printf("\n");
+// printf("\n");
+// printf("%f", hex_test_2);
+// printf("\n");
+// printf("\n");
+// printf("%f", hex_test_3);
+// printf("\n");
+
+// printf("anyhitngIN HEX");
+// printf("\n");
+// printf("%f", (double)0b01111111111111110111100000);
+// printf("\n");
+// printf("\n");
+// printf("%f", (double)0b01111111111110000000011110000000000);
+// printf("\n");
+// printf("\n");
+// printf("%f", (double)0b111111111111111111111);
+// printf("\n");
+// printf("\n");
+// printf("\n");
+
+// printf("%s", ft_basetoa(hexa1, 2, ' '));
+
+printf("\n");
+
+printf("\n");
+printf("Still within limits 1");
+printf("\n");
+  printf("%f", 1.7976931348623157e+308);
+printf("\n");
+ft_printf("%f", 1.7976931348623157e+308);
+printf("\n");
+printf("\n");
+
+printf("\n");
+printf("\n");
+printf("Still within limits 2");
+printf("\n");
+  printf("%f", -1.7976931348623157e+308);
+printf("\n");
+ft_printf("%f", -1.7976931348623157e+308);
+printf("\n");
+
+printf("\n");
+printf("\n");
+printf("Still within limits 2 -b");
+printf("\n");
+  printf("%f", -1.79769313486);
+printf("\n");
+ft_printf("%f", -1.79769313486);
+printf("\n");
+
+
+printf("\n");
+printf("Out of limits 3");
+printf("\n");
+  printf("%f", 1.7976931348623158e+308);
+printf("\n");
+ft_printf("%f", 1.7976931348623158e+308);
+printf("\n");
+printf("\n");
+
+printf("Out of limits 4");
+printf("\n");
+  printf("%f", 3.7976931348623158e+308);
+printf("\n");
+// ft_printf("%f", 3.7976931348623158e+308); // buffer overflow?
+printf("\n");
+
+printf("\n");
+printf("\n");
+printf("- Out of limits 5");
+printf("\n");
+  printf("%f", -1.7976931348623158e+308);
+printf("\n");
+ft_printf("%f", -1.7976931348623158e+308);
+printf("\n");
+printf("\n");
+printf("\n");
+
+printf("New Test xxxx 6");
+printf("\n");
+  printf("%f", 1.7976931348623159e+308);
+printf("\n");
+ft_printf("%f", 1.7976931348623159e+308);
+printf("\n");
+  printf("%f", 0x7FF00000FFFFFFFF);
+printf("\n");
+ft_printf("%f", 0x7FF00000FFFFFFFF);
+printf("\n");
+  printf("%f", -1.7976931348623159e+308);
+printf("\n");
+ft_printf("%f", -1.7976931348623159e+308);
+
+printf("\n");
+printf("TOO BIG");
+printf("\n");
+printf("%f", 1.8976931348623158e+308);
+printf("\n");
+printf("\n");
+printf("%f", 0x7FF00000FFFFFFFF);
+printf("\n");
+printf("\n");
+printf("%f", -1.8976931348623158e+308);
+printf("\n");
+
+
+printf("TOO BIG, my printf");
+printf("\n");
+printf("%f", 1.8976931348623158e+308);
+printf("\n");
+printf("\n");
+printf("%f", 0x7FF00000FFFFFFFF);
+printf("\n");
+printf("\n");
+printf("%f", -1.8976931348623158e+308);
+printf("\n");
+
+
+printf("TOO BIG long");
+printf("\n");
+printf("%f", 1.8976931348623158e+308);
+printf("\n");
+printf("\n");
+printf("%f", 0x7FF00000FFFFFFFF);
+printf("\n");
+printf("\n");
+printf("%f", -1.8976931348623158e+308);
+printf("\n");
+
+
+printf("TOO BIG long , my printf");
+printf("\n");
+printf("%Lf", 1.8976931348623158e+308);
+printf("\n");
+printf("\n");
+printf("%Lf", 0x7FF00000FFFFFFFF);
+printf("\n");
+printf("\n");
+printf("%Lf", -1.8976931348623158e+308);
+printf("\n");
+
+printf("TOO BIG shortlong");
+printf("\n");
+printf("%f", 1.8976931348623158e+308);
+printf("\n");
+printf("\n");
+printf("%f", 0x7FF00000FFFFFFFF);
+printf("\n");
+printf("\n");
+printf("%f", -1.8976931348623158e+308);
+printf("\n");
+
+
+printf("TOO BIG shortlong , my printf");
+printf("\n");
+printf("%lf", 1.8976931348623158e+308);
+printf("\n");
+printf("\n");
+printf("%lf", 0x7FF00000FFFFFFFF);
+printf("\n");
+printf("\n");
+printf("%lf", -1.8976931348623158e+308);
+printf("\n");
+
+// 1.7976931348623157e+308
+
+
+// test_str = ft_frexp(0x7FE00000FFFFFFFF);// Infinity 7FE00000FFFFFFFF
+// printf("%s%s.%s", test_str[2], test_str[0], test_str[1]);
+// printf("\n");
+// test_str = ft_frexp(0x7FF00000FFFFFFFF);// Nan 7FF00000FFFFFFFF
+// printf("%s%s.%s", test_str[2], test_str[0], test_str[1]);
+// printf("\n");
+// test_str = ft_frexp(0xFFF00000FFFFFFFF);// -Infinity FFF00000FFFFFFFF
+// printf("\n");
+// printf("%s%s.%s", test_str[2], test_str[0], test_str[1]);
+
+
+// Infinity 7FE00000FFFFFFFF
+// 0111111111100000000000000000000011111111111111111111111111111111
+// 9218868437227405312
+
+
+// Nan 7FF00000FFFFFFFF
+
+// -Infinity FFF00000FFFFFFFF
+
+printf("\n");
+printf("\n");
+printf("\n");
 printf("\n");
 printf("NOT WORKING -70");
 printf("\n");

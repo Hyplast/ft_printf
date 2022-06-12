@@ -104,6 +104,25 @@ static void	combine_chars(char **str)
 	ft_strdel(&temp);
 }
 
+static int	print_nan_inf(t_flags *flags, int chars_printed, char **str)
+{
+	char	*sign;
+	char	*temp;
+
+	if (str[2][0] == '-')
+	{
+		sign = ft_strjoin("-", str[0]);
+		temp = ft_strdup(sign);
+		ft_strdel(&sign);
+	}
+	else
+		temp = ft_strdup(str[0]);
+	chars_printed = print_before(flags, chars_printed, temp, ' ');
+	ft_strdel(&temp);
+	free_double_char(str);
+	return (chars_printed);
+}
+
 int	print_llong(t_flags *flag_s, va_list ap, int chars_printed)
 {
 	long double	ld;
@@ -142,7 +161,6 @@ int	print_llong(t_flags *flag_s, va_list ap, int chars_printed)
 	// free(s);
 	// s = NULL;
 
-
 int	print_f(t_flags *flag_s, va_list ap, int chars_printed)
 {
 	double		f;
@@ -153,6 +171,8 @@ int	print_f(t_flags *flag_s, va_list ap, int chars_printed)
 		return (print_llong(flag_s, ap, chars_printed));
 	f = va_arg(ap, double);
 	s = ft_frexp(f);
+	if (ft_strcmp(s[0], "nan") == 0 || ft_strcmp(s[0], "inf") == 0)
+		return(print_nan_inf(flag_s, chars_printed, s));
 	ft_round(s, flag_s->prec);
 	decimals = ft_strlen(s[1]);
 	if (decimals < flag_s->prec)

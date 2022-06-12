@@ -117,7 +117,7 @@ static char	**handle_nan_inf_l(char **res, char *nb_str, char *mantissa, char *e
 *	ft_frexpl converts floating point double to strings
 *	@param double x
 *	@return result[] = result[0] and result[1] = decimal strings x.x
-*	@return result[2] = Nan
+*	@return result[2] = sign
 */
 char	**ft_frexpl(long double x)
 {
