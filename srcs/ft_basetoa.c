@@ -34,7 +34,7 @@ static unsigned long long	binary_numbers(int b)
 
 static unsigned long	octal_numbers(int o)
 {
-	static const long	octals[21] = {7, 63, 511, 4095, 32767, 262143,
+	static const unsigned long	octals[21] = {7, 63, 511, 4095, 32767, 262143,
 		2097151, 16777215, 134217727, 1073741823, 8589934591, 68719476735,
 		549755813887, 4398046511103, 35184372088831, 281474976710655,
 		2251799813685247, 18014398509481983, 144115188075855871,
@@ -88,7 +88,7 @@ char	*ft_basetoa(unsigned long n, unsigned long base, char sign)
 	i = tell_max_length(n, base);
 	k = i + 1;
 	j = 0;
-	s = ft_strnew(k);
+	s = ft_strnew((size_t)k);
 	while (n > 0)
 	{
 		s[i] = "0123456789abcdef"[(n % base)];

@@ -45,6 +45,76 @@ int a12 = 1;
 
 
 printf("\n");
+printf("NOT WORKING -70");
+printf("\n");
+o =   printf("%+d", 4242424242424242424242);
+printf("\n");
+i = ft_printf("%+d", 4242424242424242424242);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+// # 0108 (int)
+//   ft_printf("%+d", 4242424242424242424242);
+//   1. (    3) -->-1<--
+//   2. (    2) -->-1<--
+
+printf("NOT WORKING -70");
+printf("\n");
+o =    printf("[%f]\n", 0.000000);
+printf("\n");
+i = ft_printf("[%f]\n", 0.000000);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+printf("NOT WORKING -69");
+printf("\n");
+o =    printf("[%f]\n", -0.000000);
+printf("\n");
+i = ft_printf("[%f]\n", -0.000000);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+printf("NOT WORKING -68");
+printf("\n");
+o =    printf("% c", 0);
+printf("\n");
+i = ft_printf("% c", 0);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+// # 0078 (char)
+//   ft_printf("% c", 0);
+//   1. (    2) -->^@ <--
+//   2. (    1) -->^@<--
+
+printf("NOT WORKING -68");
+printf("\n");
+o =    printf("%2c", 0);
+printf("\n");
+i = ft_printf("%2c", 0);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+// # 0076 (char)
+//   ft_printf("%2c", 0);
+//   1. (    2) -->^@ <--
+//   2. (    2) --> ^@<--
+
+printf("NOT WORKING -67");
+printf("\n");
+o =    printf("%.0%");
+printf("\n");
+i = ft_printf("%.0%");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+// # 0009 
+//   ft_printf("%.0%");
+//   1. (    4) -->%.0%<--
+//   2. (    1) -->%<--
+
 
 printf("NOT WORKING -48");
 printf("\n");
@@ -364,7 +434,7 @@ printf("\n");
 // 2. (    5) -->    %<--
 
 
-/*
+
 printf("NOT WORKING -47");
 printf("\n");
 o =    printf("%d", "test");
@@ -1448,7 +1518,7 @@ printf("LINE 164");
   printf("%C\\n", 15000);
 
 
-/*
+
   printf("\n");
   ft_printf("Test 18.c)1 L \n");
   o = printf("   printf printing float 3.1416 with .222f = %.222f\n", 3.1416);
@@ -1715,40 +1785,35 @@ printf("%-10d\\n", 3);
 printf("\n");
 ft_printf("%-10d\\n", 3);
 printf("\n");
-/*
+
 //ft_printf("%d\\n", 42);
 ft_printf("%20.15d\\n", 54321);
 
-
-
 ft_printf("%ld\\n", 2147483647);
 
-/*
-
-printf("\n");
-printf("\n");
-printf("\n");
-o = printf("%s\\n", L"ݗݜशব");
-printf("\n");
-printf("\n");
-printf(" my length %i. system lenght %i\n", i,o);
-printf("\n");
-printf("\n");
-printf("\n");
-printf("\n");
-i = ft_printf("%s\\n", L"ݗݜशব");
-printf("\n");
-printf(" my length %i. system lenght %i\n", i,o);
-printf("\n");
-printf("\n");
-printf("Normal hlet okay");
-printf("\n");
-printf("\n");
+// printf("\n");
+// printf("\n");
+// printf("\n");
+// o = printf("%s\\n", L"ݗݜशব");
+// printf("\n");
+// printf("\n");
+// printf(" my length %i. system lenght %i\n", i,o);
+// printf("\n");
+// printf("\n");
+// printf("\n");
+// printf("\n");
+// i = ft_printf("%s\\n", L"ݗݜशব");
+// printf("\n");
+// printf(" my length %i. system lenght %i\n", i,o);
+// printf("\n");
+// printf("\n");
+// printf("Normal hlet okay");
+// printf("\n");
+// printf("\n");
 
 
-*/
 
-/*
+
 
 ft_printf("\\n");
 ft_printf("%%\\n");
@@ -3088,14 +3153,9 @@ printf("\n");
 	i = ft_printf("myve:   %#X,   :\n",   1000  );	
 	printf(" my length %i. system lenght %i\n", i,o);
 	
-	
-
-/*
-0007 
-*/
 
 
-/*
+
  printf("\n");
   printf("**1**");
   printf("\n");
@@ -3191,294 +3251,289 @@ printf("\n");
   printf("\n");
 //  1. (   20) -->0x7fffffffffffffff<--
 //  2. (   18) -->0x7fffffffffffffff<--
-/*
-# 0037 (int)
-  ft_printf("%#x", 42);
-  1. (    6) -->0x2a<--
-  2. (    4) -->0x2a<--
+
+// # 0037 (int)
+//   ft_printf("%#x", 42);
+//   1. (    6) -->0x2a<--
+//   2. (    4) -->0x2a<--
+
+// # 0038 (int)
+//   ft_printf("%#X", 42);
+//   1. (    6) -->0X2A<--
+//   2. (    4) -->0X2A<--
+
+// # 0039 (int)
+//   ft_printf("%#8x", 42);
+//   1. (   10) -->    0x2a<--
+//   2. (    8) -->    0x2a<--
+
+// # 0069 (NULL)
+//   ft_printf("@moulitest: %s", NULL);
+//   1. (   12) -->@moulitest: <--
+//   2. (   18) -->@moulitest: (null)<--
+
+// # 0070 (NULL)
+//   ft_printf("%.2c", NULL);
+//   1. (    0) --><--
+//   2. (    1) -->^@<--
+
+// # 0071 (NULL)
+//   ft_printf("%s %s", NULL, string);
+//   1. (    7) --> string<--
+//   2. (   13) -->(null) string<--
+
+// # 0075 (char)
+//   ft_printf("@moulitest: %c", 0);
+//   1. (   12) -->@moulitest: <--
+//   2. (   13) -->@moulitest: ^@<--
 
 
-# 0038 (int)
-  ft_printf("%#X", 42);
-  1. (    6) -->0X2A<--
-  2. (    4) -->0X2A<--
+// # 0076 (char)
+//   ft_printf("%2c", 0);
+//   1. (    2) -->  <--
+//   2. (    2) --> ^@<--
 
-# 0039 (int)
-  ft_printf("%#8x", 42);
-  1. (   10) -->    0x2a<--
-  2. (    8) -->    0x2a<--
+// # 0077 (char)
+//   ft_printf("null %c and text", 0);
+//   1. (   14) -->null  and text<--
+//   2. (   15) -->null ^@ and text<--
 
-# 0069 (NULL)
-  ft_printf("@moulitest: %s", NULL);
-  1. (   12) -->@moulitest: <--
-  2. (   18) -->@moulitest: (null)<--
+// # 0078 (char)
+//   ft_printf("% c", 0);
+//   1. (    1) --> <--
+//   2. (    1) -->^@<--
 
-# 0070 (NULL)
-  ft_printf("%.2c", NULL);
-  1. (    0) --><--
-  2. (    1) -->^@<--
+// # 0087 (int)
+//   ft_printf("%-10.5o", 2500);
+//   1. (    5) -->04704<--
+//   2. (   10) -->04704     <--
 
-# 0071 (NULL)
-  ft_printf("%s %s", NULL, string);
-  1. (    7) --> string<--
-  2. (   13) -->(null) string<--
+// # 0089 (int)
+//   ft_printf("@moulitest: %.o %.0o", 0, 0);
+//   1. (   15) -->@moulitest: 0 0<--
+//   2. (   13) -->@moulitest:  <--
 
-# 0075 (char)
-  ft_printf("@moulitest: %c", 0);
-  1. (   12) -->@moulitest: <--
-  2. (   13) -->@moulitest: ^@<--
+// # 0106 (int)
+//   ft_printf("%+d", -42);
+//   1. (    2) -->42<--
+//   2. (    3) -->-42<--
 
+// # 0108 (int)
+//   ft_printf("%+d", 4242424242424242424242);
+//   1. (    1) -->1<--
+//   2. (    2) -->-1<--
 
-# 0076 (char)
-  ft_printf("%2c", 0);
-  1. (    2) -->  <--
-  2. (    2) --> ^@<--
+// # 0110 (int)
+//   ft_printf("% +d", -42);
+//   1. (    2) -->42<--
+//   2. (    3) -->-42<--
 
-# 0077 (char)
-  ft_printf("null %c and text", 0);
-  1. (   14) -->null  and text<--
-  2. (   15) -->null ^@ and text<--
+// # 0112 (int)
+//   ft_printf("%+ d", -42);
+//   1. (    2) -->42<--
+//   2. (    3) -->-42<--
 
-# 0078 (char)
-  ft_printf("% c", 0);
-  1. (    1) --> <--
-  2. (    1) -->^@<--
-
-# 0087 (int)
-  ft_printf("%-10.5o", 2500);
-  1. (    5) -->04704<--
-  2. (   10) -->04704     <--
-
-# 0089 (int)
-  ft_printf("@moulitest: %.o %.0o", 0, 0);
-  1. (   15) -->@moulitest: 0 0<--
-  2. (   13) -->@moulitest:  <--
-
-# 0106 (int)
-  ft_printf("%+d", -42);
-  1. (    2) -->42<--
-  2. (    3) -->-42<--
-
-# 0108 (int)
-  ft_printf("%+d", 4242424242424242424242);
-  1. (    1) -->1<--
-  2. (    2) -->-1<--
-
-# 0110 (int)
-  ft_printf("% +d", -42);
-  1. (    2) -->42<--
-  2. (    3) -->-42<--
-
-# 0112 (int)
-  ft_printf("%+ d", -42);
-  1. (    2) -->42<--
-  2. (    3) -->-42<--
-
-# 0114 (int)
-  ft_printf("%  +d", -42);
-  1. (    2) -->42<--
-  2. (    3) -->-42<--
+// # 0114 (int)
+//   ft_printf("%  +d", -42);
+//   1. (    2) -->42<--
+//   2. (    3) -->-42<--
 
   
-# 0116 (int)
-  ft_printf("%+  d", -42);
-  1. (    2) -->42<--
-  2. (    3) -->-42<--
+// # 0116 (int)
+//   ft_printf("%+  d", -42);
+//   1. (    2) -->42<--
+//   2. (    3) -->-42<--
 
-# 0118 (int)
-  ft_printf("% ++d", -42);
-  1. (    2) -->42<--
-  2. (    3) -->-42<--
+// # 0118 (int)
+//   ft_printf("% ++d", -42);
+//   1. (    2) -->42<--
+//   2. (    3) -->-42<--
 
-# 0120 (int)
-  ft_printf("%++ d", -42);
-  1. (    2) -->42<--
-  2. (    3) -->-42<--
+// # 0120 (int)
+//   ft_printf("%++ d", -42);
+//   1. (    2) -->42<--
+//   2. (    3) -->-42<--
 
-# 0121 (int)
-  ft_printf("%0d", -42);
-  1. (    4) -->--42<--
-  2. (    3) -->-42<--
+// # 0121 (int)
+//   ft_printf("%0d", -42);
+//   1. (    4) -->--42<--
+//   2. (    3) -->-42<--
 
-# 0122 (int)
-  ft_printf("%00d", -42);
-  1. (    4) -->--42<--
-  2. (    3) -->-42<--
+// # 0122 (int)
+//   ft_printf("%00d", -42);
+//   1. (    4) -->--42<--
+//   2. (    3) -->-42<--
 
-# 0127 (int)
-  ft_printf("%05d", -42);
-  1. (    5) -->-0-42<--
-  2. (    5) -->-0042<--
+// # 0127 (int)
+//   ft_printf("%05d", -42);
+//   1. (    5) -->-0-42<--
+//   2. (    5) -->-0042<--
 
-# 0135 (short)
-  ft_printf("%hd", 32768);
-  1. (    5) -->32768<--
-  2. (    6) -->-32768<--
+// # 0135 (short)
+//   ft_printf("%hd", 32768);
+//   1. (    5) -->32768<--
+//   2. (    6) -->-32768<--
 
-# 0138 (signed char)
-  ft_printf("%hhd", 128);
-  1. (    3) -->128<--
-  2. (    4) -->-128<--
+// # 0138 (signed char)
+//   ft_printf("%hhd", 128);
+//   1. (    3) -->128<--
+//   2. (    4) -->-128<--
 
-# 0140 (signed char)
-  ft_printf("%hhd", -129);
-  1. (    4) -->-129<--
-  2. (    3) -->127<--
+// # 0140 (signed char)
+//   ft_printf("%hhd", -129);
+//   1. (    4) -->-129<--
+//   2. (    3) -->127<--
 
-# 0143 (long)
-  ft_printf("%ld", 2147483648);
-  1. (   11) -->-2147483648<--
-  2. (   10) -->2147483648<--
+// # 0143 (long)
+//   ft_printf("%ld", 2147483648);
+//   1. (   11) -->-2147483648<--
+//   2. (   10) -->2147483648<--
 
-# 0144 (long)
-  ft_printf("%ld", -2147483649);
-  1. (   10) -->2147483647<--
-  2. (   11) -->-2147483649<--
+// # 0144 (long)
+//   ft_printf("%ld", -2147483649);
+//   1. (   10) -->2147483647<--
+//   2. (   11) -->-2147483649<--
 
-# 0145 (long long)
-  ft_printf("%lld", 9223372036854775807);
-  1. (    2) -->-1<--
-  2. (   19) -->9223372036854775807<--
+// # 0145 (long long)
+//   ft_printf("%lld", 9223372036854775807);
+//   1. (    2) -->-1<--
+//   2. (   19) -->9223372036854775807<--
 
-# 0146 (long long)
-  ft_printf("%lld", -9223372036854775808);
-  1. (    1) -->0<--
-  2. (   20) -->-9223372036854775808<--
+// # 0146 (long long)
+//   ft_printf("%lld", -9223372036854775808);
+//   1. (    1) -->0<--
+//   2. (   20) -->-9223372036854775808<--
 
-# 0152 (int)
-  ft_printf("%4.15d", 42);
-  1. (    4) -->  42<--
-  2. (   15) -->000000000000042<--
+// # 0152 (int)
+//   ft_printf("%4.15d", 42);
+//   1. (    4) -->  42<--
+//   2. (   15) -->000000000000042<--
 
-# 0154 (int)
-  ft_printf("%.10d", 4242);
-  1. (    4) -->4242<--
-  2. (   10) -->0000004242<--
+// # 0154 (int)
+//   ft_printf("%.10d", 4242);
+//   1. (    4) -->4242<--
+//   2. (   10) -->0000004242<--
 
-# 0155 (int)
-  ft_printf("%10.5d", 4242);
-  1. (   10) -->      4242<--
-  2. (   10) -->     04242<--
+// # 0155 (int)
+//   ft_printf("%10.5d", 4242);
+//   1. (   10) -->      4242<--
+//   2. (   10) -->     04242<--
 
-# 0156 (int)
-  ft_printf("%-10.5d", 4242);
-  1. (    5) --> 4242<--
-  2. (   10) -->04242     <--
+// # 0156 (int)
+//   ft_printf("%-10.5d", 4242);
+//   1. (    5) --> 4242<--
+//   2. (   10) -->04242     <--
 
-# 0157 (int)
-  ft_printf("% 10.5d", 4242);
-  1. (    5) --> 4242<--
-  2. (   10) -->     04242<--
+// # 0157 (int)
+//   ft_printf("% 10.5d", 4242);
+//   1. (    5) --> 4242<--
+//   2. (   10) -->     04242<--
 
-# 0158 (int)
-  ft_printf("%+10.5d", 4242);
-  1. (    5) -->+4242<--
-  2. (   10) -->    +04242<--
+// # 0158 (int)
+//   ft_printf("%+10.5d", 4242);
+//   1. (    5) -->+4242<--
+//   2. (   10) -->    +04242<--
 
-# 0159 (int)
-  ft_printf("%-+10.5d", 4242);
-  1. (    5) -->+4242<--
-  2. (   10) -->+04242    <--
-
-
-# 0160 (int)
-  ft_printf("%03.2d", 0);
-  1. (    3) -->000<--
-  2. (    3) --> 00<--
-
-# 0161 (int)
-  ft_printf("%03.2d", 1);
-  1. (    3) -->001<--
-  2. (    3) --> 01<--
-
-# 0162 (int)
-  ft_printf("%03.2d", -1);
-  1. (    3) -->--1<--
-  2. (    3) -->-01<--
-
-# 0163 (int)
-  ft_printf("@moulitest: %.10d", -42);
-  1. (   15) -->@moulitest: -42<--
-  2. (   23) -->@moulitest: -0000000042<--
-
-# 0165 (int)
-  ft_printf("@moulitest: %.d %.0d", 0, 0);
-  1. (   15) -->@moulitest: 0 0<--
-  2. (   13) -->@moulitest:  <--
-
-# 0166 (int)
-  ft_printf("@moulitest: %5.d %5.0d", 0, 0);
-  1. (   23) -->@moulitest:     0     0<--
-  2. (   23) -->@moulitest:            <--
-
-# 0173 (unsigned int)
-  ft_printf("%15u", 4294967295);
-  1. (   10) -->4294967295<--
-  2. (   15) -->     4294967295<--
-
-# 0174 (unsigned int)
-  ft_printf("%-15u", 4294967295);
-  1. (   10) -->4294967295<--
-  2. (   15) -->4294967295     <--
-
-# 0175 (unsigned int)
-  ft_printf("%015u", 4294967295);
-  1. (   10) -->4294967295<--
-  2. (   15) -->000004294967295<--
-
-# 0179 (unsigned long)
-  ft_printf("%lu", 4294967296);
-  1. (    1) -->0<--
-  2. (   10) -->4294967296<--
-
-# 0180 (unsigned long)
-  ft_printf("%lu", -42);
-  1. (   10) -->4294967254<--
-  2. (   20) -->18446744073709551574<--
-
-# 0181 (unsigned long long)
-  ft_printf("%llu", 4999999999);
-  1. (    9) -->705032703<--
-  2. (   10) -->4999999999<--
-
-# 0182 (unsigned int)
-  ft_printf("@moulitest: %.5u", 42);
-  1. (   14) -->@moulitest: 42<--
-  2. (   17) -->@moulitest: 00042<-- 
-
-# 0013 (char *)
-  ft_printf("%%%", "test");
-includes/projects/ft_printf/ft_printf_main.sh: line 206: printf: %: invalid number
-  1. (    0) -->%<--
-  2. (   -1) -->%<--
-
-# 0014 (char *)
-  ft_printf("%%   %", "test");
-includes/projects/ft_printf/ft_printf_main.sh: line 206: printf: %   : invalid number
-  1. (    0) -->%   <--
-  2. (   -1) -->%   <--
+// # 0159 (int)
+//   ft_printf("%-+10.5d", 4242);
+//   1. (    5) -->+4242<--
+//   2. (   10) -->+04242    <--
 
 
-# 0053 (int)
-  ft_printf("@main_ftprintf: %####0000 33..1..#00d\\n", 256);
-  1. (   23) -->@main_ftprintf: 0 256\\n<--
-  2. (   34) -->@main_ftprintf: %# 033.0.1..#00d\\n<--
+// # 0160 (int)
+//   ft_printf("%03.2d", 0);
+//   1. (    3) -->000<--
+//   2. (    3) --> 00<--
 
-# 0054 (int)
-  ft_printf("@main_ftprintf: %####0000 33..1d", 256);
-  1. (   21) -->@main_ftprintf: 0 256<--
-  2. (   27) -->@main_ftprintf: %# 033.0.1d<--
+// # 0161 (int)
+//   ft_printf("%03.2d", 1);
+//   1. (    3) -->001<--
+//   2. (    3) --> 01<--
 
-# 0055 (int)
-  ft_printf("@main_ftprintf: %###-#0000 33...12..#0+0d", 256);
-  1. (   22) -->@main_ftprintf:  0 256<--
-  2. (   35) -->@main_ftprintf: %# -33.0..12..#0+0d<--
+// # 0162 (int)
+//   ft_printf("%03.2d", -1);
+//   1. (    3) -->--1<--
+//   2. (    3) -->-01<--
+
+// # 0163 (int)
+//   ft_printf("@moulitest: %.10d", -42);
+//   1. (   15) -->@moulitest: -42<--
+//   2. (   23) -->@moulitest: -0000000042<--
+
+// # 0165 (int)
+//   ft_printf("@moulitest: %.d %.0d", 0, 0);
+//   1. (   15) -->@moulitest: 0 0<--
+//   2. (   13) -->@moulitest:  <--
+
+// # 0166 (int)
+//   ft_printf("@moulitest: %5.d %5.0d", 0, 0);
+//   1. (   23) -->@moulitest:     0     0<--
+//   2. (   23) -->@moulitest:            <--
+
+// # 0173 (unsigned int)
+//   ft_printf("%15u", 4294967295);
+//   1. (   10) -->4294967295<--
+//   2. (   15) -->     4294967295<--
+
+// # 0174 (unsigned int)
+//   ft_printf("%-15u", 4294967295);
+//   1. (   10) -->4294967295<--
+//   2. (   15) -->4294967295     <--
+
+// # 0175 (unsigned int)
+//   ft_printf("%015u", 4294967295);
+//   1. (   10) -->4294967295<--
+//   2. (   15) -->000004294967295<--
+
+// # 0179 (unsigned long)
+//   ft_printf("%lu", 4294967296);
+//   1. (    1) -->0<--
+//   2. (   10) -->4294967296<--
+
+// # 0180 (unsigned long)
+//   ft_printf("%lu", -42);
+//   1. (   10) -->4294967254<--
+//   2. (   20) -->18446744073709551574<--
+
+// # 0181 (unsigned long long)
+//   ft_printf("%llu", 4999999999);
+//   1. (    9) -->705032703<--
+//   2. (   10) -->4999999999<--
+
+// # 0182 (unsigned int)
+//   ft_printf("@moulitest: %.5u", 42);
+//   1. (   14) -->@moulitest: 42<--
+//   2. (   17) -->@moulitest: 00042<-- 
+
+// # 0013 (char *)
+//   ft_printf("%%%", "test");
+// includes/projects/ft_printf/ft_printf_main.sh: line 206: printf: %: invalid number
+//   1. (    0) -->%<--
+//   2. (   -1) -->%<--
+
+// # 0014 (char *)
+//   ft_printf("%%   %", "test");
+// includes/projects/ft_printf/ft_printf_main.sh: line 206: printf: %   : invalid number
+//   1. (    0) -->%   <--
+//   2. (   -1) -->%   <--
 
 
-*/
+// # 0053 (int)
+//   ft_printf("@main_ftprintf: %####0000 33..1..#00d\\n", 256);
+//   1. (   23) -->@main_ftprintf: 0 256\\n<--
+//   2. (   34) -->@main_ftprintf: %# 033.0.1..#00d\\n<--
+
+// # 0054 (int)
+//   ft_printf("@main_ftprintf: %####0000 33..1d", 256);
+//   1. (   21) -->@main_ftprintf: 0 256<--
+//   2. (   27) -->@main_ftprintf: %# 033.0.1d<--
+
+// # 0055 (int)
+//   ft_printf("@main_ftprintf: %###-#0000 33...12..#0+0d", 256);
+//   1. (   22) -->@main_ftprintf:  0 256<--
+//   2. (   35) -->@main_ftprintf: %# -33.0..12..#0+0d<--
 
 
-/*
 	li = 3.1416;
 	lo = 3.1416;
 	ft_printf("Test 18.c)1 L \n");
@@ -3571,9 +3626,6 @@ includes/projects/ft_printf/ft_printf_main.sh: line 206: printf: %   : invalid n
 	o =    printf("   printf printing float 3.1416 with . = %.54f\n", 3.1416);
 	i = ft_printf("ft_printf printing float 3.1416 with . = %.55f\n", 3.1416);
 	o =    printf("   printf printing float 3.1416 with . = %.55f\n", 3.1416);
-
-
-
 
 
 
@@ -4153,19 +4205,19 @@ printf(" my length %i. system lenght %i\n", o,i);
 	printf(" my length %i. system lenght %i\n", i,o);
 	// ft_printf("%hhX", 4294967296);
 
-/*	printf("{%*3d}\n", 5, 0);
-	ft_printf("Test 72. test from discord\n");
-	i = ft_printf("{%*3d}\n", 5, 0);
-	printf(" <-- yours\n");
-	o = printf("{%*3d}\n", 5, 0);
-	printf(" <-- system\n");
-	printf(" my length %i. system lenght %i\n", i,o);
-*/
+	// printf("{%*3d}\n", 5, 0);
+	// ft_printf("Test 72. test from discord\n");
+	// i = ft_printf("{%*3d}\n", 5, 0);
+	// printf(" <-- yours\n");
+	// o = printf("{%*3d}\n", 5, 0);
+	// printf(" <-- system\n");
+	// printf(" my length %i. system lenght %i\n", i,o);
+
 
 	// printf("{%*d}\n", -5, 42); 	
 	// ft_printf("%llx", 9223372036854775807);
 
-/*/	ft_printf("%llx", 9223372036854775808);
+	ft_printf("%llx", 9223372036854775808);
 	ft_printf("%010x", 542);
 	ft_printf("%-15x", 542);
 	ft_printf("%5.2x", 5427);
@@ -4180,27 +4232,13 @@ printf(" my length %i. system lenght %i\n", o,i);
 	ft_printf("%.2s is a string", "this");
 	ft_printf("%5.2s is a string", "this");
 
-*/
 
 
-
-/*
-  printf("\n");
-  printf("**************THESE TESTS STILL FAIL\n");
+printf("\n");
+ printf("**************THESE TESTS STILL FAIL\n");
 printf("\n");
 printf("FAIL: 0");
 printf("\n");
-
-
-
-
-
-
-
-
-
-
-
 
 
 

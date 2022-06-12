@@ -89,8 +89,8 @@ int	print_d(t_flags *flag_s, va_list ap, int chars_printed)
 	else
 		s = ft_itoa(i);
 	chars_printed = print_before(flag_s, chars_printed, s, 'd');
-	if (ft_strcmp(s, "-9223372036854775808") != 0)
-		ft_strdel(&s);
+	// if (ft_strcmp(s, "-9223372036854775808") != 0)
+	ft_strdel(&s);
 	return (chars_printed);
 }
 
