@@ -27,7 +27,7 @@ int	print_minus(t_flags *flag, int c_p, char *s, char c)
 		c_p += print_c(' ');
 	c_p = print_sign(flag, c_p, &s);
 	c_p = print_section(flag, c_p, s, c);
-	c_p += ft_putcx('0', flag->prec - ft_strlen(s) - flag->plus);
+	c_p += ft_putcx('0', flag->prec - (int)ft_strlen(s) - flag->plus);
 	c_p += ft_putnchar(s, ft_strlen(s));
 	if (flag->zero == 1)
 		c_p += ft_putcx('0', flag->width - c_p);

@@ -82,13 +82,13 @@ int	print_llong(t_flags *flag_s, va_list ap, int chars_printed)
 	if (ft_strcmp(s[0], "nan") == 0 || ft_strcmp(s[0], "inf") == 0)
 		return (print_nan_inf(flag_s, chars_printed, s));
 	if (ft_strcmp(s[1], "") == 0 && ft_strlen(s[1]) <= 1)
-		ft_add_zeros(&s[1], flag_s->prec - ft_strlen(s[1]));
+		ft_add_zeros(&s[1], flag_s->prec - (int)ft_strlen(s[1]));
 	ft_round(s, flag_s->prec);
-	decimals = ft_strlen(s[1]);
+	decimals = (int)ft_strlen(s[1]);
 	if (decimals < flag_s->prec)
 		ft_add_zeros(&s[1], flag_s->prec - decimals);
 	if (s[1][0] == '0' && ft_strlen(s[1]) == 1)
-		ft_add_zeros(&s[1], flag_s->prec - ft_strlen(s[1]));
+		ft_add_zeros(&s[1], flag_s->prec - (int)ft_strlen(s[1]));
 	if (decimals != 0)
 	{
 		combine_chars(s);
@@ -113,11 +113,11 @@ int	print_f(t_flags *flag_s, va_list ap, int chars_printed)
 	if (ft_strcmp(s[0], "nan") == 0 || ft_strcmp(s[0], "inf") == 0)
 		return (print_nan_inf(flag_s, chars_printed, s));
 	ft_round(s, flag_s->prec);
-	decimals = ft_strlen(s[1]);
+	decimals = (int)ft_strlen(s[1]);
 	if (decimals < flag_s->prec)
 		ft_add_zeros(&s[1], flag_s->prec - decimals);
 	if (s[1][0] == '0' && ft_strlen(s[1]) == 1)
-		ft_add_zeros(&s[1], flag_s->prec - ft_strlen(s[1]));
+		ft_add_zeros(&s[1], flag_s->prec - (int)ft_strlen(s[1]));
 	if (decimals != 0)
 	{
 		combine_chars(s);

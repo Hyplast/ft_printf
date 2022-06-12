@@ -69,7 +69,7 @@ static int	tell_max_length(unsigned long n, unsigned long base)
 			i++;
 	}
 	else if (base == 10)
-		i = count_digits((long) n);
+		i = (int)count_digits((long) n);
 	else if (base == 16)
 	{
 		while (hexadecimal_numbers(i) < n)

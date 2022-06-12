@@ -63,7 +63,7 @@ void	fill_prec(char *result, char *str, int size)
 	int	i;
 
 	i = 0;
-	j = ft_strlen(str);
+	j = (int)ft_strlen(str);
 	while (i <= size && i < j)
 	{
 		result[i] = str[i];

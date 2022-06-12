@@ -40,7 +40,7 @@ char	*ft_strrev(char *str)
 	int		i;
 	int		j;
 
-	i = ft_strlen((const char *)str) - 1;
+	i = (int)ft_strlen((const char *)str) - 1;
 	j = 0;
 	while (i >= j)
 	{

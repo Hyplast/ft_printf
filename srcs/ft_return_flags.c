@@ -65,13 +65,13 @@ static char	*find_prec(t_flags *flag_s, char *flags)
 	index = ft_lookforchar(flags, '.');
 	if (index != -1)
 	{
-		temp = ft_strsub(flags, index + 1, ft_strlen(flags) - index);
+		temp = ft_strsub(flags, (unsigned int)index + 1, (size_t)((int)ft_strlen(flags) - index));
 		flag_s->prec = ft_atoi(temp);
 		ft_strdel(&temp);
 		if (index == 0)
 			flags = "";
 		else
-			flags = shorten_chars(flags, 0, ft_strlen(flags) - index);
+			flags = shorten_chars(flags, 0, (size_t)((int)ft_strlen(flags) - index)));
 	}
 	return (flags);
 }

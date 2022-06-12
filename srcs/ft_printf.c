@@ -18,7 +18,7 @@ static int	check_modifiers(const char *flags, const char *modifiers, int len)
 	int	j;
 	int	i;
 
-	len_max = ft_strlen(flags);
+	len_max = (int)ft_strlen(flags);
 	if (len_max < len)
 		len = len_max;
 	i = 0;
@@ -61,7 +61,7 @@ static	char	*parse_specifier(const char *flags)
 	char	*temp;
 
 	i = 0;
-	elem = ft_strlen(VALID_FORMAT);
+	elem = (int)ft_strlen(VALID_FORMAT);
 	len = 0;
 	if (*flags == '%')
 		return (ft_strdup("%"));
@@ -77,7 +77,7 @@ static	char	*parse_specifier(const char *flags)
 	temp = ft_strnew(len + 1);
 	while (i < (int)len + 1)
 		temp[i++] = '\1';
-	if (valid_order(flags, len) == 2 && flags[len] == '%')
+	if (valid_order(flags, (int)len) == 2 && flags[len] == '%')
 		temp[0] = '%';
 	return (temp);
 }

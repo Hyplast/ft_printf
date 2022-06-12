@@ -117,7 +117,7 @@ void	ft_round(char **result, int precision)
 	prec = precision - 1;
 	if (!ft_strcmp(result[1], "0"))
 		return ;
-	str = ft_strnew(prec + 2);
+	str = ft_strnew((size_t)prec + 2);
 	if (!(str))
 		return ;
 	fill_prec(str, result[1], prec + 1);
