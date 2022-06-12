@@ -89,7 +89,7 @@ printf("\n");
 //   1. (    2) -->^@ <--
 //   2. (    1) -->^@<--
 
-printf("NOT WORKING -68");
+printf("NOT WORKING -68-b");
 printf("\n");
 o =    printf("%2c", 0);
 printf("\n");
@@ -102,6 +102,20 @@ printf("\n");
 //   1. (    2) -->^@ <--
 //   2. (    2) --> ^@<--
 
+printf("NOT WORKING -68-c");
+printf("\n");
+o =    printf("%2c", '&');
+printf("\n");
+i = ft_printf("%2c", '&');
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+// # 0076 (char)
+//   ft_printf("%2c", 0);
+//   1. (    2) -->^@ <--
+//   2. (    2) --> ^@<--
+
+
 printf("NOT WORKING -67");
 printf("\n");
 o =    printf("%.0%");
@@ -110,11 +124,22 @@ i = ft_printf("%.0%");
 printf("\n");
 printf("Mine lenght %i, system length %i\n", i, o);
 printf("\n");
+
+printf("NOT WORKING -67. b");
+printf("\n");
+o =    printf("%0%");
+printf("\n");
+i = ft_printf("%0%");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
 // # 0009 
 //   ft_printf("%.0%");
 //   1. (    4) -->%.0%<--
 //   2. (    1) -->%<--
 
+/*
 
 printf("NOT WORKING -48");
 printf("\n");

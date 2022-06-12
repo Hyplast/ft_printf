@@ -20,7 +20,9 @@ int	print_char(t_flags *flag_s, char c, int chars_printed)
 		return (print_c('\0'));
 	temp = ft_strnew(1);
 	temp[0] = c;
-	chars_printed += print_before(flag_s, chars_printed, temp, 'c');
+	if (c == '\0')
+		chars_printed++;
+	chars_printed = print_before(flag_s, chars_printed, temp, 'c');
 	ft_strdel(&temp);
 	return (chars_printed);
 }
