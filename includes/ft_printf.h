@@ -22,10 +22,7 @@
 # define VALID_WIDTH "0123456789"
 # define VALID_PREC "0123456789"
 # define VALID_SPECI "llLhh"
-/* spec
-* n l ll L h hh
-* 0 1 2  3 4 5
-*/
+
 typedef struct s_flags
 {
 	int			len;
@@ -125,7 +122,8 @@ int				print_sign(t_flags *flag, int c_p, char **s);
 void			free_flags(t_flags *flags);
 char			*shorten_chars(char *str, int start, int end);
 void			ft_add_zeros(char **str, int zeros);
-int				match_function(t_flags *flags, va_list ap, int c, int printed_c);
+int				match_function(t_flags *flags, va_list ap, int c,
+					int printed_c);
 int				read_flags(char *flags, va_list ap);
 
 #endif
