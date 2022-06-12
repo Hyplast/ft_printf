@@ -132,6 +132,7 @@ static char	*ft_lutoa(long unsigned int c)
 }
 
 
+
 // static void set_chars(char **)
 // {
 //     char *max = "-9223372036854775808";
@@ -261,6 +262,23 @@ static char     *move_forward_return(char *s)
 }
 
 
+void	ft_putnbr_fd(int n, int fd)
+{
+	if (n == -2147483648)
+	{
+		ft_putchar_fd('-', fd);
+		ft_putchar_fd('2', fd);
+		n = 147483648;
+	}
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		n = n * -1;
+	}
+	if (n / 10 > 0)
+		ft_putnbr_fd(n / 10, fd);
+	ft_putchar_fd((char)(n % 10 + 48), fd);
+}
 
 char	**create_str(void)
 {
@@ -288,10 +306,23 @@ int    main(void)
     // char    *copy;
     // int i;
 	char		**str;
+	size_t		test_size;
 
     // s = ft_lutoa(-9223372036854775808);
     
+
+	
+
 	str = create_str();
+
+
+	test_size = ft_strlen((const char*)str);
+
+
+	ft_putnchar("\n", 1);
+ft_putnchar("ft_p", 4);
+	ft_putnbr_fd(test_size, 1);
+ft_putnchar("\n", 1);
 
 	ft_putnchar("\n", 1);
     ft_putnchar("str0", 4);
