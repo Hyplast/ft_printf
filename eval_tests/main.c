@@ -17,6 +17,11 @@
 //  IEEE 754 Double Precision Floating Point Visualization
 // https://bartaz.github.io/ieee754-visualization/
 
+// *	"In contrast to the single and double-precision formats, this format does
+// *	not utilize an implicit/hidden bit.
+// *	Rather, bit 63 contains the integer part of the significand and bits 62-0
+// *	hold the fractional part. Bit 63 will be 1 on all normalized numbers."
+
 #define B(x) S_to_binary_(#x)
 
 static inline unsigned long long S_to_binary_(const char *s)

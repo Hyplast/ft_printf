@@ -41,10 +41,10 @@ typedef struct s_flags
 
 typedef struct s_calc
 {
-	int			len_1;
-	int			len_2;
-	int			len_1_static;
-	int			len_2_static;
+	int			len1;
+	int			len2;
+	int			len1_static;
+	int			len2_static;
 	int			max;
 	int			min;
 	int			sum;
@@ -95,6 +95,7 @@ int				print_int(t_flags *flag, int c_p, char *s, char c);
 int				print_u_int(t_flags *flag, int c_p, char *s, char c);
 int				print_minus(t_flags *flag, int c_p, char *s, char c);
 int				print_section(t_flags *flag, int c_p, char *s, char c);
+int				print_str_w_flags(t_flags *flag, int c_p, char *s);
 int				print_w_zeros(t_flags *flag, int c_p, char *s, char c);
 int				print_sharp_w_spaces(t_flags *flag, int c_p, char *s, char c);
 int				print_sharp_w_zeros(t_flags *flag, int c_p, char *s, char c);
@@ -115,12 +116,16 @@ int				print_x(t_flags *flag_s, va_list ap, int chars_printed);
 int				print_big_x(t_flags *flag_s, va_list ap, int chars_printed);
 t_flags			*return_flags(const char *flags);
 uintmax_t		unsigned_conv(t_flags *flag_s, va_list ap);
-uintmax_t		signed_conv(t_flags *flag_s, va_list ap);
+intmax_t		signed_conv(t_flags *flag_s, va_list ap);
 void			init_flags(t_flags *flag_s, const char *flags);
 void			fix_overrides(t_flags *flag_s, const char c);
 int				is_plus(t_flags *flag, int c_p, char **s, char c);
 int				is_sharp(int c_p, char c);
 int				print_sign(t_flags *flag, int c_p, char **s);
 void			free_flags(t_flags *flags);
+char			*shorten_chars(char *str, int start, int end);
+void			ft_add_zeros(char **str, int zeros);
+int				match_function(t_flags *flags, va_list ap, int c, int printed_c);
+int				read_flags(char *flags, va_list ap);
 
 #endif

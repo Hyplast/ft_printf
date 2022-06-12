@@ -12,9 +12,9 @@
 
 #include "ft_printf.h"
 
-uintmax_t	signed_conv(t_flags *flag_s, va_list ap)
+intmax_t	signed_conv(t_flags *flag_s, va_list ap)
 {
-	uintmax_t		i;
+	intmax_t		i;
 
 	if (flag_s->spec == 0)
 		i = (signed int) va_arg(ap, signed int);
@@ -33,19 +33,19 @@ uintmax_t	signed_conv(t_flags *flag_s, va_list ap)
 
 uintmax_t	unsigned_conv(t_flags *flag_s, va_list ap)
 {
-	uintmax_t		i;
+	uintmax_t		u;
 
 	if (flag_s->spec == 0)
-		i = (unsigned int) va_arg(ap, unsigned int);
+		u = (unsigned int) va_arg(ap, unsigned int);
 	else if (flag_s->spec == 1)
-		i = (unsigned long int) va_arg(ap, unsigned long int);
+		u = (unsigned long int) va_arg(ap, unsigned long int);
 	else if (flag_s->spec == 2)
-		i = (unsigned long long int) va_arg(ap, unsigned long long int);
+		u = (unsigned long long int) va_arg(ap, unsigned long long int);
 	else if (flag_s->spec == 4)
-		i = (unsigned short int) va_arg(ap, unsigned int);
+		u = (unsigned short int) va_arg(ap, unsigned int);
 	else if (flag_s->spec == 5)
-		i = (unsigned char) va_arg(ap, unsigned int);
+		u = (unsigned char) va_arg(ap, unsigned int);
 	else
-		i = (unsigned int) va_arg(ap, unsigned int);
-	return (i);
+		u = (unsigned int) va_arg(ap, unsigned int);
+	return (u);
 }

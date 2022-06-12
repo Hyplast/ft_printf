@@ -12,18 +12,6 @@
 
 #include "ft_printf.h"
 
-
-static char	*shorten_chars(char *flags, int start, int end)
-{
-	char	*temp;
-
-	temp = ft_strsub(flags, start, ft_strlen(flags) - end);
-	ft_strclr(flags);
-	flags = ft_memcpy(flags, temp, ft_strlen(temp));
-	ft_strdel(&temp);
-	return (flags);
-}
-
 static char	*find_flags(t_flags *flag_s, char *flags, int i)
 {
 	while (++i < (int)ft_strlen(flags))

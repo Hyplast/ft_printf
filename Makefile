@@ -34,6 +34,7 @@ ft_vlq_pow.c \
 ft_print_flags.c \
 ft_print_before.c \
 ft_print_signed.c \
+ft_print_str.c \
 ft_print_unsigned.c \
 ft_return_flags.c \
 ft_print_f.c \
@@ -41,7 +42,9 @@ ft_print_i.c \
 ft_print_x.c \
 ft_basetoa.c \
 ft_utils.c \
-ft_round.c 
+ft_utils_2.c \
+ft_round.c \
+ft_read_match.c
 
 SRCS = $(addprefix srcs/, $(SRC))
 

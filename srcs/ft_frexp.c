@@ -53,46 +53,25 @@ static int	check_nan_inf(char *mantissa, char *exp_str)
 	return (0);
 }
 
-static void handle_nan_inf(char **res, char *mantissa, char *exp)
+static void	handle_nan_inf(char **res, char *mantissa, char *exp)
 {
 	if (check_nan_inf(mantissa, exp) == 1)
 	{
 		res[0] = ft_strdup("nan");
-		// if (!(res[0]))
-		// 	return (NULL);
 		res[1] = NULL;
-		// ft_strdel(&mantissa);
-		// ft_strdel(&str);
-		// return (res);
 	}
 	if (check_nan_inf(mantissa, exp) == -1)
 	{
 		res[0] = ft_strdup("inf");
-		// if (!(res[0]))
-		// 	return (NULL);
 		res[1] = NULL;
-		// ft_strdel(&str);
-		// ft_strdel(&mantissa);
-		// return (res);
 	}
-	// return (NULL);
 }
-
-// static void	add_minus_sign(char **str)
-// {
-// 	char	*temp;
-
-// 	temp = ft_strjoin("-" , str[0]);
-// 	ft_strdel(&str[0]);
-// 	*str = ft_strdup(temp);
-// 	ft_strdel(&temp);
-// }
 
 /*
 *	ft_frexp converts floating point double to strings
 *	@param double x
 *	@return result[] = result[0] and result[1] = decimal strings x.x
-*	@return result[2] = Nan
+*	@return result[2] = sign
 */
 char	**ft_frexp(double x)
 {
@@ -110,21 +89,12 @@ char	**ft_frexp(double x)
 	if (!(result) || !(number_in_string) || !(result[2]) || !(mantissa))
 		return (NULL);
 	if (check_nan_inf(mantissa, exp_bin_in_string) != 0)
-	{
 		handle_nan_inf(result, mantissa, exp_bin_in_string);
-
-	}
-		// return (handle_nan_inf(result, number_in_string, mantissa,
-		// 		exp_bin_in_string));
 	else
 		calculate_float(mantissa, get_exp(exp_bin_in_string), result);
 	if (number_in_string[0] == '1')
 		ft_strcpy(result[2], "-");
-	// else
-	// 	ft_strdel(&result[2]);
 	ft_strdel(&mantissa);
 	ft_strdel(&number_in_string);
-	// if ((unsigned long)x >> 63 == (unsigned long)1)
-	// 	add_minus_sign(result);
 	return (result);
 }

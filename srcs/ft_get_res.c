@@ -36,9 +36,7 @@ static void	is_neg_exp(char *mantissa, int exp, char **result)
 			right[i++] = mantissa[j++];
 	}
 	right[i] = '\0';
-	// ft_strdel(&(res[0]));
 	result[0] = ft_strdup("0");
-	// ft_strdel(&(res[0]));
 	result[1] = ft_bin_to_dec(right);
 	ft_strdel(&right);
 }

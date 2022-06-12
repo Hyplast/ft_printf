@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_flags.c                                   :+:      :+:    :+:   */
+/*   ft_print_str.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: severi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,57 +12,35 @@
 
 #include "ft_printf.h"
 
-int	is_sharp(int c_p, char c)
+static int	with_non_minus(t_flags *flag, int c_p)
 {
-	c_p += print_c('0');
-	if (c != 'o')
-		c_p += print_c(c);
+	if (flag->zero == 1)
+		c_p += ft_putcx('0', flag->width - c_p);
+	else
+		c_p += ft_putcx(' ', flag->width - c_p);
 	return (c_p);
 }
 
-int	print_sign(t_flags *flag, int c_p, char **s)
+int	print_str_w_flags(t_flags *flag, int c_p, char *s)
 {
-	if ((*s)[0] == '-')
+	c_p += ft_strlen(s);
+	if (flag->minus == 0)
+		c_p = with_non_minus(flag, c_p);
+	ft_putnchar(s, ft_strlen(s));
+	if (flag->minus == 1)
 	{
-		c_p += print_c('-');
-		(*s) = (*s) + 1;
-		flag->plus = 0;
-		flag->space = 0;
+		if (flag->zero == 1)
+		{
+			c_p += ft_putcx('0', flag->width - c_p);
+			if (flag->width != 0)
+				c_p += ft_putcx('0', flag->width - flag->prec - c_p);
+		}
+		else
+		{
+			c_p += ft_putcx(' ', flag->width - c_p);
+			if (flag->width != 0 && flag->prec != -1)
+				c_p += ft_putcx(' ', flag->width - flag->prec - c_p);
+		}
 	}
 	return (c_p);
-}
-
-int	is_plus(t_flags *flag, int c_p, char **s, char c)
-{
-	char	*temp;
-
-	if ((*s)[0] != '-' && (c == 'i' || c == 'd'))
-		c_p += print_c('+');
-	if ((*s)[0] == '-')
-	{
-		temp = ft_strsub((*s), 1, ft_strlen((*s)) - 1);
-		ft_strcpy((*s), temp);
-		ft_strdel(&temp);
-	}
-	flag->plus = 0;
-	return (c_p);
-}
-
-int	ft_lookforchar(const char *s, int c)
-{
-	int	s_len;
-	int	i;
-
-	i = -1;
-	if (!s)
-		return (-1);
-	if (ft_strcmp(s, "") == 0)
-		return (-1);
-	s_len = (int)ft_strlen(s);
-	while (s_len >= ++i)
-	{
-		if (s[i] == c)
-			return (i);
-	}
-	return (-1);
 }

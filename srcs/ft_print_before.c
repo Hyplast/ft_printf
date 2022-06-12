@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	print_before_minus(t_flags *flag, int c_p, char *s, char c)
+static int	print_before_minus(t_flags *flag, int c_p, char *s, char c)
 {
 	if (flag->plus == 1)
 		c_p = is_plus(flag, c_p, &s, c);
@@ -34,7 +34,7 @@ int	print_before_minus(t_flags *flag, int c_p, char *s, char c)
 	return (c_p);
 }
 
-int	print_before_plus(t_flags *flag, int c_p, char *s, char c)
+static int	print_before_plus(t_flags *flag, int c_p, char *s, char c)
 {
 	if (flag->sharp == 1 && flag->zero == 1)
 		c_p = is_sharp(c_p, c);
@@ -62,7 +62,7 @@ int	print_before_plus(t_flags *flag, int c_p, char *s, char c)
 	return (c_p);
 }
 
-int	print_before_0(t_flags *flag, int c_p, char *s, char c)
+static int	print_before_0(t_flags *flag, int c_p, char *s, char c)
 {
 	if (s[0] == '-')
 		c_p += print_c('-');
@@ -79,7 +79,7 @@ int	print_before_0(t_flags *flag, int c_p, char *s, char c)
 	return (c_p);
 }
 
-int	just_print(t_flags *flag, int c_p, char *s, char c)
+static int	just_print(t_flags *flag, int c_p, char *s, char c)
 {
 	if (flag->sharp == 1)
 		c_p += 2;
@@ -103,36 +103,6 @@ int	just_print(t_flags *flag, int c_p, char *s, char c)
 	return (c_p);
 }
 
-int	print_str_w_flags(t_flags *flag, int c_p, char *s)
-{
-	c_p += ft_strlen(s);
-	if (flag->minus == 0)
-	{
-		if (flag->zero == 1)
-			c_p += ft_putcx('0', flag->width - c_p);
-		else
-			c_p += ft_putcx(' ', flag->width - c_p);
-	}
-	ft_putnchar(s, ft_strlen(s));
-	if (flag->minus == 1)
-	{
-		if (flag->zero == 1)
-		{
-			c_p += ft_putcx('0', flag->width - c_p);
-			if	(flag->width != 0)
-				c_p += ft_putcx('0', flag->width - flag->prec - c_p);
-		}
-		else
-		{
-			c_p += ft_putcx(' ', flag->width - c_p);
-			if	(flag->width != 0 && flag->prec != -1)
-				c_p += ft_putcx(' ', flag->width - flag->prec - c_p);
-		}
-		
-	}
-	return (c_p);
-}
-
 int	print_before(t_flags *flag, int c_p, char *s, char c)
 {
 	if (c == 'o' || c == 'u' || c == 'x' || c == 'X')
@@ -140,9 +110,7 @@ int	print_before(t_flags *flag, int c_p, char *s, char c)
 	if (c == 'd' || c == 'i')
 		return (print_int(flag, c_p, s, c));
 	if (c == 's')
-		return(print_str_w_flags(flag, c_p, s));
-	// if (c == 'c' && s[0] == '\0')
-	// 	c_p += print_c('\0');
+		return (print_str_w_flags(flag, c_p, s));
 	if (flag->space == 1 && s[0] != '-' && flag->plus == 0 && c != 'c')
 		c_p += print_c(' ');
 	if (flag->zero == 1 || (flag->sharp == 1))

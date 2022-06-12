@@ -43,7 +43,7 @@ static void	fill_nb(char *nb_str, unsigned char *temp)
 }
 
 /*
-*	ft_ldftoa extracts the binary value of the float into a string
+*	ft_ldftoa extracts the binary value of the long float into a string
 */
 char	*ft_ldftoa(long double x)
 {
@@ -60,14 +60,10 @@ char	*ft_ldftoa(long double x)
 }
 
 /*
-**	Sign = 1 bit
-**	Exponent = 15 bits
-**	Integer Part = 1 bit
-**	Mantissa = 63 bits
-**	"In contrast to the single and double-precision formats, this format does
-**	not utilize an implicit/hidden bit.
-**	Rather, bit 63 contains the integer part of the significand and bits 62-0
-**	hold the fractional part. Bit 63 will be 1 on all normalized numbers."
+*	sign 	 = 1 bit
+*	exponent = 15 bits
+*	integer  = 1 bit
+*	mantissa = 63 bits
 */
 static int	check_nan_inf_l(char *mantissa, char *exp_str)
 {
@@ -78,44 +74,23 @@ static int	check_nan_inf_l(char *mantissa, char *exp_str)
 	return (0);
 }
 
-static char	**handle_nan_inf_l(char **res, char *nb_str, char *mantissa, char *exp)
+static void	handle_nan_inf_l(char **res, char *mantissa, char *exp)
 {
 	if (check_nan_inf_l(mantissa, exp) == 1)
 	{
 		res[0] = ft_strdup("nan");
-		if (!res[0])
-			return (NULL);
 		res[1] = NULL;
-		ft_strdel(&nb_str);
-		ft_strdel(&mantissa);
-		return (res);
 	}
 	if (check_nan_inf_l(mantissa, exp) == -1)
 	{
 		res[0] = ft_strdup("inf");
-		if (!res[0])
-			return (NULL);
 		res[1] = NULL;
-		ft_strdel(&nb_str);
-		ft_strdel(&mantissa);
-		return (res);
 	}
-	return (NULL);
 }
 
-// static void	add_minus_sign(char **str)
-// {
-// 	char	*temp;
-
-// 	temp = ft_strjoin("-" , str[0]);
-// 	ft_strdel(&str[0]);
-// 	*str = ft_strdup(temp);
-// 	ft_strdel(&temp);
-// }
-
 /*
-*	ft_frexpl converts floating point double to strings
-*	@param double x
+*	ft_frexpl converts long floating point double to strings
+*	@param long double x
 *	@return result[] = result[0] and result[1] = decimal strings x.x
 *	@return result[2] = sign
 */
@@ -135,16 +110,12 @@ char	**ft_frexpl(long double x)
 	if (!(result) || !(number_in_string) || !(result[2]) || !(mantissa))
 		return (NULL);
 	if (check_nan_inf_l(mantissa, exp_bin_in_string) != 0)
-		return (handle_nan_inf_l(result, number_in_string, mantissa,
-				exp_bin_in_string));
-	calculate_float_l(mantissa, get_exp_l(exp_bin_in_string), result);
-	if (!ft_strchr(number_in_string + 1, '1') && number_in_string[0] == '1')
+		handle_nan_inf_l(result, mantissa, exp_bin_in_string);
+	else
+		calculate_float_l(mantissa, get_exp_l(exp_bin_in_string), result);
+	if (number_in_string[0] == '1')
 		ft_strcpy(result[2], "-");
-	// else
-	// 	ft_strdel(&result[2]);
 	ft_strdel(&number_in_string);
 	ft_strdel(&mantissa);
-	// if (x < 0)
-	// 	add_minus_sign(result);
 	return (result);
 }

@@ -12,51 +12,9 @@
 
 #include "ft_printf.h"
 
-static	int	match_function(t_flags *flags, va_list ap, int c, int printed_c)
-{
-	if (c == 'b')
-		printed_c += print_b(flags, ap, printed_c);
-	else if (c == 'c')
-		printed_c += print_char(flags, (char) va_arg(ap, int), printed_c);
-	else if (c == 'd')
-		printed_c += print_d(flags, ap, printed_c);
-	else if (c == 'f')
-		printed_c += print_f(flags, ap, printed_c);
-	else if (c == 'i')
-		printed_c += print_i(flags, ap, printed_c);
-	else if (c == 'o')
-		printed_c += print_o(flags, ap, printed_c);
-	else if (c == 'p')
-		printed_c += print_p(flags, ap, printed_c);
-	else if (c == 's')
-		printed_c += print_s(flags, (char *) va_arg(ap, char *), printed_c);
-	else if (c == 'u')
-		printed_c += print_u(flags, ap, printed_c);
-	else if (c == 'x')
-		printed_c += print_x(flags, ap, printed_c);
-	else if (c == 'X')
-		printed_c += print_big_x(flags, ap, printed_c);
-	return (printed_c);
-}
-
-static	int	read_flags(char *flags, va_list ap)
-{
-	int		chars_printed;
-	size_t	len;
-	t_flags	*flag_s;
-
-	flag_s = return_flags(flags);
-	len = ft_strlen(flags);
-	chars_printed = 0;
-	chars_printed = match_function(flag_s, ap, flags[len - 1], 0);
-	free_flags(flag_s);
-	return (chars_printed);
-}
-
-
 static int	check_modifiers(const char *flags, const char *modifiers, int len)
 {
-	int len_max;
+	int	len_max;
 	int	j;
 	int	i;
 
@@ -77,7 +35,7 @@ static int	check_modifiers(const char *flags, const char *modifiers, int len)
 	return (i);
 }
 
-static int		valid_order(const char *flags, int len)
+static int	valid_order(const char *flags, int len)
 {
 	int	i;
 
@@ -86,7 +44,7 @@ static int		valid_order(const char *flags, int len)
 	i += check_modifiers(flags + i, VALID_WIDTH, len);
 	i += check_modifiers(flags + i, ".", len);
 	i += check_modifiers(flags + i, VALID_PREC, len);
-	i += check_modifiers(flags + i, VALID_FORMAT, len);
+	i += check_modifiers(flags + i, VALID_SPECI, len);
 	if (i == len)
 		return (2);
 	i += check_modifiers(flags + i, VALID_FORMAT, len);
@@ -94,24 +52,6 @@ static int		valid_order(const char *flags, int len)
 		return (1);
 	return (0);
 }
-
-// static int		all_digits(const char *flags, int len)
-// {
-// 	int		i;
-// 	char	c;
-
-// 	i = 0;
-// 	c = flags[i];
-// 	while ((c != '\0' && c != '%') && (ft_issign(c) == 1 || c == '0'))
-// 		c = flags[i++];
-// 	while(c != '\0' && c != '%' && ft_isdigit(c) == 1)
-// 	{
-// 		if ((int)len == i)
-// 			return (1);
-// 		c = flags[i++];
-// 	}
-// 	return (0);
-// }
 
 static	char	*parse_specifier(const char *flags)
 {
@@ -134,38 +74,20 @@ static	char	*parse_specifier(const char *flags)
 		i = 0;
 		len++;
 	}
-	// if (valid_order(flags, len) == 2)
-	// 	return (ft_strsub(flags, 0, len));
-	temp = ft_strnew(len+1);
-	while (i < (int)len+1)
+	temp = ft_strnew(len + 1);
+	while (i < (int)len + 1)
 		temp[i++] = '\1';
 	if (valid_order(flags, len) == 2 && flags[len] == '%')
 		temp[0] = '%';
-	// if (all_digits(flags, (int)len) == 1 || flags[len] == '%')
-	// 	temp[0] = '%';
 	return (temp);
 }
-
-// static void	free_char(char **flags)
-// {
-// 	if (flags != NULL)
-// 	{
-// 		if (*flags != NULL)
-// 		{
-// 			if (**flags != '%')
-// 				ft_strdel(flags);
-// 		}	
-// 	}
-// }
 
 static int	read_while(const char *format, va_list ap, int i, int chars_printed)
 {
 	char	*flags;
 
-	// flags = ft_strnew(1);
 	while (i != -1)
 	{
-		// ft_strdel(&flags);
 		chars_printed += ft_putnchar(format, (size_t)i);
 		format = ft_strchr(format, '%') + 1;
 		if (ft_strcmp(format, "") == 0 && chars_printed == 0)
@@ -174,24 +96,17 @@ static int	read_while(const char *format, va_list ap, int i, int chars_printed)
 		if (flags[0] != '%' && flags[0] != '\1')
 			chars_printed += read_flags(flags, ap);
 		else if (flags[0] == '%')
-		{
 			chars_printed += ft_putnchar("%", 1);
-			
-		}
 		else
 		{
 			chars_printed += ft_putnchar("%", 1);
 			chars_printed += ft_putnchar(format, ft_strlen(flags));
 		}
 		format += ft_strlen(flags);
-		// if (ft_strlen(flags) > 1)
-		// 	ft_strdel(&flags);
-		// else if (flags[0] != '%')
 		ft_strdel(&flags);
 		i = ft_lookforchar(format, '%');
 	}
 	chars_printed += ft_putnchar(format, ft_strlen(format));
-	// free_char(&flags);
 	return (chars_printed);
 }
 

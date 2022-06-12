@@ -17,24 +17,24 @@
 */
 static char	compute_char(t_calc *info, char *s1, char *s2, char c)
 {
-	if (info->len_1 >= 0)
-		c += s1[info->len_1];
-	if (info->len_2 >= 0)
-		c += s2[info->len_2];
-	if (info->len_1 >= 0 && info->len_2 >= 0)
+	if (info->len1 >= 0)
+		c += s1[info->len1];
+	if (info->len2 >= 0)
+		c += s2[info->len2];
+	if (info->len1 >= 0 && info->len2 >= 0)
 		c -= 48;
-	info->len_1--;
-	info->len_2--;
+	info->len1--;
+	info->len2--;
 	return (c);
 }
 
 /*
 *	Adds 2 variable lenght que (vlq) -arrays together.
 *	48 = 11000	57 = 111001
-* 		if ((info->len_1 >= 0 && info->len_2 >= 0
-*				&& ((s1[info->len_1] + s2[info->len_2] + res[i] - 48) > 57))
-*			|| (info->len_1 >= 0 && s1[info->len_1] + res[i] > 57)
-*			|| (info->len_2 >= 0 && s2[info->len_2] + res[i] > 57))
+* 		if ((info->len1 >= 0 && info->len2 >= 0
+*				&& ((s1[info->len1] + s2[info->len2] + res[i] - 48) > 57))
+*			|| (info->len1 >= 0 && s1[info->len1] + res[i] > 57)
+*			|| (info->len2 >= 0 && s2[info->len2] + res[i] > 57))
 *		-1 >= 0 && 0 >= 0 && (s1[-1] + s2[0] + res[21845] - 48) > 57
 *			-1 >= 0 && s1[-1] + res[21845] > 57
 */
@@ -51,10 +51,10 @@ static char	*do_sum(t_calc *info, char *s1, char *s2)
 	while (i > 0)
 	{
 		hold = 0;
-		if ((info->len_1 >= 0 && info->len_2 >= 0 && ((s1[info->len_1]
-						+ s2[info->len_2] + res[i] - 48) > 57))
-			|| (info->len_1 >= 0 && s1[info->len_1] + res[i] > 57)
-			|| (info->len_2 >= 0 && s2[info->len_2] + res[i] > 57))
+		if ((info->len1 >= 0 && info->len2 >= 0 && ((s1[info->len1]
+						+ s2[info->len2] + res[i] - 48) > 57))
+			|| (info->len1 >= 0 && s1[info->len1] + res[i] > 57)
+			|| (info->len2 >= 0 && s2[info->len2] + res[i] > 57))
 		{
 			res[i] -= 10;
 			hold = 1;
@@ -100,8 +100,8 @@ char	*vlq_sum(char *s1, char *s2)
 	if (!info)
 		return (NULL);
 	vlq_calculate_info(info, s1, s2);
-	info->len_1 -= 1;
-	info->len_2 -= 1;
+	info->len1 -= 1;
+	info->len2 -= 1;
 	temp = do_sum(info, s1, s2);
 	result = trim_zero(temp);
 	if (!temp || !result)
