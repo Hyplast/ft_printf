@@ -88,18 +88,29 @@ int a10 = 1;
 int a11 = 1;
 int a12 = 1;
 
+
 printf("\n");
-printf("size of float = %d\n", sizeof(fo));
+printf("size of char =          %d\n", sizeof(char));
+printf("size of unsigned char = %d\n", sizeof(unsigned char));
 printf("\n");
-printf("size of double = %d\n", sizeof(ddi));
+printf("size of short int =     %d\n", sizeof(short int));
 printf("\n");
-printf("size of long double = %d\n", sizeof(li));
+printf("size of int =           %d\n", sizeof(int));
+printf("size of float =         %d\n", sizeof(fo));
 printf("\n");
-printf("size of int = %d\n", sizeof(int));
-printf("\n");
-printf("size of long int = %d\n", sizeof(long int));
-printf("\n");
+printf("size of sizze_t =       %d\n", sizeof(size_t));
+printf("size of double =        %d\n", sizeof(ddi));
+printf("size of long int =      %d\n", sizeof(long int));
 printf("size of long long int = %d\n", sizeof(long long int));
+printf("size of char* =         %d\n", sizeof(system));
+printf("\n");
+printf("size of long double =   %d\n", sizeof(li));
+printf("\n");
+
+printf("\n");
+
+printf("\n");
+
 printf("\n");
 // char  **test_str;
 // //                       111111111110000000000000000000000000000000000000000000000000000
@@ -121,6 +132,147 @@ printf("\n");
 // printf("\n");
 // printf("\n");
 printf("\n");
+
+
+
+printf("NOT WORKING -214");
+printf("\n");
+o =    printf("%-8.5o", 0);
+printf("\n");
+i = ft_printf("%-8.5o", 0);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+
+printf("NOT WORKING -213");
+printf("\n");
+o =    printf("%-8.5X", 0);
+printf("\n");
+i = ft_printf("%-8.5X", 0);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+
+
+printf("NOT WORKING -212");
+printf("\n");
+o =    printf("%-8.5x", 0);
+printf("\n");
+i = ft_printf("%-8.5x", 0);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+printf("NOT WORKING -211");
+printf("\n");
+o =    printf("%-8.5u", 0);
+printf("\n");
+i = ft_printf("%-8.5u", 0);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+printf("NOT WORKING -210");
+printf("\n");
+o =    printf("%08.5u", 0);
+printf("\n");
+i = ft_printf("%08.5u", 0);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+
+printf("NOT WORKING -209");
+printf("\n");
+o =    printf("%-5c");
+printf("\n");
+i = ft_printf("%-5c");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+
+
+printf("NOT WORKING -208");
+printf("\n");
+o =    printf("%03u", 0);
+printf("\n");
+i = ft_printf("%03u", 0);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+printf("NOT WORKING -207");
+printf("\n");
+o =    printf("%.3u", 0);
+printf("\n");
+i = ft_printf("%.3u", 0);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+printf("NOT WORKING -207 - b");
+printf("\n");
+o =    printf("%.3o", 0);
+printf("\n");
+i = ft_printf("%.3o", 0);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+printf("NOT WORKING -207 - c");
+printf("\n");
+o =    printf("%.3x", 0);
+printf("\n");
+i = ft_printf("%.3x", 0);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+printf("NOT WORKING -207 - d");
+printf("\n");
+o =    printf("%.3X", 0);
+printf("\n");
+i = ft_printf("%.3X", 0);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+
+printf("NOT WORKING -206");
+printf("\n");
+o =    printf("%-3u", 0);
+printf("\n");
+i = ft_printf("%-3u", 0);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+
+
+printf("NOT WORKING -205");
+printf("\n");
+o =    printf("%3u", 0);
+printf("\n");
+i = ft_printf("%3u", 0);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
 
 
 
