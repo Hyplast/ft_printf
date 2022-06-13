@@ -32,40 +32,35 @@ int	print_char(t_flags *flag_s, char c, int chars_printed)
 int	print_s(t_flags *flag_s, char *s, int chars_printed)
 {
 	char		*temp;
+	char		*hold;
 
-	if (s == NULL && flag_s->len == 0)
-		return (print_before(flag_s, chars_printed, "(null)", 's'));
-	else if (s == NULL)
-		return (0);
-	if (flag_s->prec < (int)ft_strlen(s) && flag_s->prec != -1)
+	if (s == NULL)
+		hold = ft_strdup("(null)");
+	else
+		hold = ft_strdup(s);
+	if (flag_s->prec < (int)ft_strlen(hold) && flag_s->prec != -1)
 	{
-		temp = ft_strsub(s, 0, (flag_s->prec));
+		temp = ft_strsub(hold, 0, (flag_s->prec));
 		chars_printed += print_before(flag_s, chars_printed, temp, 's');
 		ft_strdel(&temp);
 	}
 	else
-		chars_printed += print_before(flag_s, chars_printed, s, 's');
+		chars_printed += print_before(flag_s, chars_printed, hold, 's');
+	ft_strdel(&hold);
 	return (chars_printed);
 }
 
 int	print_p(t_flags *flag_s, va_list ap, int chars_printed)
 {
 	char	*s;
-	char	*temp;
 	void	*ptr;
 
 	ptr = (void *) va_arg(ap, void *);
-	if (ptr == 0 && flag_s->prec != -1)
-		return (print_before(flag_s, chars_printed, "0x", 'p'));
-	if (ptr == 0 && flag_s->prec == -1)
-		return (print_before(flag_s, chars_printed, "0x0", 'p'));
+	if (ptr == 0 && flag_s->prec == 0)
+		return (print_before(flag_s, chars_printed, "", 'p'));
 	if (ptr == 0)
-		return (print_before(flag_s, chars_printed, "0x0", 'p'));
+		return (print_before(flag_s, chars_printed, "0", 'p'));
 	s = ft_basetoa((long unsigned int)ptr, 16, ' ');
-	temp = ft_strjoin("0x", s);
-	ft_strdel(&s);
-	s = ft_strdup(temp);
-	ft_strdel(&temp);
 	chars_printed = print_before(flag_s, chars_printed, s, 'p');
 	ft_strdel(&s);
 	return (chars_printed);

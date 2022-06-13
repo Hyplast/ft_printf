@@ -52,7 +52,7 @@ int	print_sharp_w_spaces(t_flags *flag, int c_p, char *s, char c)
 	c_p += 1;
 	if (c != 'o')
 		c_p += 1;
-	c_p += ft_putcx(' ', flag->width - c_p);
+	c_p += ft_putcx(' ', flag->width - ft_strlen(s) - c_p);
 	print_section(flag, c_p, s, c);
 	if (c != 'o')
 		c_p += ft_putcx('0', flag->prec - ft_strlen(s));
