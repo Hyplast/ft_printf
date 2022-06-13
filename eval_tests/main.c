@@ -135,6 +135,18 @@ printf("\n");
 
 
 
+
+printf("NOT WORKING -215");
+printf("\n");
+o =    printf("@moulitest: %.o %.0o", 0, 0);
+printf("\n");
+i = ft_printf("@moulitest: %.o %.0o", 0, 0);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+
 printf("NOT WORKING -214");
 printf("\n");
 o =    printf("%-8.5o", 0);

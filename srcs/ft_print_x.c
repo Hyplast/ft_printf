@@ -39,7 +39,7 @@ int	print_u(t_flags *flag_s, va_list ap, int chars_printed)
 	{
 		if (flag_s->width != 0)
 			return (print_before(flag_s, chars_printed, "", 'u'));
-		else if (u == 0 && flag_s->prec != 0)
+		else if (flag_s->prec != 0 || flag_s->len != 0)
 			return (chars_printed += print_before(flag_s,
 					chars_printed, "", 'u'));
 		return (chars_printed += print_c('0'));
@@ -63,7 +63,7 @@ int	print_o(t_flags *flag_s, va_list ap, int chars_printed)
 	{
 		if (flag_s->width != 0)
 			return (print_before(flag_s, chars_printed, "", 'o'));
-		else if (o == 0 && flag_s->prec != 0)
+		else if (flag_s->prec != 0 || flag_s->len != 0)
 			return (chars_printed += print_before(flag_s,
 					chars_printed, "", 'o'));
 		return (chars_printed += print_c('0'));
