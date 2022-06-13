@@ -18,6 +18,8 @@ int	print_char(t_flags *flag_s, char c, int chars_printed)
 
 	if (c == '\0' && flag_s->len == 0)
 		return (print_c('\0'));
+	if (c == '\0' && flag_s->len == 1 && flag_s->sharp == 1)
+		return (print_c('\0'));
 	temp = ft_strnew(1);
 	temp[0] = c;
 	if (c == '\0')
@@ -53,10 +55,12 @@ int	print_p(t_flags *flag_s, va_list ap, int chars_printed)
 	void	*ptr;
 
 	ptr = (void *) va_arg(ap, void *);
-	if (ptr == 0 && flag_s->prec == 0)
+	if (ptr == 0 && flag_s->prec != -1)
 		return (print_before(flag_s, chars_printed, "0x", 'p'));
+	if (ptr == 0 && flag_s->prec == -1)
+		return (print_before(flag_s, chars_printed, "0x0", 'p'));
 	if (ptr == 0)
-		return (print_before(flag_s, chars_printed, "0x", 'p'));
+		return (print_before(flag_s, chars_printed, "0x0", 'p'));
 	s = ft_basetoa((long unsigned int)ptr, 16, ' ');
 	temp = ft_strjoin("0x", s);
 	ft_strdel(&s);

@@ -47,11 +47,13 @@ int	print_str_w_flags(t_flags *flag, int c_p, char *s)
 
 int	print_p_w_flags(t_flags *flag, int c_p, char *s)
 {
+	c_p += ft_strlen(s);
+	if (flag->minus == 0)
+		c_p = with_non_minus(flag, c_p);
 	ft_putnchar(s, ft_strlen(s));
 	if (flag->width > flag->prec)
 		c_p += ft_putcx('0', flag->width - c_p);
 	else
-		c_p += ft_putcx('0', flag->prec - c_p);
-	c_p += ft_strlen(s);
+		c_p += ft_putcx('0', flag->prec - c_p + ft_strlen(s));
 	return (c_p);
 }

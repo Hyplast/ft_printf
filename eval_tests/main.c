@@ -124,6 +124,106 @@ printf("\n");
 
 
 
+printf("\n");
+printf("NOT WORKING -140");
+printf("\n");
+o =    printf("{%#.5x}", 1);
+printf("\n");
+i = ft_printf("{%#.5x}", 1);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+printf("\n");
+printf("NOT WORKING -139");
+printf("\n");
+o =    printf("%9.2p", 1234);
+printf("\n");
+i = ft_printf("%9.2p", 1234);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+printf("NOT WORKING -138");
+printf("\n");
+o =    printf("%#c", 0);
+printf("\n");
+i = ft_printf("%#c", 0);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+printf("\n");
+printf("NOT WORKING -137");
+printf("\n");
+o =    printf("{%5p}", 0);
+printf("\n");
+i = ft_printf("{%5p}", 0);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+printf("\n");
+printf("NOT WORKING -136");
+printf("\n");
+o =    printf("%p", 0);
+printf("\n");
+i = ft_printf("%p", 0);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+
+
+
+
+printf("NOT WORKING -103");
+printf("\n");
+o =    printf("%#.3o", 1);
+printf("\n");
+i = ft_printf("%#.3o", 1);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+printf("NOT WORKING -102");
+printf("\n");
+o =    printf("%.p", 0);
+printf("\n");
+i = ft_printf("%.p", 0);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+printf("NOT WORKING -102-b");
+printf("\n");
+o =    printf("%.5p", 0);
+printf("\n");
+i = ft_printf("%.5p", 0);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+printf("NOT WORKING -102-c");
+printf("\n");
+o =    printf("%#.2p", 0);
+printf("\n");
+i = ft_printf("%#.2p", 0);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+
+
   printf("\n");
   ft_printf("Out of bounds \n");
 //   o =    printf("with %s as as a flag and int as variadic input\n", 456);
@@ -152,7 +252,7 @@ printf("\n");
 
 
 
-printf("\n");
+	printf("\n");
 
  printf("\n");
   ft_printf("Test 18.x)1 L \n");
@@ -410,6 +510,10 @@ i = ft_printf("%014.22f", -1.7976931348623159e+308);
 printf("\n");
 printf("Mine lenght %i, system length %i\n", i, o);
 printf("\n");
+
+
+
+
 
 // printf("\n");
 // printf("\n");
