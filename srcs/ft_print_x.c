@@ -12,6 +12,23 @@
 
 #include "ft_printf.h"
 
+int	print_percentage(t_flags *flag_s, char *s, int chars_printed)
+{
+	char		*temp;
+
+	if (flag_s->prec == -1 || flag_s->prec == 0)
+		flag_s->prec = 1;
+	if (flag_s->prec < (int)ft_strlen(s) && flag_s->prec != -1)
+	{
+		temp = ft_strsub(s, 0, (flag_s->prec));
+		chars_printed += print_before(flag_s, chars_printed, temp, '%');
+		ft_strdel(&temp);
+	}
+	else
+		chars_printed += print_before(flag_s, chars_printed, s, '%');
+	return (chars_printed);
+}
+
 int	print_u(t_flags *flag_s, va_list ap, int chars_printed)
 {
 	char			*s;
@@ -81,7 +98,8 @@ int	print_big_x(t_flags *flag_s, va_list ap, int chars_printed)
 
 	j = 0;
 	x = unsigned_conv(flag_s, ap);
-	if (x == 0 && flag_s->prec != 0 && flag_s->len == 0)
+	if ((x == 0 && flag_s->prec != 0 && flag_s->len == 0)
+		|| (x == 0 && flag_s->sharp == 1 && flag_s->len == 1))
 		return (chars_printed += print_c('0'));
 	else if (x == 0 && flag_s->prec == 0 && flag_s->sharp == 1)
 		return (chars_printed);

@@ -38,10 +38,6 @@ static int	print_before_plus(t_flags *flag, int c_p, char *s, char c)
 {
 	if (flag->sharp == 1 && flag->zero == 1)
 		c_p = is_sharp(c_p, c);
-	if (flag->sharp == 1 && flag->zero == 0)
-		c_p += 1;
-	if (flag->sharp == 1 && flag->zero == 0)
-		c_p += 1;
 	else if (flag->zero == 0 && c != ' ')
 		c_p += ft_putcx(' ', flag->width
 				- (int)ft_strlen(s) - flag->plus - c_p);
@@ -111,7 +107,10 @@ int	print_before(t_flags *flag, int c_p, char *s, char c)
 		return (print_int(flag, c_p, s, c));
 	if (c == 's')
 		return (print_str_w_flags(flag, c_p, s));
-	if (flag->space == 1 && s[0] != '-' && flag->plus == 0 && c != 'c')
+	if (c == 'p')
+		return (print_p_w_flags(flag, c_p, s));
+	if (flag->space == 1 && s[0] != '-' && flag->plus == 0 && c != 'c'
+		&& c != '%')
 		c_p += print_c(' ');
 	if (flag->zero == 1 || (flag->sharp == 1))
 		return (print_before_0(flag, c_p, s, c));

@@ -18,6 +18,8 @@ char	*ft_litoa(long c)
 	size_t		digits;
 	long long	value;
 
+	if ((long unsigned int)c == 0x8000000000000000)
+		return (ft_strdup("-9223372036854775808"));
 	value = c;
 	digits = count_ldigits(value);
 	s = ft_strnew(digits);

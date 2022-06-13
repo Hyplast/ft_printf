@@ -17,11 +17,11 @@
 # include <stdint.h>
 # include "libft.h"
 
-# define VALID_FORMAT "bcdfiopsuxX"
+# define VALID_SPECIFIERS "bcdfiopsuxX"
 # define VALID_FLAGS "+- 0#"
 # define VALID_WIDTH "0123456789"
-# define VALID_PREC "0123456789"
-# define VALID_SPECI "llLhh"
+# define VALID_PRECISION "0123456789"
+# define VALID_LENGTH "llLhh"
 
 typedef struct s_flags
 {
@@ -125,5 +125,7 @@ void			ft_add_zeros(char **str, int zeros);
 int				match_function(t_flags *flags, va_list ap, int c,
 					int printed_c);
 int				read_flags(char *flags, va_list ap);
+int				print_p_w_flags(t_flags *flag, int c_p, char *s);
+int				print_percentage(t_flags *flag_s, char *s, int chars_printed);
 
 #endif

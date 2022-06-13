@@ -13,6 +13,7 @@
 #include "libft.h"
 #include "ft_printf.h"
 #include <stdio.h>
+#include "limits.h"
 
 //  IEEE 754 Double Precision Floating Point Visualization
 // https://bartaz.github.io/ieee754-visualization/
@@ -67,6 +68,9 @@ int	main()
 	int i=0,o=0;
 	long double lo = 1249328409.34897329487;
 	long double li = 1249328409.34897329487;
+	double ddo = 1249328409.34897329487;
+	double ddi = 1249328409.34897329487;	
+	float	fo = 1249328409.34897329487;
 // 					 1249328409.3489732742309570312500
 	my = "hello";
 	system = "hello";
@@ -84,6 +88,19 @@ int a10 = 1;
 int a11 = 1;
 int a12 = 1;
 
+printf("\n");
+printf("size of float = %d\n", sizeof(fo));
+printf("\n");
+printf("size of double = %d\n", sizeof(ddi));
+printf("\n");
+printf("size of long double = %d\n", sizeof(li));
+printf("\n");
+printf("size of int = %d\n", sizeof(int));
+printf("\n");
+printf("size of long int = %d\n", sizeof(long int));
+printf("\n");
+printf("size of long long int = %d\n", sizeof(long long int));
+printf("\n");
 // char  **test_str;
 // //                       111111111110000000000000000000000000000000000000000000000000000
 // unsigned long hexa1 = B(0111111111110000000000000000000000000000000000000000000000000000);
@@ -105,8 +122,266 @@ int a12 = 1;
 // printf("\n");
 printf("\n");
 
+
+
+  printf("\n");
+  ft_printf("Out of bounds \n");
+//   o =    printf("with %s as as a flag and int as variadic input\n", 456);
+//   i = ft_printf("with %s as as a flag and int as variadic input\n", 456);
+  printf(" my length %i. system lenght %i\n\n", i, o);
+
+
+ printf("\n");
+  o =    printf("   printf printing float 3.1416 with . = %.13f\n", 443.14168);
+  i = ft_printf("ft_printf printing float 3.1416 with . = %.13f\n", 443.14168);
+
+  printf("\n");
+  o =    printf("   printf printing float 3.1416 with . = %.13Lf\n", (long double)443.14168);
+  i = ft_printf("ft_printf printing float 3.1416 with . = %.13Lf\n", (long double)443.14168);
+
+ 
+
+
+
+
+  printf("\n");
+  ft_printf("Test 18.x2)1 L \n");
+  o = printf("   printf printing float 1249328409.34897329487 with .22Lf = %.22Lf\n", lo);
+  i = ft_printf("ft_printf printing float 1249328409.34897329487 with .22Lf = %.22Lf\n", li);
+  printf(" my length %i. system lenght %i\n\n", i, o);
+
+
+
 printf("\n");
 
+ printf("\n");
+  ft_printf("Test 18.x)1 L \n");
+  o = printf("   printf printing float 3.1416 with .222f = %.222f\n", 3.1416);
+  i = ft_printf("ft_printf printing float 3.1416 with .222f = %.222f\n", 3.1416);
+  printf(" my length %i. system lenght %i\n\n", i, o);
+
+  printf("\n");
+  ft_printf("Test 18.x2)1 L \n");
+  o = printf("   printf printing float 1249328409.34897329487 with .22Lf = %.22Lf\n", lo);
+  i = ft_printf("ft_printf printing float 1249328409.34897329487 with .22Lf = %.22Lf\n", li);
+  printf(" my length %i. system lenght %i\n\n", i, o);
+
+  printf("\n");
+  ft_printf("Test 18.x3)1 L \n");
+  o =    printf("   printf printing float 1249328409.34897329487 with .222Lf = %.222Lf\n", lo);
+  i = ft_printf("ft_printf printing float 1249328409.34897329487 with .222Lf = %.222Lf\n", li);
+  printf(" my length %i. system lenght %i\n\n", i, o);
+
+  printf("\n");
+//   i = ft_printf("ft_printf printing float 3.1416 with . = %.13Lf\n", 443.14168);
+//   o = printf("   printf printing float 3.1416 with . = %.13Lf\n", 443.14168);
+
+  li = 3.1416;
+  lo = 3.1416;
+  ft_printf("Test 18.x4)1 L \n");
+  o = printf("   printf printing float 3.1416 with .153 = %.153Lf\n", lo);
+  i = ft_printf("ft_printf printing float 3.1416 with .153 = %.153Lf\n", li);
+  printf(" my length %i. system lenght %i\n\n", i, o);
+
+  ft_printf("Test 18.x5)2 L \n");
+  o =    printf("   printf printing float 3.1416 with .112 = %.112f\n", lo);
+  i = ft_printf("ft_printf printing float 3.1416 with .112 = %.112f\n", li);
+  printf(" my length %i. system lenght %i\n\n", i, o);
+
+
+
+  
+
+
+printf("NOT WORKING -66");
+printf("\n");
+o =    printf("->%-+012.%i<- , ->%-+012.d%<-", 999);
+printf("\n");
+i = ft_printf("->%-+012.%i<- , ->%-+012.d%<-", 999);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+
+
+
+printf("\n");
+printf("\n");
+
+
+printf("NOT WORKING -108");
+printf("\n");
+o =    printf("%% are %s", "test", "is");
+printf("\n");
+i = ft_printf("%% are %s", "test", "is");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+
+printf("NOT WORKING -107");
+printf("\n");
+o =    printf("%.0%");
+printf("\n");
+i = ft_printf("%.0%");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+printf("NOT WORKING -107-b");
+printf("\n");
+o =    printf("%.3%");
+printf("\n");
+i = ft_printf("%.3%");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+printf("NOT WORKING -106");
+printf("\n");
+o =    printf("%%");
+printf("\n");
+i = ft_printf("%%");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+printf("NOT WORKING -106-b");
+printf("\n");
+o =    printf("%d", 424242424242424242);
+printf("\n");
+i = ft_printf("%d", 424242424242424242);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+
+
+printf("NOT WORKING -105");
+printf("\n");
+o =    printf("%5%");
+printf("\n");
+i = ft_printf("%5%");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+printf("NOT WORKING -104");
+printf("\n");
+o =    printf("%-5%");
+printf("\n");
+i = ft_printf("%-5%");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+printf("NOT WORKING -103");
+printf("\n");
+o =    printf("%#.3o", 1);
+printf("\n");
+i = ft_printf("%#.3o", 1);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+printf("NOT WORKING -102");
+printf("\n");
+o =    printf("%.p", 0);
+printf("\n");
+i = ft_printf("%.p", 0);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+printf("NOT WORKING -102-b");
+printf("\n");
+o =    printf("%.5p", 0);
+printf("\n");
+i = ft_printf("%.5p", 0);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+printf("NOT WORKING -102-c");
+printf("\n");
+o =    printf("%#.2p", 0);
+printf("\n");
+i = ft_printf("%#.2p", 0);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+printf("NOT WORKING -101");
+printf("\n");
+o =    printf("%#X", 0);
+printf("\n");
+i = ft_printf("%#X", 0);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+printf("NOT WORKING -101-b");
+printf("\n");
+o =    printf("%#f", 0);
+printf("\n");
+i = ft_printf("%#f", 0);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+printf("NOT WORKING -101-b");
+printf("\n");
+o =    printf("%f", 1,1e297);
+printf("\n");
+i = ft_printf("%f", 1,1e297);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+
+printf("NOT WORKING -100");
+printf("\n");
+o =    printf("%ld", LONG_MIN);
+printf("\n");
+i = ft_printf("%ld", LONG_MIN);
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+
+// [FAIL] test_ld_long_min -> printf("%ld", LONG_MIN)
+// test_hex_uppercase_zero -> printf("%#X", 0)
+// // FAIL] pNullPointer_3Precision -> printf("%.5p", 0)
+// [FAIL] octal_precision_and_flagSharp -> printf("%#.3o", 1)
+
+
+//  [FAIL] wildcard_for_min_width_positive -> printf("%*d", 5, 42)
+// FAIL] wildcard_for_min_width_positive -> printf("%*.*d", 0, 3, 0)
+// [FAIL] digit_wildcard_and_min_width_value3 -> printf("{%*3d}", 5, 0)
+
+// # 0007 
+//   ft_printf("%5%");
+//   1. (    1) -->%<--
+//   2. (    5) -->    %<--
+
+// # 0008 
+//   ft_printf("%-5%");
+//   1. (    1) -->%<--
+//   2. (    5) -->%    <--
+
+// # 0108 (int)
+//   ft_printf("%+d", 4242424242424242424242);
+//   1. (    3) -->-1<--
+//   2. (    2) -->-1<--
+
+
+  
 printf("NOT WORKING -67");
 printf("\n");
 o =    printf("%.0%");
@@ -347,18 +622,18 @@ printf("\n");
 
 // -Infinity FFF00000FFFFFFFF
 
-printf("\n");
-printf("\n");
-printf("\n");
-printf("\n");
-printf("NOT WORKING -70");
-printf("\n");
-o =   printf("%+d", 4242424242424242424242);
-printf("\n");
-i = ft_printf("%+d", 4242424242424242424242);
-printf("\n");
-printf("Mine lenght %i, system length %i\n", i, o);
-printf("\n");
+// printf("\n");
+// printf("\n");
+// printf("\n");
+// printf("\n");
+// printf("NOT WORKING -70");
+// printf("\n");
+// o =   printf("%+d", 4242424242424242424242);
+// printf("\n");
+// i = ft_printf("%+d", 4242424242424242424242);
+// printf("\n");
+// printf("Mine lenght %i, system length %i\n", i, o);
+// printf("\n");
 // # 0108 (int)
 //   ft_printf("%+d", 4242424242424242424242);
 //   1. (    3) -->-1<--
@@ -464,6 +739,7 @@ printf("\n");
 i = ft_printf("->%-+012.%i<- , ->%-+012.d%<-", 999);
 printf("\n");
 printf("Mine lenght %i, system length %i\n", i, o);
+
 
 
 printf("\n");
@@ -638,6 +914,8 @@ printf("Mine lenght %i, system length %i\n", i, o);
 // 2. (    1) -->0<--
 
 
+
+
 printf("NOT WORKING -51");
 printf("\n");
 o =    printf("%   %", "test");
@@ -663,6 +941,9 @@ printf("Mine lenght %i, system length %i\n", i, o);
 // %   %
 // Mine lenght 5, system length 1
 
+
+
+
 printf("NOT WORKING -51.b");
 printf("\n");
 o =    printf("%123%");
@@ -671,6 +952,18 @@ i = ft_printf("%123%");
 printf("\n");
 printf("Mine lenght %i, system length %i\n", i, o);
 
+
+
+printf("\n");
+printf("NOT WORKING -51.b-1");
+printf("\n");
+o =    printf("%-+012.%");
+printf("\n");
+i = ft_printf("%-+012.%");
+printf("\n");
+printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+printf("\n");
 printf("NOT WORKING -51.b-2");
 printf("\n");
 o =    printf("%-+012.");
@@ -678,7 +971,12 @@ printf("\n");
 i = ft_printf("%-+012.");
 printf("\n");
 printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+printf("\n");
 
+
+
+printf("\n");
 printf("NOT WORKING -51.b-3");
 printf("\n");
 o =    printf("%012.24ll%");
@@ -686,6 +984,8 @@ printf("\n");
 i = ft_printf("%012.24ll%");
 printf("\n");
 printf("Mine lenght %i, system length %i\n", i, o);
+printf("\n");
+printf("\n");
 
 
 printf("NOT WORKING -51.b-4");
@@ -1868,9 +2168,9 @@ printf("LINE 164");
   i = ft_printf("ft_printf printing float 1249328409.34897329487 with .222Lf = %.222Lf\n", li);
   printf(" my length %i. system lenght %i\n\n", i, o);
 
-  printf("\n");
-  i = ft_printf("ft_printf printing float 3.1416 with . = %.13Lf\n", 443.14168);
-  o = printf("   printf printing float 3.1416 with . = %.13Lf\n", 443.14168);
+//   printf("\n");
+//   i = ft_printf("ft_printf printing float 3.1416 with . = %.13Lf\n", 443.14168);
+//   o = printf("   printf printing float 3.1416 with . = %.13Lf\n", 443.14168);
 
   li = 3.1416;
   lo = 3.1416;
@@ -1898,6 +2198,8 @@ printf("sy length = %i", o);
   printf("\n");
 printf("\n");
 printf("\n");
+
+
 
 
 printf("# 0146 (long long)");
@@ -2745,19 +3047,19 @@ printf(" my length %i. system lenght %i\n", i,o);
 //   1. (   12) -->@moulitest: <--
 //   2. (   13) -->@moulitest: ^@<--
 
-printf("\n");
-printf("\n");
- i =  ft_printf("%+d", 111114242424242424242424242);
+// printf("\n");
+// printf("\n");
+//  i =  ft_printf("%+d", 111114242424242424242424242);
+
+// // printf("\n");
+// //   1. (    3) -->-1<--
+// //   2. (    2) -->-1<--
 
 // printf("\n");
-//   1. (    3) -->-1<--
-//   2. (    2) -->-1<--
-
-printf("\n");
-o =  printf("%+d", 111114242424242424242424242);
-printf("\n");
-printf(" my length %i. system lenght %i\n", i,o);
-  printf("\n");
+// o =  printf("%+d", 111114242424242424242424242);
+// printf("\n");
+// printf(" my length %i. system lenght %i\n", i,o);
+//   printf("\n");
 
 
   
@@ -2799,30 +3101,30 @@ printf("\n");
 
 
 
-printf("# 0108 (int)");
-printf("\n");
-  i =   ft_printf("%+d", 4242424242424242424242);
-  printf("\n");
-o = printf("%+d", 4242424242424242424242);
-printf("\n");
-printf(" my length %i. system lenght %i\n", i,o);
-  printf("\n");
-  printf("\n");
-//   1. (    3) -->-1<--
-//   2. (    2) -->-1<--
+// printf("# 0108 (int)");
+// printf("\n");
+//   i =   ft_printf("%+d", 4242424242424242424242);
+//   printf("\n");
+// o = printf("%+d", 4242424242424242424242);
+// printf("\n");
+// printf(" my length %i. system lenght %i\n", i,o);
+//   printf("\n");
+//   printf("\n");
+// //   1. (    3) -->-1<--
+// //   2. (    2) -->-1<--
 
 
-printf("# 0108 (int)");
-printf("\n");
-  i =   ft_printf("->%+d<-", 4242424242424242424242);
-  printf("\n");
-o = printf("->%+d<-", 4242424242424242424242);
-printf("\n");
-printf(" my length %i. system lenght %i\n", i,o);
-  printf("\n");
-  printf("\n");
-//   1. (    3) -->-1<--
-//   2. (    2) -->-1<--
+// printf("# 0108 (int)");
+// printf("\n");
+//   i =   ft_printf("->%+d<-", 4242424242424242424242);
+//   printf("\n");
+// o = printf("->%+d<-", 4242424242424242424242);
+// printf("\n");
+// printf(" my length %i. system lenght %i\n", i,o);
+//   printf("\n");
+//   printf("\n");
+// //   1. (    3) -->-1<--
+// //   2. (    2) -->-1<--
 
 
 
@@ -2940,13 +3242,13 @@ printf("\n");
 //   1. (    3) -->42<--
 //   2. (    3) -->-42<--
 
-printf("# 0108 (int)");
-printf("\n");
-  ft_printf("%+d", 4242424242424242424242);
-printf("\n");
-printf("%+d", 4242424242424242424242);
-printf("\n");
-printf("\n");
+// printf("# 0108 (int)");
+// printf("\n");
+//   ft_printf("%+d", 4242424242424242424242);
+// printf("\n");
+// printf("%+d", 4242424242424242424242);
+// printf("\n");
+// printf("\n");
 
 //   1. (    2) -->1<--
 //   2. (    2) -->-1<--

@@ -43,11 +43,11 @@ static int	valid_order(const char *flags, int len)
 	i += check_modifiers(flags, VALID_FLAGS, len);
 	i += check_modifiers(flags + i, VALID_WIDTH, len);
 	i += check_modifiers(flags + i, ".", len);
-	i += check_modifiers(flags + i, VALID_PREC, len);
-	i += check_modifiers(flags + i, VALID_SPECI, len);
+	i += check_modifiers(flags + i, VALID_PRECISION, len);
+	i += check_modifiers(flags + i, VALID_LENGTH, len);
 	if (i == len)
 		return (2);
-	i += check_modifiers(flags + i, VALID_FORMAT, len);
+	i += check_modifiers(flags + i, VALID_SPECIFIERS, len);
 	if (i == len)
 		return (1);
 	return (0);
@@ -61,24 +61,24 @@ static	char	*parse_specifier(const char *flags)
 	char	*temp;
 
 	i = 0;
-	elem = ft_strlen(VALID_FORMAT);
+	elem = ft_strlen(VALID_SPECIFIERS);
 	len = 0;
 	if (*flags == '%')
 		return (ft_strdup("%"));
 	while (flags[len] != '\0' && flags[len] != '%')
 	{
-		while (flags[len] != VALID_FORMAT[i] && i < elem)
+		while (flags[len] != VALID_SPECIFIERS[i] && i < elem)
 			i++;
-		if (flags[len] == VALID_FORMAT[i])
+		if (flags[len] == VALID_SPECIFIERS[i])
 			return (ft_strsub(flags, 0, len + 1));
 		i = 0;
 		len++;
 	}
-	temp = ft_strnew(len + 1);
-	while (i < (int)len + 1)
-		temp[i++] = '\1';
 	if (valid_order(flags, len) == 2 && flags[len] == '%')
-		temp[0] = '%';
+		return (ft_strsub(flags, 0, len + 1));
+	temp = ft_strnew(len);
+	while (i < (int)len)
+		temp[i++] = '\1';
 	return (temp);
 }
 
@@ -93,13 +93,12 @@ static int	read_while(const char *format, va_list ap, int i, int chars_printed)
 		if (ft_strcmp(format, "") == 0 && chars_printed == 0)
 			return (0);
 		flags = parse_specifier(format);
-		if (flags[0] != '%' && flags[0] != '\1')
+		if (flags[0] != '%' && flags[0] != '\1' && flags[0] != '\0')
 			chars_printed += read_flags(flags, ap);
 		else if (flags[0] == '%')
 			chars_printed += ft_putnchar("%", 1);
 		else
 		{
-			chars_printed += ft_putnchar("%", 1);
 			chars_printed += ft_putnchar(format, ft_strlen(flags));
 		}
 		format += ft_strlen(flags);

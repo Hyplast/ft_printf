@@ -56,7 +56,7 @@ int	print_p(t_flags *flag_s, va_list ap, int chars_printed)
 	if (ptr == 0 && flag_s->prec == 0)
 		return (print_before(flag_s, chars_printed, "0x", 'p'));
 	if (ptr == 0)
-		return (print_before(flag_s, chars_printed, "0x0", 'p'));
+		return (print_before(flag_s, chars_printed, "0x", 'p'));
 	s = ft_basetoa((long unsigned int)ptr, 16, ' ');
 	temp = ft_strjoin("0x", s);
 	ft_strdel(&s);

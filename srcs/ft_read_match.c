@@ -48,7 +48,10 @@ int	read_flags(char *flags, va_list ap)
 	flag_s = return_flags(flags);
 	len = ft_strlen(flags);
 	chars_printed = 0;
-	chars_printed = match_function(flag_s, ap, flags[len - 1], 0);
+	if (flags[len - 1] == '%')
+		chars_printed += print_percentage(flag_s, "%", chars_printed);
+	else
+		chars_printed = match_function(flag_s, ap, flags[len - 1], 0);
 	free_flags(flag_s);
 	return (chars_printed);
 }
